@@ -1,0 +1,22 @@
+*.mlx -crlf -diff -merge
+*.mat -crlf -diff -merge
+*.fig -crlf -diff -merge
+*.p -crlf -diff -merge
+*.slx -crlf -diff -merge
+*.mdl -crlf -diff -merge
+*.mdlp -crlf -diff -merge
+*.slxp -crlf -diff -merge
+*.sldd -crlf -diff -merge
+*.mexa64 -crlf -diff -merge
+*.mexw64 -crlf -diff -merge
+*.mexmaci64 -crlf -diff -merge
+*.xlsx -crlf -diff -merge
+*.docx -crlf -diff -merge
+*.pdf -crlf -diff -merge
+*.jpg -crlf -diff -merge
+*.png -crlf -diff -merge
+*_w filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -binary
+*.zip filter=lfs diff=lfs merge=lfs -binary
+*.lib filter=lfs diff=lfs merge=lfs -binary
+*.obj filter=lfs diff=lfs merge=lfs -binary
