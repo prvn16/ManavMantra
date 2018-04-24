@@ -1,0 +1,1060 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="rtwreport.css" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><script language="JavaScript" type="text/javascript" src="rtwshrink.js"></script><title>
+Static Code Metrics Report
+</title>
+
+</head>
+<body onload="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdCodeMetrics'); else local_onload();}} catch(err) {};">
+<h1>
+Static Code Metrics Report
+</h1>
+<div>
+<p>
+The static code metrics report provides statistics of the generated code. Metrics are estimated from static analysis of the generated code using the C data types specified in the 'Device details' section of the <b>Configuration Parameter > Hardware Implementation</b> pane: <b>char</b> 8, <b>short</b> 16, <b>int</b> 32, <b>long</b> 32, <b>float</b> 32, <b>double</b> 64, <b>pointer</b> 64 bits. If your model contains a Variant block, the Static Code Metrics Report does not contain data for the inactive variant. Actual object code metrics might differ due to target specific compiler and platform settings. Consult the <b>Code Generation Advisor</b><a name="MATLAB_link" style="text-decoration: none" href="matlab:helpview([docroot '/toolbox/ecoder/helptargets.map'], 'code_gen_advisor')">
+<img src="help.png" title="Open Code Generation Advisor help" style="border:none;cursor:pointer">
+
+</img>
+
+</a>
+ for options to improve code efficiency.
+</p>
+
+</div>
+<div>
+<h3>
+Table of Contents
+</h3>
+<ol>
+<li>
+<a href="#sec_File_Information" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwIdCodeMetrics_table_001_control'), 'rtwIdCodeMetrics_table_001')">
+File Information
+</a>
+
+</li>
+<li>
+<a href="#sec_Global_Variables" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwIdCodeMetrics_table_002_control'), 'rtwIdCodeMetrics_table_002')">
+Global Variables
+</a>
+
+</li>
+<li>
+<a href="#sec_Function_Information" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwIdCodeMetrics_table_006_control'), 'rtwIdCodeMetrics_table_006')">
+Function Information
+</a>
+
+</li>
+
+</ol>
+
+</div>
+<h3 name="sec_File_Information" id="sec_File_Information">
+1. File Information <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwIdCodeMetrics_table_001_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwIdCodeMetrics_table_001', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+</h3>
+<table width="100%" name="rtwIdCodeMetrics_table_001" id="rtwIdCodeMetrics_table_001" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" border="0">
+<tr>
+<td align="left" valign="top">
+<p>
+<span name="button_fileInfo_summary_table" id="button_fileInfo_summary_table" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'fileInfo_summary_table', true)"><span class="shrink-button">[-]</span></span> Summary (excludes ert_main.c)
+</p>
+<table width="50%" cellpadding="0" name="fileInfo_summary_table" id="fileInfo_summary_table" border="0">
+<tr>
+<td width="4%" align="left" valign="top">
+<span style="white-space:nowrap" title="Number of source files excluding ert_main.c.">Number of .c files</span>
+</td>
+<td width="4%" align="left" valign="top">
+:
+</td>
+<td width="4%" align="right" valign="top">
+1
+</td>
+<td width="86%" align="right" valign="top">
+&#160;
+</td>
+
+</tr>
+<tr>
+<td width="4%" align="left" valign="top">
+<span style="white-space:nowrap" title="Number of header files.">Number of .h files</span>
+</td>
+<td width="4%" align="left" valign="top">
+:
+</td>
+<td width="4%" align="right" valign="top">
+2
+</td>
+<td width="86%" align="right" valign="top">
+&#160;
+</td>
+
+</tr>
+<tr>
+<td width="4%" align="left" valign="top">
+<span title="Lines of code excluding comments and blank lines">Lines of code</span>
+</td>
+<td width="4%" align="left" valign="top">
+:
+</td>
+<td width="4%" align="right" valign="top">
+112
+</td>
+<td width="86%" align="right" valign="top">
+&#160;
+</td>
+
+</tr>
+<tr>
+<td width="4%" align="left" valign="top">
+<span style="white-space:nowrap" title="Lines including source code, comments, and blank lines.">Lines</span>
+</td>
+<td width="4%" align="left" valign="top">
+:
+</td>
+<td width="4%" align="right" valign="top">
+313
+</td>
+<td width="86%" align="right" valign="top">
+&#160;
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<p>
+<span name="button_fileInfo_detail_table" id="button_fileInfo_detail_table" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'fileInfo_detail_table', true)"><span class="shrink-button">[-]</span></span> File details
+</p>
+<table width="100%" cellpadding="2" name="fileInfo_detail_table" id="fileInfo_detail_table" border="1">
+<tr style="background-color: #eeeeff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Files sorted in descending order by number of lines of code.">File Name</span>
+</b>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Lines of code excluding comments and blank lines.">Lines of Code</span>
+</b>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Lines including source code, comments, and blank lines.">Lines</span>
+</b>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Timestamp of the file">Generated On</span>
+</b>
+
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<a href="../../slprj/ert/_sharedutils/html/rtwtypes_h.html" class="code2code">
+rtwtypes.h
+</a>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+44
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+100
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+04/18/2018 11:17 AM
+</td>
+
+</tr>
+<tr style="background-color: #eeeeff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<a href="rtwdemo_examplemain_h.html" class="code2code">
+rtwdemo_examplemain.h
+</a>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+42
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+116
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+04/18/2018 11:17 AM
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<a href="rtwdemo_examplemain_c.html" class="code2code">
+rtwdemo_examplemain.c
+</a>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+26
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+97
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+04/18/2018 11:17 AM
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+<h3 name="sec_Global_Variables" id="sec_Global_Variables">
+2. Global Variables <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwIdCodeMetrics_table_002_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwIdCodeMetrics_table_002', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+</h3>
+<table width="100%" name="rtwIdCodeMetrics_table_002" id="rtwIdCodeMetrics_table_002" border="0">
+<tr>
+<td align="left" valign="top">
+Global variables defined in the generated code.
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table" id="globalvarInfo_table" border="1">
+<tr style="background-color: #ffffff">
+<td width="100%" align="left" valign="top" style="border-style: none">
+<table class="treeTable" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<b>
+<span title="Global variables sorted by the maximum size in bytes.">Global Variable</span>
+</b>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Global variable size in bytes.">Size (bytes)</span>
+</b>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Total number of potential reads and writes for this global variable">Reads / Writes</span>
+</b>
+
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Maximum number of potential reads and writes in a function">Reads / Writes in a Function</span>
+</b>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #ffffff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap"><span name="button_globalvarInfo_table_sub3" id="button_globalvarInfo_table_sub3" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'globalvarInfo_table_sub3', true)"><span class="shrink-button">[+]</span></span> <a href="rtwdemo_examplemain_c.html#var_rtDWork" class="code2code">
+rtDWork
+</a>
+</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+24
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+8<span style="font-family:Courier">&#160;</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+4<span style="font-family:Courier">&#160;</span>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="display: none; border-style: none" width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table_sub3" id="globalvarInfo_table_sub3" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #eeeeff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; RateTransition</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">3<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">3<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #ffffff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; Integrator_DSTATE</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">3<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">3<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #eeeeff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; RateTransition_Buffer0</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">2<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">1<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #ffffff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap"><span name="button_globalvarInfo_table_sub7" id="button_globalvarInfo_table_sub7" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'globalvarInfo_table_sub7', true)"><span class="shrink-button">[+]</span></span> <a href="rtwdemo_examplemain_c.html#var_rtU" class="code2code">
+rtU
+</a>
+</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+16
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+3<span style="font-family:Courier">&#160;</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+2<span style="font-family:Courier">&#160;</span>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="display: none; border-style: none" width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table_sub7" id="globalvarInfo_table_sub7" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #eeeeff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; In1_1s</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">2<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">2<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #ffffff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; In2_2s</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">1<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">1<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap"><span name="button_globalvarInfo_table_sub10" id="button_globalvarInfo_table_sub10" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'globalvarInfo_table_sub10', true)"><span class="shrink-button">[+]</span></span> <a href="rtwdemo_examplemain_c.html#var_rtY" class="code2code">
+rtY
+</a>
+</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+16
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+3<span style="font-family:Courier">&#160;</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+3<span style="font-family:Courier">&#160;</span>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="display: none; border-style: none" width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table_sub10" id="globalvarInfo_table_sub10" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #ffffff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; Out1</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">1<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">1<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #eeeeff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; Out2</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">2<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">2<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #ffffff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap"><span name="button_globalvarInfo_table_sub13" id="button_globalvarInfo_table_sub13" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'globalvarInfo_table_sub13', true)"><span class="shrink-button">[+]</span></span> <a href="rtwdemo_examplemain_c.html#var_rtM_" class="code2code">
+rtM_
+</a>
+</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+9
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<span title="The global variable is not directly used in any function.">0</span><span style="font-family:Courier">*</span>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<span title="The global variable is not directly used in any function.">0</span><span style="font-family:Courier">*</span>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="display: none; border-style: none" width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table_sub13" id="globalvarInfo_table_sub13" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #eeeeff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; errorStatus</span></td>
+<td align="right" width="22.22%">8</td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #ffffff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;<span name="button_globalvarInfo_table_sub13_sub14" id="button_globalvarInfo_table_sub13_sub14" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'globalvarInfo_table_sub13_sub14', true)"><span class="shrink-button">[+]</span></span> Timing</span></td>
+<td align="right" width="22.22%">1</td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="display: none; border-style: none" width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table_sub13_sub14" id="globalvarInfo_table_sub13_sub14" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #eeeeff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span name="button_globalvarInfo_table_sub13_sub14_sub15" id="button_globalvarInfo_table_sub13_sub14_sub15" title="Click to shrink or expand tree" style="cursor:pointer;font-family:monospace;font-weight:normal;" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'globalvarInfo_table_sub13_sub14_sub15', true)"><span class="shrink-button">[+]</span></span> RateInteraction</span></td>
+<td align="right" width="22.22%">1</td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="display: none; border-style: none" width="100%" cellpadding="0" cellspacing="0" name="globalvarInfo_table_sub13_sub14_sub15" id="globalvarInfo_table_sub13_sub14_sub15" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2"  style="background-color: #ffffff" >
+<tr><td align="left" width="33.33%"><span style="white-space:nowrap">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160; TID0_1</span></td>
+<td align="right" width="22.22%">1</td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+<td align="right" width="22.22%">0<span style="font-family:Courier">&#160;</span></td>
+</tr></table>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="33%" align="left" valign="top" style="border-style: none">
+<b>Total</b>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>65</b>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+<b>14<span style="font-family:Courier">&#160;</span></b>
+</td>
+<td width="22%" align="right" valign="top" style="border-style: none">
+ 
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+* The global variable is not directly used in any function.
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+<h3 name="sec_Function_Information" id="sec_Function_Information">
+3. Function Information <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwIdCodeMetrics_table_006_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwIdCodeMetrics_table_006', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+</h3>
+<table width="100%" name="rtwIdCodeMetrics_table_006" id="rtwIdCodeMetrics_table_006" border="0">
+<tr>
+<td align="left" valign="top">
+View function metrics in a call tree format or table format. Accumulated stack numbers include the estimated stack size of the function plus the maximum of the accumulated stack size of the subroutines that the function calls.
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" name="fcnInfo_calltree" id="fcnInfo_calltree" border="0">
+<tr>
+<td align="left" valign="top">
+View:Call Tree | <a href="javascript:if (rtwSwitchView) rtwSwitchView(window.document,'fcnInfo_calltree', 'fcnInfo_table')" title="List of functions in alphabetical order. The second column includes the callers of the functions.">
+Table
+</a>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="1">
+<tr style="background-color: #ffffff">
+<td width="100%" align="left" valign="top" style="border-style: none">
+<table width="100%" cellpadding="0" cellspacing="0" class="treeTable" id="fcnTreeView" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="37%" align="left" valign="top" style="border-style: none">
+<b>
+<span title="Function name sorted by the maximum accumulated stack size.">Function Name</span>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Estimated stack size of the function plus the maximum of the accumulated stack size of its subroutines.">Accumulated Stack Size (bytes)</span>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Size of local variables in the function.">Self Stack Size (bytes)</span>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Lines of code excluding comments and blank lines.">Lines of Code</span>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Lines including source code, comments, and blank lines.">Lines</span>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Cyclomatic complexity">Complexity</span>
+</b>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="border-style: none" width="100%" cellpadding="0" cellspacing="0" name="" id="" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #ffffff">
+<td width="37%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap">&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160;&#160;<b><a href="rtwdemo_examplemain_c.html#fcn_rtwdemo_examplemain_initialize" title="rtwdemo_examplemain_initialize" class="code2code">
+rtwdemo_examplemain_initialize
+</a>
+</b></span>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+4
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+1
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="border-style: none" width="100%" cellpadding="0" cellspacing="0" name="" id="" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="37%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap">&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160;&#160;<b><a href="rtwdemo_examplemain_c.html#fcn_rtwdemo_examplemain_step0" title="rtwdemo_examplemain_step0" class="code2code">
+rtwdemo_examplemain_step0
+</a>
+</b></span>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+9
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+37
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+3
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table style="border-style: none" width="100%" cellpadding="0" cellspacing="0" name="" id="" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #ffffff">
+<td width="37%" align="left" valign="top" style="border-style: none">
+<span style="white-space:nowrap">&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160;&#160;<b><a href="rtwdemo_examplemain_c.html#fcn_rtwdemo_examplemain_step1" title="rtwdemo_examplemain_step1" class="code2code">
+rtwdemo_examplemain_step1
+</a>
+</b></span>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+2
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+10
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+1
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" name="fcnInfo_table" id="fcnInfo_table" style="display: none" border="0">
+<tr>
+<td align="left" valign="top">
+View: <a href="javascript:if (rtwSwitchView) rtwSwitchView(window.document,'fcnInfo_table', 'fcnInfo_calltree')" title="Browse call graph in a call tree format.">
+Call Tree
+</a>
+ | Table
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" class="treeTable" id="fcnTableView" border="1">
+<tr style="background-color: #eeeeff">
+<td width="22%" align="left" valign="top" style="border-style: none">
+<b>
+<span title="Function name sorted alphabetically">Function Name</span>
+</b>
+
+</td>
+<td width="22%" align="left" valign="top" style="border-style: none">
+<b>
+<span title="List of functions calling the function in the corresponding first column. The number of call sites is included in parentheses.">Called By (number of call sites)</span>
+</b>
+
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Estimated stack size of the function plus the maximum of the accumulated stack size of its subroutines.">Accumulated Stack Size (bytes)</span>
+</b>
+
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Size of local variables in the function.">Self Stack Size (bytes)</span>
+</b>
+
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+<b>
+<span title="Lines of code excluding comments and blank lines.">Lines of Code</span>
+</b>
+
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Lines including source code, comments, and blank lines.">Lines</span>
+</b>
+
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+<b>
+<span style="white-space:nowrap" title="Cyclomatic complexity">Complexity</span>
+</b>
+
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td width="22%" align="left" valign="top" style="border-style: none">
+<a href="rtwdemo_examplemain_c.html#fcn_rtwdemo_examplemain_initialize" title="rtwdemo_examplemain_initialize" class="code2code">
+rtwdemo_examplemain_initialize
+</a>
+
+</td>
+<td width="22%" align="left" valign="top" style="border-style: none">
+&#160;
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+4
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+1
+</td>
+
+</tr>
+<tr style="background-color: #eeeeff">
+<td width="22%" align="left" valign="top" style="border-style: none">
+<a href="rtwdemo_examplemain_c.html#fcn_rtwdemo_examplemain_step0" title="rtwdemo_examplemain_step0" class="code2code">
+rtwdemo_examplemain_step0
+</a>
+
+</td>
+<td width="22%" align="left" valign="top" style="border-style: none">
+&#160;
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+9
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+37
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+3
+</td>
+
+</tr>
+<tr style="background-color: #ffffff">
+<td width="22%" align="left" valign="top" style="border-style: none">
+<a href="rtwdemo_examplemain_c.html#fcn_rtwdemo_examplemain_step1" title="rtwdemo_examplemain_step1" class="code2code">
+rtwdemo_examplemain_step1
+</a>
+
+</td>
+<td width="22%" align="left" valign="top" style="border-style: none">
+&#160;
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+0
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+2
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+10
+</td>
+<td width="11%" align="right" valign="top" style="border-style: none">
+1
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>

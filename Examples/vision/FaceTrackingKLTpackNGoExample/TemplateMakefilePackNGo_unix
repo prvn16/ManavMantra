@@ -1,0 +1,151 @@
+###########################################################################
+## Makefile generated for PackNGo testing of source 'FaceTrackingKLTpackNGo_kernel'.
+## Derivative type : EXE
+###########################################################################
+
+SOURCE = FaceTrackingKLTpackNGo_kernel
+
+###########################################################################
+## INCLUDES
+###########################################################################
+
+BUILDINFO_INCLUDES = -I"./codegen/exe/FaceTrackingKLTpackNGo_kernel" \
+-I"./PASTE_MATLAB/extern/include"  \
+-I"./PASTE_MATLAB/extern/include/multimedia"  \
+-I"./PASTE_MATLAB/toolbox/vision/include" \
+-I"./PASTE_MATLAB/toolbox/shared/spc/src_ml/extern/include"  \
+-I"./PASTE_MATLAB/toolbox/shared/dsp/vision/matlab/include" \
+-I"./PASTE_MATLAB/toolbox/vision/builtins/src/ocv/include" \
+-I"./PASTE_MATLAB/toolbox/vision/builtins/src/ocvcg/opencv/include"
+
+###########################################################################
+## MACROS
+###########################################################################
+
+BUILDINFO_DEFINES = PASTE_DEFINES 
+BUILDINFO_FLAGS = $(BUILDINFO_INCLUDES) $(BUILDINFO_DEFINES)
+
+#------------------------
+# BUILD TOOL COMMANDS
+#------------------------
+
+CC = PASTE_CC
+CPP = PASTE_CPP
+CPP_LD = PASTE_CPP
+
+#-------------------------
+# Build Configuration
+#-------------------------
+
+CFLAGS    = -c $(BUILDINFO_FLAGS)
+CPPFLAGS  = -c $(BUILDINFO_FLAGS)
+LINKFLAGS = -Wl,-rpath,"./PASTE_MATLAB/bin/PASTE_ARCH",-L"./PASTE_MATLAB/bin/PASTE_ARCH"
+
+###########################################################################
+## OUTPUT INFO
+###########################################################################
+
+DERIVATIVE = FaceTrackingKLTpackNGo_kernel
+EXECUTABLE = FaceTrackingKLTpackNGo_kernel
+
+###########################################################################
+## OBJECTS
+###########################################################################
+
+SRCS = PASTE_SRCFILES
+
+OBJS_CPP_UPPER = $(SRCS:.CPP=.o)
+OBJS_CPP_LOWER = $(OBJS_CPP_UPPER:.cpp=.o)
+OBJS_C_UPPER = $(OBJS_CPP_LOWER:.C=.o)
+OBJS = $(OBJS_C_UPPER:.c=.o)
+
+###########################################################################
+## LIBRARIES
+###########################################################################
+
+LIB_DIR1 = ./PASTE_MATLAB/bin/PASTE_ARCH
+LIB_DIR2 = ./PASTE_MATLAB/toolbox/shared/multimedia/bin/PASTE_ARCH
+LIB_DIR2 = ./PASTE_MATLAB/toolbox/shared/multimedia/bin/PASTE_ARCH/reader
+LIBS_LIST1 = $(wildcard $(LIB_DIR1)/*.PASTE_EXT*)
+LIBS_LIST2 = $(wildcard $(LIB_DIR2)/*.PASTE_EXT*)
+LIBS_LIST3 = $(wildcard $(LIB_DIR3)/*.PASTE_EXT*)
+
+LIBS_LIST = $(LIBS_LIST1) $(LIBS_LIST2) $(LIBS_LIST3)
+
+###########################################################################
+## SYSTEM LIBRARIES
+###########################################################################
+
+SYSTEM_LIBS = -lm -ldl
+
+###########################################################################
+## PHONY TARGETS
+###########################################################################
+
+.PHONY : all clean build
+
+all : build
+	@echo "### Successfully generated all binary outputs."
+
+build : clean $(EXECUTABLE)
+
+###########################################################################
+## FINAL TARGETS
+###########################################################################
+
+#-------------------------------------------
+# Executable
+#-------------------------------------------
+
+$(EXECUTABLE) : $(OBJS)
+	@echo "### Creating product executable ... "
+	$(CPP_LD) $(LINKFLAGS) -o $(EXECUTABLE) $(OBJS) $(LIBS_LIST) $(SYSTEM_LIBS)
+	@echo "Successfully built executable $(EXECUTABLE)" 
+
+###########################################################################
+## INTERMEDIATE TARGETS
+###########################################################################
+
+#-------------------------------------------
+# Source-to-object
+#-------------------------------------------
+
+# for main.c (w.r.t. dir where makefile is)
+%.o : ./%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+ 
+# no cpp file
+%.o : ./%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+ 
+# c file
+%.o : ./codegen/exe/FaceTrackingKLTpackNGo_kernel/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+ 
+# no cpp file
+%.o : ./codegen/exe/FaceTrackingKLTpackNGo_kernel/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+# cpp file
+%.o : ./PASTE_MATLAB/toolbox/vision/builtins/src/ocv/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+# c file
+%.o : ./PASTE_MATLAB/toolbox/shared/dsp/vision/matlab/include/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+# c file
+%.o : ./PASTE_MATLAB/toolbox/shared/spc/src_ml/extern/src/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+# c file
+%.o : ./PASTE_MATLAB/toolbox/vision/include/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+###########################################################################
+## MISCELLANEOUS TARGETS
+###########################################################################
+
+clean:
+	@echo "### Deleting all derived files..."
+	rm -f $(EXECUTABLE) $(OBJS)

@@ -1,0 +1,133 @@
+###########################################################################
+## Makefile for 'Face Tracking on ARM Target using Code Generation' 
+## example. This makefile is written for Raspberry Pi 2.
+###########################################################################
+
+SOURCE = faceTrackingARMKernel
+PWD    = $(shell pwd)
+
+###########################################################################
+## INCLUDES
+###########################################################################
+
+BUILDINFO_INCLUDES = -I"./codegen/exe/faceTrackingARMKernel" \
+-I"."  \
+-I"./matlab/toolbox/vision/builtins/src/ocv/include" \
+-I"./matlab/toolbox/vision/builtins/src/ocvcg/opencv/include" \
+-I$(PWD)
+
+###########################################################################
+## MACROS
+###########################################################################
+
+# Optimization flags for Raspberry PI 2
+ARM_FLAGS = -march=armv7-a -mfloat-abi=hard -mfpu=vfp -mtune=arm1176jzf-s  -ffast-math -O3
+BUILDINFO_DEFINES = -DMODEL=faceTrackingARMKernel -DHAVESTDIO -DUSE_RTMODEL -DUNIX -DPARALLEL
+BUILDINFO_FLAGS = $(BUILDINFO_INCLUDES) $(BUILDINFO_DEFINES)
+# Specify folder containing the OpenCV libraries
+OPENCVLIBS_DIR = /home/pi/opencv-3.1.0/build/lib
+
+#------------------------
+# BUILD TOOL COMMANDS
+#------------------------
+
+CC = gcc $(ARM_FLAGS)
+CPP = g++ $(ARM_FLAGS)
+CPP_LD = g++ $(ARM_FLAGS)
+
+#-------------------------
+# Build Configuration
+#-------------------------
+
+CFLAGS    = -c $(BUILDINFO_FLAGS)
+CPPFLAGS  = -c $(BUILDINFO_FLAGS) -std=c++0x
+LINKFLAGS = -Wl,-rpath,"$(OPENCVLIBS_DIR)",-L"$(OPENCVLIBS_DIR)"
+
+###########################################################################
+## OUTPUT INFO
+###########################################################################
+
+DERIVATIVE = faceTrackingARMKernel
+EXECUTABLE = faceTrackingARMKernel
+
+###########################################################################
+## OBJECTS
+###########################################################################
+
+SRCS = $(wildcard *.c) \
+$(wildcard codegen/exe/faceTrackingARMKernel/*.c) \
+$(wildcard matlab/toolbox/vision/builtins/src/ocv/*.cpp) \
+$(wildcard $(PWD)/*.cpp)
+
+OBJS_CPP_UPPER = $(SRCS:.CPP=.o)
+OBJS_CPP_LOWER = $(OBJS_CPP_UPPER:.cpp=.o)
+OBJS_C_UPPER = $(OBJS_CPP_LOWER:.C=.o)
+OBJS = $(OBJS_C_UPPER:.c=.o)
+
+###########################################################################
+## LIBRARIES
+###########################################################################
+
+LIBS_LIST = $(wildcard $(OPENCVLIBS_DIR)/*.so*)
+
+###########################################################################
+## SYSTEM LIBRARIES
+###########################################################################
+
+SYSTEM_LIBS = -lm -ldl -lpthread
+
+###########################################################################
+## PHONY TARGETS
+###########################################################################
+
+.PHONY : all clean build
+
+all : build
+	@echo "### Successfully generated all binary outputs."
+
+build : $(EXECUTABLE)
+
+###########################################################################
+## FINAL TARGETS
+###########################################################################
+
+#-------------------------------------------
+# Executable
+#-------------------------------------------
+
+$(EXECUTABLE) : $(OBJS)
+	@echo "### Creating product executable ... "
+	$(CPP_LD) $(LINKFLAGS) -o $(EXECUTABLE) $(OBJS) $(LIBS_LIST) $(SYSTEM_LIBS)
+	@echo "Successfully built executable $(EXECUTABLE)" 
+
+###########################################################################
+## INTERMEDIATE TARGETS
+###########################################################################
+
+#-------------------------------------------
+# Source-to-object
+#-------------------------------------------
+
+# for main.c (w.r.t. dir where makefile is)
+%.o : ./%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+# c file
+%.o : ./codegen/exe/faceTrackingARMKernel/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+ 
+# cpp file
+%.o : ./matlab/toolbox/vision/builtins/src/ocv/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+# cpp file
+%.o : $(PWD)%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+###########################################################################
+## MISCELLANEOUS TARGETS
+###########################################################################
+
+clean:
+	@echo "### Deleting all derived files..."
+	rm -f $(EXECUTABLE) $(OBJS)

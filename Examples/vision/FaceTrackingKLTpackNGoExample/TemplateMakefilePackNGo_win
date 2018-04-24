@@ -1,0 +1,160 @@
+###########################################################################
+## Makefile generated for PackNGo testing of source 'FaceTrackingKLTpackNGo_kernel'.
+##
+## Derivative type : EXE
+##
+###########################################################################
+
+# Toolchain Name: Microsoft Visual C++ 2012 v11.0 | nmake (64-bit Windows)
+
+SOURCE = FaceTrackingKLTpackNGo_kernel
+
+###########################################################################
+## INCLUDES
+###########################################################################
+
+BUILDINFO_INCLUDES = -I"./codegen/exe/FaceTrackingKLTpackNGo_kernel" \
+-I"./PASTE_MATLAB/extern/include"  \
+-I"./PASTE_MATLAB/extern/include/multimedia"  \
+-I"./PASTE_MATLAB/toolbox/vision/include" \
+-I"./PASTE_MATLAB/toolbox/shared/spc/src_ml/extern/include"  \
+-I"./PASTE_MATLAB/toolbox/shared/dsp/vision/matlab/include" \
+-I"./PASTE_MATLAB/toolbox/vision/builtins/src/ocv/include" \
+-I"./PASTE_MATLAB/toolbox/vision/builtins/src/ocvcg/opencv/include"
+
+###########################################################################
+## DEBUG FLAGS
+###########################################################################
+
+# Debug flags are disabled by default
+#DEBUG_FLAG=/Z7 
+DEBUG_FLAG=
+
+#LINKDEBUG_FLAGS=/debug
+LINKDEBUG_FLAGS=
+
+
+###########################################################################
+## MACROS
+###########################################################################
+
+BUILDINFO_DEFINES = PASTE_DEFINES
+BUILDINFO_FLAGS = $(BUILDINFO_INCLUDES) $(BUILDINFO_DEFINES)
+
+#------------------------
+# BUILD TOOL COMMANDS
+#------------------------
+
+CC = cl
+CPP = cl
+CPP_LD = link
+
+#------------------------
+# Build Configuration
+#------------------------
+
+CFLAGS    = $(cflags) $(cvarsmt)  /wd4996 $(BUILDINFO_FLAGS) $(DEBUG_FLAG) /c
+CPPFLAGS  = $(cflags) $(cvarsmt)  /wd4996  /EHsc- $(BUILDINFO_FLAGS)  $(DEBUG_FLAG) /c
+LINKFLAGS = $(ldebug) $(conflags) $(conlibs) $(LINKDEBUG_FLAGS) libcpmt.lib
+
+###########################################################################
+## OUTPUT INFO
+###########################################################################
+
+DERIVATIVE = FaceTrackingKLTpackNGo_kernel.exe
+EXECUTABLE = FaceTrackingKLTpackNGo_kernel.exe
+
+###########################################################################
+## OBJECTS
+###########################################################################
+
+SRCS = PASTE_SRCFILES
+
+OBJS_CPP_UPPER = $(SRCS:.CPP=.obj)
+OBJS_CPP_LOWER = $(OBJS_CPP_UPPER:.cpp=.obj)
+OBJS_C_UPPER = $(OBJS_CPP_LOWER:.C=.obj)
+OBJS = $(OBJS_C_UPPER:.c=.obj)
+
+###########################################################################
+## LIBRARIES
+###########################################################################
+
+LIBS_LIST = ".\PASTE_MATLAB\toolbox\vision\builtins\src\ocvcg\opencv\win64\lib\*.lib" \
+".\PASTE_MATLAB\extern\lib\win64\microsoft\*.lib"
+
+###########################################################################
+## SYSTEM LIBRARIES
+###########################################################################
+
+SYSTEM_LIBS =
+
+###########################################################################
+## PHONY TARGETS
+###########################################################################
+
+.PHONY : all clean build
+
+all : build
+	@cmd /C "echo ### Successfully generated all binary outputs."
+
+build : clean $(EXECUTABLE)
+
+###########################################################################
+## FINAL TARGETS
+###########################################################################
+
+#-------------------------------------------
+# Executable
+#-------------------------------------------
+
+$(EXECUTABLE) : $(OBJS) $(SYSTEM_LIBS) $(LIBS)
+	@cmd /C "echo ### Creating product executable ... "
+	$(CPP_LD) $(LINKFLAGS) -out:$(EXECUTABLE) $(OBJS) $(LIBS_LIST) $(SYSTEM_LIBS)
+	@cmd /C "echo Successfully built executable $(EXECUTABLE)"
+
+###########################################################################
+## INTERMEDIATE TARGETS
+###########################################################################
+
+#-------------------------------------------
+# Source-to-object
+#-------------------------------------------
+
+# for main.c
+{.}.c.obj :
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
+
+# no cpp file
+{.}.cpp.obj :
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
+
+# c file
+{.\codegen\exe\FaceTrackingKLTpackNGo_kernel}.c.obj :
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
+
+# no cpp file
+{.\codegen\exe\FaceTrackingKLTpackNGo_kernel}.cpp.obj :
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
+
+# cpp file
+{.\PASTE_MATLAB\toolbox\vision\builtins\src\ocv}.cpp.obj :
+	$(CPP) $(CPPFLAGS) -Fo"$@" "$<"
+
+# c file
+{.\PASTE_MATLAB\toolbox\shared\dsp\vision\matlab\include}.c.obj :
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
+
+# c file
+{.\PASTE_MATLAB\toolbox\shared\spc\src_ml\extern\src}.c.obj :
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
+
+# c file
+{.\PASTE_MATLAB\toolbox\vision\include}.c.obj :
+	$(CC) $(CFLAGS) -Fo"$@" "$<"
+
+###########################################################################
+## MISCELLANEOUS TARGETS
+###########################################################################
+
+clean:
+	@cmd /C "echo ### No op target..."

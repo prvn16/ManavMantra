@@ -1,0 +1,240 @@
+.version 4.2
+// Copyright 2011 The MathWorks, Inc.
+.target sm_20
+.address_size 64
+.visible .func (.param .b64 func_retval0) _Z20calculateGlobalIndexv(
+)
+{
+.reg .s32 %r<11>;
+.reg .s64 %rd<4>;
+mov.u32 %r1, %ctaid.x;
+mov.u32 %r2, %ctaid.y;
+mov.u32 %r3, %nctaid.x;
+mad.lo.s32 %r4, %r3, %r2, %r1;
+mov.u32 %r5, %tid.x;
+mov.u32 %r6, %ntid.x;
+mov.u32 %r7, %tid.y;
+mad.lo.s32 %r8, %r7, %r6, %r5;
+cvt.u64.u32 %rd1, %r8;
+mov.u32 %r9, %ntid.y;
+mul.lo.s32 %r10, %r9, %r6;
+mul.wide.u32 %rd2, %r10, %r4;
+add.s64 %rd3, %rd2, %rd1;
+st.param.b64 [func_retval0+0], %rd3;
+ret;
+}
+.visible .func (.param .b32 func_retval0) _Z12doIterationsddj(
+.param .b64 _Z12doIterationsddj_param_0,
+.param .b64 _Z12doIterationsddj_param_1,
+.param .b32 _Z12doIterationsddj_param_2
+)
+{
+.reg .pred %p<3>;
+.reg .s32 %r<7>;
+.reg .f64 %fd<14>;
+ld.param.f64 %fd7, [_Z12doIterationsddj_param_0];
+ld.param.f64 %fd8, [_Z12doIterationsddj_param_1];
+ld.param.u32 %r4, [_Z12doIterationsddj_param_2];
+mov.u32 %r6, 0;
+mov.f64 %fd12, %fd8;
+mov.f64 %fd13, %fd7;
+BB1_1:
+mov.f64 %fd2, %fd13;
+mov.f64 %fd1, %fd12;
+mul.f64 %fd3, %fd1, %fd1;
+mul.f64 %fd4, %fd2, %fd2;
+add.f64 %fd9, %fd4, %fd3;
+setp.gtu.f64 %p1, %fd9, 0d4010000000000000;
+@%p1 bra BB1_3;
+add.s32 %r6, %r6, 1;
+sub.f64 %fd10, %fd4, %fd3;
+add.f64 %fd5, %fd10, %fd7;
+add.f64 %fd11, %fd2, %fd2;
+fma.rn.f64 %fd6, %fd11, %fd1, %fd8;
+setp.le.u32 %p2, %r6, %r4;
+mov.f64 %fd12, %fd6;
+mov.f64 %fd13, %fd5;
+@%p2 bra BB1_1;
+BB1_3:
+st.param.b32 [func_retval0+0], %r6;
+ret;
+}
+.visible .entry _Z24processMandelbrotElementPdPKdS1_jj(
+.param .u64 _Z24processMandelbrotElementPdPKdS1_jj_param_0,
+.param .u64 _Z24processMandelbrotElementPdPKdS1_jj_param_1,
+.param .u64 _Z24processMandelbrotElementPdPKdS1_jj_param_2,
+.param .u32 _Z24processMandelbrotElementPdPKdS1_jj_param_3,
+.param .u32 _Z24processMandelbrotElementPdPKdS1_jj_param_4
+)
+{
+.reg .pred %p<12>;
+.reg .s32 %r<43>;
+.reg .f64 %fd<71>;
+.reg .s64 %rd<16>;
+ld.param.u64 %rd3, [_Z24processMandelbrotElementPdPKdS1_jj_param_0];
+ld.param.u64 %rd4, [_Z24processMandelbrotElementPdPKdS1_jj_param_1];
+ld.param.u64 %rd5, [_Z24processMandelbrotElementPdPKdS1_jj_param_2];
+ld.param.u32 %r15, [_Z24processMandelbrotElementPdPKdS1_jj_param_3];
+mov.u32 %r16, %ctaid.x;
+mov.u32 %r17, %nctaid.x;
+mov.u32 %r18, %ctaid.y;
+mad.lo.s32 %r19, %r17, %r18, %r16;
+mov.u32 %r20, %tid.y;
+mov.u32 %r21, %ntid.x;
+mov.u32 %r22, %tid.x;
+mad.lo.s32 %r23, %r20, %r21, %r22;
+cvt.u64.u32 %rd6, %r23;
+mov.u32 %r24, %ntid.y;
+mul.lo.s32 %r25, %r24, %r21;
+mul.wide.u32 %rd7, %r25, %r19;
+add.s64 %rd1, %rd7, %rd6;
+ld.param.u32 %rd8, [_Z24processMandelbrotElementPdPKdS1_jj_param_4];
+setp.ge.u64 %p1, %rd1, %rd8;
+@%p1 bra BB2_15;
+cvta.to.global.u64 %rd9, %rd4;
+cvta.to.global.u64 %rd2, %rd3;
+shl.b64 %rd10, %rd1, 3;
+add.s64 %rd11, %rd9, %rd10;
+ld.global.f64 %fd1, [%rd11];
+cvta.to.global.u64 %rd12, %rd5;
+add.s64 %rd13, %rd12, %rd10;
+ld.global.f64 %fd2, [%rd13];
+mov.u32 %r38, 0;
+mov.f64 %fd67, %fd2;
+mov.f64 %fd68, %fd1;
+BB2_2:
+mov.f64 %fd4, %fd68;
+mov.f64 %fd3, %fd67;
+mul.f64 %fd5, %fd3, %fd3;
+mul.f64 %fd6, %fd4, %fd4;
+add.f64 %fd17, %fd5, %fd6;
+setp.gtu.f64 %p2, %fd17, 0d4010000000000000;
+@%p2 bra BB2_4;
+add.s32 %r38, %r38, 1;
+sub.f64 %fd18, %fd6, %fd5;
+add.f64 %fd7, %fd1, %fd18;
+add.f64 %fd19, %fd4, %fd4;
+fma.rn.f64 %fd8, %fd3, %fd19, %fd2;
+setp.le.u32 %p3, %r38, %r15;
+mov.f64 %fd67, %fd8;
+mov.f64 %fd68, %fd7;
+@%p3 bra BB2_2;
+BB2_4:
+add.s32 %r4, %r38, 1;
+cvt.rn.f64.u32 %fd9, %r4;
+{
+.reg .b32 %temp; 
+mov.b64 {%temp, %r39}, %fd9;
+}
+setp.ne.s32 %p4, %r4, 0;
+setp.lt.s32 %p5, %r39, 2146435072;
+and.pred %p6, %p4, %p5;
+@%p6 bra BB2_9;
+bra.uni BB2_5;
+BB2_9:
+{
+.reg .b32 %temp; 
+mov.b64 {%r40, %temp}, %fd9;
+}
+mov.u32 %r41, -1023;
+setp.gt.s32 %p10, %r39, 1048575;
+@%p10 bra BB2_11;
+mul.f64 %fd22, %fd9, 0d4350000000000000;
+{
+.reg .b32 %temp; 
+mov.b64 {%temp, %r39}, %fd22;
+}
+{
+.reg .b32 %temp; 
+mov.b64 {%r40, %temp}, %fd22;
+}
+mov.u32 %r41, -1077;
+BB2_11:
+shr.u32 %r29, %r39, 20;
+add.s32 %r42, %r41, %r29;
+and.b32 %r30, %r39, -2146435073;
+or.b32 %r31, %r30, 1072693248;
+mov.b64 %fd69, {%r40, %r31};
+setp.lt.s32 %p11, %r31, 1073127583;
+@%p11 bra BB2_13;
+{
+.reg .b32 %temp; 
+mov.b64 {%r32, %temp}, %fd69;
+}
+{
+.reg .b32 %temp; 
+mov.b64 {%temp, %r33}, %fd69;
+}
+add.s32 %r34, %r33, -1048576;
+mov.b64 %fd69, {%r32, %r34};
+add.s32 %r42, %r42, 1;
+BB2_13:
+add.f64 %fd24, %fd69, 0d3FF0000000000000;
+rcp.approx.ftz.f64 %fd23,%fd24;
+neg.f64 %fd25, %fd24;
+mov.f64 %fd26, 0d3FF0000000000000;
+fma.rn.f64 %fd27, %fd25, %fd23, %fd26;
+fma.rn.f64 %fd28, %fd27, %fd27, %fd27;
+fma.rn.f64 %fd29, %fd28, %fd23, %fd23;
+add.f64 %fd30, %fd69, 0dBFF0000000000000;
+mul.f64 %fd31, %fd30, %fd29;
+fma.rn.f64 %fd32, %fd30, %fd29, %fd31;
+mul.f64 %fd33, %fd32, %fd32;
+mov.f64 %fd34, 0d3ED0EE258B7A8B04;
+mov.f64 %fd35, 0d3EB1380B3AE80F1E;
+fma.rn.f64 %fd36, %fd35, %fd33, %fd34;
+mov.f64 %fd37, 0d3EF3B2669F02676F;
+fma.rn.f64 %fd38, %fd36, %fd33, %fd37;
+mov.f64 %fd39, 0d3F1745CBA9AB0956;
+fma.rn.f64 %fd40, %fd38, %fd33, %fd39;
+mov.f64 %fd41, 0d3F3C71C72D1B5154;
+fma.rn.f64 %fd42, %fd40, %fd33, %fd41;
+mov.f64 %fd43, 0d3F624924923BE72D;
+fma.rn.f64 %fd44, %fd42, %fd33, %fd43;
+mov.f64 %fd45, 0d3F8999999999A3C4;
+fma.rn.f64 %fd46, %fd44, %fd33, %fd45;
+mov.f64 %fd47, 0d3FB5555555555554;
+fma.rn.f64 %fd48, %fd46, %fd33, %fd47;
+sub.f64 %fd49, %fd30, %fd32;
+add.f64 %fd50, %fd49, %fd49;
+neg.f64 %fd51, %fd32;
+fma.rn.f64 %fd52, %fd51, %fd30, %fd50;
+mul.f64 %fd53, %fd29, %fd52;
+mul.f64 %fd54, %fd33, %fd48;
+fma.rn.f64 %fd55, %fd54, %fd32, %fd53;
+xor.b32 %r35, %r42, -2147483648;
+mov.u32 %r36, 1127219200;
+mov.b64 %fd56, {%r35, %r36};
+mov.u32 %r37, -2147483648;
+mov.b64 %fd57, {%r37, %r36};
+sub.f64 %fd58, %fd56, %fd57;
+mov.f64 %fd59, 0d3FE62E42FEFA39EF;
+fma.rn.f64 %fd60, %fd58, %fd59, %fd32;
+neg.f64 %fd61, %fd58;
+fma.rn.f64 %fd62, %fd61, %fd59, %fd60;
+sub.f64 %fd63, %fd62, %fd32;
+sub.f64 %fd64, %fd55, %fd63;
+mov.f64 %fd65, 0d3C7ABC9E3B39803F;
+fma.rn.f64 %fd66, %fd58, %fd65, %fd64;
+add.f64 %fd70, %fd60, %fd66;
+bra.uni BB2_14;
+BB2_5:
+abs.f64 %fd20, %fd9;
+setp.gtu.f64 %p7, %fd20, 0d7FF0000000000000;
+@%p7 bra BB2_8;
+bra.uni BB2_6;
+BB2_8:
+add.f64 %fd70, %fd9, %fd9;
+bra.uni BB2_14;
+BB2_6:
+setp.eq.s32 %p8, %r4, 0;
+mov.f64 %fd70, 0dFFF0000000000000;
+@%p8 bra BB2_14;
+setp.eq.f64 %p9, %fd9, 0d7FF0000000000000;
+selp.f64 %fd70, %fd9, 0dFFF8000000000000, %p9;
+BB2_14:
+add.s64 %rd15, %rd2, %rd10;
+st.global.f64 [%rd15], %fd70;
+BB2_15:
+ret;
+}
