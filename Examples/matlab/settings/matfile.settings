@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="general" visible="true">
+        <settings name="matfile" visible="true">
+            <key name="SaveFormat" visible="true">
+                <validationfunc type="C"  packagename="toolbox/matlab/iofun/src/saveload" functionname="validateMatfileSaveFormat"/>
+                    <string>
+                        <value>v7</value>
+                    </string>
+            </key>
+         </settings>
+   </settings>
+</settings>

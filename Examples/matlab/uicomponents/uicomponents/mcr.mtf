@@ -1,0 +1,9 @@
+# This is the MCR MTF file for the uicomponents/components_m component.
+# Copyright 2016 The MathWorks, Inc.
+
+@IFDEF common
+  include derived/share/deploy/uicomponents/components_m/mcr.mtf
+@ENDIF common
+@IFDEF arch
+  include derived/<ARCH>/deploy/uicomponents/components_m/mcr.mtf
+@ENDIF arch

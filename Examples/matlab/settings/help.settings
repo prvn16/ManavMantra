@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- See desktop.settings file for additional help settings.
+    -->
+    <settings name="help" visible="false">
+        <key name="DocCenterLocation" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="InstalledProductFilter" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="PopupShowsBrowser" visible="false">
+	        <bool>
+	            <value>0</value>
+	        </bool>
+        </key>
+        <key name="SearchStemming" visible="false">
+	        <bool>
+	            <value>1</value>
+	        </bool>
+        </key>
+        <key name="Show3pDocInBrowser" visible="false">
+	        <bool>
+	            <value>1</value>
+	        </bool>
+        </key>
+        <key name="ShowUninstalledProducts" visible="false">
+	        <bool>
+	            <value>0</value>
+	        </bool>
+        </key>
+        <key name="UninstalledProductFilter" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+    </settings>
+</settings>

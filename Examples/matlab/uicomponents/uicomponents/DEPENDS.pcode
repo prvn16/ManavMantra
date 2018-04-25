@@ -1,0 +1,7 @@
+#DEPENDS.pcode : filelist for generating pcode
+#   Copyright 2016 The MathWorks, Inc.
+#ALL FILENAMES SHOULD END IN .p
+#TARGET FILES 
+
+# UIAxes.m uses @datatype property syntax.
+graphics/+matlab/+ui/+control/UIAxes.p

@@ -1,0 +1,1 @@
+.dgrid-row {position: relative}.selectedObjectOnCanvas {position: absolute; top: -1px; right: 0; bottom: -2px; left: 0; border: 3px solid #00aaff; pointer-events: none;}.highlightedRow + .highlightedRow .selectedObjectOnCanvas {border-top: none;}

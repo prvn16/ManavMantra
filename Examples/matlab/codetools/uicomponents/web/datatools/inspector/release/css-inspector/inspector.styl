@@ -1,0 +1,181 @@
+$color-selection-row = rgb(192, 233, 255)
+$color-propertySheet = rgb(245,245,245)
+$color-propertyGroup-title = rgb(230,230,230)
+$color-propertyGroup-title-border = rgb(191,191,191)
+$font-size = 11px
+$row-height = 22px
+$ready-only-opacity = 0.35
+$space-for-kabob-button = 17px
+$propertySheet-left = 10px
+$propertySheet-right = 10px
+$row-space-top = 3px
+$group-space-top = 5px
+$group-space-bottom = 5px
+.dijitTooltipDialog .propertySheet
+    background: transparent
+.inspector.outerContainer
+    height: inherit
+
+// digit things
+.propertySheet
+    height: inherit
+    font-size: $font-size
+    color :rgb(68, 68, 68)
+    font-family: Arial, Helvetica, sans-serif
+    background: $color-propertySheet
+    .dijitTitlePaneTitleFocus
+        //clear white space
+        font-size: 0
+    .dijitTitlePaneContentInner,
+    .dijitTitlePaneContentOuter,
+    .dijitTitlePaneTitle
+        font-size: 10px
+        padding:0
+        border: none
+        .dijitTitlePaneTextNode
+            font-size: 10px
+    .dijitTitlePaneContentOuter
+        background-color: $color-propertySheet
+    .dijitTitlePaneTitle
+        text-transform: uppercase
+        background: $color-propertyGroup-title
+        border: none
+        border-top: 1px solid $color-propertyGroup-title-border
+        border-bottom: 1px solid $color-propertyGroup-title-border
+        height: 24px
+        line-height:24px
+        padding-left: $propertySheet-left
+
+// property sheet header styles
+.propertySheet
+    .propertySetHeader
+        height: $row-height
+        display: flex
+        padding-left: $propertySheet-left
+        padding-right: $propertySheet-right
+        .propertyNameHeader,
+        .propertyValueHeader
+            width: 50%
+    &.propertySheetWithHeader .propertySetOuterContainer
+        height: "calc(100% - %s)" % ($row-height)
+
+
+// property set out container
+.propertySheet
+    .propertySetOuterContainer
+        box-sizing: border-box
+        width: 100%
+        height: inherit
+        overflow: auto
+        > .properties
+            .propertySet
+                font-size 11px
+                display: flex
+                align-items: center
+                margin-top: $row-space-top
+                min-height: $row-height
+                &:first-child
+                    margin-top: 0
+                .propertyName
+                    padding-left: $propertySheet-left
+                    display: flex
+                    align-items: flex-start
+                    width:50%
+                    height: $row-height
+                    line-height: $row-height
+                    &.inspectorSelected
+                        background-color: $color-selection-row
+                .propertyValue
+                    padding-right: $propertySheet-left
+                    height: 100%
+                    width:50%
+                    > .cellRenderer
+                        display:flex
+                        .mwTextField
+                            padding-left 0
+                            padding-right 0
+                            height $row-height
+                            border none
+                            width:100%
+                            background-color white
+                            &.mwNonEditable
+                                opacity: $ready-only-opacity
+                            input
+                                border solid 1px #999999
+                                padding-left 4px
+                                padding-right 4px
+
+// if the property sheet does not have any rich editor
+// remove the space on right
+.propertySheet
+    &.propertySheet-noGroupEditor
+        .propertyGroup
+            > .propertySetOuterContainer
+                padding-right: 0px
+
+.propertySheet.noGroup
+    .propertySetOuterContainer
+        padding-right: 17px
+        .propertyEditorGroup
+            padding-top: inherit;
+            padding-bottom: inherit;
+
+// for property group
+.propertySheet
+    .propertyGroup
+        padding-top: 5px
+        padding-bottom: 5px
+        position: relative
+        margin-top: 3px
+        .propertyGroup
+            padding: 0
+        > .propertySetOuterContainer
+            padding-right: $space-for-kabob-button
+        &:first-child
+            margin-top: 0px
+        &.propertySubGroup,
+        &.propertyEditorGroup
+            > .propertySetOuterContainer
+                padding-right: 0px
+        &.propertySubGroup
+            .property-more
+                display: none
+                justify-content: center
+                .property-more-dot
+                    background-color: black
+                    width: 1px
+                    height: 1px
+
+// for property editor group
+.propertySheet
+    .propertyGroup
+        &.propertyEditorGroup
+            display: flex;
+            .propertyGroupEditor
+                display: flex
+                top: 0
+                position: absolute
+                right: -6px
+                .mwDropDownButton
+                    box-sizing: content-box;
+                    border-radius:3px
+                    margin-left:3px
+                    .mwButtonNode
+                        padding: 0;
+                        .mwButtonContainerNode,
+                        .mwButtonContainerNode .mwIconNode
+                            width:100%
+                            height:100%
+                        .mwButtonContainerNode .mwIconNode
+                            position: absolute
+                            margin:0
+                            display:flex
+                            flex-direction: column
+                            align-items:center
+                            justify-content:center
+                            .richeditor-dot
+                                width:2px
+                                height:2px
+                                border: 2px solid transparent
+                                background-clip:content-box
+                                background-color:black

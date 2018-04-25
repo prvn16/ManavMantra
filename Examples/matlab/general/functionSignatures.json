@@ -1,0 +1,649 @@
+{
+"addpath":
+{
+		"inputs":
+	[
+		{"name":"folderName", "kind":"required", "type":"folder", "repeating":true},
+		{"name":"position", "kind":"ordered", "type":["char", "choices={'-begin','-end'}"], "default":"'-begin'"},
+		{"name":"'-frozen'", "kind":"ordered", "type":["char", "choices={'-frozen'}"]}
+	],
+	"outputs":
+	[
+		{"name":"oldpath", "type":"char"}
+	]
+},
+"cd":
+{
+		"inputs":
+	[
+		{"name":"newFolder", "kind":"ordered", "type":"folder"}
+	],
+	"outputs":
+	[
+		{"name":"oldFolder", "type":"folder"}
+	]
+},
+"clear":
+{
+	"inputs":
+	[
+		{"name":"name", "kind":"required", "type":["identifier=function,variable"], "repeating":true}
+	]
+},
+"clear":
+{
+	"inputs":
+	[
+		{"name":"'-regexp'", "kind":"required", "type":"choices={'-regexp'}"},
+		{"name":"expr", "kind":"required", "type":"char", "repeating":true}
+	]
+},
+"clear":
+{
+	"inputs":
+	[
+		{"name":"ItemType", "kind":"ordered", "type":"choices={'all','classes','functions','global','import','java','mex','variables'}", "repeating":true}
+	]
+},
+"clearvars":
+{
+	"inputs":
+	[
+		{"name":"'-global'", "kind":"ordered", "type":"choices={'-global'}"},
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"variables", "kind":"ordered", "type":[["identifier=variable"], ["char", "@(str) any(str=='*')"]], "repeating":true}
+				],
+				[
+					{"name":"'-regexp'", "kind":"required", "type":"choices={'-regexp'}"},
+					{"name":"expr", "kind":"required", "type":["char"], "repeating":true}
+				]
+			]
+		},
+		{"mutuallyExclusiveGroup":
+			[
+				[],
+				[
+					{"name":"'-except'", "kind":"required", "type":"choices={'-except'}"},
+					{"mutuallyExclusiveGroup":
+						[
+							[
+								{"name":"keeps", "kind":"required", "type":[["identifier=variable"], ["char", "@(str) any(str=='*')"]], "repeating":true}
+							],
+							[
+								{"name":"'-regexp'", "kind":"required", "type":"choices={'-regexp'}"},
+								{"name":"expr", "kind":"required", "type":["char"], "repeating":true}
+							]
+			
+						]
+					}
+				]
+			]
+		}
+	]
+},
+"copyfile":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":"file"},
+		{"name":"destination", "kind":"required", "type":[["file"], ["char"]]},
+		{"name":"'f'", "kind":"ordered", "type":["char", "choices={'f'}"]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]},
+		{"name":"message", "type":"char"},
+		{"name":"messageId", "type":"identifier=messageid"}
+	]
+},
+"delete":
+{
+		"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file", "repeating":true}
+	]
+},
+"diary":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"ordered", "type":[["file"], ["char"]]}
+	]
+},
+"diary":
+{
+	"inputs":
+	[
+		{"name":"mode", "kind":"required", "type":"choices={'on','off'}"}
+	]
+},
+"dir":
+{
+		"inputs":
+	[
+		{"name":"filename", "kind":"ordered", "type":[["file"], ["folder"], ["char"]]}
+	],
+	"outputs":
+	[
+		{"name":"listing", "type":"struct"}
+	]
+},
+"fileattrib":
+{
+		"inputs":
+	[
+		{"name":"name", "kind":"required", "type":[["file"], ["folder"]]},
+		{"name":"attribs", "kind":"positional", "type":["char", "@(x) regexp(x, '^\\s*([+-][ahswx]\\s+)*[+-][ahswx]$')==1"]},
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"users", "kind":"positional", "type":["char", "choices={'a','g','o','u'}"], "platforms":"-win64"}
+				],
+				[
+					{"name":"''", "kind":"positional", "type":["char", "choices={''}"], "platforms":"win64"},
+					{"name":"'s'", "kind":"positional", "type":["char", "choices={'s'}"], "platforms":"win64"}
+				]
+			]
+		}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]},
+		{"name":"message", "type":[["char"], ["struct"]]},
+		{"name":"messageId", "type":"identifier=messageid"}
+	]
+},
+"format":
+{
+	"inputs":
+	[
+		{"name":"style", "kind":"ordered", "type":"choices={'short','long','shortE','longE','shortG','longG','shortEng','longEng','+','bank','hex','rat','compact','loose'}"}
+	]
+},
+"import":
+{
+	"inputs":
+	[
+		{"name":"PackageName", "kind":"ordered", "type":"identifier=package"}
+	]
+},
+"javaaddpath":
+{
+	"inputs":
+	[
+		{"name":"dpath", "kind":"required", "type":[["file=*.jar"], ["folder"]]},
+		{"name":"'-end'", "kind":"flag", "type":"choices={'-end'}"}
+	]
+},
+"javarmpath":
+{
+	"inputs":
+	[
+		{"name":"dpath", "kind":"required", "type":[["file=*.jar"], ["folder"]], "repeating":true}
+	]
+},
+"load":
+{
+		"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.mat", "@(x) exist(x,'file')==2||exist([x '.mat'],'file')==2"], ["matlabpathfile=*.mat"]]},
+		{"name":"variables", "kind":"ordered", "type":[["char", "choices=matlab.internal.language.introspective.tabcompletion.load_vvariables(filename)"]], "repeating":true}
+	],
+	"outputs":
+	[
+		{"name":"S", "type":["struct"]}
+	]
+},
+"load":
+{
+		"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file", "@(x) exist(x,'file')==2||exist([x '.mat'],'file')==2"], ["matlabpathfile=*.mat"]]},
+		{"name":"'-mat'", "kind":"ordered", "type":[["char", "choices={'-mat'}"]]},
+		{"name":"variables", "kind":"ordered", "type":[["char", "choices=matlab.internal.language.introspective.tabcompletion.load_vvariables(filename)"]], "repeating":true}
+	],
+	"outputs":
+	[
+		{"name":"S", "type":["struct"]}
+	]
+},
+"load":
+{
+		"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":["file"]},
+		{"name":"'-ascii'", "kind":"required", "type":[["char", "choices={'-ascii'}"]]}
+	],
+	"outputs":
+	[
+		{"name":"S", "type":["double"]}
+	]
+},
+"ls":
+{
+		"inputs":
+	[
+		{"name":"flags", "kind":"ordered", "type":"char", "repeating":true, "platforms":"-win64"},
+		{"name":"filename", "kind":"ordered", "type":[["file"], ["folder"], ["char"]]}
+	],
+	"outputs":
+	[
+		{"name":"list", "type":"char"}
+	]
+},
+"mex":
+{
+	"inputs":
+	[
+		{"name":"filenames", "kind":"flag", "type":"file=*.c,*.cpp,*.cxx,*.cc,*.c++,*.f,*.fortran,*.cu,*.cuda,*.o,*.obj,*.a,*.so,*.lib", "repeating":true},
+		{"name":"compileOnly", "kind":"flag", "type":"choices={'-c'}"},
+		{"name":"-client", "kind":"namevalue", "type":"choices={'engine'}"},
+		{"name":"arrayDims", "kind":"flag", "type":"choices={'-compatibleArrayDims','-largeArrayDims'}"},
+		{"name":"define", "kind":"flag", "type":"choices={'-D','-U'}", "repeating":true},
+		{"name":"-f", "kind":"namevalue", "type":"file=*.xml"},
+		{"name":"debugInfo", "kind":"flag", "type":"choices={'-g'}"},
+		{"name":"include", "kind":"flag", "type":"choices={'-I'}", "repeating":true},
+		{"name":"libraryPaths", "kind":"flag", "type":"choices={'-L'}", "repeating":true},
+		{"name":"libraries", "kind":"flag", "type":"choices={'-l'}", "repeating":true},
+		{"name":"dryrun", "kind":"flag", "type":"choices={'-n'}"},
+		{"name":"optim", "kind":"flag", "type":"choices={'-O'}"},
+		{"name":"-outdir", "kind":"namevalue", "type":"folder"},
+		{"name":"-output", "kind":"namevalue", "type":"char"},
+		{"name":"-setup", "kind":"namevalue", "type":"choices={'C','C++','CPP','Fortran'}"},
+		{"name":"silent", "kind":"flag", "type":"choices={'-silent'}"},
+		{"name":"verbose", "kind":"flag", "type":"choices={'-v'}"},
+		{"name":"otherArgs", "kind":"flag", "repeating":true}
+	]
+},
+"mex.getCompilerConfigurations":
+{
+	"inputs":
+	[
+		{"name":"lang", "kind":"positional", "type":["char", "choices={'Any','C','C++','CPP','Fortran'}"]},
+		{"name":"list", "kind":"positional", "type":["char", "choices={'Selected','Installed','Supported'}"]}
+	],
+	"outputs":
+	[
+		{"name":"cc", "type":"mex.CompilerConfiguration"}
+	]
+},
+"mkdir":
+{
+	"inputs":
+	[
+		{"name":"folderName", "kind":"required", "type":[["folder"], ["char"]]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]},
+		{"name":"message", "type":"char"},
+		{"name":"messageId", "type":"identifier=messageid"}
+	]
+},
+"mkdir":
+{
+	"inputs":
+	[
+		{"name":"parentFolder", "kind":"required", "type":[["folder"], ["char"]]},
+		{"name":"folderName", "kind":"required", "type":"char"}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]},
+		{"name":"message", "type":"char"},
+		{"name":"messageId", "type":"identifier=messageid"}
+	]
+},
+"movefile":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file"], ["folder"], ["char"]]},
+		{"name":"destination", "kind":"positional", "type":[["file"], ["folder"], ["char"]]},
+		{"name":"'f'", "kind":"ordered", "type":["char", "choices={'f'}"]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]},
+		{"name":"message", "type":"char"},
+		{"name":"messageId", "type":"identifier=messageid"}
+	]
+},
+"open":
+{
+		"inputs":
+	[
+		{"name":"name", "kind":"required", "type":[["file"], ["matlabpathfile=*.m,*.mlx,*.slx,*.mdl"], ["identifier=variable"]]}
+	],
+	"outputs":
+	[
+		{"name":"output"}
+	]
+},
+"pcode":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":"identifier=function,classdef", "repeating":true},
+        {"name":"'-inplace'", "kind":"ordered", "type":"choices={'-inplace'}"}
+    ]
+},
+"recycle":
+{
+	"inputs":
+	[
+		{"name":"state", "kind":"ordered", "type":"choices={'on','off'}"}
+	]
+},
+"rehash":
+{
+	"inputs":
+	[
+		{"name":"what", "kind":"ordered", "type":"choices={'path','toolbox','pathreset','toolboxreset','toolboxcache'}"}
+	]
+},
+"rmdir":
+{
+	"inputs":
+	[
+		{"name":"folderName", "kind":"required", "type":"folder"},
+		{"name":"'s'", "kind":"ordered", "type":"choices={'s'}"}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]},
+		{"name":"message", "type":"char"},
+		{"name":"messageId", "type":"identifier=messageid"}
+	]
+},
+"rmpath":
+{
+		"inputs":
+	[
+		{"name":"folderName", "kind":"required", "type":[["folder"]]}
+	]
+},
+"save":
+{
+		"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["char"], ["file"]]},
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"variables", "kind":"ordered", "type":"identifier=variable", "repeating":true},
+				[
+					{"name":"'-regexp'", "kind":"required", "type":["char", "choices={'-regexp'}"]},
+					{"name":"expr", "kind":"required", "type":"char", "repeating":true}
+				],
+				[
+					{"name":"'-struct'", "kind":"required", "type":["char", "choices={'-struct'}"]},
+					{"name":"structName", "kind":"required", "type":["identifier=variable"]},
+					{"mutuallyExclusiveGroup":
+						[
+							{"name":"field", "kind":"ordered", "type":["char"], "repeating":true},
+							[
+								{"name":"'-regexp'", "kind":"required", "type":["char", "choices={'-regexp'}"]},
+								{"name":"expr", "kind":"required", "type":"char", "repeating":true}
+							]
+						]
+					}
+				]
+			]
+		},
+		{"mutuallyExclusiveGroup":
+			[
+				[],
+				{"name":"'-mat'", "kind":"required", "type":["char", "choices={'-mat'}"]},
+				[
+					{"name":"'-ascii'", "kind":"required", "type":["char", "choices={'-ascii'}"]},
+					{"name":"'-double'", "kind":"ordered", "type":["char", "choices={'-double'}"]},
+					{"name":"'-tabs'", "kind":"ordered", "type":["char", "choices={'-tabs'}"]}
+				],
+				{"name":"version", "kind":"required", "type":["char", "choices={'-v7.3','-v7','-v6','-v4'}"]},
+				{"name":"'-append'", "kind":"required", "type":["char", "choices={'-append'}"]}
+			]
+		}
+	]
+},
+"type":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["matlabpathfile=*.m,*.mlx"], ["file"], ["char"]]}
+	]
+	
+},
+"what":
+{
+		"inputs":
+	[
+		{"name":"folderName", "kind":"ordered", "type":[["folder"], ["identifier=classdef,package"]]}
+	]
+},
+"which":
+{
+	"inputs":
+	[
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"'-all'", "kind":"ordered", "type":"choices={'-all'}"},
+					{"name":"item", "kind":"required", "type":[["identifier=variable,function,localfunction,package,classdef"], ["file=*.m,*.mlx,*.mdl,*.slx"], ["char"]]}
+				],
+				[
+					{"name":"item", "kind":"required", "type":[["identifier=variable,function,localfunction,package,classdef"], ["file=*.m,*.mlx,*.mdl,*.slx"], ["char"]]},
+					{"name":"'-all'", "kind":"ordered", "type":"choices={'-all'}"}
+				]
+			]
+		}
+	]
+},
+"which":
+{
+	"inputs":
+	[
+		{"name":"fun1", "kind":"required", "type":["char"]},
+		{"name":"'in'", "kind":"required", "type":"choices={'in'}"},
+		{"name":"fun2", "kind":"required", "type":["identifier=function"]}
+	]
+},
+"whos":
+{
+		"inputs":
+	[
+		{"name":"'global'", "kind":"ordered", "type":[["char", "choices={'global'}"]]},
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"var", "kind":"required", "type":[["identifier=variable"], ["char", "@(str) any(str=='*')"]], "repeating":true},
+				[
+					{"name":"'-regexp'", "kind":"required", "type":["char", "choices={'-regexp'}"]},
+					{"name":"expr", "kind":"required", "type":[["identifier=variable"], ["char"]], "repeating":true}
+				],
+				[]
+			]
+		}
+	]
+},
+"whos":
+{
+		"inputs":
+	[
+		{"name":"'-file'", "kind":"required", "type":["char", "choices={'-file'}"]},
+		{"name":"filename", "kind":"required", "type":[["file=*.mat"], ["char"]]},
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"var", "kind":"required", "type":[["char", "choices=matlab.internal.language.introspective.tabcompletion.load_vvariables(filename)"], ["char"]], "repeating":true},
+				[
+					{"name":"'-regexp'", "kind":"required", "type":["char", "choices={'-regexp'}"]},
+					{"name":"expr", "kind":"required", "type":[["char", "choices=matlab.internal.language.introspective.tabcompletion.load_vvariables(filename)"], ["char"]], "repeating":true}
+				],
+				[]
+			]
+		}
+	]
+},
+"whos":
+{
+		"inputs":
+	[
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"var", "kind":"required", "type":[["identifier=variable"], ["char", "@(str) any(str=='*')"]], "repeating":true},
+				[
+					{"name":"'-regexp'", "kind":"required", "type":["char", "choices={'-regexp'}"]},
+					{"name":"expr", "kind":"required", "type":[["char"], ["identifier=variable"]], "repeating":true}
+				],
+				[]
+			]
+		},
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"'global'", "kind":"required", "type":[["char", "choices={'global'}"]]},
+				[
+					{"name":"'-file'", "kind":"required", "type":["char", "choices={'-file'}"]},
+					{"name":"filename", "kind":"required", "type":[["file=*.mat"], ["char"]]}
+				],
+				[]
+			]
+		}
+	]
+},
+"isfile":
+{
+	"inputs":
+	[
+		{"name":"path", "kind":"required", "type":[["file"],["char"], ["cellstr"], ["string"]]}
+	],
+	"outputs":
+	[
+		{"name":"TF", "type":"logical"}
+	]
+	
+},
+"isfolder":
+{
+	"inputs":
+	[
+		{"name":"path", "kind":"required", "type":[["folder"],["char"], ["cellstr"], ["string"]]}
+	],
+	"outputs":
+	[
+		{"name":"TF", "type":"logical"}
+	]
+	
+},
+"beep":
+{
+	"inputs":
+	[
+		{"name":"flag", "kind":"flag", "type":["choices={'on','off'}"]}
+	],
+    "outputs":
+    [
+        {"name":"state", "kind":"ordered", "type":"char"}
+    ]
+},
+"computer":
+{
+    "inputs":
+	[
+		{"name":"'arch'", "kind":"flag", "type":["choices={'arch'}"]}
+	],
+    "outputs":
+    [
+        {"name":"architecture", "kind":"ordered"},
+        {"name":"maxsize", "kind":"ordered"},
+        {"name":"endian", "kind":"ordered"}
+    ]
+    
+},
+"computer":
+{
+    "inputs":
+	[
+		{}
+	],
+    "outputs":
+    [
+        {"name":"architecture", "kind":"ordered"},
+        {"name":"maxsize", "kind":"ordered"},
+        {"name":"endian", "kind":"ordered"}
+    ]
+    
+},
+"dos":
+{
+    "inputs":
+	[
+		{"name":"command","kind":"required","type":"char"},
+        {"name":"'-echo'","kind":"flag","type":"choices={'-echo'}"}
+	],
+    "outputs":
+    [
+        {"name":"status","type":["double","scalar"]},
+        {"name":"data","type":"char"}
+    ]
+},
+"unix":
+{
+    "inputs":
+	[
+		{"name":"command","kind":"required","type":"char"},
+        {"name":"'-echo'","kind":"flag","type":"choices={'-echo'}"}
+	],
+    "outputs":
+    [
+        {"name":"status","type":["double","scalar"]},
+        {"name":"data","type":"char"}
+    ]
+},
+"system":
+{
+    "inputs":
+	[
+		{"name":"command","kind":"required","type":"char"},
+        {"name":"'-echo'","kind":"flag","type":"choices={'-echo'}"}
+	],
+    "outputs":
+    [
+        {"name":"status","type":["double","scalar"]},
+        {"name":"data","type":"char"}
+    ]
+},
+"memory":
+{
+    "outputs":
+    [
+        {"name":"USERVIEW"},
+        {"name":"SYSTEMVIEW"}
+    ]
+},
+"getenv":
+{
+    "inputs":
+	[
+        {"name":"name","kind":"required","type":"char"}
+    ],
+    "outputs":
+    [
+        {"name":"value"}
+    ]
+},
+"setenv":
+{
+    "inputs":
+	[
+        {"name":"name","kind":"required","type":"char"},
+        {"name":"value","kind":"required","type":"char"}
+    ]
+},
+"inmem":
+{
+	"inputs":
+	[
+		{"name":"'-completenames'", "kind":"optional", "type":"choices={'-completenames'}"}
+	]
+}
+}

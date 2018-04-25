@@ -1,0 +1,1 @@
+.mwStateFlowTextField.mwTextField .inputOverlay {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}.mwStateFlowTextField.mwTextField.mwEnabled .inputOverlay {display: none;}.mwStateFlowTextField.mwTextField.mwDisabled .inputOverlay {display: block;}

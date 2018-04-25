@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="commandwindow" visible="false">
+        <key name="WrapLines" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="EightyColumns" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="GettingStarted" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="Corrections" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+    	<key name="NumericDisplay" visible="false">
+            <string>
+                <value>loose</value>
+            </string>
+        </key>
+        <key name="NumericFormat" visible="false">
+            <string>
+                <value>short</value>
+            </string>
+        </key>
+    </settings>
+</settings>

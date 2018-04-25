@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="importtool" visible="false">
+        <key name="ImportToolTextType" visible="false">
+            <string>
+                <value>string</value>
+            </string>
+        </key>
+    </settings>
+</settings>

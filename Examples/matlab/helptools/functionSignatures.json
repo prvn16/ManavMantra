@@ -1,0 +1,37 @@
+{
+"doc":
+{
+    "inputs":
+    [
+		{"name":"name", "kind":"ordered", "type":"identifier=variable,function,localfunction,package,classdef"}
+    ]
+},
+"doc":
+{
+    "inputs":
+    [
+		{"name":"filename", "kind":"ordered", "type":"file"}
+    ]
+},
+"docroot":
+{
+    "inputs":
+    [
+        {"name":"newRoot", "kind":"required", "type":"folder"}
+    ]
+},
+"help":
+{
+    "inputs":
+    [
+		{"name":"name", "kind":"ordered", "type":"identifier=variable,function,localfunction,package,classdef"}
+    ]
+},
+"help":
+{
+    "inputs":
+    [
+		{"name":"filename", "kind":"ordered", "type":"file"}
+    ]
+}
+}

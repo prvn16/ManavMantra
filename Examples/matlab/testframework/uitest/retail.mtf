@@ -1,0 +1,7 @@
+# RETAIL KIT
+# Copyright 2016-2017 The MathWorks, Inc.
+
+# Include scoped path information
+include derived/share/matlab/toolbox/testframework/uitest.mtf
+
+toolbox/matlab/testframework/uitest/[DIRS]/[FILES]

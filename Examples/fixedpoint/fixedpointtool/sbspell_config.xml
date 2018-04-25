@@ -1,0 +1,12 @@
+<!-- Copyright 2014 The MathWorks, Inc. -->
+<SbspellConfig>
+  <!-- allowed-in-comments="yes" is needed as toolbox/fixedpoint/sbspell_config.xml sets ...
+       it to "no". -->
+  <local-words
+      allowed-in-comments="yes"
+      />
+  <spell-check
+      type="MATLAB-files"
+      check="strings"
+      />
+</SbspellConfig>

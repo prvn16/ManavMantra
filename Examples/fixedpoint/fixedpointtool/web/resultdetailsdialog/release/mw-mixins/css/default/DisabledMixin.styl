@@ -1,0 +1,13 @@
+/* Custom disabled look and feel for this visual family */
+.mwDefaultVisualFamily.mwWidget.mwDisabledMixin.mwWidgetDisabled {
+  opacity: 0.35;  
+}
+
+//TODO: Need a specific location to move. Does not belong anywhere (.mwDefaultVisualFamily.mwWidget)
+
+/* By default remove all the browser outline styles from all the widgets of this visual family, some widgets may opt in
+to show the outline, like the TextField per its visual design */
+.mwDefaultVisualFamily.mwWidget,
+.mwDefaultVisualFamily.mwWidget * {
+  outline: none;
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="ui" visible="false">
+
+        <key name="UIFigureDebugModeEnabled" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+
+        <settings name="figure" visible="false">
+            <key name="ShowInMATLABOnline" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+
+            <key name="ShowInWebApps" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+
+        <settings name="dialog" visible="false">
+            <settings name="uisetcolor" visible="false">
+                <key name="ControllerName" visible="false">
+                    <string>
+                        <value><![CDATA[matlab.ui.internal.dialog.WebColorChooser]]></value>
+                    </string>
+                </key>
+                <key name="RecentlyUsedColors" visible="false">
+                    <string>
+                        <value><![CDATA[ff0000-ff00ff-ffff00-00ff00-ffffff-00ffff-0000ff-000000]]></value>
+                    </string>
+                </key>
+            </settings>
+        </settings>
+
+        <settings name="copyoptions" visible="false">
+            <key name="FigureFormat" visible="false">
+                <int32>
+                    <value>2</value>
+                </int32>
+            </key>
+            <key name="FigureBackground" visible="false">
+                <int32>
+                    <value>0</value>
+                </int32>
+            </key>
+            <key name="MatchFigureScreen" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+
+            <key name="TextBold" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="TextBW" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="TextSizeChange" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="TextSizeChangePref" visible="false">
+                <int32>
+                    <value>0</value>
+                </int32>
+            </key>
+            <key name="TextSizeChangeTo" visible="false">
+                <string>
+                    <value>20</value>
+                </string>
+            </key>
+            <key name="TextSizeIncrease" visible="false">
+                <string>
+                    <value>140</value>
+                </string>
+            </key>
+            <key name="LinesWidthCustom" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="LinesWidth" visible="false">
+                <string>
+                    <value>2</value>
+                </string>
+            </key>
+            <key name="LinesStyleChange" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="LinesStylePref" visible="false">
+                <int32>
+                    <value>0</value>
+                </int32>
+            </key>
+            <key name="LockAxesAndTickLabels" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="ShowUiControls" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+    </settings>
+</settings>

@@ -1,0 +1,10 @@
+{
+    "version": "1.0.0",
+    "serviceregistry": [
+        {
+            "name": "primary",
+            "endpoint": "/",
+            "version": "1.0.0"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+"winopen":
+{
+	"platforms":"win32,win64",
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file"},
+		{"name":"varargin", "kind":"ordered", "repeating":true}
+	]
+}
+}

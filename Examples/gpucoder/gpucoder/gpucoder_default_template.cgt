@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CGT File's Encoding (optional)
+%%   Specify what encoding the CGT file was originally writen in by uncommenting
+%%   the following tag. See web(fullfile(docroot, 'matlab/ref/fopen.html')) for
+%%   supported file encodings.
+%%
+%%   Common encodings: UTF-8, US-ASCII, Windows-1252, Shift_JIS
+%%
+%% <encodingIn="UTF-8">
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom File Banner section (optional)
+%% Customize File banners by using either custom tokens or the following
+%% predefined tokens:
+%% %<FileName>, %<MATLABCoderVersion>, %<EmbeddedCoderVersion>
+%% %<SourceGeneratedOn> , %<HardwareSelection>, %<OutputType>
+%% %<GPUCoderVersion>
+%%
+%% You can also use "custom tokens" in all of the sections below. See the
+%% documentation center for more details.
+%%
+<FileBanner style="classic">
+File: %<FileName>
+
+GPU Coder version                    : %<GPUCoderVersion>
+CUDA/C/C++ source code generated on  : %<SourceGeneratedOn>
+</FileBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom Function Banner section (optional)
+%% Customize function banners by using the following predefined tokens:
+%% %<FunctionName>, %<FunctionDescription>, %<FunctionPrototype>
+%% %<Arguments>, %<ReturnType>
+%%
+<FunctionBanner style="classic">
+%<FunctionPrototype>
+%<FunctionDescription>
+Arguments    : %<Arguments>
+Return Type  : %<ReturnType>
+</FunctionBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom Shared Utility Function Banner section (optional)
+%% Customize shared utility function banners by using the following
+%% predefined tokens:
+%% %<FunctionName>, %<FunctionDescription>
+%% %<Arguments>, %<ReturnType>
+%%
+<SharedUtilityBanner style="classic">
+Arguments    : %<Arguments>
+Return Type  : %<ReturnType>
+</SharedUtilityBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom File Trailer section (optional)
+%% You can use any of the predefined tokens available for the Custom File
+%% Banner Section.
+%%
+<FileTrailer style="classic">
+File trailer for %<FileName>
+
+[EOF]
+</FileTrailer>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Code Insertion section comments (optional)
+%% You can use the following section banners to customize the comments that
+%% appear before a specific code section, for example, "Include Files" or
+%% "Function Definitions".
+%%
+%% Include Files
+<IncludeFilesBanner style="classic">
+Include Files
+</IncludeFilesBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Type Definitions
+<TypeDefinitionsBanner style="classic">
+Type Definitions
+</TypeDefinitionsBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Named Constants
+<NamedConstantsBanner style="classic">
+Named Constants
+</NamedConstantsBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Variable Declarations
+<VariableDeclarationsBanner style="classic">
+Variable Declarations
+</VariableDeclarationsBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Variable Definitions
+<VariableDefinitionsBanner style="classic">
+Variable Definitions
+</VariableDefinitionsBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Function Declarations
+<FunctionDeclarationsBanner style="classic">
+Function Declarations
+</FunctionDeclarationsBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Function Definitions
+<FunctionDefinitionsBanner style="classic">
+Function Definitions
+</FunctionDefinitionsBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom Source Code
+<CustomSourceCodeBanner style="classic">
+Custom Source Code
+</CustomSourceCodeBanner>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom Header Code
+<CustomHeaderCodeBanner style="classic">
+Custom Header Code
+</CustomHeaderCodeBanner>

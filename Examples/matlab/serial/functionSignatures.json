@@ -1,0 +1,199 @@
+{
+  "delete": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ]
+  },
+  "disp": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ]
+  },
+  "fclose": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ]
+  },
+  "fgetl": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ],
+    "outputs":
+    [
+      {"name":"tline","type":"char"},
+      {"name":"count","type":"numeric"},
+      {"name":"msg","type":"char"}
+    ]
+  },
+  "fgets": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ],
+    "outputs":
+    [
+      {"name":"tline","type":"char"},
+      {"name":"count","type":"numeric"},
+      {"name":"msg","type":"char"}
+    ]
+  },
+  "fopen": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ]
+  },
+  "fprintf": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "format","kind": "ordered","type": "char"},
+      {"name": "cmd","kind": "required","type": "char"},
+      {"name": "mode","kind": "ordered","type": "choices={'sync','async'}"}
+    ]
+  },
+  "fread": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "size","kind": "positional","type": "double"},
+      {"name": "precision","kind": "ordered","type": "choices={'char' ,'double', 'float', 'float32', 'float64', 'int', 'int16', 'int32', 'int8','long', 'schar' ,'short', 'single', 'uchar', 'uint', 'uint16', 'uint32', 'uint8', 'ulong', 'ushort'}"}
+    ],
+    "outputs":
+    [
+      {"name":"A","type":"double"},
+      {"name":"count","type":"double"},
+      {"name":"msg","type":"char"}
+    ]
+  },
+  "fscanf": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "format","kind": "ordered","type": "char"},
+      {"name": "size","kind": "ordered","type": "double"}
+    ],
+    "outputs":
+    [
+      {"name":"A","type":"char"},
+      {"name":"count","type":"double"},
+      {"name":"msg","type":"char"}
+    ]
+  },
+  "fwrite": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "A","kind": "required","type": "double"},
+      {"name": "precision","kind": "ordered","type": "choices={'char' ,'double', 'float', 'float32', 'float64', 'int', 'int16', 'int32', 'int8','long', 'schar' ,'short', 'single', 'uchar', 'uint', 'uint16', 'uint32', 'uint8', 'ulong', 'ushort'}"},
+      {"name": "mode","kind": "ordered","type": "choices={'async', 'sync'}"}
+    ]
+  },
+  "isvalid": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ],
+    "outputs":
+    [
+      {"name":"out","type": "logical"}
+    ]
+  },
+  "length": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ],
+    "outputs":
+    [
+      {"name":"out","type": "double"}
+    ]
+  },
+  "readasync": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "size","kind": "ordered","type": "double"}
+    ]
+  },
+  "record": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "switch","kind": "ordered","type": "choices={'on', 'off'}"}
+    ]
+  },
+  "serial": {
+    "inputs":
+    [
+      {"name": "port","kind": "required","type": "choices=cellstr(char(com.mathworks.toolbox.instrument.SerialComm.findAllPorts()))"},
+      {"name": "BaudRate","kind": "namevalue","type": "double"},
+      {"name": "ByteOrder","kind": "namevalue","type": "choices={'littleEndian','bigEndian'}"},
+      {"name": "BytesAvailableFcn","kind": "namevalue","type": "char"},
+      {"name": "BytesAvailableFcnCount","kind": "namevalue","type": "double"},
+      {"name": "BytesAvailableFcnMode","kind": "namevalue","type": "choices={'terminator','byte'}"},
+      {"name": "DataBits","kind": "namevalue","type": "double"},
+      {"name": "DataTerminalReady","kind": "namevalue","type": "choices={'on','off'}"},
+      {"name": "ErrorFcn","kind": "namevalue","type": "char"},
+      {"name": "FlowControl","kind": "namevalue","type": "choices={'none','hardware','software'}"},
+      {"name": "InputBufferSize","kind": "namevalue","type": "double"},
+      {"name": "Name","kind": "namevalue","type": "char"},
+      {"name": "ObjectVisibility","kind": "namevalue","type": "choices={'on','off'}"},
+      {"name": "OutputBufferSize","kind": "namevalue","type": "double"},
+      {"name": "OutputEmptyFcn","kind": "namevalue","type": "char"},
+      {"name": "Parity","kind": "namevalue","type": "choices={'none','odd','even','mark','space'}"},
+      {"name": "PinStatusFcn","kind": "namevalue","type": "char"},
+      {"name": "Port","kind": "namevalue","type": "char"},
+      {"name": "ReadAsyncMode","kind": "namevalue","type": "choices={'continuous','manual'}"},
+      {"name": "RecordDetail","kind": "namevalue","type": "choices={'compact','verbose'}"},
+      {"name": "RecordMode","kind": "namevalue","type": "choices={'overwrite','append','index'}"},
+      {"name": "RecordName","kind": "namevalue","type": "char"},
+      {"name": "RequestToSend","kind": "namevalue","type": "choices={'on','off'}"},
+      {"name": "StopBits","kind": "namevalue","type": "double"},
+      {"name": "Tag","kind": "namevalue","type": "char"},
+      {"name": "Terminator","kind": "namevalue","type": [["char"],["numeric","<=127",">=0"],["choices={'LF','LF/CR','CR','CR/LF'}"]]},
+      {"name": "Timeout","kind": "namevalue","type": "double"},
+      {"name": "TimerFcn","kind": "namevalue","type": "char"},
+      {"name": "TimerPeriod","kind": "namevalue","type": "double"},
+      {"name": "UserData","kind": "namevalue","type": "double"}
+    ],
+    "outputs":
+    [
+      {"name":"obj","type":"serial"}
+    ]
+  },
+  "serialbreak": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "time","kind": "ordered","type": "double"}
+    ]
+  },
+  "seriallist": {
+    "inputs":
+    [
+      {"name": "ports","kind": "ordered","type": "choices={'all','available'}"}
+    ]
+  },
+  "size": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"},
+      {"name": "dim","kind": "ordered","type": "double"}
+    ],
+    "outputs":
+    [
+      {"name": "d","type":"double"}
+    ]
+  },
+  "stopasync": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "serial"}
+    ]
+  }
+}

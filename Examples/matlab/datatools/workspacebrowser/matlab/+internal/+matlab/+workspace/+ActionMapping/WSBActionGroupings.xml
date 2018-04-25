@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 The MathWorks, Inc. -->
+
+<ContextMenu ID="WSBContextMenu">        
+    <Context MatchContext="WorkspaceBrowser,DataVariable" ID="Context1" Expanded="True" ExactMatch="True">
+        <ActionGroup Expanded="True" ID="OpenSave">  
+            <Action ID="OpenVariableAction" MessageID = "OpenVariableAction"/> 
+            <Action ID="SaveVariablesAction" MessageID="SaveVariablesAction"/> 
+        </ActionGroup> 
+        <MenuSeparator/>
+        <ActionGroup Expanded="True" ID="CopyDuplicateDelete">             
+            <Action ID="DuplicateVariableAction" MessageID="DuplicateVariableAction"/>
+            <Action ID="DeleteVariableAction" MessageID="DeleteVariableAction"/>            
+        </ActionGroup>                    
+    </Context>
+    <Context MatchContext="WorkspaceBrowser,EmptySpace" ID="Context2" Expanded="True" ExactMatch="True">
+        <Action ID="NewDoubleVariableAction" MessageID="NewDoubleVariableAction"/> 
+        <MenuSeparator/>
+        <ActionGroup Expanded="True" ID="SaveClear" MessageID="SaveAndClear">
+            <Action ID="SaveAllVariablesAction" MessageID="SaveAllVariablesAction"/>
+            <Action ID="ClearWorkspaceAction" MessageID="ClearWorkspaceAction"/>
+        </ActionGroup>  
+    </Context>    
+</ContextMenu>

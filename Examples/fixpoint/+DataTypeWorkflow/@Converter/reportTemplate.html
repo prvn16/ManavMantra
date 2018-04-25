@@ -1,0 +1,189 @@
+<html>
+    <head>
+        <title>Results Report</title>
+        <style type='text/css'>
+            body{
+                font-family:Trebuchet MS;
+            }
+            
+            table{
+                border-top: 1px solid black;
+                border-left: 1px solid black;
+                border-spacing: 0;
+            }
+            
+            tr:first-child td{
+                cursor:pointer;
+                background-color:#eee;
+            }
+            
+            td{
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+                margin:0;
+                padding:3pt;
+            }
+            
+            #displayOption{
+                margin-bottom:.5em;
+            }
+            
+            #displayOptions div{
+                margin-left:2em;
+            }
+            
+            #displayOptions{
+                padding-bottom:2em;
+            }
+            
+            .RunHeader{
+                font-size: 24pt;
+            }
+            
+            
+            .runName{
+                cursor:pointer;
+            }
+            
+            div.runName:after{
+                content:" (click run name to hide)";
+                color: #bbb;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <h1>Results Report</h1>
+        <div id='displayOption' onclick='this.checked=!this.checked; changeDisplay(this);'>Display Options (uncheck to hide)</div>
+        %%%displayOptions%%%
+        %%%resultTable%%%
+        <script type='text/javascript'>
+            //Display options hiding mechanism
+            function changeDisplay(e){
+                toChange = document.getElementsByClassName(e.id);
+                if(e.checked){
+                    for(var i=0 ; i<toChange.length ; i++){
+                        toChange[i].style.display = '';
+                    }
+                }else{
+                    for(var i=0 ; i<toChange.length ; i++){
+                        toChange[i].style.display = 'none';
+                    }
+                }
+            }
+            
+            //Run hiding mechanism
+            var displayText = function(text){document.body.insertBefore((function(){d=document.createElement('div');d.innerHTML=text;return d;})(),document.body.firstChild)};
+            
+            
+            var runNames = getElementsByClassName('runName');
+            for(var i=0 ; i<runNames.length ; i++){
+                var table = runNames[i].parentNode.getElementsByTagName('table')[0];
+                runNames[i].onclick = (function(table){
+                    return function(){
+                        if(table.style.display == 'none'){
+                            table.style.display = 'block';
+                        }else{
+                            table.style.display = 'none';
+                        }
+                     }
+                 })(table);
+            }
+            
+            //Column hiding mechanism
+            var displayOptionWrappers = getElementsByClassName('displayOption');
+            var displayOptions = [];
+            for(var i=0 ; i<displayOptionWrappers.length ; i++){
+                displayOptions.push(displayOptionWrappers[i].getElementsByTagName('input')[0]);
+            }
+            for(var i=0 ; i<displayOptions.length ; i++){
+                displayOptions[i].onclick = function(){
+                    var elements = getElementsByClassName(this.id);
+                    if(!this.checked){
+                        for(var j=0 ; j<elements.length ; j++){
+                            elements[j].style.display = 'none';
+                        }
+                    }else{
+                        for(var j=0 ; j<elements.length ; j++){
+                            elements[j].style.display = 'table-cell';
+                        }
+                    }
+                }
+            }
+            
+            
+            
+            
+            var rows = [];
+            var table = null;
+            
+            window.onload = function(){
+                var tables = document.getElementsByTagName('table');
+                for(var i=0 ; i<tables.length ; i++){
+                    makeTableSortable(tables[i]);
+                }
+            }
+            
+            function makeTableSortable(t){
+                rows = t.getElementsByTagName('tr');
+                var firstRow = rows[0];
+                var columnHeaders = firstRow.getElementsByTagName('td');
+                for(var i=0 ; i<columnHeaders.length ; i++){
+                    columnHeaders[i].onclick = function(){
+                        this.ordering = !this.ordering;
+                        sortRows(this.className,this.ordering,t,firstRow);
+                    }
+                }
+            }
+            
+            function sortRows(column,ordering,table,firstRow){
+                var values = [];
+                table = table.getElementsByTagName('tbody')[0];
+                rows = table.getElementsByTagName('tr');
+                for(var i=1 ; i<rows.length ; i++){
+                    values[i-1] = {};
+                    values[i-1].element = rows[i];
+                    var el = getElementsByClassName(column,rows[i])[0];
+                    values[i-1].value = el.innerText;
+                }
+                values = values.sort(function(a,b){
+                    v1 = parseFloat(a.value);
+                    v1 = v1 || a.value;
+                    v2 = parseFloat(b.value);
+                    v2 = v2 || b.value;
+                    if(v1<v2){
+                        out = 1;
+                    }else if(v1 > v2){
+                        out = -1;
+                    }else{
+                        out = 0;
+                    }
+                    return (ordering)?out:out*-1;
+                });
+                for(var i=0 ; i<values.length ; i++){
+                    table.insertBefore(values[i].element,firstRow.nextSibling);
+                }
+            }
+            
+            function getElementsByClassName(className,el){
+                var el = el || document.body;
+                var allElements = el.getElementsByTagName('*');
+                var matches = [];
+                p = new RegExp('\\\\b' + className + '\\\\b');
+                for(var i=0 ; i<allElements.length ; i++){
+                    if(p.test(allElements[i].className)){
+                        matches.push(allElements[i]);
+                    }
+                }
+                return matches;
+            }
+                    
+            
+            
+        </script>
+    </body>
+</html>
+
+<!-- LocalWords:  Trebuchet px
+-->

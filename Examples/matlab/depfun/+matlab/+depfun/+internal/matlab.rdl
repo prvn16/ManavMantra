@@ -1,0 +1,67 @@
+License MATLAB, matlab
+
+% Copyright 2011-2016 The MathWorks, Inc.
+
+% REQUIREMENTS expects these files to exist in the target environment, and 
+% optimizes them out of the shipping parts list.
+
+Expect MATLAB [
+$MATLABROOT/toolbox/
+]
+
+% Even if these files would be optimized out of the parts list, allow them if
+% they were explicitly specified as inputs to REQUIREMENTS. 
+
+Allow MATLAB ROOTSET [
+$MATLABROOT/.*/demos/
+$MATLABROOT/toolbox/local/
+]
+
+Allow MATLAB COMPLETION [
+$MATLABROOT/.*/demos/
+$MATLABROOT/toolbox/local/
+]
+
+% These files should never be included in any parts list.
+
+Exclude MATLAB [
+$MATLABROOT/toolbox/compiler/
+$MATLABROOT/.*/ja/.*[.]m$
+]
+
+% These rules help REQUIREMENTS include files that it has difficulty discovering
+% through analysis. For example, a GUIDE GUI depends on both a MATLAB function
+% and a FIG file, but the FIG file is never explicitly referenced in the 
+% MATLAB function (MATLAB magically detects and loads the FIG file). Since
+% REQUIREMENTS can't discover the FIG file through analysis of the MATLAB
+% function, give it a hint: if there's a FIG file with the same name as a
+% MATLAB file in the ROOTSET, include the FIG file in the ROOTSET too.
+
+% Order matters. If the ROOTSET contains .p files, look for the corresponding
+% .m files before moving the .p files to the COMPLETION.
+Substitute MATLAB ROOTSET COMPLETION [
+replaceIfExist(#ROOTSET, regexprep(#ROOTSET, '(.*)[.](p)$', '$1.m')) ? msg2why(message('MATLAB:depfun:req:PcodeEntryPoint', #FILE), #RULE)
+]
+
+Remove MATLAB ROOTSET [
+isbuiltin(#ROOTSET) ? msg2why(message('MATLAB:depfun:req:BuiltinEntryPoint', #FILE), #RULE)
+]
+
+% Non-executable files in the ROOTSET need to move into the COMPLETION.
+Move MATLAB ROOTSET COMPLETION [
+isscript(#ROOTSET) ? msg2why(message('MATLAB:depfun:req:ScriptEntryPoint', #FILE), #RULE)
+hasext(#ROOTSET, '.p') ? msg2why(message('MATLAB:depfun:req:PcodeEntryPoint', #FILE), #RULE)
+hasext(#ROOTSET, [ '.' mexext]) ? msg2why(message('MATLAB:depfun:req:MexEntryPoint', #FILE), #RULE)
+(~isfunction(#ROOTSET) & ~isClassdef(#ROOTSET)) ? msg2why(message('MATLAB:depfun:req:NonFunctionEntryPoint', #FILE), #RULE)
+]
+
+% Insert FIG files with the same base name as M/MLX files. Make sure to only
+% insert files that don't already exist. (Call setdiff to filter out existing
+% files.)
+%
+% Order matters. Insert these files after removing non-function files, or the
+% FIG files (which are not function files) will get removed.
+
+Insert MATLAB COMPLETION [
+existing(setdiff(regexprep(#COMPLETION, '(.*)[.](m|mlx)$', '$1.fig'),#COMPLETION))
+]

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright 2017 The MathWorks, Inc. -->
+<metadata>
+   <TileSetName>darkwater</TileSetName>
+   <Version>v1</Version>
+   <Attribution></Attribution>
+   <AttributionColor>black</AttributionColor>
+   <Author>The MathWorks, Inc.</Author>
+   <DateFormat>dd-MM-uuuu</DateFormat>
+   <Date>29-08-2016</Date>
+   <MaxZoomLevel>7</MaxZoomLevel>
+   <MapTileLocation>maptiles/NaturalEarth/darkwater/v1/${zoomLevel}/${tileRow}/${tileCol}.png</MapTileLocation>
+</metadata>

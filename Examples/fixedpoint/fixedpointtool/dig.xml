@@ -1,0 +1,10 @@
+<dig>
+    <action type="dynamic" id="Simulink:FixedPointInterfaceBlockContextMenu">
+        <generator gateway="fxptui.FPTContextMenus" function="FixedPointInterfaceBlockContextMenu" />
+        <domains>Simulink:Model,Stateflow:Model</domains>
+    </action>
+    <action type="dynamic" id="Simulink:FixedPointInterfaceBlockContextMenu" feature="InterfaceEditor" feature_value="1">
+        <generator gateway="fxptui.FPTContextMenus" function="FixedPointInterfaceBlockContextMenu" />
+        <domains>InterfaceEditor:Model</domains>
+    </action>
+</dig>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="web" visible="false">
+        <key name="BrowserTabMaximum" visible="false">
+            <int32>
+                <value>30</value>
+            </int32>
+        </key>
+        <key name="ExternalLinkIsOk" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="FindPanel" visible="false">
+            <string>
+                <value>small</value>
+            </string>
+        </key>
+        <key name="MaxFileSize" visible="false">
+            <double>
+                <value>1500000</value>
+            </double>
+        </key>
+        <key name="ProxyHost" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="ProxyPassword" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="ProxyPort" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="ProxyUsername" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="SystemBrowser" visible="false">
+            <string>
+                <value>firefox</value>
+            </string>
+        </key>
+        <key name="SystemBrowserOptions" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="UseProxy" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="UseProxyAuthentication" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="Zoom" visible="false">
+            <int32>
+                <value>100</value>
+            </int32>
+        </key>
+        <key name="ChromiumDirLinux" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+    </settings>
+</settings>

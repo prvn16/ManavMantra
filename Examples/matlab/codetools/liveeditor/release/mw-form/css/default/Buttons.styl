@@ -1,0 +1,41 @@
+@import "variables";
+
+// common starting styles for push-button and toggle-button
+
+.mwDefaultVisualFamily.mwPushButton,
+.mwDefaultVisualFamily.mwToggleButton,
+.mwDefaultVisualFamily.mwDropDownButton,
+.mwDefaultVisualFamily.mwSplitButton,
+.mwDefaultVisualFamily.mwToggleSplitButton {
+
+  background: $color-button-background-normal;
+
+  border-color: $color-button-border-normal;
+  border-style: $value-button-border-style;
+  border-width: $pixels-button-border-width;
+  border-radius: $pixels-button-border-radius;
+
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+
+  box-shadow: $color-button-boxshadow-normal;
+  box-sizing: border-box;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwPushButton.mwNoText .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleButton.mwNoText .mwTextNode {
+  display: none;
+}
+
+.mwDefaultVisualFamily.mwPushButton .mwTextNode,
+.mwDefaultVisualFamily.mwToggleButton .mwTextNode {
+  padding: 1px 2px 1px 2px;
+}
+
+// Extra classes used to increase specificity
+.mwDefaultVisualFamily.mwWidget.mwWidgetFocused.mwPushButton.mwPushButtonFocused,
+.mwDefaultVisualFamily.mwWidget.mwWidgetFocused.mwToggleButton.mwToggleButtonFocused {
+  border-color: $color-selection;
+}

@@ -1,0 +1,197 @@
+{
+    "matlab.net.http.RequestMessage.getFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.RequestMessage"},
+            {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])", "repeating": true}
+        ]
+    },
+    "matlab.net.http.ResponseMessage.getFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.ResponseMessage"},
+            {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])", "repeating": true}
+        ]
+    },
+    "matlab.net.http.HeaderField.getFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.HeaderField"},
+            {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])", "repeating": true}
+        ]
+    },
+    "matlab.net.http.RequestMessage.removeFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.RequestMessage"},
+            {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])", "repeating": true}
+        ]
+    },
+    "matlab.net.http.ResponseMessage.removeFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.ResponseMessage"},
+            {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])", "repeating": true}
+        ]
+    },
+    "matlab.net.http.HeaderField.removeFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.HeaderField"},
+            {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])", "repeating": true}
+        ]
+    },
+    "matlab.net.http.RequestMessage.changeFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.RequestMessage"},
+            {"repeating": true, "tuple":
+                [
+                    {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])" },
+                    {"name":"value", "kind":"required" }
+                ]
+            }
+        ]
+    },
+  	"matlab.net.http.ResponseMessage.changeFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.ResponseMessage"},
+            {"repeating": true, "tuple":
+                [
+                    {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])" },
+                    {"name":"value", "kind":"required" }
+                ]
+            }
+        ]
+    },
+  	"matlab.net.http.HeaderField.changeFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.HeaderField"},
+            {"repeating": true, "tuple":
+                [
+                    {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])" },
+                    {"name":"value", "kind":"required" }
+                ]
+            }
+        ]
+    },
+    "matlab.net.http.RequestMessage.replaceFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.RequestMessage"},
+            {"repeating": true, "tuple":
+                [
+                    {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])" },
+                    {"name":"value", "kind":"required" }
+                ]
+            }
+        ]
+    },
+    "matlab.net.http.ResponseMessage.replaceFields":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"matlab.net.http.ResponseMessage"},
+            {"repeating": true, "tuple":
+                [
+                    {"name":"name", "kind":"required", "type":"choices=cellstr([obj.Header.Name])" },
+                    {"name":"value", "kind":"required" }
+                ]
+            }
+        ]
+    },
+  "matlab.net.http.HeaderField.replaceFields": {
+    "inputs": [
+      {
+        "name": "obj",
+        "kind": "required",
+        "type": "matlab.net.http.HeaderField"
+      },
+      {
+        "repeating": true,
+        "tuple": [
+          {
+            "name": "name",
+            "kind": "required",
+            "type": "choices=cellstr([obj.Header.Name])"
+          },
+          {
+            "name": "value",
+            "kind": "required"
+          }
+        ]
+      }
+    ]
+  },
+  "matlab.net.http.RequestMessage.RequestMessage": {
+    "inputs": [
+      {
+        "name": "method",
+        "kind": "positional",
+        "type": [ "string", "char", "matlab.net.http.RequestMethod", "matlab.net.http.RequestLine" ]
+      },
+      {
+        "name": "header",
+        "kind": "positional",
+        "type": "matlab.net.http.HeaderField"
+      }
+    ]
+  },
+  "matlab.net.http.RequestMessage.send": {
+    "inputs": [
+      {
+        "name": "obj",
+        "kind": "required",
+        "type": "matlab.net.http.RequestMessage"
+      },
+      {
+        "name": "URI",
+        "kind": "required",
+        "type": [ "string", "char", "matlab.net.URI" ]
+      },
+      {
+        "name": "options",
+        "kind": "positional",
+        "type": "matlab.net.http.HTTPOptions"
+      },
+      {
+        "name": "consumer",
+        "kind": "positional",
+        "type": "matlab.net.http.io.ContentConsumer"
+      }
+    ]
+  },
+	"matlab.net.http.HTTPOptions.HTTPOptions":
+	{
+		"inputs":
+		[
+			{"name":"name", "kind":"properties", "type":"matlab.net.http.HTTPOptions"}
+		]
+	},
+	"matlab.net.http.CookieInfo":
+	{
+		"inputs":
+		[
+			{"name":"name", "kind":"properties", "type":"matlab.net.http.CookieInfo"}
+		]
+	},
+	"matlab.net.http.Credentials":
+	{
+		"inputs":
+		[
+			{"name":"name", "kind":"properties", "type":"matlab.net.http.Credentials"}
+		]
+	}
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="false" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings name="ssi" visible="false">
+    <settings name="upgrade" visible="false">
+      <!-- Keys to be added programmatically -->
+    </settings>
+  </settings>
+</settings>
+

@@ -1,0 +1,7 @@
+Third Party Software Licenses for GPU Coder
+
+There are no third party license terms specific to the product in this product folder 
+hierarchy. However, use of the product in this product folder hierarchy may require the 
+use of other MathWorks products as described here: http://www.mathworks.com/products/availability/. 
+Please refer to the license file for such required products for their third party license 
+terms that may apply to your use of the product in this product folder hierarchy.

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings name="matlab" visible="false" readonly="false" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="ddux" visible="false" readonly="false">
+        <key name="installationId" visible="false" readonly="false">
+            <string>
+                <value>0a366e5b-0110-4584-b701-e568c2979988</value>
+            </string>
+        </key>
+        <key name="settingsGroup" visible="false" readonly="false">
+            <string>
+                <value>ddux_1728855283507888926</value>
+            </string>
+        </key>
+        <key name="shown" visible="false" readonly="false">
+            <bool>
+                <value>true</value>
+            </bool>
+        </key>
+        <settings name="ddux_1728855283507888926" visible="false" readonly="false">
+            <key name="installationDate" visible="false" readonly="false">
+                <string>
+                    <value>2018-04-02</value>
+                </string>
+            </key>
+            <key name="applicationName" visible="false" readonly="false">
+                <string>
+                    <value>DESKTOP_MATLAB</value>
+                </string>
+            </key>
+            <key name="shown" visible="false" readonly="false">
+                <bool>
+                    <value>true</value>
+                </bool>
+            </key>
+            <key name="chosen" visible="false" readonly="false">
+                <bool>
+                    <value>true</value>
+                </bool>
+            </key>
+            <settings name="dataStreams" visible="false" readonly="false">
+                <key name="enabled" visible="false" readonly="false">
+                    <bool>
+                        <value>1</value>
+                    </bool>
+                </key>
+                <settings name="MATLAB_DDUX_FUNCTION_USAGE" visible="false" readonly="false">
+                    <key name="functionWhiteList" visible="false" readonly="false">
+                        <string>
+                            <value>eJwDAAAAAAE=</value>
+                        </string>
+                    </key>
+                </settings>
+            </settings>
+        </settings>
+    </settings>
+</settings>

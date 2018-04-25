@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="guide" visible="false">
+        <key name="LayoutToolBar" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LayoutStatusBar" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LayoutQuickStartTab" visible="false">
+            <int32>
+                <value>0</value>
+            </int32>
+        </key>
+        <key name="LayoutToolNames" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="LayoutExtension" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LayoutFullPath" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="LayoutMCodeComments" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LayoutActivate" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LayoutExport" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LayoutChangeDefaultCallback" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+    </settings>
+</settings>

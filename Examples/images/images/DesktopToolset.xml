@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011-2016 The MathWorks, Inc. -->
+<!-- message_catalog="images:toolset" -->
+<!-- THIS FILE CONTRIBUTES TO THE MATLAB APPS & PLOTS GALLERY WHICH IS CAREFULLY CURATED -->
+<!-- ADDITIONS AND CHANGES MUST GO THROUGH A DESIGN REVIEW PROCESS WITH SENIOR MANAGEMENT -->
+<!-- THIS PROCESS IS MANAGED BY THE MATLAB DESKTOP TEAM. CONSULT THE TOOLSTRIP GUIDELINES TO GET STARTED -->
+<toolset id="image_toolset" message_catalog="images:desktop">
+    <tool id="imtool">
+        <icon filename="image_app_16.png" path="../icons" />
+        <icon filename="image_app_24.png" path="../icons" />
+        <callback>imtool</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="implay">
+        <icon filename="image_app_16.png" path="../icons" />
+        <icon filename="image_app_24.png" path="../icons" />
+        <callback>implay</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="colorThresholder">
+        <icon filename="color_thresholder_16.png" path="../icons" />
+        <icon filename="color_thresholder_24.png" path="../icons" />
+        <callback>colorThresholder</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="imageRegionAnalyzer">
+        <icon filename="ImageRegionAnalyzer_AppIcon_16px.png" path="../icons" />
+        <icon filename="ImageRegionAnalyzer_AppIcon_24px.png" path="../icons" />
+        <callback>imageRegionAnalyzer</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="registrationEstimator">
+        <icon filename="imageRegistration_AppIcon_16.png" path="../icons" />
+        <icon filename="imageRegistration_AppIcon_24.png" path="../icons" />
+        <callback>registrationEstimator</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="imageSegmenter">
+        <icon filename="imageSegmenter_AppIcon_16.png" path="../icons" />
+        <icon filename="imageSegmenter_AppIcon_24.png" path="../icons" />
+        <callback>imageSegmenter</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="imageBatchProcessor">
+        <icon filename="imageBatchProcessor_AppIcon_16.png" path="../icons" />
+        <icon filename="imageBatchProcessor_AppIcon_24.png" path="../icons" />
+        <callback>imageBatchProcessor</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="imageBrowser">
+        <icon filename="imageBrowser_AppIcon_16.png" path="../icons" />
+        <icon filename="imageBrowser_AppIcon_16.png" path="../icons" />
+        <callback>imageBrowser</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    <tool id="dicomBrowser">
+        <icon filename="imageBrowser_AppIcon_16.png" path="../icons" />
+        <icon filename="imageBrowser_AppIcon_16.png" path="../icons" />
+        <callback>dicomBrowser</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+    
+    <tool id="volumeViewer">
+        <icon filename="app_volume_viewer_16.png" path="../icons" />
+        <icon filename="app_volume_viewer_24.png" path="../icons" />
+        <callback>volumeViewer</callback>
+        <parent_tool id="image_products" toolset_id="apps_toolset" />
+    </tool>
+
+    <tool id="imtoolplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="ipt_plot_picker_imtool.png" path="../../matlab/icons/" />
+        <function>imtool</function>
+        <visibility>@(args) imageplotfunc('defaultshow','imtool',[],args)</visibility>
+        <action>@(varNames) imageplotfunc('defaultdisplay','imtool',varNames)</action>
+        <gui>yes</gui>
+        <parent_tool id="category_imageProcessing" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="implayplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="ipt_plot_picker_imtool.png" path="../../matlab/icons/" />
+        <function>implay</function>
+        <visibility>@(args) imageplotfunc('defaultshow','implay',[],args)</visibility>
+        <action>@(varNames) imageplotfunc('defaultdisplay','implay',varNames)</action>
+        <parent_tool id="category_imageProcessing" toolset_id="plot_toolset" />
+    </tool>
+</toolset>

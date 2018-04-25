@@ -1,0 +1,53 @@
+{  
+    "uialert":
+    {
+        "inputs":
+        [
+            {"name":"figure", "kind":"required", "type":"matlab.ui.Figure"},
+            {"name":"message", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"required", "type":"char"},
+            {"name":"CloseFcn", "kind":"namevalue", "type":[["function_handle"], ["char"], ["cellstr"]]},
+            {"name":"Icon", "kind":"namevalue", "type":[["choices={'error', 'warning', 'info', 'success', 'none'}"], ["file"], ["numeric"]]},
+            {"name":"Modal", "kind":"namevalue", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "uiconfirm":
+    {
+        "inputs":
+        [
+            {"name":"f", "kind":"required", "type":"matlab.ui.Figure"},
+            {"name":"message", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"required", "type":"char"},
+            {"name":"Icon", "kind":"namevalue", "type":[["choices={'error', 'warning', 'info', 'success', 'question', 'none'}"], ["file"], ["numeric"]]},
+            {"name":"CloseFcn", "kind":"namevalue", "type":[["function_handle"], ["char"], ["cellstr"]]},
+            {"name":"Options", "kind":"namevalue", "type":"cellstr"},
+            {"name":"DefaultOption", "kind":"namevalue", "type":[["char"], ["integer"]]},          
+            {"name":"CancelOption", "kind":"namevalue", "type":[["char"], ["integer"]]}
+        ]
+    },
+
+    "uifigure":
+    {
+        "inputs":
+        [
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.Figure"}
+        ]
+    },
+
+    "uiprogressdlg":
+    {
+        "inputs":
+        [
+            {"name":"f", "kind":"required", "type":"matlab.ui.Figure"},
+            {"name":"Message", "kind":"namevalue", "type":[["char"], ["string"], ["cellstr"]]},
+            {"name":"Title", "kind":"namevalue", "type":[["char"], ["string", "scalar"]]},
+            {"name":"Value", "kind":"namevalue", "type":["numeric", ">=0", "<=1"]},
+            {"name":"Icon", "kind":"namevalue", "type":[["choices={'error', 'warning', 'info', 'success', 'question', 'none'}"], ["filepath"], ["numeric"]]},
+            {"name":"Indeterminate", "kind":"namevalue", "type":"choices={'on','off'}"},
+            {"name":"ShowPercentage", "kind":"namevalue", "type":"choices={'on','off'}"},
+            {"name":"Cancelable", "kind":"namevalue", "type":"choices={'on','off'}"},          
+            {"name":"CancelText", "kind":"namevalue", "type":[["char"], ["string", "scalar"]]}
+        ]
+    }
+}

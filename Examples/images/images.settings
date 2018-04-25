@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="images" visible="false" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <key name="UseIPPL" visible="false">
+        <bool>
+            <value>1</value>
+        </bool>
+    </key>
+    <key name="UseHalide" visible="false">
+        <bool>
+            <value>1</value>
+        </bool>
+    </key>
+
+    <settings name="imtool" visible="false">
+        <key name="InitialMagnification" visible="false">
+            <double>
+                <value>100</value>
+            </double>
+        </key>
+        <key name="InitialMagnificationStyle" visible="false">
+            <string>
+                <metadata>
+                    <choices>numeric</choices>
+                    <choices>fit</choices>
+                    <choices>adaptive</choices>
+                </metadata>
+                <value>adaptive</value>
+            </string>
+        </key>
+        <key name="OpenOverview" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+    </settings>
+
+    <settings name="imagebatchprocessingtool" visible="false">
+        <key name="BatchFunctions" visible="false">
+            <string minArraySize="0" maxArraySize="5">
+                <value></value>
+            </string>
+        </key>
+        <key name="BatchLocations" visible="false">
+            <string minArraySize="0" maxArraySize="5">
+                <value></value>
+            </string>
+        </key>
+    </settings>
+
+    <settings name="imageregistrationtool" visible="false">
+        <key name="fixedFileLocation" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="movingFileLocation" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="CVSTWarningDialog" visible="false">
+          <bool>
+            <value>1</value>
+          </bool>
+        </key>
+    </settings>
+
+    <settings name="volumeviewertool" visible="false">
+        <key name="useHardwareOpenGL" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        
+    </settings>
+
+    <settings name="imagesegmentertool" visible="false">
+        <key name="showGrabCutTutorialDialog" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        
+    </settings>
+
+</settings>

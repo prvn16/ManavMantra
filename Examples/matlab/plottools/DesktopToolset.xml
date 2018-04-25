@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016-2017 The MathWorks, Inc. -->
+<toolset id="coreplots_toolset" message_catalog="MATLAB:plots">
+    <tool id="plot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-plot_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plot.gif" path="../icons/" />
+        <function>plot</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','plot',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="plot_multiseries" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-plot_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plot.gif" path="../icons/" />
+        <function>plot</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','plot as multiple series',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="plot_multiseriesfirst" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+         <icon filename="plottype-plot_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plot.gif" path="../icons/" />
+        <function>plot</function>
+        <action>@(varNames) plotpickerfunc('defaultdisplay','plot as multiple series vs. first input',varNames)</action>
+        <allowswap>no</allowswap>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+     <tool id="plotyy" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-plotyy_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plotyy.gif" path="../icons/" />
+        <function>plotyy</function>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="semilogx" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-semilogx_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-semilogx.png" path="../icons/" />
+        <function>semilogx</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','semilogx',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="semilogy" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-semilogy_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-semilogy.png" path="../icons/" />
+        <function>semilogy</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','semilogy',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="loglog" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-loglog_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-loglog.gif" path="../icons/" />
+        <function>loglog</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','loglog',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="area" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-area_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-area.gif" path="../icons/" />
+        <function>area</function>
+		<action>@(varNames,varValues) plotpickerfunc('defaultdisplay','area',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="errorbar" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-error_bar_vert_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-errorbar.png" path="../icons/" />
+        <function>errorbar</function>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="errorbarhorz" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-error_bar_horiz_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-errorbar-horizontal.png" path="../icons/" />
+        <function>errorbar</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','errorbarhorz',varNames,varValues)</action>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="plot3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-plot3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plot3.png" path="../icons/" />
+        <function>plot3</function>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="comet" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-comet_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-comet.png" path="../icons/"/>
+        <function>comet</function>
+        <parent_tool id="category_line" toolset_id="plot_toolset" />
+    </tool>
+
+     <tool id="stem" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-stem_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-stem.gif" path="../icons/"/>
+        <function>stem</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','stem',varNames,varValues)</action>
+        <parent_tool id="category_stemstair" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="stairs" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-stairs_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-stairs.gif" path="../icons/"/>
+        <function>stairs</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','stairs',varNames,varValues)</action>
+        <parent_tool id="category_stemstair" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="stem3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-stem3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-stem3.gif" path="../icons/"/>
+        <function>stem3</function>
+        <parent_tool id="category_stemstair" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="bar" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-bar_60.png" path="../icons/plots/" />
+        <icon filename="pplotpicker-bar.gif" path="../icons/" />
+        <function>bar</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','bar',varNames,varValues)</action>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="barh" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-barh_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-barh.png" path="../icons/" />
+        <function>barh</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','barh',varNames,varValues)</action>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="bar3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-bar3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-bar.gif" path="../icons/" />
+        <function>bar3</function>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="bar3h" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-bar3h_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-bar.gif" path="../icons/" />
+        <function>bar3h</function>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="barstacked" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-stackedbar_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-bar.gif" path="../icons/" />
+        <function>bar</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','barstacked',varNames,varValues)</action>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="barhstacked" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-stackedbarh_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-barh.png" path="../icons/" />
+        <function>barh</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','barhstacked',varNames,varValues)</action>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="histogram" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-histogram_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-hist.gif" path="../icons/" />
+        <function>histogram</function>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="pareto" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-pareto_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-pareto.png" path="../icons/" />
+        <function>pareto</function>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="plotmatrix" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-plotmatrix_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plotmatrix.png" path="../icons/" />
+        <function>plotmatrix</function>
+        <parent_tool id="category_bar" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="scatter" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-scatter_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-scatter.gif" path="../icons/" />
+        <function>scatter</function>
+        <action>@(varNames) plotpickerfunc('defaultdisplay','scatter',varNames)</action>
+        <parent_tool id="category_scatter" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="scatter3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-scatter3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-scatter3.gif" path="../icons/" />
+        <function>scatter3</function>
+        <parent_tool id="category_scatter" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="spy" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-spy_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-spy.png" path="../icons/" />
+        <function>spy</function>
+        <parent_tool id="category_scatter" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="plotmatrix" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-plotmatrix_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-plotmatrix.png" path="../icons/" />
+        <function>plotmatrix</function>
+        <parent_tool id="category_scatter" toolset_id="plot_toolset" />
+    </tool>
+
+     <tool id="graph" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-graphplot_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-graphplot.png" path="../icons/" />
+        <function>graph</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','graph',varNames,varValues)</action>
+        <parent_tool id="category_graph" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="digraph" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-graphplot_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-graphplot.png" path="../icons/" />
+        <function>digraph</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','digraph',varNames,varValues)</action>
+        <parent_tool id="category_graph" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="pie" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+       <icon filename="plottype-pie_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-pie.gif" path="../icons/" />
+        <function>pie</function>
+        <parent_tool id="category_pie" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="pie3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-pie3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-pie3.gif" path="../icons/" />
+        <function>pie3</function>
+        <parent_tool id="category_pie" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="histogram" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-histogram_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-hist.gif" path="../icons/" />
+        <function>histogram</function>
+        <parent_tool id="category_histogram" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="histogram2" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-histogram_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-hist.gif" path="../icons/" />
+        <function>histogram2</function>
+        <parent_tool id="category_histogram" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="rose" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-rose_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-rose.png" path="../icons/" />
+        <function>rose</function>
+        <parent_tool id="category_histogram" toolset_id="plot_toolset" />
+    </tool>
+    
+    <tool id="polar" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-polar_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-polar.png" path="../icons/" />
+        <function>polar</function>
+        <parent_tool id="category_polar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="rose" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-rose_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-rose.png" path="../icons/" />
+        <function>rose</function>
+        <parent_tool id="category_polar" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="compass" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-compass_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-compass.png" path="../icons/" />
+        <function>compass</function>
+        <parent_tool id="category_polar" toolset_id="plot_toolset" />
+    </tool>
+    
+    <tool id="geobubble" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-geobubble_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-geobubble.png" path="../icons/" />
+        <function>geobubble</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','geobubble',varNames,varValues)</action>
+        <parent_tool id="category_geographic" toolset_id="plot_toolset" />
+    </tool>
+    
+    <tool id="contour" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-contour_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-compass.png" path="../icons/" />
+        <function>contour</function>
+        <parent_tool id="category_contour" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="contourf" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-contourf_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-contourf.png" path="../icons/" />
+        <function>contourf</function>
+        <parent_tool id="category_contour" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="contour3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-contour3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-contour3.png" path="../icons/" />
+        <function>contour3</function>
+        <parent_tool id="category_contour" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="image" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-image_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-image.gif" path="../icons/" />
+        <function>image</function>
+        <parent_tool id="category_image" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="imagesc" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-imagesc_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-imagesc.gif" path="../icons/" />
+        <function>imagesc</function>
+        <parent_tool id="category_image" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="pcolor" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-pcolor_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-imagesc.gif" path="../icons/" />
+        <function>pcolor</function>
+        <parent_tool id="category_image" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="imshow" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-imshow.png" path="../icons/" />
+        <icon filename="plottype-imshow.png" path="../icons/" />
+        <function>imshow</function>
+        <parent_tool id="category_image" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="heatmap" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-heatmap_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-heatmap_20.png" path="../icons/plots/" />
+        <function>heatmap</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','heatmap',varNames,varValues)</action>
+        <parent_tool id="category_image" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="surf" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-surf_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-surf.gif" path="../icons/" />
+        <function>surf</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="surfc" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-surfc_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-surfc.gif" path="../icons/" />
+        <function>surfc</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="surfl" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+       <icon filename="plottype-surfl_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-surfl.gif" path="../icons/" />
+        <function>surfl</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="mesh" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-mesh_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-mesh.gif" path="../icons/" />
+        <function>mesh</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+        <parent_tool id="favorites" toolset_id="plot_toolset" priority="1200" />
+    </tool>
+    <tool id="meshc" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-meshc_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-meshc.gif" path="../icons/" />
+        <function>meshc</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="meshz" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-meshz_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-meshz.png" path="../icons/" />
+        <function>meshz</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="waterfall" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-waterfall_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-waterfall.gif" path="../icons/" />
+        <function>waterfall</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ribbon" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ribbon_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ribbon.png" path="../icons/" />
+        <function>ribbon</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="contour3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+       <icon filename="plottype-contour3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-contour3.gif" path="../icons/" />
+        <function>contour3</function>
+        <parent_tool id="category_3dsurf" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="slice" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-slice_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-slice.gif" path="../icons/" />
+        <function>slice</function>
+        <parent_tool id="category_volumetrics" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="feather" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-feather_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-feather.png" path="../icons/" />
+        <function>feather</function>
+        <parent_tool id="category_vector" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="compass" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-compass_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-compass.png" path="../icons/" />
+        <function>compass</function>
+        <parent_tool id="category_vector" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="quiver" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-quiver_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-quiver.gif" path="../icons/" />
+        <function>quiver</function>
+        <parent_tool id="category_vector" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="quiver3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-quiver3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-quiver3.png" path="../icons/" />
+        <function>quiver3</function>
+        <parent_tool id="category_vector" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="streamslice" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-streamslice_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-streamslice.gif" path="../icons/" />
+        <function>streamslice</function>
+        <parent_tool id="category_vector" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="streamline" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-streamline_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-streamline.png" path="../icons/" />
+        <function>streamline</function>
+        <parent_tool id="category_vector" toolset_id="plot_toolset" />
+    </tool>
+
+    <tool id="ezplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezplot_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezplot.gif" path="../icons/" />
+        <function>ezplot</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezplot3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezplot3_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezplot3.gif" path="../icons/" />
+        <function>ezplot3</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezpolar" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezpolar_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezpolar.gif" path="../icons/" />
+        <function>ezpolar</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezcontour" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezcontour_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezcontour.gif" path="../icons/" />
+        <function>ezcontour</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezcontourf" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezcontourf_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezcontourf.gif" path="../icons/" />
+        <function>ezcontourf</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezsurf" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezsurf_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezsurf.gif" path="../icons/" />
+        <function>ezsurf</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezsurfc" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezsurfc_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezsurfc.gif" path="../icons/" />
+        <function>ezsurfc</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezmesh" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezmesh_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezmesh.gif" path="../icons/" />
+        <function>ezmesh</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ezmeshc" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ezmeshc_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-ezmeshc.gif" path="../icons/" />
+        <function>ezmeshc</function>
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="wordcloud" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-wordcloud_60.png" path="../icons/plots/" />
+        <icon filename="plotpicker-wordcloud_20.gif" path="../icons/plots" />
+        <function>wordcloud</function>
+        <action>@(varNames,varValues) plotpickerfunc('defaultdisplay','wordcloud',varNames,varValues)</action>		
+        <parent_tool id="category_analytic" toolset_id="plot_toolset" />
+    </tool>	
+</toolset>

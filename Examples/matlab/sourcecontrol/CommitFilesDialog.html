@@ -1,0 +1,33 @@
+<!--Copyright 2016 The MathWorks, Inc.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="release/sourcecontrol-ui/css/main.css"  type="text/css" />
+</head>
+
+<body class="commitFilesDialogBody tundra">
+	<div id="CommitFilesDialog" class="CommitFilesDialog">
+	</div>
+    <script src="release/sourcecontrol-ui/dojoConfig-release-global.js"></script>
+	<script type="text/javascript" src="release/dojo/dojo.js"></script>
+
+    <script type="text/javascript">
+        require(["sourcecontrol-ui/browsercheck"], function () {
+            require(["mw-browser-utils/BrowserCheck!"], function () {
+                require([
+                    "sourcecontrol-ui/sourcecontrol-ui"
+                ], function () {
+                    require([
+                        "dojo/dom",
+                        "sourcecontrol-ui/js/CommitFilesPageLoad"
+                    ], function (dom, commitFilesPageLoad) {
+                        var commitFilesContainer = dom.byId("CommitFilesDialog");
+                        commitFilesPageLoad.renderContent(commitFilesContainer);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+classdef InvalidAssertionDelegate < matlab.unittest.internal.qualifications.AssertionDelegate & ...
+                                     matlab.unittest.internal.qualifications.InvalidDelegateMixin
+end

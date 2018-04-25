@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="false" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings name="imshow" visible="false">
+
+    <key name="BorderStyle" visible="false">
+      <string>
+	<metadata>
+	  <choices>tight</choices>
+	  <choices>loose</choices>
+	</metadata>
+	<value>loose</value>
+      </string>
+    </key>
+	
+    <key name="InitialMagnification" visible="false">
+      <double>
+	<value>100</value>
+      </double>
+    </key>
+
+    <key name="InitialMagnificationStyle" visible="false">
+      <string>
+	<metadata>
+	  <choices>numeric</choices>
+	  <choices>fit</choices>
+	</metadata>
+	<value>numeric</value>
+      </string>
+    </key>
+  
+    <key name="ShowAxes" visible="false">
+      <bool>
+	<value>0</value>
+      </bool>
+    </key>
+
+    <!-- Undocumented preference used by MOTW -->
+    <key name="AlwaysUseFitMagnification" visible="false">
+      <bool>
+	<value>0</value>
+      </bool>
+    </key>
+
+  </settings>
+</settings>

@@ -1,0 +1,197 @@
+@import "../../../../../ui/webwidgets/src/css/variables";
+
+.mwPreferencesDialogContainer .preferenceUI {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    position: relative;
+    height: 100%;
+    display: flex;
+}
+
+.mwPreferencesDialogContainer .leftPanel {
+    height: 100%;
+    width: 250px;
+    min-width: 250px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.mwPreferencesDialogContainer .centerPanel {
+    flex-grow: 1;
+    height: 100%;
+    margin-left: 5px;
+    overflow: auto;
+    background-color: rgb(240, 240, 240);
+}
+
+.mwPreferencesDialogContainer .leftPanel .leftPane{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mwPreferencesDialogContainer .leftPanel .searchContainer {
+    height: 24px;
+    position: relative;
+}
+
+.mwPreferencesDialogContainer .searchContainer input[type=text]::-ms-clear {
+    display: none;
+}
+
+.mwPreferencesDialogContainer .leftPanel .emptyGrid {
+    padding-top: 50%; /* For nothing to show text */
+    display: none;
+    text-align: center;
+}
+
+/* Preference Header */
+.mwPreferencesDialogContainer .preferencePanelHeader {
+    height: 17px;
+    padding: 7px 15px 5px 15px;
+    background: $color-mediumgray1;
+    border-bottom: 1px solid #d9d9d9;
+    font-weight: bold;
+    white-space: nowrap;/*upon resize*/
+}
+
+.mwPreferencesDialogContainer .gridContainer .dojoDndItemAnchor {
+    background: none;
+}
+
+/*For resize: when browser is resized the content gets width 0px inline*/
+.mwPreferencesDialogContainer .gridContainer .dgrid-content.ui-widget-content {
+    width: 100% !important;
+}
+
+.mwPreferencesDialogContainer .preferencePanelContent .mwRadioButton {
+   margin: 4px 0;
+}
+
+.mwPreferencesDialogContainer .preferencePanelContent .mwComboBox {
+   margin-left:3px;
+   position: relative;
+   top: 2px;
+}
+
+.mwPreferencesDialogContainer .preferencePanelContent .mwCheckBox {
+   margin-bottom:15px;
+   display: block;
+}
+
+.mwPreferencesDialogContainer fieldset legend {
+    font-weight: bold;
+    font-size: 12px; 
+	font-family: Helvetica;
+    margin-bottom: 8px;
+}
+
+.mwPreferencesDialogContainer .preferencePanelContent {
+    margin-left: 15px;
+    margin-top: 10px;
+    min-width:300px;
+}
+
+/* Can use margin -left if we want to use splitters*/
+
+.mwPreferencesDialogContainer {
+    line-height: 1.4;
+    font-size: 12px;
+}
+
+.mwPreferencesDialogContainer .preferenceButtonContainer {
+    float: right;
+    padding-right: 15px;
+    margin-top: 3px;
+}
+
+.mwPreferencesDialogContainer .mwPushButton + .mwPushButton {
+    margin-left: 10px;
+}
+
+.mwPreferencesDialogContainer .mwPushButton + .mwTextField .mwTextField {
+    margin-left: 10px;
+}
+
+.mwPreferencesDialogContainer .gridContainer {
+    border: 1px solid $color-mediumgray2;
+    flex-grow: 1;
+    height: calc(100% - 26px);
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid-header {
+    display: none;
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid-row-table .dgrid-cell {
+    border: none;
+    cursor: default;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    float: left;
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid {
+	font-size: 12px 
+	font-family: Helvetica;
+    border: none !important;
+    height: 100%;
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid-scroller {
+    overflow: auto !important;
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid-row.hideLabel {
+    display: none;
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid-selected {
+    background-color: $color-selection-row!important; /*TO win over hover color*/
+}
+
+.mwPreferencesDialogContainer .gridContainer .dgrid-row:hover {
+    background-color: $color-selection-row-hover;
+}
+
+/* use semi colon : http://jsfiddle.net/p0pLterj/7/*/
+.mwPreferencesDialogContainer span[style="background-color: rgb(255,241,92);"] {
+    padding: 2px 0;
+}
+
+.mwPreferencesDialogContainer .i18nLabel {
+
+    /* TODO: change to variable */
+    background-color: rgb(255,241,92);
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 4px;
+    margin-top: 3px;
+    margin-left: 4px !important;
+    margin-right: 4px;
+    float: right !important;
+}
+
+.mwPreferencesDialogContainer .i18nLabelParent {
+    padding-left: 28px !important;
+}
+
+.mwPreferencesDialogContainer .preferenceSearchCounterNode {
+    float: right;
+    vertical-align: middle;
+    font-size: 11px;
+    width: 16px;
+    height: 16px;
+    background: rgb(255,241,92) ;
+    text-align:center;
+    margin-top: 4px;
+    margin-right:2px;
+    color:black; /*selection color is white. This style overrides */
+}
+
+/* override DOJO */
+.mwPreferencesDialogContainer .gridContainer .dgrid-row {
+    padding:0;
+}

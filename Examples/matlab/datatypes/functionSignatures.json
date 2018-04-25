@@ -1,0 +1,2669 @@
+{
+
+// =====================================================================
+// top-level functions
+// =====================================================================
+"array2table":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"},
+        {"name":"RowNames", "kind":"namevalue", "type":"cellstr"},
+        {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+    ],
+    "outputs": [
+        {"name":"T", "type":"table"}
+    ]
+},
+"array2timetable":
+{
+    "inputs": [
+        {"name":"X", "kind":"required"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"RowTimes", "kind":"namevalue", "type":[["datetime", "vector"], ["duration", "vector"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"StartTime", "kind":"namevalue", "type":[["duration", "scalar"], ["datetime", "scalar"]]},
+                {"name":"TimeStep", "kind":"namevalue", "type":["duration", "scalar"]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"StartTime", "kind":"namevalue", "type":["datetime", "scalar"]},
+                {"name":"TimeStep", "kind":"namevalue", "type":["calendarDuration", "scalar"]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"StartTime", "kind":"namevalue", "type":[["duration", "scalar"], ["datetime", "scalar"]]},
+                {"name":"SamplingRate", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"TT", "type":"timetable"}
+    ]
+},
+"arrayfun":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"name":"A", "kind":"required", "multiplicity":"append"},
+        {"name":"UniformOutput", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+        {"name":"ErrorHandler", "kind":"namevalue", "type":["function_handle"]}
+    ],
+    "outputs": [
+        {"name":"B", "multiplicity":"append"}
+    ]
+},
+"cell":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"n", "kind":"required", "type":["numeric", "scalar" ,"integer"]}
+            ],
+            [
+                {"name":"sz", "kind":"required", "type":["numeric", "row" ,"integer"]}
+            ],
+            [
+                {"name":"sz", "kind":"required", "multiplicity":"append", "type":["numeric", "scalar" ,"integer"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"cell"}
+    ]
+},
+"cell":
+{
+    "inputs": [
+        {"name":"obj", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"D","type":"cell"}
+    ]
+},
+"cell2mat":
+{
+    "inputs": [
+        {"name":"C", "kind":"required", "type":"cell"}
+    ],
+    "outputs": [
+        {"name":"A"}
+    ]
+},
+"cell2struct":
+{
+    "inputs": [
+        {"name":"cellArray", "kind":"required", "type":"cell"},
+        {"name":"fields", "kind":"required", "type":"cellstr"},
+        {"name":"dim", "kind":"required", "type":["numeric","scalar","integer"]}
+    ],
+    "outputs": [
+        {"name":"structArray","type":"struct"}
+    ]
+},
+"cell2table":
+{
+    "inputs": [
+        {"name":"C", "kind":"required", "type":"cell"},
+        {"name":"RowNames", "kind":"namevalue", "type":"cellstr"},
+        {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+    ],
+    "outputs": [
+        {"name":"T", "type":"table"}
+    ]
+},
+"cellfun":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"name":"C", "kind":"required", "type":"cell", "multiplicity":"append"},
+        {"name":"UniformOutput", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+        {"name":"ErrorHandler", "kind":"namevalue", "type":["function_handle"]}
+    ],
+    "outputs": [
+        {"name":"A", "multiplicity":"append"}
+    ]
+},
+"cellfun":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"func", "kind":"required", "promotion":"secondary", "type":["char", "choices={'isempty','islogical','isreal','length','ndims','prodofsize'}"]},
+                {"name":"C", "kind":"required", "type":"cell"}
+            ],
+            [
+                {"name":"func", "kind":"required", "promotion":"secondary", "type":["char", "choices={'size'}"]},
+                {"name":"C", "kind":"required", "type":"cell"},
+                {"name":"k", "kind":"required", "type":["numeric", "scalar"]}
+            ],
+            [
+                {"name":"func", "kind":"required", "promotion":"secondary", "type":["char", "choices={'isclass'}"]},
+                {"name":"C", "kind":"required", "type":"cell"},
+                {"name":"classname", "kind":"required", "type":"char"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"A", "multiplicity":"append"}
+    ]
+},
+"cellplot":
+{
+    "inputs": [
+        {"name":"c", "kind":"required", "type":"cell"},
+        {"name":"legend", "kind":"flag", "type":["choices={'legend'}"]}
+    ],
+    "outputs": [
+        {"name":"handles", "type":"cell"}
+    ]
+},
+"double":
+{
+    "inputs": [
+        {"name":"x", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"double"}
+    ]
+},
+"double._parenReference":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) ndims(x)==2"]},
+        {"name":"rows", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,1)"]},
+        {"name":"cols", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,2)"]}
+    ]
+},
+"double._parenReference":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) ndims(x)==3"]},
+        {"name":"dim1", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,1)"]},
+        {"name":"dim2", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,2)"]},
+        {"name":"dim3", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,3)"]}
+    ]
+},
+"double._parenReference":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) ndims(x)==4"]},
+        {"name":"dim1", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,1)"]},
+        {"name":"dim2", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,2)"]},
+        {"name":"dim3", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,3)"]},
+        {"name":"dim4", "kind":"required", "type":["numeric", "vector", ">=1", "<=size(d,4)"]}
+    ]
+},
+"double._parenAssign":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) ndims(x)==2"]},
+        {"name":"rows", "kind":"required", "type":["numeric", "vector", ">=1"]},
+        {"name":"cols", "kind":"required", "type":["numeric", "vector", ">=1"]}
+    ]
+},
+"double._parenAssign":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) ndims(x)==3"]},
+        {"name":"dim1", "kind":"required", "type":["numeric", "vector", ">=1"]},
+        {"name":"dim2", "kind":"required", "type":["numeric", "vector", ">=1"]},
+        {"name":"dim3", "kind":"required", "type":["numeric", "vector", ">=1"]}
+    ]
+},
+"double._parenAssign":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) ndims(x)==4"]},
+        {"name":"dim1", "kind":"required", "type":["numeric", "vector", ">=1"]},
+        {"name":"dim2", "kind":"required", "type":["numeric", "vector", ">=1"]},
+        {"name":"dim3", "kind":"required", "type":["numeric", "vector", ">=1"]},
+        {"name":"dim4", "kind":"required", "type":["numeric", "vector", ">=1"]}
+    ]
+},
+"double._parenReference":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) true"]},
+        {"name":"index", "kind":"required", "type":["numeric", "vector", ">=1", "<=numel(d)"]}
+    ]
+},
+"double._parenAssign":
+{
+    "inputs": [
+        {"name":"d", "kind":"required", "type":["double", "@(x) true"]},
+        {"name":"index", "kind":"required", "type":["numeric", "vector", ">=1"]}
+    ]
+},
+"findgroups":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["numeric", "vector"], ["cellstr"]], "multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"G", "type":["vector", ">=1"]},
+        {"name":"ID", "type":"vector", "multiplicity":"append"}
+    ]
+},
+"findgroups":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"table"}
+    ],
+    "outputs": [
+        {"name":"G", "type":["vector", ">=1"]},
+        {"name":"TID", "type":"table"}
+    ]
+},
+"getfield":
+{
+    "inputs": [
+        {"name":"s", "kind":"required", "type":["struct","scalar"]},
+        {"name":"field", "kind":"required", "type":"choices=fieldnames(s)"}
+    ],
+    "outputs": [
+        {"name":"value"}
+    ]
+},
+"getfield":
+{
+    "inputs": [
+        {"name":"s", "kind":"required", "type":["struct"]},
+        {"name":"{sIndx1,...,sIndxM}", "kind":"required", "type":"cell"},
+        {"name":"field", "kind":"required","type":"choices=fieldnames(s)"},
+        {"name":"{fIndx1,...,fIndxN}", "kind":"required", "type":"cell"}
+
+    ],
+    "outputs": [
+        {"name":"value"}
+    ]
+},
+"iscategorical":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"tf", "type":["logical", "scalar"]}
+    ]
+},
+"isfield":
+{
+    "inputs": [
+        {"name":"S","kind":"required","type":"struct"},
+        {"name":"fieldName","kind":"required","type":"char"}
+    ]
+    ,
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"isfield":
+{
+    "inputs": [
+        {"name":"S","kind":"required","type":"struct"},
+        {"name":"C","kind":"required","type":"cellstr"}
+    ]
+    ,
+    "outputs": [
+        {"name":"tf","type":["logical","vector"]}
+    ]
+},
+"istable":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"tf", "type":["logical", "scalar"]}
+    ]
+},
+"istimetable":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"tf", "type":["logical", "scalar"]}
+    ]
+},
+"loadobj":
+{
+    "inputs": [
+        {"name":"a", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"b"}
+    ]
+},
+"mat2cell":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"},
+        {"name":"dimDist", "kind":"required", "type":["double","vector"],"multiplicity":"append"}
+
+    ],
+    "outputs": [
+        {"name":"C", "type":"cell"}
+    ]
+},
+"mat2cell":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"},
+        {"name":"rowDist", "kind":"required", "type":["double","vector"]}
+
+    ],
+    "outputs": [
+        {"name":"C", "type":"cell"}
+    ]
+},
+"num2cell":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"},
+        {"name":"dim", "kind":"optional", "type":["double","vector"]}
+
+    ],
+    "outputs": [
+        {"name":"C", "type":"cell"}
+    ]
+},
+"orderfields":
+{
+    "inputs": [
+        {"name":"s1 ", "kind":"required", "type":"struct"},
+        {"name":"s2", "kind":"optional", "type":"struct"}
+
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"},
+        {"name":"perm", "type":["numeric","vector"]}
+    ]
+},
+"orderfields":
+{
+    "inputs": [
+        {"name":"s1 ", "kind":"required", "type":"struct"},
+        {"name":"c", "kind":"optional", "type":"cell"}
+
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"},
+        {"name":"perm", "type":["numeric","vector"]}
+    ]
+},
+"orderfields":
+{
+    "inputs": [
+        {"name":"s1 ", "kind":"required", "type":"struct"},
+        {"name":"perm", "kind":"optional", "type":["numeric","vector"]}
+
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"},
+        {"name":"perm", "type":["numeric","vector"]}
+    ]
+},
+"rmfield":
+{
+    "inputs": [
+        {"name":"s", "kind":"required", "type":"struct"},
+        {"name":"field", "kind":"required", "type":"choices=fieldnames(s)"}
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"}
+    ]
+},
+"saveobj":
+{
+    "inputs": [
+        {"name":"a", "kind":"required"}
+    ],
+    "outputs": [
+        {"name":"b"}
+    ]
+},
+"setfield":
+{
+    "inputs": [
+        {"name":"s", "kind":"required", "type":"struct"},
+        {"name":"{sIndx1,...,sIndxM}", "kind":"optional", "type":"cell"},
+        {"name":"field", "kind":"required", "type":"choices=fieldnames(s)"},
+        {"name":"{fIndx1,...,fIndxN}", "kind":"optional", "type":"cell"},
+        {"name":"value","kind":"required"}
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"}
+    ]
+},
+"splitapply":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"name":"X", "kind":"required", "type":[["numeric"], ["cell"]], "multiplicity":"append"},
+        {"name":"G", "kind":"required", "type":["vector", ">=1"]}
+    ],
+    "outputs": [
+        {"name":"Y", "multiplicity":"append"}
+    ]
+},
+"splitapply":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"name":"T", "kind":"required", "type":"table"},
+        {"name":"G", "kind":"required", "type":["vector", ">=1"]}
+    ],
+    "outputs": [
+        {"name":"Y", "multiplicity":"append"}
+    ]
+},
+"struct":
+{
+    "inputs": [
+        {"name":"[]"}
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"}
+    ]
+},
+"struct":
+{
+    "inputs": [
+        {"name":"obj"}
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"}
+    ]
+},
+"struct":
+{
+    "inputs": [
+        {"multiplicity":"append", "tuple":
+            [
+                {"name":"field", "type":"char"},
+                {"name":"value"}
+            ]}
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"}
+    ]
+},
+"struct2cell":
+{
+    "inputs": [
+        {"name":"s","kind":"required", "type":"struct"}
+    ],
+    "outputs": [
+        {"name":"c", "type":"cell"}
+    ]
+},
+"struct2table":
+{
+    "inputs": [
+        {"name":"s","kind":"required", "type":"struct"},
+        {"name":"RowNames","kind":"namevalue", "type":"cellstr"},
+        {"name":"AsArray","kind":"namevalue", "type":["logical","scalar"]}
+    ],
+    "outputs": [
+        {"name":"T", "type":"table"}
+    ]
+},
+"structfun":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"name":"A", "kind":"required", "type":"struct"},
+        {"name":"UniformOutput", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+        {"name":"ErrorHandler", "kind":"namevalue", "type":["function_handle"]}
+    ],
+    "outputs": [
+        {"name":"B", "multiplicity":"append"}
+    ]
+},
+"table2array":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"table"}
+    ],
+    "outputs": [
+        {"name":"A"}
+    ]
+},
+"table2cell":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"table"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"cell"}
+    ]
+},
+"table2struct":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"table"},
+        {"name":"ToScalar", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"}
+    ],
+    "outputs": [
+        {"name":"S", "type":"struct"}
+    ]
+},
+"table2timetable":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"table"},
+        {"name":"RowTimes", "kind":"namevalue", "type":[["choices=T.Properties.VariableNames"], ["logical", "vector"], ["integer", ">=1", "scalar"], ["datetime", "vector"], ["duration", "vector"]]}
+    ],
+    "outputs": [
+        {"name":"TT", "type":"timetable"}
+    ]
+},
+"timetable2table":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"timetable"},
+        {"name":"ConvertRowTimes", "kind":"namevalue", "type":["logical", "scalar"], "default":"true"}
+    ],
+    "outputs": [
+        {"name":"TT", "type":"timetable"}
+    ]
+},
+"timerange":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"startTime", "kind":"required", "type":[["datetime", "scalar"], ["char", "row"]]},
+                {"name":"endTime", "kind":"required", "type":[["datetime", "scalar"], ["char", "row"]]}
+            ],
+            [
+                {"name":"startTime", "kind":"required", "type":["duration", "scalar"]},
+                {"name":"endTime", "kind":"required", "type":["duration", "scalar"]}
+            ]
+        ]},
+        {"name":"intervalType", "kind":"positional", "type":["choices={'open','closed','openleft','openright','closedleft','closedright'}"], "default":"openright"}
+    ],
+    "outputs": [
+        {"name":"S", "type":"timerange"}
+    ]
+},
+"vartype":
+{
+    "inputs": [
+        {"name":"type", "kind":"required", "type":[["choices={'numeric','float','integer','logical','char','string','cell','cellstr','categorical'}"],["char", "row"]]}
+    ],
+    "outputs": [
+        {"name":"S", "type":"vartype"}
+    ]
+},
+"withtol":
+{
+    "inputs": [
+        {"name":"rowTimes", "kind":"required", "type":[["datetime"], ["char", "row"], ["cellstr"], ["duration"]]},
+        {"name":"tol", "kind":"required", "type":["duration", "scalar"]}
+    ],
+    "outputs": [
+        {"name":"S", "type":"withtol"}
+    ]
+},
+
+
+// =====================================================================
+// categorical methods
+// =====================================================================
+"addcats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        // provide current category names as starting point for new names
+        {"name":"newcats", "kind":"required", "type":[["choices=categories(A)"], ["char", "row"], ["cellstr"]]},
+        {"name":"Before", "kind":"namevalue", "type":["choices=categories(A)"]},
+        {"name":"After", "kind":"namevalue", "type":["choices=categories(A)"]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"cat":
+{
+    "inputs": [
+        {"name":"dim", "kind":"required", "type":["numeric", "scalar", ">=1"]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"categorical"},
+                {"name":"B","kind":"required","type":[["categorical"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["categorical"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"categorical"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["categorical"],["char","row"],["cellstr"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+"categorical":
+{
+    "inputs": [
+        {"name":"A", "kind":"required"},
+        {"name":"valueset", "kind":"optional"},
+        {"name":"catnames", "kind":"optional", "type":"cellstr"},
+        {"name":"Protected", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+        {"name":"Ordinal", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+"categories":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"cellstr"}
+    ]
+},
+"cellstr":
+{
+    "inputs": [
+        {"name":"S", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"cellstr"}
+    ]
+},
+"char":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"S", "type":"cellstr"}
+    ]
+},
+"countcats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"name":"dim", "kind":"positional", "type":["numeric", "scalar", ">=1"]}
+    ],
+    "outputs": [
+        {"name":"B", "type":["integer", ">=0"]}
+    ]
+},
+"ctranspose":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"double":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"double"}
+    ]
+},
+"eq":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                {"name":"B", "kind":"required", "type":[["categorical"], ["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"ge":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+                {"name":"B", "kind":"required", "type":[["categorical", "@isordinal"], ["choices=categories(A)"]]}
+            ],
+            [
+                // A would have to be in categories(B), but that can't be tab completed, so match any string
+                {"name":"A", "kind":"required", "type":[["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["categorical", "@isordinal"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"gt":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+                {"name":"B", "kind":"required", "type":[["categorical", "@isordinal"], ["choices=categories(A)"]]}
+            ],
+            [
+                // A would have to be in categories(B), but that can't be tab completed, so match any string
+                {"name":"A", "kind":"required", "type":[["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["categorical", "@isordinal"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"hist":
+{
+    "inputs": [
+        {"name":"ax", "kind":"optional", "type":"matlab.graphics.axis.Axes"},
+        {"name":"x", "kind":"required", "type":"categorical"},
+        {"name":"xbins", "kind":"optional", "type":[["choices=categories(x)"], ["categorical", "vector"]]}
+    ],
+    "outputs": [
+        {"name":"counts", "type":["integer", ">=0"]},
+        {"name":"centers", "type":"cellstr"}
+    ]
+},
+"histcounts":
+{
+    "inputs": [
+        {"name":"C", "kind":"required", "type":"categorical"},
+        {"name":"Categories", "kind":"optional", "type":[["choices=categories(C)"], ["categorical", "vector"]]},
+        {"name":"Normalization", "kind":"namevalue", "type":["choices={'count','countdensity','probability','pdf','cumcount','cdf'}"], "default":"'count'"}
+    ],
+    "outputs": [
+        {"name":"N", "type":["integer", ">=0"]},
+        {"name":"categories", "type":"cellstr"}
+    ]
+},
+"histogram":
+{
+    "inputs": [
+        {"name":"ax", "kind":"optional", "type":"matlab.graphics.axis.Axes"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"C", "kind":"required", "type":"categorical"},
+                // name "categoriesArg" and display "categories" to avoid shadowing function "categories" while keeping the user display intact.
+                {"name":"categoriesArg", "kind":"optional", "display":"categories", "type":[["choices=categories(C)"], ["categorical", "vector"]]}
+            ],
+            [
+                {"name":"Categories","kind":"required","type":"choices={'Categories'}"},
+                {"name":"unit","kind":"required","type":[["cellstr"], ["categorical", "vector"]]},
+                {"name":"BinCounts","kind":"required","type":"choices={'BinCounts'}"},
+                {"name":"unit","kind":"required","type":["integer", "vector", ">=0"]}
+            ]
+        ]},
+         // The DisplayOrder, NumDisplayBins, ShowOthers, Normalization, DisplayStyle, and Orientation parameters
+         // are provided by the matlab.graphics.chart.primitive.categorical.Histogram varargin and needn't be
+         // listed explicitly
+        {"name":"options", "kind":"varargin", "type":"matlab.graphics.chart.primitive.categorical.Histogram"}
+    ],
+    "outputs": [
+        {"name":"h", "type":"matlab.graphics.chart.primitive.categorical.Histogram"}
+    ]
+},
+"horzcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["categorical"],["char","row"],["cellstr"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+"int16":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"int16"}
+    ]
+},
+"int32":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"int32"}
+    ]
+},
+"int64":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"int64"}
+    ]
+},
+"int8":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"int8"}
+    ]
+},
+"intersect":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                {"name":"B", "kind":"required", "type":[["categorical"], ["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"},
+        {"name":"ia", "type":["integer", ">=1"]},
+        {"name":"ib", "type":["integer", ">=1"]}
+    ]
+},
+"iscategory":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"name":"catnames", "kind":"required", "type":[["char", "row"], ["cellstr"]]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"iscolumn":
+{
+    "inputs": [
+        {"name":"V", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"isempty":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"isequal":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"categorical"},
+                {"name":"B","kind":"required","type":[["categorical"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["categorical"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"categorical"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["categorical"],["char"],["cellstr"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"isequaln":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"categorical"},
+                {"name":"B","kind":"required","type":[["categorical"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["categorical"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"categorical"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["categorical"],["char"],["cellstr"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"ismatrix":
+{
+    "inputs": [
+        {"name":"V", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"ismember":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                {"name":"B", "kind":"required", "type":[["categorical"], ["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]},
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"Lia", "type":["logical"]},
+        {"name":"Locb", "type":["integer", ">=0"]}
+    ]
+},
+"isordinal":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"tf", "type":["logical", "scalar"]}
+    ]
+},
+"isprotected":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"tf", "type":["logical", "scalar"]}
+    ]
+},
+"isrow":
+{
+    "inputs": [
+        {"name":"V", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"isscalar":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issorted":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["categorical"]]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for categorical
+        // intentionally don't tab complete discouraged 'rows' flag
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issortedrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["categorical"]]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for categorical
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"isundefined":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"isvector":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"le":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+                {"name":"B", "kind":"required", "type":[["categorical", "@isordinal"], ["choices=categories(A)"]]}
+            ],
+            [
+                // A would have to be in categories(B), but that can't be tab completed, so match any string
+                {"name":"A", "kind":"required", "type":[["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["categorical", "@isordinal"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"length":
+{
+    "inputs": [
+        {"name":"X", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"L", "type":["integer", "scalar", ">=0"]}
+    ]
+},
+"lt":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+                {"name":"B", "kind":"required", "type":[["categorical", "@isordinal"], ["choices=categories(A)"]]}
+            ],
+            [
+                // A would have to be in categories(B), but that can't be tab completed, so match any string
+                {"name":"A", "kind":"required", "type":[["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["categorical", "@isordinal"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"max":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+        {"name":"[]", "kind":"required", "type":["double", "@(x)isequal(x,[])"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M", "type":"categorical"},
+        {"name":"I", "type":["integer", ">=1"]}
+    ]
+},
+"max":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+                {"name":"B", "kind":"required", "type":[["categorical", "@isordinal"], ["choices=categories(A)"]]}
+            ],
+            [
+                // A would have to be in categories(B), but that can't be tab completed, so match any string
+                {"name":"A", "kind":"required", "type":[["categorical", "@isordinal"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["categorical", "@isordinal"]}
+            ]
+        ]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+"maxk":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["categorical"]]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+        // no ComparisonMethod for categorical
+    ],
+    "outputs": [
+        {"name":"B", "type":["categorical"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"median":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M", "type":"categorical"}
+    ]
+},
+"mergecats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"name":"oldcats", "kind":"required", "type":["choices=categories(A)"]},
+        // provide current category names as starting point for new names
+        {"name":"newcats", "kind":"positional", "type":[["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"min":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+        {"name":"[]", "kind":"required", "type":["double", "@(x)isequal(x,[])"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M", "type":"categorical"},
+        {"name":"I", "type":["integer", ">=1"]}
+    ]
+},
+"min":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["categorical", "@isordinal"]},
+                {"name":"B", "kind":"required", "type":[["categorical", "@isordinal"], ["choices=categories(A)"]]}
+            ],
+            [
+                // A would have to be in categories(B), but that can't be tab completed, so match any string
+                {"name":"A", "kind":"required", "type":[["categorical", "@isordinal"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["categorical", "@isordinal"]}
+            ]
+        ]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+"mink":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["categorical"]]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+        // no ComparisonMethod for categorical
+    ],
+    "outputs": [
+        {"name":"B", "type":["categorical"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"mode":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+    ],
+    "outputs": [
+        {"name":"M", "type":"categorical"},
+        {"name":"F", "type":["integer", ">=0"]},
+        {"name":"C", "type":"cell"}
+    ]
+},
+"ne":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                {"name":"B", "kind":"required", "type":[["categorical"], ["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf", "type":"logical"}
+    ]
+},
+"numel": // leave out undocumented numel(c,index1,index2,...)
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"n", "type":["integer", "scalar", ">=0"]}
+    ]
+},
+"permute":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"name":"order", "kind":"required", "type":["integer", "vector", ">=1"]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"removecats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"name":"oldcats", "kind":"required", "type":["choices=categories(A)"]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"renamecats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"name":"oldnames", "kind":"positional", "type":["choices=categories(A)"]},
+        // provide current category names as starting point for new names
+        {"name":"newnames", "kind":"positional", "type":[["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"reordercats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        // provide current category names as starting point for new ordering
+        {"name":"neworder", "kind":"positional", "type":[["choices=categories(A)"], ["integer", ">=1"]]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"reshape":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz", "type":["integer", "vector", ">=0"]}
+            ],
+            [
+                {"name":"sz", "type":["integer", "scalar", ">=0"], "multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"setcats":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        // provide current category names as starting point for new names
+        {"name":"newcats", "kind":"required", "type":[["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"setdiff":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                {"name":"B", "kind":"required", "type":[["categorical"], ["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"},
+        {"name":"ia", "type":["integer", ">=1"]}
+    ]
+},
+"setxor":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                {"name":"B", "kind":"required", "type":[["categorical"], ["choices=categories(A)"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"},
+        {"name":"ia", "type":["integer", ">=1"]},
+        {"name":"ib", "type":["integer", ">=1"]}
+    ]
+},
+"single":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"single"}
+    ]
+},
+"size":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"categorical"}
+    ],
+    "outputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz","type":["numeric","integer","row"]}
+            ],
+            [
+                {"name":"m","type":["numeric","integer","scalar"]},
+                {"name":"n","type":["numeric","integer","scalar"]}
+            ],
+            [
+                {"name":"sz","type":["numeric","integer","scalar"],"multiplicity":"append"}
+            ]
+        ]}
+    ]
+},
+"size":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"categorical"},
+        {"name":"dim","kind":"positional","type":["numeric","integer","scalar"]}
+    ],
+    "outputs": [
+        {"name":"szdim","type":["numeric","integer","scalar"]}
+    ]
+},
+"sort":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for categorical
+    ],
+    "outputs": [
+        {"name":"B", "type":["categorical"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"sortrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["categorical"]]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for categorical
+    ],
+    "outputs": [
+        {"name":"B", "type":["categorical"]},
+        {"name":"Index", "type":[["integer",">=1"]]}
+    ]
+},
+"string":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"str", "type":"string"}
+    ]
+},
+"summary":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+    ],
+    "outputs": [
+    ]
+},
+"times":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical"]},
+        {"name":"B", "kind":"required", "type":["categorical"]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+"topkrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["categorical"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector", ">=1"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'descend'"}
+        // no ComparisonMethod for categorical
+    ],
+    "outputs": [
+        {"name":"B", "type":["categorical"]},
+        {"name":"Index", "type":[["integer", ">=1"]]}
+    ]
+},
+"transpose":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"B", "type":"categorical"}
+    ]
+},
+"uint16":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"uint16"}
+    ]
+},
+"uint32":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"uint32"}
+    ]
+},
+"uint64":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"uint64"}
+    ]
+},
+"uint8":
+{
+    "inputs": [
+        {"name":"x", "kind":"required", "type":"categorical"}
+    ],
+    "outputs": [
+        {"name":"y", "type":"uint8"}
+    ]
+},
+"union":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"categorical"},
+                // categories(A) wouldn't be helpful here as it is for intersect/setdiff/setxor
+                {"name":"B", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["categorical"], ["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":"categorical"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"},
+        {"name":"ia", "type":["integer", ">=1"]},
+        {"name":"ib", "type":["integer", ">=1"]}
+    ]
+},
+"unique":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"categorical"},
+        {"mutuallyExclusiveGroup":
+        // when 'rows' is present, it's documented as must be first
+        [
+            [
+                {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+                {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+            ],
+            [ // occurrence is not allowed with setOrder
+                {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+                {"name":"occurrence", "kind":"optional", "type":["choices={'first', 'last'}"], "default":"'first'"}
+                // 'legacy' is not documented to work
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"},
+        {"name":"ia", "type":["integer", ">=1"]},
+        {"name":"ic", "type":["integer", ">=1"]}
+    ]
+},
+"vertcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["categorical"],["char","row"],["cellstr"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"categorical"}
+    ]
+},
+
+
+// =====================================================================
+// tabular methods
+//
+// A varspec is defined using [["choices=[...]"], ["integer", ">=1"], ["@islogical"]].
+// This accepts one or multiple (cellstr) of the choices, but no other names.
+// ["@islogical"] prevents accepting negative or non-integer, as ["logical"] would.
+// =====================================================================
+"addvars":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"},
+        {"name":"var", "kind":"required", "multiplicity":"append"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"Before","kind":"namevalue","type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"NewVariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"After","kind":"namevalue","type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"NewVariableNames", "kind":"namevalue", "type":"cellstr"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"T", "type":"tabular"}
+    ]
+},
+"cat":
+{
+    "inputs": [
+        {"name":"dim", "kind":"required", "type":["numeric", "scalar", ">=1", "<=2"]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"optional", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"optional", "type":"tabular"}
+            ],
+            [ // this doesn't enforce the restriction that a timetable must be first
+                {"name":"A", "kind":"optional", "type":"tabular", "multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"table"}
+    ]
+},
+"head":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"tabular"},
+        {"name":"k", "kind":"positional", "type":["integer", "scalar", ">=0"]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"tabular"}
+    ]
+},
+"height":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"H", "type":["integer", "scalar", ">=0"]}
+    ]
+},
+"horzcat":
+{
+    "inputs": [ // this doesn't enforce the restriction that a timetable must be first
+        {"name":"A", "kind":"optional", "type":"tabular", "multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"table"}
+    ]
+},
+"inner2outer":
+{
+    "inputs": [
+        {"name":"T","kind":"required","type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"T1","type":"table"}
+    ]
+},
+"innerjoin":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"tabular"}
+            ]
+        ]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"Keys",
+                 "kind":"namevalue",
+                 "type":[["choices=matlab.internal.tabular.functionsignatures.commonKeyChoices(A,B)"], ["integer", ">=1"], ["@islogical"]]
+                },
+                {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+            ],
+            [
+                {"name":"LeftKeys", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightKeys", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(B)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+            ]
+        ]}
+// Due to mutuallyExclusiveGroups, these need to be inside the group.  namevalues can't span both inside/outside groups.
+//        {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]},
+        {"name":"ib", "type":["double", "vector"]}
+    ]
+},
+"intersect":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"timetable"}
+            ]
+        ]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted','stable'}"], "default":"'sorted'"}
+        // 'rows' is assumed, and 'legacy' is not accepted
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]},
+        {"name":"ib", "type":["double", "vector"]}
+    ]
+},
+"isempty":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+
+    ]
+},
+"ismember":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["table"]},
+                {"name":"B", "kind":"required", "type":["table"]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":["timetable"]},
+                {"name":"B", "kind":"required", "type":["timetable"]}
+            ]
+        ]
+        // 'rows' is assumed, and 'legacy' is not accepted
+        }
+    ],
+    "outputs": [
+        {"name":"Lia", "type":["logical", "vector"]},
+        {"name":"Locb", "type":["double", "vector"]}
+    ]
+},
+"issortedrows": // 'RowNames' is legacy, don't suggest it
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"tblA", "kind":"required", "type":"table"},
+                {"name":"vars", "kind":"positional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tblA)"], ["integer"], ["@islogical"]], "default":"1:width(tblA)"}
+            ],
+            [
+                {"name":"tblA", "kind":"required", "type":"timetable"},
+                {"name":"vars", "kind":"positional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tblA)"], ["integer"], ["@islogical"]], "default":"tblA.Properties.DimensionNames{1}"}
+            ]
+        ]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','first','last'}"], "default":"'auto'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["choices={'auto','real','abs'}"], "default":"'auto'"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"join":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"tabular"}
+            ]
+        ]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"Keys",
+                 "kind":"namevalue",
+                 "type":[["choices=matlab.internal.tabular.functionsignatures.commonKeyChoices(A,B)"], ["integer", ">=1"], ["@islogical"]]
+                },
+                {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"KeepOneCopy", "kind":"namevalue", "type":[["choices=intersect(A.Properties.VariableNames, B.Properties.VariableNames)"]]}
+            ],
+            [
+                {"name":"LeftKeys", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightKeys", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(B)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"KeepOneCopy", "kind":"namevalue", "type":[["choices=intersect(A.Properties.VariableNames, B.Properties.VariableNames)"]]}
+            ]
+        ]}
+// Due to mutuallyExclusiveGroups, these need to be inside the group.  namevalues can't span both inside/outside groups.
+//        {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"KeepOneCopy", "kind":"namevalue", "type":[["choices=intersect(A.Properties.VariableNames, B.Properties.VariableNames)"]]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"table"},
+        {"name":"ib", "type":["double", "vector"]}
+    ]
+},
+"mergevars":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+        {"name":"NewVariableName", "kind":"namevalue", "type":["char","row"]},
+        {"name":"MergeAsTable", "kind":"namevalue", "type":["logical","scalar"]}
+    ],
+    "outputs": [
+        {"name":"T", "type":"tabular"}
+    ]
+},
+"movevars":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"Before","kind":"namevalue","type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+            ],
+            [
+                {"name":"After","kind":"namevalue","type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"T", "type":"tabular"}
+    ]
+},
+"ndims":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"N", "type":["integer", "scalar", ">=2"]}
+
+    ]
+},
+"numel": // leave out undocumented numel(t,index1,index2,...)
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"n", "type":["integer", "scalar", ">=0"]}
+
+    ]
+},
+"outerjoin":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"tabular"}
+            ]
+        ]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"Keys",
+                 "kind":"namevalue",
+                 "type":[["choices=matlab.internal.tabular.functionsignatures.commonKeyChoices(A,B)"], ["integer", ">=1"], ["@islogical"]]
+                },
+                {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"MergeKeys", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+                {"name":"Type", "kind":"namevalue", "type":["choices={'full','left','right'}"], "default":"'full'"}
+            ],
+            [
+                {"name":"LeftKeys", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightKeys", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(B)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"MergeKeys", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+                {"name":"Type", "kind":"namevalue", "type":["choices={'full','left','right'}"], "default":"'full'"}
+            ]
+        ]}
+// Due to mutuallyExclusiveGroups, these need to be inside the group.  namevalues can't span both inside/outside groups.
+//        {"name":"LeftVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"RightVariables", "kind":"namevalue", "type":[["choices=B.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"MergeKeys", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+//        {"name":"Type", "kind":"namevalue", "type":["choices={'full','left','right'}"], "default":"'full'"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]},
+        {"name":"ib", "type":["double", "vector"]}
+    ]
+},
+"removevars":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+    ],
+    "outputs": [
+        {"name":"T", "type":"tabular"}
+    ]
+},
+"rowfun":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"OutputFormat", "kind":"namevalue", "type":["choices={'table','uniform','cell'}"], "default":"'table'"},
+                {"name":"InputVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"GroupingVariables", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"SeparateInputs", "kind":"namevalue", "type":["logical", "scalar"]},
+                {"name":"ExtractCellContents", "kind":"namevalue", "type":["logical", "scalar"]},
+                // provide current var names as starting point for OutputVariableNames
+                {"name":"OutputVariableNames", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["char", "row"], ["cellstr"]]},
+                {"name":"NumOutputs", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+                {"name":"ErrorHandler", "kind":"namevalue", "type":"function_handle"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"OutputFormat", "kind":"namevalue", "type":["choices={'table','timetable','uniform','cell'}"], "default":"'timetable'"},
+                {"name":"InputVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"GroupingVariables", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"SeparateInputs", "kind":"namevalue", "type":["logical", "scalar"]},
+                {"name":"ExtractCellContents", "kind":"namevalue", "type":["logical", "scalar"]},
+                // provide current var names as starting point for OutputVariableNames
+                {"name":"OutputVariableNames", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["char", "row"], ["cellstr"]]},
+                {"name":"NumOutputs", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+                {"name":"ErrorHandler", "kind":"namevalue", "type":"function_handle"}
+            ]
+        ]}
+        // Due to mutuallyExclusiveGroups, these need to be inside the group.  namevalues can't span both inside/outside groups.
+//        {"name":"InputVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"GroupingVariables", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"SeparateInputs", "kind":"namevalue", "type":["logical", "scalar"]},
+//        {"name":"ExtractCellContents", "kind":"namevalue", "type":["logical", "scalar"]},
+//        // provide current var names as starting point for OutputVariableNames
+//        {"name":"OutputVariableNames", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["char", "row"], ["cellstr"]]},
+//        {"name":"NumOutputs", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+//        {"name":"ErrorHandler", "kind":"namevalue", "type":"function_handle"}
+    ],
+    "outputs": [
+        {"name":"B"}
+    ]
+},
+"rows2vars":{
+    "inputs": [
+        {"name":"T1","kind":"required","type":"tabular"},
+        {"name":"VariableNamesSource","kind":"namevalue","type":[["choices=T1.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+        {"name":"DataVariables","kind":"namevalue","type":[["choices=T1.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+        ],
+    "outputs": [
+        {"name":"T2","type":"table"}
+    ]
+},
+"setdiff":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"timetable"}
+            ]
+        ]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted','stable'}"], "default":"'sorted'"}
+        // 'rows' is assumed, and 'legacy' is not accepted
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]}
+    ]
+},
+"setxor":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"timetable"}
+            ]
+        ]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted','stable'}"], "default":"'sorted'"}
+        // 'rows' is assumed, and 'legacy' is not accepted
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]},
+        {"name":"ib", "type":["double", "vector"]}
+    ]
+},
+"size":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"tabular"}
+    ],
+    "outputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz","type":["numeric","integer","row"]}
+            ],
+            [
+                {"name":"m","type":["numeric","integer","scalar"]},
+                {"name":"n","type":["numeric","integer","scalar"]}
+            ],
+            [
+                {"name":"sz","type":["numeric","integer","scalar"],"multiplicity":"append"}
+            ]
+        ]}
+    ]
+},
+"size":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"tabular"},
+        {"name":"dim","kind":"positional","type":["numeric","integer","scalar"]}
+    ],
+    "outputs": [
+        {"name":"szdim","type":["numeric","integer","scalar"]}
+    ]
+},
+"sortrows": // 'RowNames' is legacy, don't suggest it
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"tblA", "kind":"required", "type":"table"},
+                {"name":"vars", "kind":"positional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tblA)"], ["integer"], ["@islogical"]], "default":"1:width(tblA)"}
+            ],
+            [
+                {"name":"tblA", "kind":"required", "type":"timetable"},
+                {"name":"vars", "kind":"positional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tblA)"], ["integer"], ["@islogical"]], "default":"tblA.Properties.DimensionNames{1}"}
+            ]
+        ]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','first','last'}"], "default":"'auto'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["choices={'auto','real','abs'}"], "default":"'auto'"}
+    ],
+    "outputs": [
+        {"name":"tblB"},
+        {"name":"index", "type":["integer", "vector", ">=1"]}
+    ]
+},
+"splitvars":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+        {"name":"NewVariableNames", "kind":"namevalue", "type":"cellstr"}
+    ],
+    "outputs": [
+        {"name":"T", "type":"tabular"}
+    ]
+},
+"stack":
+{
+    "inputs": [
+        {"name":"U", "kind":"required", "type":"tabular"},
+        {"name":"vars", "kind":"required", "type":[["choices=U.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+        // thin choices for ConstantVariables using value of vars
+        {"name":"ConstantVariables",
+         "kind":"namevalue",
+         "type":[["choices=setdiff(matlab.internal.tabular.functionsignatures.keyChoices(U),U.Properties.VariableNames(vars))"], ["integer", ">=1"], ["@islogical"]]},
+        // provide current var names as starting point for NewDataVariableName and IndexVariableName
+        {"name":"NewDataVariableName", "kind":"namevalue", "type":[["choices=U.Properties.VariableNames"], ["char", "row"], ["cellstr"]]},
+        {"name":"IndexVariableName", "kind":"namevalue", "type":[["choices=U.Properties.VariableNames"], ["char", "row"], ["cellstr"]]}
+    ],
+    "outputs": [
+        {"name":"S", "type":"tabular"},
+        {"name":"iu", "type":["integer", ">=1"]}
+    ]
+},
+"summary":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"s", "type":"struct"}
+    ]
+},
+"tabular._parenReference":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"T", "kind":"required", "type":"table"},
+                {"name":"rows", "kind":"required", "type":[["choices=T.Properties.RowNames"], ["integer", ">=1"], ["@islogical"]]}
+            ],
+            [
+                {"name":"T", "kind":"required", "type":"timetable"},
+                {"name":"rows", "kind":"required", "type":[["datetime"], ["duration"], ["char", "row"], ["integer", ">=1"], ["@islogical"]]}
+            ]
+        ]},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+    ]
+},
+"tabular._parenAssign":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"T", "kind":"required", "type":"table"},
+                {"name":"rows", "kind":"required", "type":[["choices=T.Properties.RowNames"], ["integer", ">=1"], ["@islogical"]]}
+            ],
+            [
+                {"name":"T", "kind":"required", "type":"timetable"},
+                {"name":"rows", "kind":"required", "type":[["datetime"], ["duration"], ["char", "row"], ["integer", ">=1"], ["@islogical"]]}
+            ]
+    ]
+},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+    ]
+},
+"tabular._curlyBraceReference":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"T", "kind":"required", "type":"table"},
+                {"name":"rows", "kind":"required", "type":[["choices=T.Properties.RowNames"], ["integer", ">=1"], ["@islogical"]]}
+            ],
+            [
+                {"name":"T", "kind":"required", "type":"timetable"},
+                {"name":"rows", "kind":"required", "type":[["datetime"], ["duration"], ["char", "row"], ["integer", ">=1"], ["@islogical"]]}
+            ]
+        ]},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+    ]
+},
+"tabular._curlyBraceAssign":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"T", "kind":"required", "type":"table"},
+                {"name":"rows", "kind":"required", "type":[["choices=T.Properties.RowNames"], ["integer", ">=1"], ["@islogical"]]}
+            ],
+            [
+                {"name":"T", "kind":"required", "type":"timetable"},
+                {"name":"rows", "kind":"required", "type":[["datetime"], ["duration"], ["char", "row"], ["integer", ">=1"], ["@islogical"]]}
+            ]
+        ]},
+        {"name":"vars", "kind":"required", "type":[["choices=T.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]}
+    ]
+},
+"tail":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"tabular"},
+        {"name":"k", "kind":"positional", "type":["integer", "scalar", ">=0"]}
+    ],
+    "outputs": [
+        {"name":"B", "type":"tabular"}
+    ]
+},
+"topkrows": // 'RowNames' is legacy, don't suggest it
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"tblA", "kind":"required", "type":"table"},
+                {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+                {"name":"vars", "kind":"positional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tblA)"], ["integer"], ["@islogical"]], "default":"1:width(tblA)"}
+            ],
+            [
+                {"name":"tblA", "kind":"required", "type":"timetable"},
+                {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+                {"name":"vars", "kind":"positional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tblA)"], ["integer"], ["@islogical"]], "default":"tblA.Properties.DimensionNames{1}"}
+            ]
+        ]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'descend'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["choices={'auto','real','abs'}"], "default":"'auto'"}
+    ],
+    "outputs": [
+        {"name":"tblB"},
+        {"name":"index", "type":["integer", "vector", ">=1"]}
+    ]
+},
+"union":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"B", "kind":"required", "type":"table"}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"B", "kind":"required", "type":"timetable"}
+            ]
+        ]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted','stable'}"], "default":"'sorted'"}
+        // 'rows' is assumed, and 'legacy' is not accepted
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]},
+        {"name":"ib", "type":["double", "vector"]}
+    ]
+},
+"unique":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"tabular"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"setOrder", "kind":"optional", "type":["choices={'sorted','stable'}"], "default":"'sorted'"}
+            ],
+            [ // occurrence is not allowed with setOrder
+                {"name":"occurrence", "kind":"optional", "type":["choices={'first','last'}"], "default":"'first'"}
+            ]
+        // 'rows' is assumed, and 'legacy' is not accepted
+        ]}
+    ],
+    "outputs": [
+        {"name":"C", "type":"tabular"},
+        {"name":"ia", "type":["double", "vector"]},
+        {"name":"ic", "type":["double", "vector"]}
+    ]
+},
+"unstack":
+{
+    "inputs": [
+        {"name":"S", "kind":"required", "type":"tabular"},
+        {"name":"vars", "kind":"required", "type":[["choices=S.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+        // thin choices for ivar using value of vars
+        {"name":"ivar", "kind":"required", "type":[["choices=setdiff(S.Properties.VariableNames,S.Properties.VariableNames(vars))"], ["integer", ">=1"], ["@islogical"]]},
+        // thin choices for GroupingVariables using values of vars and ivars
+        {"name":"GroupingVariables",
+         "kind":"namevalue",
+         "type":[["choices=setdiff(matlab.internal.tabular.functionsignatures.keyChoices(S),[S.Properties.VariableNames(vars) S.Properties.VariableNames(ivar)])"], ["integer", ">=1"], ["@islogical"]]},
+        // thin choices for ConstantVariables using values of vars and ivars
+        {"name":"ConstantVariables",
+         "kind":"namevalue",
+         "type":[["choices=setdiff(matlab.internal.tabular.functionsignatures.keyChoices(S),[S.Properties.VariableNames(vars) S.Properties.VariableNames(ivar)])"], ["integer", ">=1"], ["@islogical"]]},
+        // provide current var names as starting point for NewDataVariableNames
+        {"name":"NewDataVariableNames", "kind":"namevalue", "type":[["choices=S.Properties.VariableNames"], ["cellstr"]]},
+        {"name":"AggregationFunction", "kind":"namevalue", "type":["function_handle"]}
+    ],
+    "outputs": [
+        {"name":"U", "type":"tabular"},
+        {"name":"is", "type":["integer", ">=1"]}
+    ]
+},
+"varfun":
+{
+    "inputs": [
+        {"name":"func", "kind":"required", "type":"function_handle"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":"table"},
+                {"name":"OutputFormat", "kind":"namevalue", "type":["choices={'table','timetable','uniform','cell'}"], "default":"'table'"},
+                {"name":"InputVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"GroupingVariables", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"ErrorHandler", "kind":"namevalue", "type":["function_handle"]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":"timetable"},
+                {"name":"OutputFormat", "kind":"namevalue", "type":["choices={'table','timetable','uniform','cell'}"], "default":"'timetable'"},
+                {"name":"InputVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"GroupingVariables", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+                {"name":"ErrorHandler", "kind":"namevalue", "type":["function_handle"]}
+            ]
+        ]}
+// Due to mutuallyExclusiveGroups, these need to be inside the group.  namevalues can't span both inside/outside groups.
+//        {"name":"InputVariables", "kind":"namevalue", "type":[["choices=A.Properties.VariableNames"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"GroupingVariables", "kind":"namevalue", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(A)"], ["integer", ">=1"], ["@islogical"]]},
+//        {"name":"ErrorHandler", "kind":"namevalue", "type":["function_handle"]}
+    ],
+    "outputs": [
+        {"name":"B"}
+    ]
+},
+"vertcat":
+{
+    "inputs": [ // this doesn't enforce the restriction that a timetable must be first
+        {"name":"A", "kind":"optional", "type":"tabular", "multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C", "type":"table"}
+    ]
+},
+"width":
+{
+    "inputs": [
+        {"name":"T", "kind":"required", "type":"tabular"}
+    ],
+    "outputs": [
+        {"name":"W", "type":["integer", "scalar", ">=0"]}
+    ]
+},
+
+
+// =====================================================================
+// table methods
+// =====================================================================
+"table":
+{
+    "inputs": [
+        {"name":"var", "kind":"required", "multiplicity":"append"},
+        {"name":"RowNames", "kind":"namevalue", "type":"cellstr"},
+        {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+    ],
+    "outputs": [
+        {"name":"T", "type":"table"}
+    ]
+},
+"table":
+{
+    "inputs": [
+        {"name":"'Size'", "kind":"required", "type":["choices={'Size'}"]},
+        {"name":"sz", "kind": "required", "type":["integer", "@(x)numel(x)==2"]},
+        {"name":"'VariableTypes'", "kind":"required","type":"choices={'VariableTypes'}"},
+        {"name":"varTypes", "kind": "required", "type":"cellstr"},
+        {"name":"RowNames", "kind":"namevalue", "type":"cellstr"},
+        {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+    ],
+    "outputs": [
+        {"name":"T", "type":"table"}
+    ]
+},
+
+
+// =====================================================================
+// timetable methods
+// =====================================================================
+"isregular":
+{
+    "inputs": [
+        {"name":"TT", "kind":"required", "type":"timetable"},
+        {"name":"unit", "kind":"positional", "type":["choices={'years','quarters','months','weeks','days','time'}"], "default":"'time'"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]},
+        {"name":"dt", "type":["duration", "scalar"]}
+
+    ]
+},
+"issorted":
+{
+    "inputs": [
+        {"name":"TT", "kind":"required", "type":"timetable"}
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"lag":
+{
+    "inputs": [
+        {"name":"TT1", "kind":"required", "type":"timetable"},
+        {"name":"dt", "kind":"positional", "type":[["duration", "scalar"], ["calendarDuration", "scalar"], ["integer", "scalar"]]}
+    ],
+    "outputs": [
+        {"name":"TT2", "type":"timetable"}
+    ]
+},
+"retime":
+{
+    "inputs": [
+        {"name":"TT1", "kind":"required", "type":"timetable"},
+// Due to mutuallyExclusiveGroups, method and all the namevalues need to be inside the groups. namevalues
+// can't span both inside/outside groups, and method has to come before the namevalues.
+        {"mutuallyExclusiveGroup": [
+// To match retime(tt,newTimeStep)
+//          retime(tt,newTimeStep,method)
+//          retime(tt,newTimeStep,method,ParamName,ParamVal,...)
+// but not
+//          retime(tt,newTimeStep,ParamName,ParamVal,...)
+// we have two signatures, one without method, and one with method as required (not positional).
+            [
+                // retime(tt,newTimeStep,ParamName,ParamVal,...) is not accepted
+                {"name":"newTimeStep", "kind":"required", "type":["choices={'yearly','quarterly','monthly','weekly','daily','hourly','minutely','secondly'}"]}
+            ],
+            [
+                {"name":"newTimeStep", "kind":"required", "type":["choices={'yearly','quarterly','monthly','weekly','daily','hourly','minutely','secondly'}"]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+// Ditto for retime(tt,newTimes,...).
+            [
+                {"name":"newTimes", "kind":"required", "type":[["datetime", "vector"], ["duration", "vector"]]}
+            ],
+            [
+                {"name":"newTimes", "kind":"required", "type":[["datetime", "vector"], ["duration", "vector"]]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+// retime(tt,'regular',...) always requires method and name/value pairs, so don't need a two-input signature.
+// Either TimeStep or SamplingRate is required for 'regular', but there's no way to enforce that.
+            [
+                {"name":"'regular'", "kind":"required", "type":["choices={'regular'}"]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"TimeStep", "kind":"namevalue", "type":[["duration", "scalar"], ["calendarDuration", "scalar"]]},
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+            [
+                {"name":"'regular'", "kind":"required", "type":["choices={'regular'}"]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"SamplingRate", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"TT2", "type":"timetable"}
+    ]
+},
+"synchronize":
+{
+    "inputs": [
+        {"name":"TT1", "kind":"required", "multiplicity":"append", "type":"timetable"}, // "required" to require one or more
+// Due to mutuallyExclusiveGroups, method and all the namevalues need to be inside the groups. namevalues
+// can't span both inside/outside groups, and method has to come before the namevalues.
+        {"mutuallyExclusiveGroup": [
+            [
+                // match synchronize(tt1,tt2)
+            ],
+// To match synchronize(tt1,tt2,newTimeBasis)
+//          synchronize(tt1,tt2,newTimeBasis,method)
+//          synchronize(tt1,tt2,newTimeBasis,method,ParamName,ParamVal,...)
+// but not
+//          synchronize(tt1,tt2,newTimeBasis,ParamName,ParamVal,...)
+// we have two signatures, one without method, and one with method as required (not positional).
+            [
+                {"name":"newTimeBasis", "kind":"required", "type":["choices={'union','intersection','commonrange','first','last'}"], "default":"'union'"}
+            ],
+            [
+                {"name":"newTimeBasis", "kind":"required", "type":["choices={'union','intersection','commonrange','first','last'}"], "default":"'union'"},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+// Ditto for synchronize(tt,newTimeStep,...).
+            [
+                {"name":"newTimeStep", "kind":"required", "type":["choices={'yearly','quarterly','monthly','weekly','daily','hourly','minutely','secondly'}"]}
+            ],
+            [
+                {"name":"newTimeStep", "kind":"required", "type":["choices={'yearly','quarterly','monthly','weekly','daily','hourly','minutely','secondly'}"]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+// Ditto for synchronize(tt,newTimes,...).
+            [
+                {"name":"newTimes", "kind":"required", "type":[["datetime", "vector"], ["duration", "vector"]]}
+            ],
+            [
+                {"name":"newTimes", "kind":"required", "type":[["datetime", "vector"], ["duration", "vector"]]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+// synchronize(tt1,tt2,'regular',...) always requires method and name/value pairs, so don't need an (n+1)-input
+// signature. Either TimeStep or SamplingRate is required for 'regular', but there's no way to enforce that.
+            [
+                {"name":"'regular'", "kind":"required", "type":["choices={'regular'}"]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"TimeStep", "kind":"namevalue", "type":[["duration", "scalar"], ["calendarDuration", "scalar"]]},
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ],
+            [
+                {"name":"'regular'", "kind":"required", "type":["choices={'regular'}"]},
+                {"name":"method", "kind":"required",
+                 "type":[["choices={'fillwithmissing','fillwithconstant','previous','next','nearest','linear','spline','pchip','sum','mean','prod','min','max','count','firstvalue','lastvalue'}"],
+                         ["function_handle"]],
+                 "default":"'fillwithmissing'"
+                },
+                {"name":"SamplingRate", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+                {"name":"Constant", "kind":"namevalue", "default":"0"},
+                {"name":"EndValues", "kind":"namevalue", "type":[["choices={'extrap'}"], ["scalar"]], "default":"'extrap'"},
+                {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"TT2", "type":"timetable"}
+    ]
+},
+"timetable":
+{
+    "inputs": [
+        {"name":"rowTimes", "kind": "required", "type":[["datetime", "vector"], ["duration", "vector"]]},
+        {"name":"var", "kind":"required", "multiplicity":"append"},
+        {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+    ],
+    "outputs": [
+        {"name":"TT", "type":"timetable"}
+    ]
+},
+"timetable":
+{
+    "inputs": [
+        {"name":"var", "kind":"required", "multiplicity":"append"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'RowTimes'", "kind":"required","type":"choices={'RowTimes'}"},
+                {"name":"rowTimes", "kind": "required", "type":[["datetime", "vector"], ["duration", "vector"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"'TimeStep'", "kind":"required","type":"choices={'TimeStep'}"},
+                {"name":"dt", "kind": "required", "type":["duration", "scalar"]},
+                {"name":"StartTime", "kind":"namevalue", "type":[["duration", "scalar"], ["datetime", "scalar"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"'TimeStep'", "kind":"required","type":"choices={'TimeStep'}"},
+                {"name":"dt", "kind": "required", "type":["calendarDuration", "scalar"]},
+                {"name":"StartTime", "kind":"namevalue", "type":["datetime", "scalar"]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"'SamplingRate'", "kind":"required","type":"choices={'SamplingRate'}"},
+                {"name":"Fs", "kind": "required", "type":["numeric", "scalar", ">0"]},
+                {"name":"StartTime", "kind":"namevalue", "type":[["duration", "scalar"], ["datetime", "scalar"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"TT", "type":"timetable"}
+    ]
+},
+"timetable":
+{
+    "inputs": [
+        {"name":"'Size'", "kind":"required", "type":["choices={'Size'}"]},
+        {"name":"sz", "kind": "required", "type":["integer", "@(x)numel(x)==2"]},
+        {"name":"'VariableTypes'", "kind":"required","type":"choices={'VariableTypes'}"},
+        {"name":"varTypes", "kind": "required", "type":"cellstr"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'RowTimes'", "kind":"required","type":"choices={'RowTimes'}"},
+                {"name":"rowTimes", "kind": "required", "type":[["datetime", "vector"], ["duration", "vector"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"'TimeStep'", "kind":"required","type":"choices={'TimeStep'}"},
+                {"name":"dt", "kind": "required", "type":["duration", "scalar"]},
+                {"name":"StartTime", "kind":"namevalue", "type":[["duration", "scalar"], ["datetime", "scalar"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"'TimeStep'", "kind":"required","type":"choices={'TimeStep'}"},
+                {"name":"dt", "kind": "required", "type":["calendarDuration", "scalar"]},
+                {"name":"StartTime", "kind":"namevalue", "type":["datetime", "scalar"]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ],
+            [
+                {"name":"'SamplingRate'", "kind":"required","type":"choices={'SamplingRate'}"},
+                {"name":"Fs", "kind": "required", "type":["numeric", "scalar", ">0"]},
+                {"name":"StartTime", "kind":"namevalue", "type":[["duration", "scalar"], ["datetime", "scalar"]]},
+                {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"TT", "type":"timetable"}
+    ]
+}
+}

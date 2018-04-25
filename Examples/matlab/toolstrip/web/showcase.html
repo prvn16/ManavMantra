@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Toolstrip API Showcase</title>
+
+    <link rel="stylesheet" type="text/css" href="/ui/webwidgets/src/css/webwidget.dojo.css">
+    <link rel="stylesheet" type="text/css" href="/ui/webwidgets/src/css/webwidget.css">
+	
+	<script src="/derived/ui/generated/toolstrip/generatedDojoConfig.js"></script>
+    
+	<script src="/derived/ui/dojo/dojo.js"></script>
+	
+</head>
+
+<body class="tundra" style="margin:0; padding:0">
+    <script type="text/javascript">
+        require([
+            "mw-messageservice/MessageService",
+            "mw-remote/Remote",
+			"dojo/topic",
+            "MW/uiframework/UIBuilderFactory"
+        ], function (MessageService, Remote, topic, UIBuilderFactory) {                                               
+            MessageService.start();
+            topic.subscribe("/Toolstrip/toolstripPlaced",function (data) {console.log(data)});
+			UIBuilderFactory.getInstance({channel: "/ToolstripShowcaseChannel", isMATLABDriven: true});
+        });                                                                                           
+    </script>
+	<div id="ToolStripShowcaseDIV" style="overflow:hidden;"></div>
+</body>
+
+</html>
+
+
+
+

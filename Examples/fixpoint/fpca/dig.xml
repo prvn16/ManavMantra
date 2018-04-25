@@ -1,0 +1,10 @@
+<dig>
+    <action type="dynamic" id="SimulinkFixedPoint:fpca:ReplaceBlk">
+        <generator gateway="FPAContextMenus" function="getItemReplaceBlk" />
+        <domains>Simulink:Model</domains>
+    </action>   
+    <action type="dynamic" id="SimulinkFixedPoint:fpca:DecoupleWithDTC">
+        <generator gateway="FPAContextMenus" function="addDTC" />
+        <domains>Simulink:Model</domains>
+    </action>    
+</dig>

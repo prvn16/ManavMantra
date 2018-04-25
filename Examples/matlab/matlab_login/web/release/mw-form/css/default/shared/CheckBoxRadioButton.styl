@@ -1,0 +1,45 @@
+@import "../variables";
+
+.mwDefaultVisualFamily.mwCheckBox .mwCheckBoxRadioIconNode,
+.mwDefaultVisualFamily.mwRadioButton .mwCheckBoxRadioIconNode {
+    width: 12px;
+    height: 12px;
+    border: 1px solid $color-mediumgray3;
+    background-color: $color-white;
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.mwDefaultVisualFamily.mwRadioButton .mwCheckBoxRadioIconNode .mwCheckBoxRadioIconInner {
+    background-color: $color-darkgray1;
+}
+
+.mwDefaultVisualFamily.mwCheckBox .mwCheckBoxRadioIconNode .mwCheckBoxRadioIconInner {
+    border-left: 2px solid $color-darkgray1;
+    border-bottom: 2px solid $color-darkgray1;
+}
+
+.mwDefaultVisualFamily.mwCheckBox .mwCheckBoxRadioIconNode .mwCheckBoxRadioIconInner {
+    bottom: 5px;
+    width: 8px;
+    height: 3px;
+    left: 1px;
+}
+
+.mwDefaultVisualFamily.mwRadioButton .mwCheckBoxRadioIconNode .mwCheckBoxRadioIconInner {
+    height: 6px;
+    width: 6px;
+    top: 3px;
+    left: 3px;
+}
+
+.mwDefaultVisualFamily.mwCheckBox.mwCheckBoxHover .mwCheckBoxRadioIconNode,
+.mwDefaultVisualFamily.mwCheckBox.mwCheckBoxActive .mwCheckBoxRadioIconNode,
+.mwDefaultVisualFamily.mwRadioButton.mwRadioButtonHover .mwCheckBoxRadioIconNode,
+.mwDefaultVisualFamily.mwRadioButton.mwRadioButtonActive .mwCheckBoxRadioIconNode {
+    border-color: $color-mediumgray4;
+}
+
+.mwDefaultVisualFamily.mwCheckBox.mwCheckBoxFocused .mwCheckBoxRadioIconNode,
+.mwDefaultVisualFamily.mwRadioButton.mwRadioButtonFocused .mwCheckBoxRadioIconNode {
+    border-color: $color-selection;
+}

@@ -1,0 +1,3 @@
+html { min-height: 100%; }
+html body { height: 100%; padding: 0; margin: 0; background: #31373d; background-color:#efefef; color: #595959; font: 15px/1.46 Arial, Helvetica, sans-serif; -ms-overflow-style: scrollbar; -webkit-font-smoothing: antialiased; }
+h1 { padding: 1em; margin: 0 0 35px; color:#125687; font: normal 400 1.5em "futura-pt-n4","futura-pt",Arial,Helvetica,sans-serif; -moz-font-feature-settings: "kern"; -webkit-font-feature-settings: "kern"; font-feature-settings: "kern"; }

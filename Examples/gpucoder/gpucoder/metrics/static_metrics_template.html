@@ -1,0 +1,126 @@
+<html>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>GPU Static Code Metrics Report</title>
+    
+    |>LEGACY_REPORT_INCLUDE<|
+    
+  </head>
+
+  <body>
+  <h1>GPU Static Code Metrics Report</h1>
+
+  <div><p>The GPU static code metrics report provides statistics of the generated GPU code.</p></div>
+
+  <div>
+    <h3>Table of Contents</h3>
+    <ol>
+      <li>
+        <a href="#sec_cudaKernels" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwGPUIdCodeMetrics_cudaKernels_control'), 'rtwGPUIdCodeMetrics_cudaKernels')">CUDA Kernels</a>
+      </li>
+      <li>
+        <a href="#sec_cudaMalloc" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwGPUIdCodeMetrics_cudaMalloc_control'), 'rtwGPUIdCodeMetrics_cudaMalloc')">CUDA Malloc</a>
+      </li>
+      <li>
+        <a href="#sec_cudaMallocManaged" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwGPUIdCodeMetrics_cudaMallocManaged_control'), 'rtwGPUIdCodeMetrics_cudaMallocManaged')">CUDA MallocManaged</a>
+      </li>
+      <li>
+        <a href="#sec_cudaMemcpy" onclick="rtwTableExpand(window.document, window.document.getElementById('rtwGPUIdCodeMetrics_cudaMemcpy_control'), 'rtwGPUIdCodeMetrics_cudaMemcpy')">CUDA Memcpy</a>
+      </li>
+    </ol>
+  </div>
+
+  <h3 name="sec_cudaKernels" id="sec_cudaKernels">1. CUDA Kernels
+    <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwGPUIdCodeMetrics_cudaKernels_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwGPUIdCodeMetrics_cudaKernels', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+  </h3>
+
+  <table width="100%" name="rtwGPUIdCodeMetrics_cudaKernels" id="rtwGPUIdCodeMetrics_cudaKernels" border="0">
+    <tr>
+      <td align="left" valign="top">
+        <table width="100%" cellpadding="2" name="cudaKernels" id="cudaKernels" border="1">
+          <tr style="font-weight:bold">
+            <td align="center" valign="middle" style="border-style:none">Kernel Name</td>
+            <td align="center" valign="middle" style="border-style:none">Thread Dimensions</td>
+            <td align="center" valign="middle" style="border-style:none">Block Dimensions</td>
+            <td align="center" valign="middle" style="border-style:none">Input Variables</td>
+            <td align="center" valign="middle" style="border-style:none">Output Variables</td>
+            <td align="center" valign="middle" style="border-style:none">Stream</td>
+            <td align="center" valign="middle" style="border-style:none">Shared Memory Size</td>
+            <td align="center" valign="middle" style="border-style:none">Minimum BlocksPerSM</td>
+            <td align="center" valign="middle" style="border-style:none">ConstantMemory</td>
+          </tr>
+
+          |>CUDA_KERNEL_DATA<|
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <h3 name="sec_cudaMalloc" id="sec_cudaMalloc">2. CUDA Malloc
+    <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwGPUIdCodeMetrics_cudaMalloc_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwGPUIdCodeMetrics_cudaMalloc', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+  </h3>
+
+  <table width="100%" name="rtwGPUIdCodeMetrics_cudaMalloc" id="rtwGPUIdCodeMetrics_cudaMalloc" border="0">
+    <tr>
+      <td align="left" valign="top">
+        <table width="100%" cellpadding="2" name="cudaMalloc" id="cudaMalloc" border="1">
+          <tr style="font-weight:bold">
+            <td align="center" valign="top" style="border-style:none">Variable Name</td>
+            <td align="center" valign="middle" style="border-style:none">Data Size</td>
+          </tr>
+
+          |>CUDA_MALLOC_DATA<|
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <h3 name="sec_cudaMallocManaged" id="sec_cudaMallocManaged">3. CUDA Malloc Managed
+    <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwGPUIdCodeMetrics_cudaMallocManaged_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwGPUIdCodeMetrics_cudaMallocManaged', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+  </h3>
+
+  <table width="100%" name="rtwGPUIdCodeMetrics_cudaMallocManaged" id="rtwGPUIdCodeMetrics_cudaMallocManaged" border="0">
+    <tr>
+      <td align="left" valign="top">
+        <table width="100%" cellpadding="2" name="cudaMallocManaged" id="cudaMallocManaged" border="1">
+           <tr style="font-weight:bold">
+            <td align="center" valign="top" style="border-style:none">Variable Name</td>
+            <td align="center" valign="middle" style="border-style:none">Data Size</td>
+          </tr>
+
+          |>CUDA_MALLOCMANAGED_DATA<|
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <h3 name="sec_cudaMemcpy" id="sec_cudaMemcpy">4. CUDA Memcpy
+    <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwGPUIdCodeMetrics_cudaMemcpy_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwGPUIdCodeMetrics_cudaMemcpy', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+  </h3>
+
+  <table width="100%" name="rtwGPUIdCodeMetrics_cudaMemcpy" id="rtwGPUIdCodeMetrics_cudaMemcpy" border="0">
+    <tr>
+      <td align="left" valign="top">
+        <table width="100%" cellpadding="2" name="cudaMemcpy" id="cudaMemcpy" border="1">
+          <tr style="font-weight:bold">
+            <td align="center" valign="middle" style="border-style:none">Destination Variable Name</td>
+            <td align="center" valign="middle" style="border-style:none">Source Variable Name</td>
+            <td align="center" valign="middle" style="border-style:none">Data Size</td>
+            <td align="center" valign="middle" style="border-style:none">Direction</td>
+            <td align="center" valign="middle" style="border-style:none">Conditional Variable</td>
+            <td align="center" valign="middle" style="border-style:none">Stream</td>
+          </tr>
+
+          |>CUDA_MEMCPY_DATA<|
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  </body>
+</html>

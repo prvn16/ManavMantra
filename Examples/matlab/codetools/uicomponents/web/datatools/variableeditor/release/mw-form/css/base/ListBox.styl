@@ -1,0 +1,25 @@
+.mwWidget.mwListBox {
+    position: relative;
+    overflow: auto;
+}
+
+/* Having padding 0 and not having list-style: none will not show the default
+'disc' for list-style-type, which is default behavior of showing circle in front of the list items.
+If we add list-style: none the empty items in the list are not displayed with correct css styling */
+.mwWidget.mwListBox > ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.mwWidget.mwListBox .mwListItem {
+    padding: 2px 2px 2px 4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+    line-height: normal;
+    padding-right: 20px;
+}
+

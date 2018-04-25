@@ -1,0 +1,170 @@
+{
+"caxis":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"limits", "kind":"required", "type":["numeric", "numel=2"]},
+				{"name":"style", "kind":"required", "type":"choices={'auto','manual'}"}
+			]
+		}
+	]
+},
+"caxis":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]}
+	],
+	"outputs":
+	[
+		{"name":"limits", "kind":"required", "type":["numeric", "numel=2"]}
+	]
+},
+"colormap":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"map", "kind":"required", "type":
+			[
+				["choices={'parula','jet','hsv','hot','cool','spring','summer','autumn','winter','gray','bone','copper','pink','lines','colorcube','prism','flag','white','default'}"],
+				["numeric", "ncols=3"]
+			]
+		}
+	],
+	"outputs":
+	[
+		{"name":"cmap", "type":["numeric", "ncols=3"]}
+	]
+},
+"fill3":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"repeating":true, "tuple":
+			[
+				{"name":"X", "kind":"required", "type":"numeric"},
+				{"name":"Y", "kind":"required", "type":"numeric"},
+				{"name":"Z", "kind":"required", "type":"numeric"},
+				{"name":"C", "kind":"required", "type":[["numeric"],["char", "@matlab.graphics.internal.isLineSpec"]]}
+			]
+		},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.primitive.Patch"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.primitive.Patch"}
+	]
+},
+"lighting":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"style", "kind":"required", "type":"choices={'flat','gouraud','none'}"}
+	],
+	"outputs":
+	[
+	]
+},
+"material":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"style", "kind":"required", "type":"choices={'shiny','dull','metal','default'}"}
+	],
+	"outputs":
+	[
+	]
+},
+"material":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"properties", "kind":"required", "type":[["numeric", "vector", "numel=3"], ["numeric", "vector", "numel=4"], ["numeric", "vector", "numel=5"]]}
+	],
+	"outputs":
+	[
+	]
+},
+"plot3":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"repeating":true, "tuple":
+			[
+				{"name":"X", "type":"numeric"},
+				{"name":"Y", "type":"numeric"},
+				{"name":"Z", "type":"numeric"},
+				{"name":"LineSpec", "kind":"ordered", "type":["char", "@matlab.graphics.internal.isLineSpec"]}
+			]
+		},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.chart.primitive.Line"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.chart.primitive.Line"}
+	]
+},
+"shading":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"style", "kind":"required", "type":"choices={'flat','faceted','interp'}"}
+	],
+	"outputs":
+	[
+	]
+},
+"surf":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"z", "kind":"required", "type":["double"]},
+		{"name":"c", "kind":"ordered", "type":["double"]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.chart.primitive.Surface"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.chart.primitive.Surface"}
+	]
+},
+"surf":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"x", "kind":"required", "type":["double"]},
+		{"name":"y", "kind":"required", "type":["double"]},
+		{"name":"z", "kind":"required", "type":["double"]},
+		{"name":"c", "kind":"ordered", "type":["double"]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.chart.primitive.Surface"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.chart.primitive.Surface"}
+	]
+},
+"zlabel":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"str", "kind":"required", "type":"char"},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.primitive.Text"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.primitive.Text"}
+	]
+}
+}

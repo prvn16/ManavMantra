@@ -1,0 +1,106 @@
+{
+"geolimits":
+{
+	"inputs":
+	[
+		{"name":"gb", "kind":"optional", "type":["matlab.graphics.chart.GeographicBubbleChart"]},
+		{"name":"latlim", "kind":"required", "type":[["single","finite",">=-90","<=90","size",[1 2],"nondecreasing"], ["double","finite",">=-90","<=90","size",[1 2],"nondecreasing"]]},
+		{"name":"lonlim", "kind":"required", "type":[["single","finite","size",[1 2],"nondecreasing"], ["double","finite","size",[1 2],"nondecreasing"]]}
+	],
+	"outputs":
+	[
+		{"name":"latlim", "type":"double"},
+		{"name":"lonlim", "type":"double"}
+	]
+},
+"geolimits":
+{
+	"inputs":
+	[
+		{"name":"gb", "kind":"ordered", "type":["matlab.graphics.chart.GeographicBubbleChart"]},
+		{"name":"mode", "kind":"ordered", "type":"choices={'auto', 'manual'}"}
+	],
+	"outputs":
+	[
+		{"name":"latlim", "type":"double"},
+		{"name":"lonlim", "type":"double"}
+	]
+},
+"geobubble":
+{
+	"inputs":
+	[
+		{"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"tbl", "kind":"required", "type":"tabular"},
+		{"name":"latvar", "kind":"required", "type":[["numeric", "scalar", ">=1"], ["logical"], ["cellstr"], ["string","scalar"], ["choices=tbl.Properties.VariableNames"]]},
+		{"name":"lonvar", "kind":"required", "type":[["numeric", "scalar", ">=1"], ["logical"], ["cellstr"], ["string","scalar"], ["char"], ["choices=setdiff(tbl.Properties.VariableNames,matlab.graphics.chart.internal.validateTableSubscript(tbl,latvar))"]]},
+		{"name":"LatitudeVariable", "kind":"namevalue", "type":[["numeric", "scalar", ">=1"], ["logical"], ["cellstr"], ["string","scalar"], ["choices=tbl.Properties.VariableNames"]]},
+		{"name":"LongitudeVariable", "kind":"namevalue", "type":[["numeric", "scalar", ">=1"], ["logical"], ["cellstr"], ["string","scalar"], ["choices=tbl.Properties.VariableNames"]]},
+		{"name":"SizeVariable", "kind":"namevalue", "type":[["numeric", "scalar", ">=1"], ["logical"], ["cellstr"], ["string","scalar"], ["choices=tbl.Properties.VariableNames"]]},
+		{"name":"ColorVariable", "kind":"namevalue", "type":[["numeric", "scalar", ">=1"], ["logical"], ["cellstr"], ["string","scalar"], ["choices=tbl.Properties.VariableNames"]]},
+		{"name":"MapCenter", "kind":"namevalue", "type":[["single"], ["double"]]},
+		{"name":"ZoomLevel", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+		{"name":"MapLayout", "kind":"namevalue", "type":"choices={'normal', 'maximized'}"},
+		{"name":"GridVisible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"ScalebarVisible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"Basemap", "kind":"namevalue", "type":"choices={'darkwater', 'grayland', 'bluegreen', 'grayterrain', 'colorterrain', 'landcover'}"},
+		{"name":"SizeLimits", "kind":"namevalue", "type":["numeric", "vector", "ncols=2"]},
+		{"name":"BubbleWidthRange", "kind":"namevalue", "type":["numeric", "vector", "ncols=2"]},
+		{"name":"BubbleColorList", "kind":"namevalue", "type":[["char", "choices={'red', 'green', 'blue', 'white', 'cyan', 'magenta', 'yellow', 'black'}"],["cellstr", "choices={'red', 'green', 'blue', 'white', 'cyan', 'magenta', 'yellow', 'black'}"],["numeric", "vector", "ncols=3", ">=0", "<=1"]]},
+		{"name":"Title", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"LegendVisible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"SizeLegendTitle", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"ColorLegendTitle", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"Parent", "kind":"namevalue", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"Visible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"FontName", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"FontSize", "kind":"namevalue", "type":["numeric","scalar"]},
+		{"name":"HandleVisibility", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"Units", "kind":"namevalue", "type":"choices={'centimeters', 'characters', 'inches', 'normalized', 'pixels', 'points'}"},
+		{"name":"OuterPosition", "kind":"namevalue", "type":[["single"], ["double"]]}
+	],
+	"outputs":
+	[
+		{"name":"gb", "type":"matlab.graphics.chart.GeographicBubbleChart"}
+	]
+},
+"geobubble":
+{
+	"inputs":
+	[
+		{"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"lat", "kind":"required", "type":[["single"], ["double"]]},
+		{"name":"lon", "kind":"required", "type":[["single"], ["double"]]},
+		{"name":"sizedata", "kind":"ordered", "type":"numeric"},
+		{"name":"colordata", "kind":"ordered", "type":"categorical"},
+		{"name":"LatitudeData", "kind":"namevalue", "type":[["single"], ["double"]]},
+		{"name":"LongitudeData", "kind":"namevalue", "type":[["single"], ["double"]]},
+		{"name":"SizeData", "kind":"namevalue", "type":"numeric"},
+		{"name":"ColorData", "kind":"namevalue", "type":"categorical"},
+		{"name":"MapCenter", "kind":"namevalue", "type":[["single"], ["double"]]},
+		{"name":"ZoomLevel", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+		{"name":"MapLayout", "kind":"namevalue", "type":"choices={'normal', 'maximized'}"},
+		{"name":"GridVisible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"ScalebarVisible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"Basemap", "kind":"namevalue", "type":"choices={'darkwater', 'grayland', 'bluegreen', 'grayterrain', 'colorterrain', 'landcover'}"},
+		{"name":"SizeLimits", "kind":"namevalue", "type":["numeric", "vector", "ncols=2"]},
+		{"name":"BubbleWidthRange", "kind":"namevalue", "type":["numeric", "vector", "ncols=2"]},
+		{"name":"BubbleColorList", "kind":"namevalue", "type":[["char", "choices={'red', 'green', 'blue', 'white', 'cyan', 'magenta', 'yellow', 'black'}"],["cellstr", "choices={'red', 'green', 'blue', 'white', 'cyan', 'magenta', 'yellow', 'black'}"],["numeric", "vector", "ncols=3", ">=0", "<=1"]]},
+		{"name":"Title", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"LegendVisible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"SizeLegendTitle", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"ColorLegendTitle", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"Parent", "kind":"namevalue", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"Visible", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"FontName", "kind":"namevalue", "type":[["string"], ["char"]]},
+		{"name":"FontSize", "kind":"namevalue", "type":["numeric","scalar"]},
+		{"name":"HandleVisibility", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+		{"name":"Units", "kind":"namevalue", "type":"choices={'centimeters', 'characters', 'inches', 'normalized', 'pixels', 'points'}"},
+		{"name":"OuterPosition", "kind":"namevalue", "type":[["single"], ["double"]]}
+	],
+	"outputs":
+	[
+		{"name":"gb", "type":"matlab.graphics.chart.GeographicBubbleChart"}
+	]
+}
+}

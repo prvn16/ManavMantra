@@ -1,0 +1,102 @@
+{
+
+"chromadapt":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"illuminant", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"ColorSpace", "kind":"namevalue", "type":"choices={'srgb','adobe-rgb-1998','linear-rgb'}"},
+    {"name":"Method", "kind":"namevalue", "type":"choices={'bradford','vonkries','simple'}"}
+  ],
+  "outputs":
+  [
+    {"name":"B", "type":[["uint8"],["uint16"],["single"],["double"]]}
+  ]
+},
+
+"colorangle":
+{
+  "inputs":
+  [
+    {"name":"RGB1", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"RGB2", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]}
+  ],
+  "outputs":
+  [
+    {"name":"angle", "type":"double"}
+  ]
+},
+
+"illumgray":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"percentiles", "kind":"ordered", "type":"numeric"},
+    {"name":"Mask", "kind":"namevalue", "type":[["numeric"],["logical"]]},
+    {"name":"Norm", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"illuminant", "type":"double"}
+  ]
+},
+
+"illumpca":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"percentage", "kind":"ordered", "type":"numeric"},
+    {"name":"Mask", "kind":"namevalue", "type":[["numeric"],["logical"]]}
+  ],
+  "outputs":
+  [
+    {"name":"illuminant", "type":"double"}
+  ]
+},
+
+"illumwhite":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"topPercentile", "kind":"ordered", "type":"numeric"},
+    {"name":"Mask", "kind":"namevalue", "type":[["numeric"],["logical"]]}
+  ],
+  "outputs":
+  [
+    {"name":"illuminant", "type":"double"}
+  ]
+},
+
+"lin2rgb":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"ColorSpace", "kind":"namevalue", "type":"choices={'srgb','adobe-rgb-1998'}"},
+    {"name":"OutputType", "kind":"namevalue", "type":"choices={'double','single','uint8','uint16'}"}
+  ],
+  "outputs":
+  [
+    {"name":"B", "type":[["uint8"],["uint16"],["single"],["double"]]}
+  ]
+},
+
+"rgb2lin":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"ColorSpace", "kind":"namevalue", "type":"choices={'srgb','adobe-rgb-1998'}"},
+    {"name":"OutputType", "kind":"namevalue", "type":"choices={'double','single','uint8','uint16'}"}
+  ],
+  "outputs":
+  [
+    {"name":"B", "type":[["uint8"],["uint16"],["single"],["double"]]}
+  ]
+}
+
+}

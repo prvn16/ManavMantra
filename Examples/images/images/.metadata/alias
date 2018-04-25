@@ -1,0 +1,5 @@
+aliasdef images
+	classalias
+		denoisingImageSource -> denoisingImageDatastore;
+	end
+end

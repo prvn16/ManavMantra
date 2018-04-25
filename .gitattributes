@@ -20,3 +20,4 @@
 *.zip filter=lfs diff=lfs merge=lfs -binary
 *.lib filter=lfs diff=lfs merge=lfs -binary
 *.obj filter=lfs diff=lfs merge=lfs -binary
+*_dfdb filter=lfs diff=lfs merge=lfs -binary

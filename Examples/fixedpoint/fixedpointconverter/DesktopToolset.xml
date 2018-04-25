@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2013 The MathWorks, Inc. -->
+<!-- THIS FILE CONTRIBUTES TO THE MATLAB APPS GALLERY WHICH IS CAREFULLY CURATED -->
+<!-- ADDITIONS AND CHANGES MUST GO THROUGH A DESIGN REVIEW PROCESS WITH SENIOR MANGEMENT -->
+<!-- THIS PROCESS IS MANAGED BY THE MATLAB DESKTOP TEAM. CONSULT THE TOOLSTRIP GUIDELINES TO GET STARTED -->
+<toolset id="fixedpointconverter_toolset" message_catalog="float2fixed:desktop" contents_path="../fixedpoint">
+    <tool id="fixedPointConverter">
+        <icon filename="fpc_app_16.png" path="." />
+        <icon filename="fpc_app_24.png" path="." />
+        <callback>fixedPointConverter</callback>
+        <parent_tool id="code_gen_products" toolset_id="apps_toolset" />
+    </tool>
+</toolset>

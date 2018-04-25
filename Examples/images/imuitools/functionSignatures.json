@@ -1,0 +1,55 @@
+{
+"colorcloud":
+{
+    "inputs":
+    [
+        {"name":"RGB", "kind":"required", "type":[["uint8"], ["uint16"], ["double"]]},
+        {"name":"colorspace", "kind":"ordered", "type":"choices={'rgb','hsv','ycbcr','lab'}"},
+        {"name":"BackgroundColor", "kind":"namevalue", "type":[["numeric"], ["char"]]},
+        {"name":"OrientationAxesColor", "kind":"namevalue", "type":[["numeric"], ["char"]]},
+        {"name":"Parent", "kind":"namevalue", "type":[["matlab.ui.container.Panel"], ["matlab.ui.Figure"]]},
+        {"name":"WireFrameColor", "kind":"namevalue", "type":[["numeric"], ["char"]]}
+    ],
+    "outputs":
+    [
+        {"name":"hPanel", "type":"matlab.ui.container.Panel" }
+    ]
+},
+
+"dicomBrowser":
+{
+  "inputs":
+  [
+    {"name":"source", "kind":"ordered", "type":[["folder"], ["char"]]}
+  ]
+},
+
+"imageBrowser":
+{
+  "inputs":
+  [
+    {"name":"folder", "kind":"ordered", "type":[["folder"], ["matlab.io.datastore.ImageDatastore"]]}
+  ]
+},
+
+"montage":
+{
+  "inputs":
+  [
+    {"name":"I", "kind":"required", "type":[["logical"], ["uint8"], ["uint16"], ["int16"],["single"], ["double"], ["string"],["cell"],["matlab.io.datastore.ImageDatastore"]]},
+    {"name":"MAP", "kind":"ordered", "type":"numeric"},
+    {"name":"Size", "kind":"namevalue", "type":"numeric"},
+    {"name":"Parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"},
+    {"name":"Indices", "kind":"namevalue", "type":"numeric"},
+    {"name":"ThumbnailSize", "kind":"namevalue", "type":"numeric"},
+    {"name":"BorderSize", "kind":"namevalue", "type":"numeric"},
+    {"name":"BackgroundColor", "kind":"namevalue", "type":[["numeric"], ["char"]]},
+    {"name":"DisplayRange", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"h", "type":"matlab.graphics.primitive.Image"}
+  ]
+}
+
+}

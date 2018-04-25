@@ -1,0 +1,9 @@
+{
+"appdesigner":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"positional", "type":[["file=*.mlapp"], ["matlabpathfile=*.mlapp"], ["char"]]}
+	]
+}
+}

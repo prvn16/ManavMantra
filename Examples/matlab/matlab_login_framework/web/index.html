@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>MLF</title>
+
+    <script type="text/javascript">
+        updateSessionCookie(); // update session cookie to avoid error on first load. see g1495189
+
+        var routingkey, computeToken;
+        var headID = document.getElementsByTagName("head")[0];
+
+        var dojoConfigScript = document.createElement("script");
+        dojoConfigScript.src = "release/matlab_login_framework/dojoConfig-release-global.js";
+        dojoConfigScript.onload = onDojoConfigLoad;
+        dojoConfigScript.type = "text/javascript";
+
+        var dojoScript =   document.createElement("script");
+        dojoScript.src = "release/dojo/dojo.js";
+        dojoScript.onload = onDojoLoad;
+        dojoScript.type = "text/javascript";
+
+        // load css files
+        loadCssAndJsFile("css", "release/matlab_login_framework/css/errorpage.css");
+        loadCssAndJsFile("css", "release/css/overrides_ie9.css");
+
+        headID.appendChild(dojoConfigScript);
+
+        /**
+         * Updates session cookie to add routingkey and computeToken which enables loading static css and js resources.
+         * They need to be added to the session before loading the css and jss files
+         */
+        function updateSessionCookie() {
+            var params = {};
+            if (location.search) {
+                var parts = location.search.substring(1).split('&');
+
+                for (var i = 0; i < parts.length; i++) {
+                    var nv = parts[i].split('=');
+                    if (!nv[0]) continue;
+                    params[nv[0]] = nv[1] || true;
+                }
+            }
+            routingkey = params.routingkey;
+            computeToken =  params.computeToken;
+
+            var now = new Date();
+            var time = now.getTime();
+            var expireTime = time + 1000*36000;
+            now.setTime(expireTime);
+
+            document.cookie = "routingkey=" + routingkey + ";expires=" + now.toGMTString();
+            document.cookie = "computeToken=" + computeToken + ";expires=" + now.toGMTString();
+        };
+
+        function loadCssAndJsFile(fileType, filePath) {
+            if(fileType === "js") {
+                var fileref = document.createElement('script');
+                fileref.setAttribute("type","text/javascript");
+                fileref.setAttribute("src", filePath);
+            }
+
+            else if(fileType === "css") {
+                var fileref=document.createElement("link");
+                fileref.setAttribute("rel", "stylesheet")
+                fileref.setAttribute("type", "text/css");
+                fileref.setAttribute("href", filePath);
+            }
+
+            if (typeof fileref!="undefined")
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+        };
+
+
+        function onDojoConfigLoad () {
+            headID.appendChild(dojoScript);
+        };
+
+        function onDojoLoad () {
+           require(["matlab_login_framework/browsercheck"], function () { 
+                require(["matlab_login_framework/matlab_login_framework"], function () {
+                    require([
+                        "matlab_login_framework/matlab_login_framework",
+                        "dojo/dom",
+                        "dojo/on",
+                        "dojo/_base/lang",
+                        "dojo/dom-style",
+                        "matlab_login_framework/PostMessageChannel",
+                        "mw-overlay-utils/BusyOverlay",
+                        "mw-remote/Remote",
+                        "dojo/domReady!"
+                            ], function (MatlabLoginFrameworkFactory, dom, on, lang, domStyle, PostMessageChannel, BusyOverlay, Remote) {
+
+                                if (routingkey && computeToken) {
+                                    Remote.setServiceEndPoint("ROUTER_LEAF_SECURE_ENDPOINT", window.location.origin, routingkey);
+                                    Remote.setServiceEndPoint("ROUTER_LEAF_INSECURE_ENDPOINT", window.location.origin, routingkey);
+                                    Remote.setComputeToken({"computeResourceAddress": routingkey, "computeSessionId": computeToken, "serviceUrl": "unset"});
+                                    Remote.setWorkerEndpoint(window.location.origin, routingkey);
+                                    Remote.allowAllMessages();
+                                }
+
+                        // Get an instance of MATLAB Login Framework(MLF)
+                        var isMainFrameLoaded = false;
+                        var MLF = MatlabLoginFrameworkFactory.getInstance();
+
+                        // dom reference to the iFrame containing embedded login app
+                        var mainFrame = dom.byId("embeddedLoginApp");
+
+                        /*
+                        * All nodes related to error handling and error messages
+                        * */
+
+                        var errorContainer = dom.byId("errorContainer");
+                        var spinnerNode = document.getElementsByClassName("spinnerNode")[0];
+                        var retryBtn = dom.byId("retryBtn");
+                        var cancelBtn = dom.byId("cancelBtn");
+                        var errorMsg = dom.byId("errorMsg");
+                        var errorHeading = dom.byId("errorHeading");
+                        var busyIndicator = new BusyOverlay(BusyOverlay.SIZE.MEDIUM); // create a new spinner when creating the new login panel
+
+                        /*
+                        * Holds the data object containing the initial data that is
+                        * passed on to Embedded Login App.
+                        * Properties are endpoint, locale, platform, release, transactionid
+                        * */
+                        var _embeddedLoginInfo;
+
+                        var loginStatusUpdates;
+
+                        on(mainFrame, "load", lang.hitch(this, function(){
+                            // Do not notify MLF to sendnonce when the frameLink is empty or doesn't match the src. The latter case
+                            // is when frameLink is set using the setter.
+                            // This ensures that "init" nonce postMessage does not get fired before the iframe content is loaded
+                            if(mainFrame.src && mainFrame.src!=="" && mainFrame.src===_embeddedLoginInfo.endpoint){
+                                isMainFrameLoaded=true;
+                            }
+                        }));
+
+                        /*
+                        * listener for initData event emitted by MLF when the call to
+                        * getInfoToCallEmbeddedLogin returns with data.
+                        * */
+                        on(MLF, "initData", lang.hitch(this, function (e) {
+                            _embeddedLoginInfo = JSON.parse(e);
+                            mainFrame.src = _embeddedLoginInfo.endpoint;
+                        }));
+
+                        /*
+                        * listener for willhidepanel event emitted by MLF
+                        * */
+                        on(MLF, "willhidepanel", function (e) {
+                            channel.send("mwWillHidePanel");
+                        });
+
+                        /*
+                        * listener for mwHandleError event emitted by MLF to
+                        * handle errors and bring up the error container
+                        * */
+                        on(MLF, "mwHandleError", function (errorObj) {
+                            var postData = {
+                                formHeight: 450
+                            };
+
+                            channel.send("mwWillShowPanel", postData);
+                            mainFrame.style.display="none"; // hide the iframe
+                            errorHeading.innerHTML = errorObj.error;
+                            errorMsg.innerHTML = errorObj.errorMsg;
+                            retryBtn.innerHTML = errorObj.tryAgain;
+                            cancelBtn.innerHTML = errorObj.cancel;
+                            errorContainer.style.display = "block"; // show the error container
+                            _hideSpinner(); // hide the spinner if any
+                        });
+
+                        /*
+                        * listener for _retryLoginAfterResolve which is emitted by MLF
+                        * after resolving _isEmbeddedLoginInfoSet boolean so that
+                        * "requestLogin" requests can be made from the wrapper.
+                        * */
+                        on(MLF, "_retryLoginAfterResolve", lang.hitch(this, function () {
+                            console.log("retrrying after resolve");
+                            _handleRequestLogin({ body: {} });
+                        }));
+
+                        /*
+                        * listener for onclick of retryBtn node in the wrapper page
+                        * */
+                        on(retryBtn, "click", lang.hitch(function () {
+                            _showSpinner(); // show the spinner
+                            errorContainer.style.display = "none"; //hide the error container
+                            mainFrame.style.display = "block"; // show the iframe
+
+                                /*
+                                * The following code checks if _isEmbeddedLoginInfoSet on MLF instane is set,
+                                * in which case it'll go ahead and try to sent "requestLogin" again.
+                                * 
+                                * Otherwise, it means that the error occured even before _isEmbeddedLoginInfoSet
+                                * and "requestLogin" will not work. To handle this edge case, the work if delegated
+                                * to MLF instace by calling _handleIFrameRetry method which essentially makes sure
+                                * _isEmbeddedLoginInfoSet is resolved.
+                                * 
+                                * NOTE: _retryLoginAfterResolve is emitted by MLF which after 
+                                * resolving _isEmbeddedLoginInfoSet.
+                                * */
+                            if (MLF._isEmbeddedLoginInfoSet === true) {
+                                _handleRequestLogin({ body: {} }); // call request login again with default parameters
+                            } else {
+                                MLF._handleIFrameRetry();
+                            }
+                        }));
+
+                        /*
+                        * listener for onclick of "cancel" button node in the wrapper page
+                        * */
+                        on(cancelBtn, "click", lang.hitch(function(){
+                            channel.send("mwWillHidePanel");
+                        }));
+
+                        var channel = new PostMessageChannel(window, "__mlfpmc__");
+                        channel.connect(window.parent);
+
+                        channel.on("configProperties", _handleConfigProperties);
+                        channel.on("_getLoginInfo", _handleGetLoginInfo);
+                        channel.on("requestLogin", _handleRequestLogin);
+                        channel.on("requestLogout", _handleRequestLogout);
+                        channel.on("getLoginStatusUpdates", _handleGetLoginStatusUpdates);
+                        channel.on("stopLoginStatusUpdates", _handleStopLoginStatusUpdates);
+
+                        function _handleGetLoginStatusUpdates() {
+                            /*
+                            * Start receiving Login status updates from MLF and pass on to
+                            * add-ons explorer. The format is same as login response i.e. mwLoginResponse
+                            * */
+
+                            loginStatusUpdates = MLF.getLoginStatusUpdates(function(update){
+                                channel.send("mwLoginResponse", update);
+                                _hideSpinner();
+                            });
+                            loginStatusUpdates.start();
+                        }
+
+                        function _handleStopLoginStatusUpdates() {
+                            if(loginStatusUpdates!==undefined){
+                                loginStatusUpdates.stop();
+                            }
+                        }
+
+                        function _handleConfigProperties(message) {
+                            var _properties = {
+                                clientString: message.body.clientString
+                            };
+
+                            var _options = {};
+                            if(message.body.options){ // assign optional properties from the message
+                                _options = message.body.options;
+                            }
+
+                            _properties.options = _options;
+                            MLF.configProperties(_properties);
+                        }
+
+                        function _handleGetLoginInfo(message) {
+                            var level = message.body.level || 2;
+                            var suppressModals = message.body.options["suppressModals"] || false;
+                            MLF._requestLogin(level, function(loginInfo){
+                                _showSpinner(); // show spinner
+                                channel.send("mwLoginResponse", loginInfo);
+                                _hideSpinner();
+                            }, true, suppressModals);
+                        }
+
+                        function _handleRequestLogin(message) {
+
+                            var noncedata;
+                            var level = message.body.level || 2;
+                            MLF._requestLogin(level, function(loginInfo){
+                                _showSpinner(); // start showing the spinner
+                                _embeddedLoginInfo.cachedRememberMe = loginInfo.userLoginInfo.cachedRememberMe;
+                                _embeddedLoginInfo.cachedUsername = loginInfo.userLoginInfo.cachedUsername;
+                                if(loginInfo.isUserLoggedIn) {
+                                    channel.send("mwLoginResponse", loginInfo);
+                                    _hideSpinner();
+                                } else {
+                                    // set the source of the frame to embedded login if it has not been set already
+                                    if(dom.byId("embeddedLoginApp").src!==_embeddedLoginInfo.endpoint) {
+                                        isMainFrameLoaded=false;
+                                        dom.byId("embeddedLoginApp").src = _embeddedLoginInfo.endpoint;
+                                    }
+
+                                    noncedata = {
+                                        "event": "init",
+                                        "transactionId": _embeddedLoginInfo.transactionId,
+                                        "clientTransactionId": "",
+                                        "release": _embeddedLoginInfo.release,
+                                        "platform": _embeddedLoginInfo.platform,
+                                        "clientString": MLF._getFormattedClientString(),
+                                        "clientID": "",
+                                        "locale": "",
+                                        "profileTier": "",
+                                        "showCreateAccount": MLF._options.showCreateAccount === false ? false : true,
+                                        "showRememberMe": MLF._options.showRememberMe === false ? false : true,
+                                        "entitlementId": "",
+                                        "cachedUsername": "",
+                                        "cachedRememberMe": "",
+                                        "contextualProfileText": "",
+                                        "restrictEmailDomain": MLF._options.restrictEmailDomain === true ? true : false,
+                                        "autoAssociate": MLF._options.autoAssociate === false ? false : true,
+                                        "licenseReference": ""
+
+                                    };
+                                    noncedata = JSON.stringify(noncedata);
+                                    if(isMainFrameLoaded===true){
+                                        setTimeout(function(){
+                                            mainFrame.contentWindow.postMessage(noncedata, "*");
+                                        }, 0);
+                                    } else {
+                                        _handleRequestLogin(message);
+                                    }
+                                }
+                            }, true, /*suppressModals*/ false);
+                        }
+
+                        function _handleRequestLogout() {
+                            MLF._logout(function(data){
+                                channel.send("mwLogout", data);
+                                dom.byId("embeddedLoginApp").src = ""; // clear the iFrame source to be set again before sending a "init" request to embedded login
+                            });
+                        }
+
+                        function _showSpinner() {
+                            domStyle.set(spinnerNode, "display", "block"); // show the spinnerNode before setting the target for busyOverlay
+                            busyIndicator.set("target", spinnerNode);
+                            if (navigator.userAgent.toLowerCase().indexOf('firefox') < 0) {
+                                setTimeout(function () { busyIndicator.show(); }, 200);
+                            }
+                        }
+
+                        function _hideSpinner() {
+                            busyIndicator.hide();
+                            domStyle.set(spinnerNode, "display", "none"); //hide the spinner node after hiding the busyOverlay see g1421281
+                        }
+
+                        /*
+                        * Listener for message event which is responsible for most of the
+                        * processing based on the incoming postMessages.
+                        * */
+
+                        on(window, "message", lang.hitch(this, function(e){
+
+                            var data;
+
+                            try {
+                                data = JSON.parse(e.data);
+                            } catch (error) {
+                                return;
+                            }
+
+                            if (data.event && data.event === "nonce") {
+
+                                var serverNonce = data.transactionId;
+                                var noncedata = {
+                                    "event": "load",
+                                    "transactionId": serverNonce,
+                                    "clientTransactionId": _embeddedLoginInfo.transactionId,
+                                    "release": _embeddedLoginInfo.release,
+                                    "platform": _embeddedLoginInfo.platform,
+                                    "clientString": MLF._getFormattedClientString(),
+                                    "clientID": "",
+                                    "locale": _embeddedLoginInfo.locale,
+                                    "profileTier": "extended",
+                                    "showCreateAccount": MLF._options.showCreateAccount === false ? false : true,
+                                    "showRememberMe": MLF._options.showRememberMe === false ? false : true,
+                                    "entitlementId": _embeddedLoginInfo.entitlementId,
+                                    "cachedUsername": _embeddedLoginInfo.cachedUsername,
+                                    "cachedRememberMe":  _embeddedLoginInfo.cachedRememberMe,
+                                    "contextualText": MLF._options.contextualText || "",
+                                    "legalText": MLF._options.legalText || "",
+                                    "contextualProfileText": MLF._options.contextualProfileText || "",
+                                    "restrictEmailDomain": MLF._options.restrictEmailDomain === true ? true : false,
+                                    "autoAssociate": MLF._options.autoAssociate === false ? false : true,
+                                    "licenseReference": MLF._options.licenseReference || ""
+
+                                };
+
+                                noncedata = JSON.stringify(noncedata);
+                                mainFrame.contentWindow.postMessage(noncedata, "*");
+                                mainFrame.height = data.formHeight;
+
+                                var postData = {
+                                    formHeight: data.formHeight
+                                };
+                                channel.send("mwWillShowPanel", postData);
+
+                                _hideSpinner(); // hide the spinner when the login goes through successfully
+                            }
+
+                            if(data.event==="login") {
+                                delete data["event"];
+                                MLF._handleMwLogin(data, lang.hitch(this, function(loginInfo){}));
+                            }
+
+                        }));
+
+                    });
+                });
+            });
+        }
+</script>
+
+    <!-- CSS : implied media="all" -->
+    <!--<link rel="stylesheet" href="release/matlab_login_framework/css/errorpage.css"/>-->
+    <!--[if IE 9]>
+    <link href="release/css/overrides_ie9.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+</head>
+<body class="tundra">
+
+<iframe width="100%" id="embeddedLoginApp" src="" frameborder="0"></iframe>
+<div id="errorContainer" class="errorContainer">
+    <div class="alert">
+        <div id="errorHeading" class="error-heading"></div>
+        <div id="errorMsg" class="error-msg"></div>
+    </div>
+    <div class="actionBtnsContainer">
+        <div id="cancelBtn" class="btn cancel-btn"></div>
+        <div id="retryBtn" class="btn retry-btn"></div>
+    </div>
+</div>
+<div id="spinner" class="spinnerNode"></div>
+</body>
+</html>

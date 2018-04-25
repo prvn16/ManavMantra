@@ -1,0 +1,167 @@
+{
+
+"dicomCollection":
+{
+  "inputs":
+  [
+    {"name":"source", "kind":"required", "type":[["file"], ["char"]]},
+    {"name":"IncludeSubfolders", "kind":"namevalue", "type":["logical","scalar"]}
+  ],
+  "outputs":
+  [
+    {"name":"collection", "type":"table"}
+  ]
+},
+
+"dicomreadVolume":
+{
+  "inputs":
+  [
+    {"name":"source", "kind":"required", "type":[["file"], ["char"], ["table"]]},
+    {"name":"RowName", "kind":"positional", "type":"char"}
+  ],
+  "outputs":
+  [
+    {"name":"V", "type":"numeric"},
+    {"name":"spatial", "type":"struct"},
+    {"name":"dim", "type":["numeric","scalar"]}
+  ]
+},
+
+"images.dicom.decodeUID":
+{
+  "inputs":
+  [
+    {"name":"UID", "kind":"required", "type":"char"}
+  ],
+  "outputs":
+  [
+    {"name":"details", "type":"struct"}
+  ]
+},
+
+"images.dicom.parseDICOMDIR":
+{
+  "inputs":
+  [
+    {"name":"filename", "kind":"required", "type":[["file"], ["char"]]}
+  ],
+  "outputs":
+  [
+    {"name":"details", "type":"struct"}
+  ]
+},
+
+"images.internal.dicom.DICOMFile":
+{
+  "inputs":
+  [
+    {"name":"filename", "kind":"required", "type":[["file"], ["char"]]}
+  ],
+  "outputs":
+  [
+    {"name":"obj", "type":"images.internal.dicom.DICOMFile"}
+  ]
+},
+
+"makehdr":
+{
+  "inputs":
+  [
+    {"name":"files", "kind":"required", "type":"cell"},
+    {"name":"BaseFile", "kind":"namevalue", "type":"char"},
+    {"name":"ExposureValues", "kind":"namevalue", "type":"numeric"},
+    {"name":"RelativeExposure", "kind":"namevalue", "type":"numeric"},
+    {"name":"MinimumLimit", "kind":"namevalue", "type":"numeric"},
+    {"name":"MaximumLimit", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"HDR", "type":"single"}
+  ]
+},
+
+"niftiinfo":
+{
+  "inputs":
+  [
+    {"name":"filename","kind":"required","type":[["file=*.nii,*.nii.gz,*.hdr,*.hdr.gz"], ["char"]]}
+  ],
+  "outputs":
+  [
+    {"name":"info","type":"struct"}
+  ]
+},
+
+"niftiread":
+{
+  "inputs":
+  [
+    {"name":"hdrfilename","kind":"required","type":[["file=*.nii,*.nii.gz,*.hdr,*.hdr.gz"], ["char"]]},
+    {"name":"imgfilename","kind":"required","type":[["file=*.img,*.img.gz"], ["char"]]}
+  ],
+  "outputs":
+  [
+    {"name":"V","type":"numeric"}
+  ]
+},
+
+"niftiwrite":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":"numeric"},
+    {"name":"filename","kind":"required","type":"char"},
+    {"name":"info","kind":"ordered","type":"struct"},
+    {"name":"Combined","kind":"namevalue","type":["logical","scalar"]},
+    {"name":"Compressed","kind":"namevalue","type":["logical","scalar"]},
+    {"name":"Endian","kind":"namevalue","type":"choices={'little','big'}"}
+  ],
+  "outputs":
+  [
+    {"name":"status","type":"numeric"}
+  ]
+},
+
+"tonemap":
+{
+  "inputs":
+  [
+    {"name":"HDR", "kind":"required", "type":[["double"],["single"]]},
+    {"name":"AdjustLightness", "kind":"namevalue", "type":"double"},
+    {"name":"AdjustSaturation", "kind":"namevalue", "type":"double"},
+    {"name":"NumberOfTiles", "kind":"namevalue", "type":"double"}
+  ],
+  "outputs":
+  [
+    {"name":"RGB","type":"uint8"}
+  ]
+},
+
+
+"nitfinfo":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.ntf,*.NTF,*.nsf"], ["char"]]}
+	],
+	"outputs":
+	[
+		{"name":"metadata", "type":"struct"}
+	]
+},
+"nitfread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.ntf,*.NTF,*.nsf"], ["char"]]},
+    {"name":"idx", "kind":"ordered","type":"numeric"},
+    {"name":"PixelRegion", "kind":"namevalue","type":"cell"}
+	],
+	"outputs":
+	[
+		{"name":"x", "type":"numeric"}
+	]
+}
+
+}

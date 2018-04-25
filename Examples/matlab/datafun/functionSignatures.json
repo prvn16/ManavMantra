@@ -1,0 +1,1162 @@
+{
+"bounds":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"corrcoef":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"ordered", "type":["numeric"]},
+        {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar"]},
+        {"name":"Rows", "kind":"namevalue", "type":["char", "choices={'all','complete','pairwise'}"], "default":"'all'"}
+    ]
+},
+"conv":
+{
+        "inputs":
+        [
+            {"name":"u", "kind":"required", "type":[["logical","vector"]]},
+            {"name":"v", "kind":"required", "type":[["logical","vector"]]},
+            {"name":"shape", "kind":"ordered", "type":["char", "choices={'full','same','valid'}"], "default":"'full'"}
+        ]
+},
+"conv2":
+{
+        "inputs":
+        [
+            {"name":"A", "kind":"required", "type":[["logical","2d"]]},
+            {"name":"B", "kind":"required", "type":[["logical","2d"]]},
+            {"name":"shape", "kind":"ordered", "type":["char", "choices={'full','same','valid'}"], "default":"'full'"}
+        ]
+},
+"conv2":
+{
+        "inputs":
+        [
+            {"name":"u", "kind":"required", "type":[["logical","vector"]]},
+            {"name":"v", "kind":"required", "type":[["logical","vector"]]},
+            {"name":"A", "kind":"required", "type":[["logical","2d"]]},
+            {"name":"shape", "kind":"ordered", "type":["char", "choices={'full','same','valid'}"], "default":"'full'"}
+        ]
+},
+"convn":
+{
+        "inputs":
+        [
+            {"name":"A", "kind":"required", "type":["logical"]},
+            {"name":"B", "kind":"required", "type":["logical"]},
+            {"name":"shape", "kind":"ordered", "type":["char", "choices={'full','same','valid'}"], "default":"'full'"}
+        ]
+},
+"cov":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"ordered", "type":["numeric"]},
+        {"name":"w", "kind":"ordered", "type":["numeric", "scalar", "choices={0, 1}"], "default":"0"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitrows','partialrows'}"], "default":"'includenan'"}
+    ]
+},
+"cummax":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"direction", "kind":"flag", "type":["char", "choices={'forward','reverse'}"], "default":"'forward'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"cummin":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"direction", "kind":"flag", "type":["char", "choices={'forward','reverse'}"], "default":"'forward'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"cumprod":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"direction", "kind":"flag", "type":["char", "choices={'forward','reverse'}"], "default":"'forward'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"cumsum":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"direction", "kind":"flag", "type":["char", "choices={'forward','reverse'}"], "default":"'forward'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"detrend":
+{
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["logical"]},
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"constant", "kind":"ordered", "type":["char", "choices={'constant'}"]}
+                    ],
+                    [
+                        {"name":"'linear'", "kind":"required", "type":["char", "choices={'linear'}"]},
+                                                {"name":"bp", "kind":"ordered", "type":["logical","vector",">0","integer"]}
+                    ]
+                ]
+            }
+            
+        ]
+},
+"discretize":
+{
+    "inputs":
+    [
+        {"name":"X", "kind":"required", "type":["numeric"]},
+        {
+            "mutuallyExclusiveGroup":
+            [
+                {"name":"N", "kind":"required", "type":["numeric", "scalar"]},
+                {"name":"edges", "kind":"required", "type":["numeric", "vector"]}
+            ]
+        },
+        {"name":"values", "kind":"ordered", "type":["numeric"]},
+        {"name":"'categorical'", "kind":"ordered", "type":["char", "choices={'categorical'}"]},
+        {"name":"categoryNames", "kind":"ordered", "type":["cellstr"]},
+        {"name":"IncludedEdge", "kind":"namevalue", "type":["char", "choices={'left','right'}"]}
+    ]
+},
+"fft":  
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"n", "kind":"positional", "type":["numeric","scalar","integer",">=0"], "default":"[]"},
+            {"name":"dim", "kind":"positional", "type":["numeric","integer","scalar",">0"]}
+        ]
+},
+"fft2":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]}
+        ]
+},
+"fft2":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"m", "kind":"required", "type":["numeric","scalar","integer",">=0"], "default":"[]"},
+            {"name":"n", "kind":"required", "type":["numeric","scalar","integer",">=0"], "default":"[]"}
+        ]
+},
+"fftn":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"sz", "kind":"ordered", "type":["numeric","vector","integer",">=0"], "default":"[]"}
+        ]
+},
+"fftw":
+{
+        "inputs":
+        [
+            {"name":"planner", "kind":"required", "type":["char", "choices={'planner'}"]},
+            {"name":"method", "kind":"ordered", "type":["char", "choices={'estimate','measure','patient','exhaustive','hybrid'}"], "default":"'estimate'"}
+        ]
+},
+"fftw":
+{
+        "inputs":
+        [
+            {"name":"wisdom", "kind":"required", "type":["char", "choices={'dwisdom','swisdom'}"]},
+            {"name":"fftinfo", "kind":"ordered", "type":["char", "vector"]}
+        ]
+},
+"filter":
+{
+        "inputs":
+        [
+            {"name":"b", "kind":"required", "type":[["logical","vector"]]},
+            {"name":"a", "kind":"required", "type":[["logical","vector"]]},
+            {"name":"x", "kind":"required", "type":["logical"]},
+            {"name":"zi", "kind":"positional", "type":["logical"], "default":"[]"},
+            {"name":"dim", "kind":"positional", "type":["numeric","integer","scalar",">0"]}
+        ]
+},
+"filter2":
+{
+        "inputs":
+        [
+            {"name":"H", "kind":"required", "type":[["logical","2d"]]},
+            {"name":"X", "kind":"required", "type":[["logical","2d"]]},
+            {"name":"shape", "kind":"ordered", "type":["char", "choices={'full','same','valid'}"], "default":"'same'"}
+        ]
+},
+"groupsummary": 
+{
+        "inputs": 
+        [
+            {"name":"T", "kind":"required", "type":[["table"],["timetable"]]},
+            {"name":"groupvars", "kind":"required", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(T)"], ["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]},
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"groupbins", "kind":"optional", "type":[["choices={'none','second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year', 'decade', 'century', 'secondofminute', 'minuteofhour', 'hourofday', 'dayname','dayofweek', 'dayofmonth', 'dayofyear', 'weekofmonth', 'weekofyear', 'monthofyear', 'monthname', 'quarterofyear'}"],["datetime","vector"],["numeric","vector"],["duration","scalar"],["numeric","scalar","integer"]]},
+                        {"name":"IncludeMissingGroups", "kind":"namevalue", "type":["logical", "scalar"]},
+                        {"name":"IncludeEmptyGroups", "kind":"namevalue", "type":["logical", "scalar"]},
+                        {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+                    ],
+                    [
+                        {"name":"groupbins", "kind":"required", "type":[["choices={'none','second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year', 'decade', 'century', 'secondofminute', 'minuteofhour', 'hourofday', 'dayname','dayofweek', 'dayofmonth', 'dayofyear', 'weekofmonth', 'weekofyear', 'monthofyear', 'monthname', 'quarterofyear'}"],["datetime","vector"],["numeric","vector"],["duration","scalar"],["numeric","scalar","integer"]]},
+                        {"name":"method", "kind":"required", "type":[["choices={'nummissing','nnz','mean','median','mode','var','std','min','max','range','sum','all'}"],["function_handle"]]},
+                        {"name":"datavars", "kind":"optional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(T)"], ["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]},
+                        {"name":"IncludeMissingGroups", "kind":"namevalue", "type":["logical", "scalar"]},
+                        {"name":"IncludeEmptyGroups", "kind":"namevalue", "type":["logical", "scalar"]},
+                        {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+                    ],
+                    [
+                        {"name":"method", "kind":"required", "type":[["choices={'nummissing','nnz','mean','median','mode','var','std','min','max','range','sum','all'}"],["function_handle"]]},
+                        {"name":"datavars", "kind":"optional", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(T)"], ["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]},
+                        {"name":"IncludeMissingGroups", "kind":"namevalue", "type":["logical", "scalar"]},
+                        {"name":"IncludeEmptyGroups", "kind":"namevalue", "type":["logical", "scalar"]},
+                        {"name":"IncludedEdge", "kind":"namevalue", "type":["choices={'left','right'}"], "default":"'left'"}
+                    ]
+                ]
+            }
+        ],
+        "outputs": 
+        [
+            {"name":"G", "type":"table"}
+        ]
+},
+"histcounts":
+{
+        "inputs":
+        [
+                {"name":"X", "kind":"required", "type":["logical"]},
+                {"name":"edges", "kind":"ordered", "type":["numeric","vector"]},
+                {"name":"BinWidth", "kind":"namevalue", "type":["numeric","scalar"]},
+                {"name":"BinLimits", "kind":"namevalue", "type":["numeric","numel=2"]},
+                {"name":"Normalization", "kind":"namevalue", "type":["char", "choices={'count','probability', 'countdensity', 'pdf', 'cumcount', 'cdf'}"], "default":"'count'"},
+                {"name":"BinMethod", "kind":"namevalue", "type":["char", "choices={'auto','scott', 'fd', 'integers', 'sturges', 'sqrt'}"], "default":"'auto'"}
+        ],
+        "outputs":
+        [
+                {"name":"N"},
+                {"name":"edges"},
+                {"name":"bin"}
+        ]
+},
+"histcounts2":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":["logical"]},
+            {"name":"Y", "kind":"required", "type":["logical"]},
+            {"name":"nbins", "kind":"ordered", "type":[["numeric", "numel=2"],["numeric", "scalar"]]},
+            {"name":"BinWidth", "kind":"namevalue", "type":[["numeric", "numel=2"],["numeric", "scalar"]]},
+            {"name":"XBinLimits", "kind":"namevalue", "type":["numeric","numel=2"]},
+            {"name":"YBinLimits", "kind":"namevalue", "type":["numeric","numel=2"]},
+            {"name":"Normalization", "kind":"namevalue", "type":["char", "choices={'count','probability', 'countdensity', 'pdf', 'cumcount', 'cdf'}"], "default":"'count'"},
+            {"name":"BinMethod", "kind":"namevalue", "type":["char", "choices={'auto','scott', 'fd', 'integers'}"], "default":"'auto'"}
+        ],
+        "outputs":
+        [
+            {"name":"N"},
+            {"name":"xedges"},
+            {"name":"yedges"},
+            {"name":"binx"},
+            {"name":"biny"}
+        ]
+},
+"histcounts2":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":["logical"]},
+            {"name":"Y", "kind":"required", "type":["logical"]},
+            {"name":"Xedges", "kind":"required", "type":[["numeric", "vector"],["logical","vector"]]},
+            {"name":"Yedges", "kind":"required", "type":[["numeric", "vector"],["logical","vector"]]},
+            {"name":"BinWidth", "kind":"namevalue", "type":[["numeric", "numel=2"],["numeric", "scalar"]]},
+            {"name":"XBinLimits", "kind":"namevalue", "type":["numeric","numel=2"]},
+            {"name":"YBinLimits", "kind":"namevalue", "type":["numeric","numel=2"]},
+            {"name":"Normalization", "kind":"namevalue", "type":["char", "choices={'count','probability', 'countdensity', 'pdf', 'cumcount', 'cdf'}"], "default":"'count'"},
+            {"name":"BinMethod", "kind":"namevalue", "type":["char", "choices={'auto','scott', 'fd', 'integers'}"], "default":"'auto'"}
+        ],
+        "outputs":
+        [
+            {"name":"N"},
+            {"name":"xedges"},
+            {"name":"yedges"},
+            {"name":"binx"},
+            {"name":"biny"}
+        ]
+},                                        
+"ifft":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"n", "kind":"ordered", "type":["numeric","scalar","integer",">=0"], "default":"[]"},
+            {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+            {"name":"symflag", "kind":"ordered", "type":["char", "choices={'symmetric', 'nonsymmetric'}"], "default":"'nonsymmetric'"}
+        ]
+},
+"ifft2":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"symflag", "kind":"ordered", "type":["char", "choices={'symmetric', 'nonsymmetric'}"], "default":"'nonsymmetric'"}
+        ]
+},
+"ifft2":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"m", "kind":"required", "type":["numeric","scalar","integer",">=0"], "default":"[]"},
+            {"name":"n", "kind":"required", "type":["numeric","scalar","integer",">=0"], "default":"[]"},
+            {"name":"symflag", "kind":"ordered", "type":["char", "choices={'symmetric', 'nonsymmetric'}"], "default":"'nonsymmetric'"}
+        ]
+},
+"ifftn":
+{
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"],["single"],["uint8"],["int8"],["uint16"],["int16"],["uint32"],["int32"]]},
+            {"name":"sz", "kind":"ordered", "type":["numeric","vector","integer",">=0"], "default":"[]"},
+            {"name":"symflag", "kind":"ordered", "type":["char", "choices={'symmetric', 'nonsymmetric'}"], "default":"'nonsymmetric'"}
+        ]
+},
+"issorted":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issorted":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["cellstr"]}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issorted":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["char", "~string"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issorted":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["string", "~char"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issortedrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"column", "kind":"ordered", "type":["numeric","integer", "vector"]},
+        {"name":"direction", "kind":"ordered", "type":[["char", "choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"]], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issortedrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["char", "~string"]},
+        {"name":"column", "kind":"ordered", "type":[["numeric","integer", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issortedrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["string", "~char"]},
+        {"name":"column", "kind":"ordered", "type":["numeric","integer", "vector"]},
+        {"name":"direction", "kind":"ordered", "type":[["char", "choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"]], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"max":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"positional", "type":["numeric"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"max":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"[]", "kind":"positional", "type":["numeric","nrows=0","ncols=0"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"maxk":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"], ["char"]]},
+        {"name":"k", "kind":"required", "type":["numeric","integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B"},
+        {"name":"I", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"mean":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"], ["char"]]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"outtype", "kind":"flag", "type":["char", "choices={'default','double','native'}"], "default":"'default'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ],
+    "outputs":
+    [
+        {"name":"M"}
+    ]
+},
+"median":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ],
+    "outputs":
+    [
+        {"name":"M"}
+    ]
+},
+"min":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"positional", "type":["numeric"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"min":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"[]", "kind":"positional", "type":["numeric","nrows=0","ncols=0"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"mink":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"], ["char"]]},
+        {"name":"k", "kind":"required", "type":["numeric", "scalar"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric", "scalar"]},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B"},
+        {"name":"I", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"movmad":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmax":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmean":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmedian":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmin":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movprod":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movstd":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["double"],["single"]]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"w", "kind":"ordered", "type":["numeric","choices={0, 1}"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movsum":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["double"],["single"]]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movvar":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["double"],["single"]]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"k","kind":"required","type":["numeric","scalar"]}
+                ],
+                [
+                    {"name":"[kb kf]","kind":"required","type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        },
+        {"name":"w", "kind":"ordered", "type":["numeric","choices={0, 1}"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'includenan','omitnan'}"]},
+        {"name":"Endpoints", "kind":"namevalue", "type":[["char", "choices={'shrink','discard','fill'}"], ["numeric","scalar"]]},
+        {"name":"SamplePoints", "kind":"namevalue", "type":["numeric", "vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"normalize":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"optional", "type":["numeric","integer","scalar",">0"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"method", "kind":"optional", "type":["char", "choices={'zscore','norm','center','scale','range'}"], "default":"'zscore'"}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'zscore'}"]},
+                    {"name":"type", "kind":"optional", "type":["char", "choices={'std','robust'}"], "default":"'std'"}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'norm'}"]},
+                    {"name":"type", "kind":"optional", "type":["numeric",">0"]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'center'}"]},
+                    {"name":"type", "kind":"optional", "type":[["char", "choices={'mean','median'}"],["numeric"]], "default":"'mean'"}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'scale'}"]},
+                    {"name":"type", "kind":"optional", "type":[["char", "choices={'std','mad','first'}"],["numeric"]], "default":"'std'"}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'range'}"]},
+                    {"name":"type", "kind":"optional", "type":["numeric","vector","numel=2"]}
+                ]
+            ]
+        }
+    ],
+    "outputs":
+    [
+        {"name":"N","type":"numeric"}
+    ]
+},
+"normalize":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["table"],["timetable"]]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"method", "kind":"optional", "type":["char", "choices={'zscore','norm','center','scale','range'}"], "default":"'zscore'"},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'zscore'}"]},
+                    {"name":"type", "kind":"optional", "type":["char", "choices={'std','robust'}"], "default":"'std'"},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'norm'}"]},
+                    {"name":"type", "kind":"optional", "type":["numeric",">0"]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'center'}"]},
+                    {"name":"type", "kind":"optional", "type":[["char", "choices={'mean','median'}"],["numeric"]], "default":"'mean'"},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'scale'}"]},
+                    {"name":"type", "kind":"optional", "type":[["char", "choices={'std','mad','first'}"],["numeric"]], "default":"'std'"},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'range'}"]},
+                    {"name":"type", "kind":"optional", "type":["numeric","vector","numel=2"]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ]
+            ]
+        }
+    ],
+    "outputs":
+    [
+        {"name":"N"}
+    ]
+},
+"prod":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"type", "kind":"flag", "type":["char", "choices={'default','double','native'}"], "default":"'default'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"rescale":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"],["logical"]]},
+{"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"InputMin", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"InputMax", "kind":"namevalue", "type":["numeric"]}
+                ],
+                [
+                    {"name":"b", "kind":"required", "type":["numeric"]},
+                    {"name":"c", "kind":"required", "type":["numeric"]},
+                    {"name":"InputMin", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"InputMax", "kind":"namevalue", "type":["numeric"]}
+                ]
+            ]
+        }
+    ],
+    "outputs":
+    [
+        {"name":"R", "type":["numeric"]}
+    ]
+},
+"sort":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"]]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["numeric"]},
+        {"name":"I", "type":[["numeric","integer", ">=1"]]}
+    ]
+},
+"sort":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["cellstr"]}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["cellstr"]},
+        {"name":"I", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"sort":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["char", "~string"]]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["char"]},
+        {"name":"I", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"sort":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["string", "~char"]]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["numeric"]},
+        {"name":"I", "type":[["numeric","integer", ">=1"]]}
+    ]
+},
+"sortrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"column", "kind":"ordered", "type":["numeric", "vector"]},
+        {"name":"direction", "kind":"ordered", "type":[["char", "choices={'ascend','descend'}"]], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["numeric"]},
+        {"name":"Index", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"sortrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["char", "~string"]},
+        {"name":"column", "kind":"ordered", "type":[["numeric", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"ordered", "type":["char", "choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["char"]},
+        {"name":"Index", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"sortrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["string", "~char"]},
+        {"name":"column", "kind":"ordered", "type":["numeric", "vector"]},
+        {"name":"direction", "kind":"ordered", "type":[["char", "choices={'ascend','descend'}"]], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["char", "choices={'auto','last', 'first'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B", "type":["numeric"]},
+        {"name":"Index", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"smoothdata":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["logical"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer","scalar",">0"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"method", "kind":"ordered", "type":["char", "choices={'movmean','movmedian','gaussian','lowess','loess','rlowess','rloess'}"], "default":"'movmean'"},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"SmoothingFactor", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'movmean','movmedian','gaussian','lowess','loess','rlowess','rloess'}"], "default":"'movmean'"},
+                    {"name":"window", "kind":"required", "type":[["numeric","scalar"],["numeric","numel=2"],["duration","scalar"],["duration","numel=2"]]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'sgolay'}"]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"Degree", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"SmoothingFactor", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'sgolay'}"]},
+                    {"name":"window", "kind":"required", "type":[["numeric","scalar"],["numeric","numel=2"],["duration","scalar"],["duration","numel=2"]]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"Degree", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]}
+                ]
+            ]
+        }
+    ]
+},
+"smoothdata":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["table"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"method", "kind":"ordered", "type":["char", "choices={'movmean','movmedian','gaussian','lowess','loess','rlowess','rloess'}"], "default":"'movmean'"},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"SmoothingFactor", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'movmean','movmedian','gaussian','lowess','loess','rlowess','rloess'}"], "default":"'movmean'"},
+                    {"name":"window", "kind":"required", "type":[["numeric","scalar"],["numeric","numel=2"],["duration","scalar"],["duration","numel=2"]]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'sgolay'}"]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"Degree", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"SmoothingFactor", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'sgolay'}"]},
+                    {"name":"window", "kind":"required", "type":[["numeric","scalar"],["numeric","numel=2"],["duration","scalar"],["duration","numel=2"]]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"Degree", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"SamplePoints", "kind":"namevalue", "type":[["duration", "vector"],["datetime","vector"],["logical","vector"]]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ]
+            ]
+        }
+    ]
+},
+"smoothdata":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["timetable"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"method", "kind":"ordered", "type":["char", "choices={'movmean','movmedian','gaussian','lowess','loess','rlowess','rloess'}"], "default":"'movmean'"},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"SmoothingFactor", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'movmean','movmedian','gaussian','lowess','loess','rlowess','rloess'}"], "default":"'movmean'"},
+                    {"name":"window", "kind":"required", "type":[["numeric","scalar"],["numeric","numel=2"],["duration","scalar"],["duration","numel=2"]]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'sgolay'}"]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"Degree", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"SmoothingFactor", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"method", "kind":"required", "type":["char", "choices={'sgolay'}"]},
+                    {"name":"window", "kind":"required", "type":[["numeric","scalar"],["numeric","numel=2"],["duration","scalar"],["duration","numel=2"]]},
+                    {"name":"nanflag", "kind":"ordered", "type":["char", "choices={'omitnan','includenan'}"], "default":"'omitnan'"},
+                    {"name":"Degree", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"DataVariables", "kind":"namevalue", "type":[["numeric"], ["logical"], ["char"], ["cellstr"], ["function_handle"]]}
+                ]
+            ]
+        }
+    ]
+},
+"std":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"w", "kind":"ordered", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ],
+    "outputs":
+    [
+        {"name":"S"}
+    ]
+},
+"sum":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"outtype", "kind":"flag", "type":["char", "choices={'default','double','native'}"], "default":"'default'"},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ]
+},
+"topkrows":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"], ["char"]]},
+        {"name":"k", "kind":"required", "type":["numeric","integer", "scalar", ">=0"]},
+        {"name":"column", "kind":"ordered", "type":["numeric","integer", "vector", ">=0"]},
+        {"name":"direction", "kind":"ordered", "type":[["char", "choices={'ascend','descend'}"]], "default":"'descend'"},
+        {"name":"ComparisonMethod", "kind":"namevalue", "type":["char", "choices={'auto','real', 'abs'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"B"},
+        {"name":"Index", "type":[["numeric","integer",">=1"]]}
+    ]
+},
+"var":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"w", "kind":"ordered", "type":["numeric"]},
+        {"name":"dim", "kind":"ordered", "type":["numeric","integer", "scalar", ">0"]},
+        {"name":"nanflag", "kind":"flag", "type":["char", "choices={'includenan','omitnan'}"], "default":"'includenan'"}
+    ],
+    "outputs":
+    [
+        {"name":"V"}
+    ]
+}
+}

@@ -1,0 +1,51 @@
+@import "./variables";
+
+.mwWidget.mwIconAlignmentMixin .mwIconAndTextContainerNode {
+  /* To cut off iconNode + textNode content when it doesn't fit the given size. It is done here
+     instead of domNode to avoid content creeping into padding */
+  overflow: hidden;
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentTop.mwHorizontalAlignmentMixin.mwHorizontalAlignmentRight .mwIconNode,
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentBottom.mwHorizontalAlignmentMixin.mwHorizontalAlignmentRight .mwIconNode {
+  margin: 0 0 0 auto;  /*To push the iconNode to the right */
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentTop.mwHorizontalAlignmentMixin.mwHorizontalAlignmentLeft .mwIconNode,
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentBottom.mwHorizontalAlignmentMixin.mwHorizontalAlignmentLeft .mwIconNode {
+  margin: auto 0;  /*To push the iconNode to the left */
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentTop .mwIconNode,
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentBottom .mwIconNode {
+  margin: 0 auto;  /*To center the iconNode within the iconAndTextContainerNode when the text is longer */
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentLeft .mwIconNode,
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentRight .mwIconNode,
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentLeft .mwTextNode,
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentRight .mwTextNode {
+  vertical-align: middle;
+  display: inline-block; /* This will give the desired effect of putting the icon NEXT to the text */
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentTop .mwTextNode {
+  margin-top: 2px; /* To prevent iconNode and textNode from sticking to each other */
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentRight .mwTextNode {
+  margin-right: 4px;
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentBottom .mwTextNode {
+  margin-bottom: 2px;
+}
+
+.mwWidget.mwIconAlignmentMixin.mwIconAlignmentLeft .mwTextNode {
+  margin-left: 4px;
+}
+
+.mwWidget.mwIconAlignmentMixin.mwNoIcon .mwTextNode,
+.mwWidget.mwIconAlignmentMixin.mwNoText .mwTextNode {
+  margin: 0; /* There is no need to separate textNode and iconNode since there is no icon in this case */
+}

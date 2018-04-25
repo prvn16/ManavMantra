@@ -1,0 +1,16 @@
+function parfor_sliced_offset_check(varname, X)
+% Copyright 2017 The MathWorks, Inc.
+% This function is undocumented and reserved for internal use. It may be
+% removed in a future release.
+%
+% Sliced offset values must evaluate to real scalar integers.
+if (~isscalar(X) || ~isnumeric(X) || ~isreal(X) ||...
+    ~isfinite(X) || (X ~= round(X)))
+
+    error(message('MATLAB:parfor:sliced_offset_check',...
+          varname,...
+          doclink('/toolbox/distcomp/distcomp_ug.map', ...
+          'ERR_PARFOR_SLICED_OFFSET',...
+          'Parallel Computing Toolbox, "parfor"')));
+end
+end

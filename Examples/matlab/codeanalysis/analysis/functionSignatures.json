@@ -1,0 +1,29 @@
+{
+"analyzeCodeCompatibility":
+{
+    "inputs":
+	[
+        {"mutuallyExclusiveGroup":
+			[
+				{"name":"filename", "kind":"ordered", "type":["file=*.m,*.mlx,*.mlapp"]},
+				{"name":"cellOfFiles", "kind":"ordered", "type":["cellstr"]}
+			]
+        },
+		{"name":"IncludeSubfolders", "kind":"namevalue", "type":["logical", "scalar"]}
+	]
+},
+
+"codeCompatibilityReport":
+{
+    "inputs":
+	[
+        {"mutuallyExclusiveGroup":
+			[
+				{"name":"filename", "kind":"ordered", "type":["file=*.m,*.mlx,*.mlapp"]},
+				{"name":"cellOfFiles", "kind":"ordered", "type":["cellstr"]}
+			]
+        },
+		{"name":"IncludeSubfolders", "kind":"namevalue", "type":["logical", "scalar"]}
+	]
+}
+}

@@ -1,0 +1,34 @@
+@import "variables";
+
+.mwWidget.mwComboBox .mwTextFieldContainerNode,
+.mwWidget.mwComboBox .mwArrowContainerNode {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mwWidget.mwComboBox .mwArrowContainerNode {
+  width: 22px;
+  cursor: default;
+}
+
+.mwWidget.mwComboBox .mwArrowContainerNode .mwArrowNode {
+  border-left: 4px solid transparent;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  margin: 8px auto;
+  width: 0;
+}
+
+.mwWidget.mwComboBox .mwTextField .mwInputNode {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.mwWidget.mwComboBoxPopup .mwSharedMenuItem {
+    padding: 4px;
+}
+
+.mwWidget.mwComboBoxPopup .mwMenuSeparator {
+  border-bottom: 1px solid $color-mediumgray1;
+}

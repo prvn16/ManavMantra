@@ -1,0 +1,101 @@
+LastName,Gender,Age,Location,Height,Weight,Smoker,Systolic,Diastolic,SelfAssessedHealthStatus
+Smith,Male,38,County General Hospital,71,176,1,124,93,Excellent
+Johnson,Male,43,VA Hospital,69,163,0,109,77,Fair
+Williams,Female,38,St. Mary's Medical Center,64,131,0,125,83,Good
+Jones,Female,40,VA Hospital,67,133,0,117,75,Fair
+Brown,Female,49,County General Hospital,64,119,0,122,80,Good
+Davis,Female,46,St. Mary's Medical Center,68,142,0,121,70,Good
+Miller,Female,33,VA Hospital,64,142,1,130,88,Good
+Wilson,Male,40,VA Hospital,68,180,0,115,82,Good
+Moore,Male,28,St. Mary's Medical Center,68,183,0,115,78,Excellent
+Taylor,Female,31,County General Hospital,66,132,0,118,86,Excellent
+Anderson,Female,45,County General Hospital,68,128,0,114,77,Excellent
+Thomas,Female,42,St. Mary's Medical Center,66,137,0,115,68,Poor
+Jackson,Male,25,VA Hospital,71,174,0,127,74,Poor
+White,Male,39,VA Hospital,72,202,1,130,95,Excellent
+Harris,Female,36,St. Mary's Medical Center,65,129,0,114,79,Good
+Martin,Male,48,VA Hospital,71,181,1,130,92,Good
+Thompson,Male,32,St. Mary's Medical Center,69,191,1,124,95,Excellent
+Garcia,Female,27,VA Hospital,69,131,1,123,79,Fair
+Martinez,Male,37,County General Hospital,70,179,0,119,77,Good
+Robinson,Male,50,County General Hospital,68,172,0,125,76,Good
+Clark,Female,48,VA Hospital,65,133,0,121,75,Excellent
+Rodriguez,Female,39,VA Hospital,64,117,0,123,79,Fair
+Lewis,Female,41,VA Hospital,62,137,0,114,88,Fair
+Lee,Female,44,County General Hospital,66,146,1,128,90,Fair
+Walker,Female,28,County General Hospital,65,123,1,129,96,Good
+Hall,Male,25,VA Hospital,70,189,0,114,77,Poor
+Allen,Female,39,VA Hospital,63,143,0,113,80,Excellent
+Young,Female,25,County General Hospital,63,114,0,125,76,Good
+Hernandez,Male,36,County General Hospital,68,166,0,120,83,Poor
+King,Male,30,County General Hospital,67,186,1,127,89,Excellent
+Wright,Female,45,VA Hospital,70,126,1,134,92,Excellent
+Lopez,Female,40,VA Hospital,66,137,0,121,83,Poor
+Hill,Female,25,St. Mary's Medical Center,64,138,0,115,80,Excellent
+Scott,Male,47,St. Mary's Medical Center,70,187,0,127,84,Excellent
+Green,Male,44,County General Hospital,71,193,0,121,92,Good
+Adams,Female,48,VA Hospital,66,137,0,127,83,Excellent
+Baker,Male,44,VA Hospital,71,192,1,136,90,Good
+Gonzalez,Female,35,St. Mary's Medical Center,66,118,0,117,85,Fair
+Nelson,Male,33,St. Mary's Medical Center,66,180,1,124,90,Good
+Carter,Female,38,St. Mary's Medical Center,63,128,0,120,74,Good
+Mitchell,Male,39,County General Hospital,71,164,1,128,92,Fair
+Perez,Male,44,VA Hospital,69,183,0,116,80,Excellent
+Roberts,Male,44,VA Hospital,70,169,1,132,89,Good
+Turner,Male,37,VA Hospital,70,194,1,137,96,Excellent
+Phillips,Male,45,VA Hospital,67,172,0,117,89,Good
+Campbell,Female,37,County General Hospital,65,135,0,116,77,Fair
+Parker,Male,30,VA Hospital,68,182,0,119,81,Poor
+Evans,Female,39,County General Hospital,62,121,0,123,76,Good
+Edwards,Male,42,County General Hospital,70,158,0,116,83,Excellent
+Collins,Male,42,County General Hospital,67,179,1,124,78,Good
+Stewart,Male,49,County General Hospital,68,170,1,129,95,Poor
+Sanchez,Female,44,St. Mary's Medical Center,62,136,1,130,91,Good
+Morris,Female,43,County General Hospital,64,135,1,132,91,Poor
+Rogers,Female,47,VA Hospital,66,147,0,117,86,Excellent
+Reed,Male,50,VA Hospital,72,186,1,129,89,Excellent
+Cook,Female,38,VA Hospital,63,124,0,118,79,Excellent
+Morgan,Female,41,St. Mary's Medical Center,66,134,0,120,74,Good
+Bell,Male,45,St. Mary's Medical Center,70,170,1,138,82,Good
+Murphy,Male,36,VA Hospital,71,180,0,117,76,Good
+Bailey,Female,38,St. Mary's Medical Center,68,130,0,113,81,Good
+Rivera,Female,29,County General Hospital,63,130,0,122,77,Excellent
+Cooper,Female,28,VA Hospital,65,127,0,115,73,Good
+Richardson,Female,30,County General Hospital,67,141,0,120,85,Excellent
+Cox,Female,28,County General Hospital,66,111,0,117,76,Good
+Howard,Female,29,VA Hospital,68,134,0,123,80,Excellent
+Ward,Male,36,St. Mary's Medical Center,71,189,0,123,80,Good
+Torres,Female,45,County General Hospital,70,137,0,119,79,Excellent
+Peterson,Female,32,County General Hospital,60,136,0,110,82,Excellent
+Gray,Female,31,VA Hospital,64,130,0,121,79,Excellent
+Ramirez,Female,48,County General Hospital,64,137,1,138,82,Excellent
+James,Male,25,County General Hospital,66,186,0,125,75,Good
+Watson,Female,40,VA Hospital,64,127,1,122,91,Fair
+Brooks,Male,39,St. Mary's Medical Center,72,176,0,120,74,Excellent
+Kelly,Female,41,St. Mary's Medical Center,65,127,0,117,78,Poor
+Sanders,Female,33,St. Mary's Medical Center,67,115,1,125,85,Excellent
+Price,Male,31,VA Hospital,72,178,1,124,84,Fair
+Bennett,Female,35,County General Hospital,64,131,0,121,75,Fair
+Wood,Male,32,St. Mary's Medical Center,68,183,0,118,78,Poor
+Barnes,Male,42,County General Hospital,66,194,0,120,81,Excellent
+Ross,Female,48,VA Hospital,64,126,0,118,79,Good
+Henderson,Male,34,St. Mary's Medical Center,68,186,0,118,85,Good
+Coleman,Male,39,VA Hospital,69,188,0,122,79,Excellent
+Jenkins,Male,28,County General Hospital,69,189,1,134,82,Good
+Perry,Female,29,St. Mary's Medical Center,64,120,0,131,80,Good
+Powell,Female,32,VA Hospital,63,132,0,113,80,Excellent
+Long,Male,39,County General Hospital,68,182,1,125,92,Good
+Patterson,Female,37,County General Hospital,65,120,1,135,92,Poor
+Hughes,Female,49,County General Hospital,63,123,1,128,96,Good
+Flores,Female,31,VA Hospital,66,141,1,123,87,Good
+Washington,Female,37,St. Mary's Medical Center,65,129,0,122,81,Good
+Butler,Male,38,County General Hospital,68,184,1,138,90,Excellent
+Simmons,Male,45,VA Hospital,71,181,0,124,77,Excellent
+Foster,Female,30,St. Mary's Medical Center,70,124,0,130,91,Fair
+Gonzales,Male,48,County General Hospital,71,174,0,123,79,Good
+Bryant,Female,48,County General Hospital,66,134,0,129,73,Excellent
+Alexander,Male,25,County General Hospital,69,171,1,128,99,Good
+Russell,Male,44,VA Hospital,69,188,1,124,92,Good
+Griffin,Male,49,County General Hospital,70,186,0,119,74,Fair
+Diaz,Male,45,County General Hospital,68,172,1,136,93,Good
+Hayes,Male,48,County General Hospital,66,177,0,114,86,Fair

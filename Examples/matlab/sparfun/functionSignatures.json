@@ -1,0 +1,97 @@
+{
+"eigs":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"A", "kind":"required", "type":["numeric","square"]}
+                ],
+                [
+                    {"name":"Afun", "kind":"required", "type":["function_handle"]},
+                    {"name":"n", "kind":"required", "type":["integer", "scalar"]}
+                ]
+            ]
+        },
+        {"name":"B", "kind":"ordered", "type":["numeric","square"]},
+        {"name":"k", "kind":"positional", "type":["integer", "scalar"]},
+        {"name":"sigma", "kind":"positional", "type":[["numeric", "scalar"], ["char", "choices={'bothendsimag', 'bothendsreal','largestabs','largestimag','largestreal','smallestabs','smallestimag','smallestreal'}"]]}
+    ]
+},
+"eigs":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"A", "kind":"required", "type":["numeric","square"]}
+                ],
+                [
+                    {"name":"Afun", "kind":"required", "type":["function_handle"]},
+                    {"name":"n", "kind":"required", "type":["integer", "scalar"]}
+                ]
+            ]
+        },
+        {"name":"B", "kind":"ordered", "type":["numeric","square"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar"]},
+        {"name":"sigma", "kind":"required", "type":[["numeric", "scalar"], ["char", "choices={'bothendsimag', 'bothendsreal','largestabs','largestimag','largestreal','smallestabs','smallestimag','smallestreal'}"]]},
+        {"name":"IsFunctionSymmetric", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"Tolerance", "kind":"namevalue", "type":["numeric", "scalar"]},
+        {"name":"MaxIterations", "kind":"namevalue", "type":["integer", "scalar"]},
+        {"name":"SubspaceDimension", "kind":"namevalue", "type":["integer", "scalar"]},
+        {"name":"StartVector", "kind":"namevalue", "type":["numeric", "vector"]},
+        {"name":"FailureTreatment", "kind":"namevalue", "type":["char", "choices={'replacenan', 'drop', 'keep'}"]},
+        {"name":"Display", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"IsCholesky", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"CholeskyPermutation", "kind":"namevalue", "type":["integer", "vector"]},
+        {"name":"IsSymmetricDefinite", "kind":"namevalue", "type":["logical", "scalar"]}
+    ]
+},
+"svds":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"A", "kind":"required", "type":["numeric"]}
+                ],
+                [
+                    {"name":"Afun", "kind":"required", "type":["function_handle"]},
+                    {"name":"n", "kind":"required", "type":["integer", "scalar"]}
+                ]
+            ]
+        },
+        {"name":"k", "kind":"positional", "type":["integer", "scalar"]},
+        {"name":"sigma", "kind":"positional", "type":[["numeric", "scalar"], ["char", "choices={'largest','smallest','smallestnz'}"]]}
+    ]
+},
+"svds":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"A", "kind":"required", "type":["numeric"]}
+                ],
+                [
+                    {"name":"Afun", "kind":"required", "type":["function_handle"]},
+                    {"name":"n", "kind":"required", "type":["integer", "scalar"]}
+                ]
+            ]
+        },
+        {"name":"k", "kind":"required", "type":["integer", "scalar"]},
+        {"name":"sigma", "kind":"required", "type":[["numeric", "scalar"], ["char", "choices={'largest','smallest','smallestnz'}"]]},
+        {"name":"Tolerance", "kind":"namevalue", "type":["numeric", "scalar"]},
+        {"name":"MaxIterations", "kind":"namevalue", "type":["integer", "scalar"]},
+        {"name":"SubspaceDimension", "kind":"namevalue", "type":["integer", "scalar"]},
+        {"name":"LeftStartVector", "kind":"namevalue", "type":["numeric", "vector"]},
+        {"name":"RightStartVector", "kind":"namevalue", "type":["numeric", "vector"]},
+        {"name":"FailureTreatment", "kind":"namevalue", "type":["char", "choices={'replacenan', 'drop', 'keep'}"]},
+        {"name":"Display", "kind":"namevalue", "type":["logical", "scalar"]}
+    ]
+}
+}

@@ -1,0 +1,9 @@
+{
+	"weboptions":
+	{
+		"inputs":
+		[
+			{"name":"name", "kind":"properties", "type":"weboptions"}
+		]
+	}
+}

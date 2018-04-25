@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings name="desktop" visible="false"> 
+    <settings name="variables" visible="false">
+        <key name="ArrayEditor_CS_Format" visible="true">
+            <string>
+                <value>short</value>
+            </string>
+        </key>
+        <settings name="editing" visible="true">
+          <key name="ArrayEditorEMoves" visible="true">
+            <bool>
+              <value>1</value>
+            </bool>
+          </key>
+          <key name="ArrayEditorEDirection" visible="true">
+            <double>
+              <value>0</value>
+            </double>
+          </key>        
+        </settings><!--Editing settings Node -->
+        <settings name="internationalnumberhandling" visible="true">
+          <!-- DecimalFormatSymbols has '.' as the decimalSeparator -->
+          <key name="SpreadsheetDecimalSeparator" visible="true">
+            <string>
+                <value>.</value>
+            </string>
+          </key>
+        </settings><!-- International Number Handling Node -->        
+    </settings><!-- Variables settings Node -->
+  </settings>
+</settings>

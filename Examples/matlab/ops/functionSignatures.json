@@ -1,0 +1,249 @@
+{
+"horzcat":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"], ["char"], ["cell"], ["struct"]], "repeating":true}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":[["numeric"], ["char"], ["cell"], ["struct"]]}
+    ]
+},
+"intersect":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]},
+        {"name":"setOrder", "kind":"ordered", "type":["char", "choices={'sorted','stable'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ib", "type":["vector","column"]}
+    ]
+},
+"intersect":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ib", "type":["vector","column"]}
+    ]
+},
+"ismember":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"Lia", "type":["numeric"]},
+        {"name":"Locb", "type":["numeric"]}
+    ]
+},
+"ismembertol":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"tol", "kind":"ordered", "type":["numeric","scalar"]},
+        {"name":"OutputAllIndices", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"ByRows", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"DataScale", "kind":"namevalue", "type":["vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"LIA", "type":["numeric"]},
+        {"name":"L", "type":[["numeric"],["cell"]]}
+    ]
+},
+"setdiff":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]},
+        {"name":"setOrder", "kind":"ordered", "type":["char", "choices={'sorted','stable'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]}
+    ]
+},
+"setdiff":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]}
+    ]
+},
+"setxor":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]},
+        {"name":"setOrder", "kind":"ordered", "type":["char", "choices={'sorted','stable'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ib", "type":["vector","column"]}
+    ]
+},
+"setxor":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ib", "type":["vector","column"]}
+    ]
+},
+"subsasgn":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required"},
+        {"name":"S", "kind":"required", "type":"struct"},
+        {"name":"B", "kind":"required"}
+    ],
+    "outputs":
+    [
+        {"name":"A"}
+    ]
+},
+"subsref":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required"},
+        {"name":"S", "kind":"required", "type":"struct"}
+    ],
+    "outputs":
+    [
+        {"name":"B"}
+    ]
+},
+"union":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]},
+        {"name":"setOrder", "kind":"ordered", "type":["char", "choices={'sorted','stable'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ib", "type":["vector","column"]}
+    ]
+},
+"union":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"B", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ib", "type":["vector","column"]}
+    ]
+},
+"unique":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]},
+        {"name":"setOrder", "kind":"ordered", "type":["char", "choices={'sorted','stable'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ic", "type":["vector","column"]}
+    ]
+},
+"unique":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"'rows'", "kind":"ordered", "type":["char", "choices={'rows'}"]},
+        {"name":"occurence", "kind":"ordered", "type":["char", "choices={'last','first'}"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"ia", "type":["vector","column"]},
+        {"name":"ic", "type":["vector","column"]}
+    ]
+},
+"uniquetol":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":["numeric"]},
+        {"name":"tol", "kind":"ordered", "type":["numeric","scalar"]},
+        {"name":"OutputAllIndices", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"ByRows", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"DataScale", "kind":"namevalue", "type":["vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":["numeric"]},
+        {"name":"IA", "type":["vector"]},
+        {"name":"IC", "type":["vector","column"]}
+    ]
+},
+"vertcat":
+{
+    "inputs":
+    [
+        {"name":"A", "kind":"required", "type":[["numeric"], ["char"], ["cell"], ["struct"]], "repeating":true}
+    ],
+    "outputs":
+    [
+        {"name":"C", "type":[["numeric"], ["char"], ["cell"], ["struct"]]}
+    ]
+}
+}

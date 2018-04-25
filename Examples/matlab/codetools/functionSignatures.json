@@ -1,0 +1,216 @@
+{
+"checkcode":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["matlabpathfile=*.m,*.mlx"], ["cellstr"]]},
+		{"name":"action", "kind":"flag", "type":[["char"], ["choices={'-struct','-string','-id','-fullpath','-notok','-cyc','-config=','-config=factory'}"]], "repeating":true}
+	]
+},
+"dbstatus":
+{
+	"inputs":
+	[
+		{"name":"filespec", "kind":"ordered", "type":[["char"], ["matlabpathfile=*.m,*.mlx"], ["identifier=function,localfunction,package,classdef"]]},
+		{"name":"'-completenames'", "kind":"flag", "type":["choices={'-completenames'}"]}
+	],
+	"outputs":
+	[
+		{"name":"s", "type":"struct"}
+	]
+},
+"dbstack":
+{
+	"inputs":
+	[
+		{"name":"nframes", "kind":"ordered", "type":["numeric", ">=1"]},
+		{"name":"'-completenames'", "kind":"flag", "type":["choices={'-completenames'}"]}
+	],
+	"outputs":
+	[
+		{"name":"st", "type":"struct"},
+		{"name":"i", "type":"numeric"}
+	]
+},
+"dbstep":
+{
+	"inputs":
+	[
+		{"name":"nlines", "kind":"ordered", "type":["numeric", ">=1"]}
+	]
+},	
+"dbstep":
+{
+	"inputs":
+	[
+		{"name":"inout", "kind":"ordered", "type":"choices={'in','out'}"}
+	]
+},
+"dbstop":
+{
+	"inputs":
+	[
+		{"name":"'in'", "kind":"required", "type":"choices={'in'}"},
+		{"name":"filespec", "kind":"required", "type":[["matlabpathfile=*.m,*.mlx"], ["identifier=function,localfunction,package,classdef"], ["char"]]},
+		{"name":"'at'", "kind":"positional", "type":"choices={'at'}"},
+		{"name":"location", "kind":"required", "type":[["char"], ["numeric", ">=1"]]},
+ 		{"name":"'if'", "kind":"positional", "type":"choices={'if'}"},
+ 		{"name":"expression", "kind":"required", "type":["char"]}
+	]
+},
+"dbstop":
+{
+	"inputs":
+	[
+		{"name":"'in'", "kind":"required", "type":"choices={'in'}"},
+		{"name":"filespec", "kind":"required", "type":[["matlabpathfile=*.m,*.mlx"], ["identifier=function,localfunction,package,classdef"], ["char"]]},
+		{"name":"'if'", "kind":"positional", "type":"choices={'if'}"},
+		{"name":"expression", "kind":"required", "type":["char"]}
+	]
+},
+"dbstop":
+{
+	"inputs":
+	[
+ 		{"name":"'if'", "kind":"required", "type":"choices={'if'}"},
+ 		{"name":"error", "kind":"required", "type":"choices={'error', 'warning'}"},
+ 		{"name":"messageid", "kind":"ordered", "type":"identifier=messageid"}
+	]
+},
+"dbstop":
+{
+	"inputs":
+	[
+ 		{"name":"'if'", "kind":"required", "type":"choices={'if'}"},
+ 		{"name":"'caught'", "kind":"required", "type":"choices={'caught'}"},
+ 		{"name":"'error'", "kind":"required", "type":"choices={'error'}"},
+ 		{"name":"messageid", "kind":"ordered", "type":"identifier=messageid"}
+	]
+},
+"dbstop":
+{
+	"inputs":
+	[
+ 		{"name":"'if'", "kind":"required", "type":"choices={'if'}"},
+ 		{"name":"naninf", "kind":"required", "type":"choices={'naninf','infnan'}"}
+	]
+},
+"dbstop":
+{
+	"inputs":
+	[
+ 		{"name":"s", "kind":"required", "type":"struct"}
+	]
+},
+"dbclear":
+{
+	"inputs":
+	[
+ 		{"name":"'in'", "kind":"required", "type":"choices={'in'}"},
+ 		{"name":"filespec", "kind":"required", "type":[["matlabpathfile=*.m,*.mlx"], ["identifier=function,localfunction,package,classdef"], ["char"]]},
+ 		{"name":"'at'", "kind":"positional", "type":"choices={'at'}"},
+ 		{"name":"lineno", "kind":"required", "type":[["char"], ["numeric", ">=1"]]}
+	]
+},
+"dbclear":
+{
+	"inputs":
+	[
+ 		{"name":"'if'", "kind":"required", "type":"choices={'if'}"},
+ 		{"name":"error", "kind":"required", "type":"choices={'error', 'warning'}"},
+ 		{"name":"messageid", "kind":"ordered", "type":"identifier=messageid"}
+	]
+},
+"dbclear":
+{
+	"inputs":
+	[
+ 		{"name":"'if'", "kind":"required", "type":"choices={'if'}"},
+ 		{"name":"'caught'", "kind":"required", "type":"choices={'caught'}"},
+ 		{"name":"'error'", "kind":"required", "type":"choices={'error'}"},
+ 		{"name":"messageid", "kind":"ordered", "type":"identifier=messageid"}
+	]
+},
+"dbclear":
+{
+	"inputs":
+	[
+ 		{"name":"'if'", "kind":"required", "type":"choices={'if'}"},
+ 		{"name":"naninf", "kind":"required", "type":"choices={'naninf','infnan'}"}
+	]
+},
+"dbclear":
+{
+	"inputs":
+	[
+ 		{"name":"'all'", "kind":"ordered", "type":"choices={'all'}"}
+	]
+},
+"dbtype":
+{
+	"inputs":
+	[
+ 		{"name":"filespec", "kind":"required", "type":[["file"], ["matlabpathfile=*.m,*.mlx"], ["char"]]},
+ 		{"name":"range", "kind":"ordered", "type":["numeric", "vector"]}
+	]
+},
+"edit":
+{
+		"inputs":
+	[
+		{"name":"file", "kind":"ordered", "type":[["file"], ["matlabpathfile=*.m,*.mlx"], ["identifier=package,classdef"], ["char"]], "repeating":true}
+	]
+},
+"profile":
+{
+	"inputs":
+	[
+		{"name":"action", "kind":"flag", "type":"choices={'on','off','resume','clear','viewer','status','info'}"},
+		{"name":"historyFlag", "kind":"flag", "type":"choices={'-history','-nohistory'}"},
+		{"name":"-historysize", "kind":"namevalue", "type":[["char"],["numeric"]]},
+		{"name":"-timer", "kind":"namevalue", "type":"choices={'performance','processor','real','cpu'}"}
+	]
+},
+"publish":
+{
+		"inputs":
+	[
+		{"name":"file", "kind":"required", "type":"file=*.m,*.mlx"},
+		{
+			"mutuallyExclusiveGroup":
+			[
+				{"name":"format", "kind":"ordered", "type":["char", "choices={'html','doc','latex','ppt','xml','pdf'}"], "default":"'html'" },
+				{"name":"options", "kind":"ordered", "type":"struct" },
+				[
+					{"name":"format", "kind":"namevalue", "type":["char", "choices={'html','doc','latex','ppt','xml','pdf'}"], "default":"'html'" },
+					{"name":"outputDir", "kind":"namevalue", "type":"folder", "default":"''" },
+					{"name":"stylesheet", "kind":"namevalue", "type":"file=*.xsl", "default":"''" },
+					{"name":"createThumbnail", "kind":"namevalue", "type":["logical", "scalar"], "default":"true" },
+					{"name":"figureSnapMethod", "kind":"namevalue", "type":["char", "choices={'entireGUIWindow','print','getframe','entireFigureWindow'}"], "default":"'entireGUIWindow'" },
+					{"name":"imageFormat", "kind":"namevalue", "type":"char"},
+					{"name":"maxHeight", "kind":"namevalue", "type":[["numeric", "numel=0"], ["integer", "positive"]], "default":"[]"},
+					{"name":"maxWidth", "kind":"namevalue", "type":[["numeric", "numel=0"], ["integer", "positive"]], "default":"[]"},
+					{"name":"useNewFigure", "kind":"namevalue", "type":["logical", "scalar"], "default":"true"},
+					{"name":"evalCode", "kind":"namevalue", "type":["logical", "scalar"], "default":"true"},
+					{"name":"catchError", "kind":"namevalue", "type":["logical", "scalar"], "default":"true"},
+					{"name":"codeToEvaluate", "kind":"namevalue", "type":"char"},
+					{"name":"maxOutputLines", "kind":"namevalue", "type":">=0", "default":"inf"},
+					{"name":"showCode", "kind":"namevalue", "type":["logical", "scalar"], "default":"true"}
+				]
+			]
+		}
+	],
+	"outputs":
+	[
+		{"name":"my_doc", "type":"file"}
+	]
+},
+"uiimport":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file"},
+		{"name":"varargin", "kind":"ordered", "repeating":true}
+	]
+}
+}

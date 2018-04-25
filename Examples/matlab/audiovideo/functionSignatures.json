@@ -1,0 +1,551 @@
+{
+"VideoReader":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file"], ["matlabpathfile=*.asf,*.asx,*.avi,*.m4v,*.mj2,*.mov,*.mp4,*.mpg,*.ogg,*.wmv"]]},
+		{"name":"Tag", "kind":"namevalue", "type":"char"},
+		{"name":"UserData", "kind":"namevalue"},
+        {"name":"CurrentTime", "kind":"namevalue", "type":"double"}
+	],
+	"outputs":
+	[
+		{"name":"obj", "type":"VideoReader"}
+	]
+},
+"VideoReader.read":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoReader"},
+        {"name":"index", "kind":"ordered", "type":[["integer", "scalar"]]},
+        {"name":"'native'", "kind":"ordered", "type":"choices={'native'}"}
+    ],
+    "outputs":
+    [
+        {"name":"video", "type":[["numeric"]]}
+    ]
+},
+"VideoReader.read":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoReader"},
+        {"name":"range", "kind":"ordered", "type":[["integer", "row", "@(x) size(x, 2) == 2"]]},
+        {"name":"'native'", "kind":"ordered", "type":"choices={'native'}"}
+    ],
+    "outputs":
+    [
+        {"name":"video", "type":[["numeric"]]}
+    ]
+},
+"VideoReader.readFrame":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoReader"},
+        {"name":"'native'", "kind":"ordered", "type":"choices={'native'}"}
+    ],
+    "outputs":
+    [
+        {"name":"video", "type":[["numeric"]]}
+    ]
+},
+"VideoReader.hasFrame":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoReader"}
+    ],
+    "outputs":
+    [
+        {"name":"video", "type":[["logical", "scalar"]]}
+    ]
+},
+"VideoReader.getFileFormats":
+{
+    "outputs":
+    [
+        {"name":"formats", "type":[["struct", "scalar"]]}
+    ]
+},
+"VideoWriter":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file"], ["char"]]},
+		{"name":"profile", "kind":"ordered", "type":"choices=audiovideo.internal.writer.profile.getProfileNames()"}
+	],
+	"outputs":
+	[
+		{"name":"obj", "type":"VideoWriter"}
+	]
+},
+"VideoWriter.open":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoWriter"}
+    ]
+},
+"VideoWriter.close":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoWriter"}
+    ]
+},
+"VideoWriter.writeVideo":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoWriter"},
+        {"name":"img", "kind":"required", "type":[["numeric"]]}
+    ]
+},
+"VideoWriter.writeVideo":
+{
+    "inputs":
+    [
+        {"name":"v", "kind":"required", "type":"VideoWriter"},
+        {"name":"frame", "kind":"required", "type":[["struct"]]}
+    ]
+},
+"VideoWriter.getProfiles":
+{
+    "outputs":
+    [
+        {"name":"profiles", "type":[["audiovideo.writer.ProfileInfo", "vector"]]}
+    ]
+},
+"audioread":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file"], ["matlabpathfile=*.wav,*.ogg,*.oga,*.flac,*.mp3,*.m4a,*.mp4,*.mov,*.avi,*.aif,*.aiff"], ["char"]]},
+        {"name":"range", "kind":"ordered", "type":"double"},
+        {"name":"datatype", "kind":"ordered", "type":"choices={'double', 'native'}"}
+    ],
+    "outputs":
+    [
+        {"name":"y", "type":[["numeric", "2d"], ["numeric", "column"]]},
+        {"name":"Fs", "type":[["double", "scalar"]]}
+    ]
+},
+"audioinfo":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file"], ["matlabpathfile=*.wav,*.ogg,*.oga,*.flac,*.mp3,*.m4a,*.mp4,*.mov,*.avi,*.aif,*.aiff"], ["char"]]}
+    ],
+    "outputs":
+    [
+        {"name":"info", "type":[["struct", "scalar"]]}
+    ]
+},
+"audiowrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file=*.wav"], ["char", "@(x) endsWith(lower(x), '.wav')"]]},
+        {"name":"y", "kind":"required", "type":[["numeric", "2d"], ["numeric", "column"]]},
+        {"name":"Fs", "kind":"required", "type":[["double", "scalar"]]},
+        {"name":"Title", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Artist", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Comment", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"BitsPerSample", "kind":"namevalue", "type":"choices={8, 16, 24, 32, 64}"}
+    ]
+},
+"audiowrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file=*.ogg,*.oga"], ["char", "@(x) audiovideo.internal.audio.isExtInList(x, {'.ogg', '.oga'})"]]},
+        {"name":"y", "kind":"required", "type":[["numeric", "2d"], ["numeric", "column"]]},
+        {"name":"Fs", "kind":"required", "type":[["double", "scalar"]]},
+        {"name":"Title", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Artist", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Comment", "kind":"namevalue", "type":[["char", "row"]]}
+    ]
+},
+"audiowrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file=*.flac"], ["char", "@(x) endsWith(lower(x), '.flac')"]]},
+        {"name":"y", "kind":"required", "type":[["numeric", "2d"], ["numeric", "column"]]},
+        {"name":"Fs", "kind":"required", "type":[["double", "scalar"]]},
+        {"name":"Title", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Artist", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Comment", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"BitsPerSample", "kind":"namevalue", "type":"choices={8, 16, 24}"}
+    ]
+},
+"audiowrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file=*.mp4,*.m4a"], ["char", "@(x) audiovideo.internal.audio.isExtInList(x, {'.m4a', '.mp4'})"]]},
+        {"name":"y", "kind":"required", "type":[["numeric", "2d"], ["numeric", "column"]]},
+        {"name":"Fs", "kind":"required", "type":[["double", "scalar"]]},
+        {"name":"Title", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Artist", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"Comment", "kind":"namevalue", "type":[["char", "row"]]},
+        {"name":"BitRate", "kind":"namevalue", "type":[["double", "scalar"]]}
+    ]
+},
+"audioplayer":
+{
+    "inputs":
+    [
+        {"name":"y", "kind":"required", "type":[["numeric", "2d", "@(x) size(x, 2) <= 2"]]},
+        {"name":"Fs", "kind":"required", "type":[["double", "scalar"]]},
+        {"name":"nBits", "kind":"positional", "type":"choices={8, 16, 24}"},
+        {"name":"ID", "kind":"positional", "type":[["double", "scalar"]]}
+    ],
+    "outputs":
+	[
+		{"name":"player", "type":"audioplayer"}
+	]
+},
+"audioplayer":
+{
+    "inputs":
+    [
+        {"name":"recorder", "kind":"required", "type":"audiorecorder"},
+        {"name":"ID", "kind":"positional", "type":[["double", "scalar"]]}
+    ],
+    "outputs":
+	[
+		{"name":"player", "type":"audioplayer"}
+	]
+},
+"audioplayer.isplaying":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"}
+    ],
+    "outputs":
+    [
+        {"name":"status", "type":[["logical", "scalar"]]}
+    ]
+},
+"audioplayer.pause":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"}
+    ]
+},
+"audioplayer.play":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"},
+        {"name":"start", "kind":"ordered", "type":[["integer", "scalar"]]}
+    ]
+},
+"audioplayer.play":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"},
+        {"name":"range", "kind":"ordered", "type":[["integer", "row", "@(x) size(x, 2) == 2"]]}
+    ]
+},
+"audioplayer.playblocking":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"},
+        {"name":"start", "kind":"ordered", "type":[["integer", "scalar"]]}
+    ]
+},
+"audioplayer.playblocking":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"},
+        {"name":"range", "kind":"ordered", "type":[["integer", "row", "@(x) size(x, 2) == 2"]]}
+    ]
+},
+"audioplayer.resume":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"}
+    ]
+},
+"audioplayer.stop":
+{
+    "inputs":
+    [
+        {"name":"playerObj", "kind":"required", "type":"audioplayer"}
+    ]
+},
+"audiorecorder":
+{
+    "outputs":
+	[
+		{"name":"recorder", "type":"audiorecorder"}
+	]
+},
+"audiorecorder":
+{
+    "inputs":
+    [
+        {"name":"Fs", "kind":"required", "type":[["double", "scalar"]]},
+        {"name":"nBits", "kind":"required", "type":"choices={8, 16, 24}"},
+        {"name":"nChannels", "kind":"required", "type":"choices={1, 2}"},
+        {"name":"ID", "kind":"positional", "type":[["double", "scalar"]]}
+    ],
+    "outputs":
+	[
+		{"name":"recorder", "type":"audiorecorder"}
+	]
+},
+"audiorecorder.getaudiodata":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"},
+        {"name":"datatype", "kind":"ordered", "type":"choices={'double', 'single', 'int16', 'int8', 'uint8'}"}
+    ],
+    "outputs":
+    [
+        {"name":"y", "type":[["numeric", "2d"]]}
+    ]
+},
+"audiorecorder.getplayer":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"}
+    ],
+    "outputs":
+	[
+		{"name":"playerObj", "type":"audioplayer"}
+	]
+},
+"audiorecorder.isrecording":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"}
+    ],
+    "outputs":
+    [
+        {"name":"status", "type":[["logical", "scalar"]]}
+    ]
+},
+"audiorecorder.pause":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"}
+    ]
+},
+"audiorecorder.play":
+{
+    "inputs":
+    [
+        {"name":"recObj", "kind":"required", "type":"audiorecorder"},
+        {"name":"start", "kind":"ordered", "type":[["integer", "scalar"]]}
+    ],
+    "outputs":
+    [
+        {"name":"player", "type":"audioplayer"}
+    ]
+},
+"audiorecorder.play":
+{
+    "inputs":
+    [
+        {"name":"recObj", "kind":"required", "type":"audiorecorder"},
+        {"name":"range", "kind":"ordered", "type":[["integer", "row", "@(x) size(x, 2) == 2"]]}
+    ],
+    "outputs":
+    [
+        {"name":"player", "type":"audioplayer"}
+    ]
+},
+"audiorecorder.record":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"},
+        {"name":"length", "kind":"ordered", "type":[["integer", "scalar"]]}
+    ]
+},
+"audiorecorder.recordblocking":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"},
+        {"name":"length", "kind":"required", "type":[["numeric", "scalar"]]}
+    ]
+},
+"audiorecorder.resume":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"}
+    ]
+},
+"audiorecorder.stop":
+{
+    "inputs":
+    [
+        {"name":"recorderObj", "kind":"required", "type":"audiorecorder"}
+    ]
+},
+"audiodevinfo":
+{
+    "outputs":
+    [
+        {"name":"info", "type":[["struct", "scalar"]]}
+    ]
+},
+"audiodevinfo":
+{
+    "inputs":
+    [
+        {"name":"IO", "kind":"required", "type":"choices={0, 1}"}
+    ],
+    "outputs":
+    [
+        {"name":"nDevices", "type":[["integer", "scalar"]]}
+    ]   
+},
+"audiodevinfo":
+{
+    "inputs":
+    [
+        {"name":"IO", "kind":"required", "type":"choices={0, 1}"},
+        {"name":"ID", "kind":"required", "type":[["integer", "scalar"]]}
+    ],
+    "outputs":
+    [
+        {"name":"name", "type":[["char", "row"]]}
+    ]   
+},
+"audiodevinfo":
+{
+    "inputs":
+    [
+        {"name":"IO", "kind":"required", "type":"choices={0, 1}"},
+        {"name":"ID", "kind":"required", "type":[["integer", "scalar"]]},
+        {"name":"'DriverVersion'", "kind":"required", "type":"choices={'DriverVersion'}"}
+    ],
+    "outputs":
+    [
+        {"name":"DriverVersion", "type":[["char", "row"]]}
+    ]   
+},
+"audiodevinfo":
+{
+    "inputs":
+    [
+        {"name":"IO", "kind":"required", "type":"choices={0, 1}"},
+        {"name":"ID", "kind":"required", "type":[["integer", "scalar"]]},
+        {"name":"Fs", "kind":"required", "type":[["numeric", "scalar"]]},
+        {"name":"nBits", "kind":"required", "type":[["integer", "scalar"]]},
+        {"name":"nChannels", "kind":"required", "type":[["integer", "scalar"]]}
+    ],
+    "outputs":
+    [
+        {"name":"support", "type":[["logical", "scalar"]]}
+    ]   
+},
+"audiodevinfo":
+{
+    "inputs":
+    [
+        {"name":"IO", "kind":"required", "type":"choices={0, 1}"},
+        {"name":"name", "kind":"required", "type":[["char", "row"]]}
+    ],
+    "outputs":
+    [
+        {"name":"ID", "type":[["integer", "scalar"]]}
+    ]   
+},
+"audiodevinfo":
+{
+    "inputs":
+    [
+        {"name":"IO", "kind":"required", "type":"choices={0, 1}"},
+        {"name":"name", "kind":"required", "type":[["char", "row"]]},
+        {"name":"Fs", "kind":"required", "type":[["numeric", "scalar"]]},
+        {"name":"nChannels", "kind":"required", "type":[["integer", "scalar"]]}
+    ],
+    "outputs":
+    [
+        {"name":"ID", "type":[["integer", "scalar"]]}
+    ]   
+},
+"sound":
+{
+    "inputs":
+    [
+        {"name":"y", "kind":"required", "type":[["numeric", "2d", "@(x) size(x, 2) <= 2"]]},
+        {"name":"Fs", "kind":"positional", "type":[["numeric", "scalar"]]},
+        {"name":"nBits", "kind":"positional", "type":"choices={8, 16, 24}"}
+    ]
+},
+"soundsc":
+{
+    "inputs":
+    [
+        {"name":"y", "kind":"required", "type":[["numeric", "2d", "@(x) size(x, 2) <= 2"]]},
+        {"name":"Fs", "kind":"positional", "type":[["numeric", "scalar"]]},
+        {"name":"nBits", "kind":"positional", "type":"choices={8, 16, 24}"},
+        {"name":"yRange", "kind":"ordered", "type":[["integer", "row", "@(x) size(x, 2) == 2"]]}
+    ]
+},
+"aviinfo":
+{
+    "inputs":
+    [ 
+        {"name":"filename", "kind":"required", "type":[["file=*.avi"], ["matlabpathfile=*.avi"]]}
+    ],
+    "outputs":
+    [
+        {"name":"fileinfo", "type":[["struct", "scalar"]]}
+    ]   
+},
+"mmfileinfo":
+{
+    "inputs":
+    [ 
+        {"name":"filename", "kind":"required", "type":[["file"], ["matlabpathfile=*.asf,*.asx,*.avi,*.m4v,*.mj2,*.mov,*.mp4,*.mpg,*.ogg,*.wmv"], "char"]}
+    ],
+    "outputs":
+    [
+        {"name":"fileinfo", "type":[["struct", "scalar"]]}
+    ]   
+},
+"lin2mu":
+{
+    "inputs":
+    [
+        {"name":"y", "kind":"required", "type":"numeric"}
+    ],
+    "outputs":
+    [
+        {"name":"mu", "type":"numeric"}
+    ]
+},
+"mu2lin":
+{
+    "inputs":
+    [
+        {"name":"mu", "kind":"required", "type":"numeric"}
+    ],
+    "outputs":
+    [
+        {"name":"y", "type":"numeric"}
+    ]
+}
+
+}

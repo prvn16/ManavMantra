@@ -1,0 +1,17 @@
+{
+"guide":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"ordered", "type":[["file=*.fig"], ["matlabpathfile=*.fig"], ["char"]]}
+	]
+},
+"guide":
+{
+	"inputs":
+	[
+		{"name":"HandleList", "kind":"required"}
+	]
+}
+
+}

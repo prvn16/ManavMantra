@@ -1,0 +1,11 @@
+{
+    "name": "matlab_login",
+	"description": "Login client for MATLAB",
+    "main": "matlab_login/matlab_login",
+    "dependencies": {
+        "dojo": "current",
+        "MW" : "current",
+        "InstallServiceHandler" : "current"
+	},
+    "dojoBuild": "package.js"
+}

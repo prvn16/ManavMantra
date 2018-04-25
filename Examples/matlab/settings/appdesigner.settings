@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2016 MathWorks, Inc. -->
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="appdesigner" visible="true">
+        <key name="EnableMlappSupport" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+
+        <!-- Settings for displaying the App Designer window -->
+        <settings name="window" visible="false">
+            <key name="Position" visible="false">
+                <!-- x, y, w, h -->
+                <double minArraySize="4" maxArraySize="4">
+                    <value>100</value>
+                    <value>100</value>
+                    <value>1400</value>
+                    <value>800</value>
+                </double>
+            </key>
+            <key name="IsMaximized" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+
+        <!-- Settings for features used during App Designer startup -->
+        <settings name="startup" visible="false">
+            <key name="ShowIntroDialog" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+
+        <!-- Settings for the App Designer MRU list -->
+        <settings name="history" visible="true">
+            <key name="FileList" visible="false">
+                <string minArraySize="0" maxArraySize="12">
+                    <value></value>
+                </string>
+            </key>
+            <key name="MaxFileListSize" visible="true">
+                <int32>
+                    <value>8</value>
+                </int32>
+            </key>
+        </settings>
+
+        <!-- Settings for design view features -->
+        <settings name="designview" visible="true">
+            <key name="ShowGrid" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="SnapToGrid" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="ShowAlignmentHints" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="ShowResizingHints" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="GridInterval" visible="true">
+                <int32>
+                    <metadata>
+                        <min>10</min>
+                        <max>50</max>
+	                </metadata>
+                    <value>10</value>
+                </int32>
+            </key>
+            <key name="ShowAxesBanner" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+        
+        <!-- Settings for code view features -->
+        <settings name="codeview" visible="false">
+            <key name="ShowCodeViewTips" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="ShowProgrammingTips" visible="false">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+
+        <!-- Settings for component browser features -->
+        <settings name="compbrowser" visible="true">
+            <key name="IncludeComponentLabels" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+    </settings>
+</settings>

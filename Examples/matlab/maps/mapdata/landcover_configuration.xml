@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright 2017 The MathWorks, Inc. -->
+<metadata>
+   <TileSetName>landcover</TileSetName>
+   <Version>v1</Version>
+   <Attribution></Attribution>
+   <AttributionColor>black</AttributionColor>
+   <Author>The MathWorks, Inc.</Author>
+   <DateFormat>dd-MM-uuuu</DateFormat>
+   <Date>29-08-2016</Date>
+   <MaxZoomLevel>7</MaxZoomLevel>
+   <MapTileLocation>http://ssd.mathworks.com/supportfiles/mapdata/maptiles/NaturalEarth/landcover/v1/${zoomLevel}/${tileRow}/${tileCol}.png</MapTileLocation>
+   <MapTileCacheLocation>toolbox/matlab/maps/supportpackages/landcoverbasemapdata/mapdata/maptiles/NaturalEarth/landcover/v1/${zoomLevel}/${tileRow}/${tileCol}.png</MapTileCacheLocation>
+</metadata>

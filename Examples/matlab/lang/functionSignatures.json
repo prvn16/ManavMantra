@@ -1,0 +1,188 @@
+{
+	"disp":
+	{
+	    "inputs":
+	    [
+			{"name":"X", "kind":"required", "type":[["numeric"], ["char"], ["cell"], ["function_handle"], ["struct"]]}
+	    ]
+	},
+	"display":
+	{
+	    "inputs":
+	    [
+			{"name":"X", "kind":"required", "type":[["numeric"], ["char"], ["cell"], ["function_handle"], ["struct"]]}
+	    ]
+	},
+	"exist":
+	{
+	    "inputs":
+	    [
+			{"name":"name", "kind":"required", "type":[["identifier=variable,function,model,classdef"], ["file"], ["char"]]},
+			{"name":"kind", "kind":"ordered", "type":"choices={'builtin','class','dir','file','var'}"}
+	    ]
+	},
+	"message":
+	{
+	    "inputs":
+	    [
+			{"name":"msgid", "kind":"required", "type":"identifier=messageid"},
+			{"name":"params", "kind":"ordered", "repeating":true}
+	    ]
+	},
+	"MException":
+	{
+		"inputs":
+		[
+			{"name":"msgID", "kind":"required", "type":[["identifier=messageid"], ["char"]]},
+			{"name":"msgtext", "kind":"required", "type":["char"]},
+			{"name":"A", "kind":"ordered", "repeating":true}
+		],
+		"outputs":
+		[
+			{"name":"ME", "type":"MException"}
+		]
+	},
+	"MException":
+	{
+		"inputs":
+		[
+			{"name":"message", "kind":"required", "type":"message"}
+		],
+		"outputs":
+		[
+			{"name":"ME", "type":"MException"}
+		]
+	},
+	"MException.addCause":
+	{
+		"inputs":
+		[
+			{"name":"baseException", "kind":"required", "type":"MException"},
+			{"name":"causeException", "kind":"required", "type":"MException"}
+		],
+		"outputs":
+		[
+			{"name":"baseException", "type":"MException"}
+		]
+	},
+	"MException.getReport":
+	{
+		"inputs":
+		[
+			{"name":"exception", "kind":"required", "type":"MException"},
+			{"name":"type", "kind":"positional", "type":"choices={'extended','basic'}", "default":"'extended'"}
+		],
+		"outputs":
+		[
+			{"name":"msgText", "type":"char"}
+		]
+	},
+	"MException.getReport":
+	{
+		"inputs":
+		[
+			{"name":"exception", "kind":"required", "type":"MException"},
+			{"name":"type", "kind":"required", "type":"choices={'extended','basic'}", "default":"'extended'"},
+			{"name":"'hyperlinks'", "kind":"required", "type":"choices={'hyperlinks'}"},
+			{"name":"hlink", "kind":"required", "type":"choices={'on','off','default'}", "default":"'on'"}
+		],
+		"outputs":
+		[
+			{"name":"msgText", "type":"char"}
+		]
+	},
+	"MException.last":
+	{
+		"inputs":
+		[
+			{"name":"reset", "kind":"ordered", "type":"choices={'reset'}"}
+		]
+	},
+	"MException.rethrow":
+	{
+		"inputs":
+		[
+			{"name":"exception", "kind":"required", "type":"MException"}
+		]
+	},
+	"MException.throw":
+	{
+		"inputs":
+		[
+			{"name":"exception", "kind":"required", "type":"MException"}
+		]
+	},
+	"MException.throwAsCaller":
+	{
+		"inputs":
+		[
+			{"name":"exception", "kind":"required", "type":"MException"}
+		]
+	},
+	"run":
+	{
+	    "inputs":
+	    [
+			{"name":"scriptname", "kind":"required", "type":"file=*.m,*.mlx"}
+	    ]
+	},
+	"validateattributes":
+	{
+	    "inputs":
+	    [
+			{"name":"A", "kind":"required"},
+			{"name":"classes", "kind":"required", "type":[["cellstr"], ["string"]]},
+			{"name":"attributes", "kind":"required", "type":[["cell"], ["cell", "choices={'2d','3d','column','row','scalar','scalartext','vector','size','numel','ncols','nrows','ndims','square','diag','nonempty','nonsparse','>','>=','<','<=','binary','even','odd','integer','real','finite','nonnan','nonnegative','nonzero','positive','decreasing','increasing','nondecreasing','nonincreasing'}"]]},
+			{"mutuallyExclusiveGroup":
+				[
+					[],
+					[
+						{"name":"argIndex","kind":"required", "type":["numeric", "scalar"]}
+					],
+					[
+						{"name":"funcName","kind":"required", "type":[["char"], ["string"]]},
+						{"name":"varName","kind":"positional", "type":[["char"], ["string"]]},
+						{"name":"argIndex","kind":"positional", "type":["numeric", "scalar", "positive"]}
+					]
+				]
+			}
+	    ]
+	},
+	"warning":
+	{
+		"inputs":
+		[
+			{"mutuallyExclusiveGroup":
+				[
+					[],
+					[
+						{"name":"msg", "kind":"required", "type":"char"},
+						{"name":"A", "kind":"ordered", "repeating":true}
+					],
+					[
+						{"name":"msgID", "kind":"required", "type":"identifier=messageid"},
+						{"name":"msg", "kind":"required", "type":"char"},
+						{"name":"A", "kind":"ordered", "repeating":true}
+					],
+					[
+						{"name":"state", "kind":"required", "type":"choices={'on','off','query'}"},
+						{"mutuallyExclusiveGroup":
+							[
+								{"name":"msgID", "kind":"ordered", "type":"identifier=messageid"},
+								{"name":"mode", "kind":"required", "type":"choices={'backtrace','verbose'}"}
+							]
+						}
+					
+					],
+					[
+						{"name":"warnStruct", "kind":"required", "type":"struct"}
+					]
+				]
+			}
+		],
+		"outputs":
+		[
+			{"name":"warnStruct", "kind":"ordered", "type":"struct"}
+		]
+	}
+}

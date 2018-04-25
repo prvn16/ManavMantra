@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* == page == */
+/* == Reset == */
+
+/* == NextGen Styles == */
+html body { height:100%; margin:0px; font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;  font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; background-color: white; margin:0px; padding:0px; }
+
+/* == header == */
+/* == description == */
+/* == demo listing == */
+
+/* == page elements == */
+h1 { padding:0px; margin:0px 0px 25px; font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;  font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;  font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;  font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }

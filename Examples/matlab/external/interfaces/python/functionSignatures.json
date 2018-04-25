@@ -1,0 +1,10 @@
+{
+"pyversion":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file"},
+		{"name":"varargin", "kind":"ordered", "repeating":true}
+	]
+}
+}

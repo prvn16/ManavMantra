@@ -1,0 +1,10 @@
+/* IE 10 adds a clear sign: "x" at the end of input field
+http://stackoverflow.com/questions/14007655/remove-ie10s-clear-field-x-button-on-certain-inputs
+*/
+.mwWidget.mwTextField input[type=text]::-ms-clear {
+    display: none;
+}
+
+.mwWidget.mwTextField input {
+    font-size: 12px;
+}

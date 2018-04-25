@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="uisettings" visible="false" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="factory" visible="false">
+        <settings name="figure" visible="false">
+            <key name="Color" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+            <key name="Colormap" visible="false">
+                <!-- Instructions to generate the colormap data:
+                    s = settings;
+                    sg = s.addGroup('myNewColorMap');
+                    sg.addSetting('Colormap');
+
+                    % Provide new values:
+                    c = parula(64);
+                    sg.Colormap.PersonalValue = c(:);
+
+                    edit(fullfile(prefdir,'myNewColorMap.settings'))
+
+                    Copy the <value></value> lines from that file and
+                    paste it into the value section below.
+
+                    Delete the file from your prefdir and restart MATLAB to clear it. 
+                -->
+                <double minArraySize="0" maxArraySize="192">
+                    <value>.2422</value>
+                    <value>.2503904761904762</value>
+                    <value>.2577714285714286</value>
+                    <value>.2647285714285714</value>
+                    <value>.270647619047619</value>
+                    <value>.2751142857142857</value>
+                    <value>.2783</value>
+                    <value>.2803333333333333</value>
+                    <value>.2813380952380952</value>
+                    <value>.2810142857142857</value>
+                    <value>.27946666666666664</value>
+                    <value>.27597142857142853</value>
+                    <value>.2699142857142857</value>
+                    <value>.26024285714285716</value>
+                    <value>.24403333333333335</value>
+                    <value>.22064285714285714</value>
+                    <value>.19633333333333336</value>
+                    <value>.1834047619047619</value>
+                    <value>.17864285714285713</value>
+                    <value>.17643809523809523</value>
+                    <value>.16874285714285717</value>
+                    <value>.154</value>
+                    <value>.14602857142857142</value>
+                    <value>.13802380952380952</value>
+                    <value>.12481428571428572</value>
+                    <value>.11125238095238096</value>
+                    <value>.0952095238095238</value>
+                    <value>.06887142857142853</value>
+                    <value>.029666666666666713</value>
+                    <value>.003571428571428575</value>
+                    <value>.0066571428571428675</value>
+                    <value>.04332857142857151</value>
+                    <value>.09639523809523802</value>
+                    <value>.1407714285714287</value>
+                    <value>.17170000000000002</value>
+                    <value>.19376666666666661</value>
+                    <value>.21608571428571433</value>
+                    <value>.24695714285714282</value>
+                    <value>.29061428571428555</value>
+                    <value>.3406428571428572</value>
+                    <value>.3908999999999999</value>
+                    <value>.44562857142857154</value>
+                    <value>.5044</value>
+                    <value>.5615619047619046</value>
+                    <value>.6173952380952381</value>
+                    <value>.6719857142857143</value>
+                    <value>.7242000000000002</value>
+                    <value>.7738333333333334</value>
+                    <value>.8203142857142857</value>
+                    <value>.8634333333333334</value>
+                    <value>.9035428571428572</value>
+                    <value>.9392571428571427</value>
+                    <value>.9727571428571429</value>
+                    <value>.9956476190476191</value>
+                    <value>.9969857142857143</value>
+                    <value>.9952047619047619</value>
+                    <value>.9892000000000001</value>
+                    <value>.9786285714285714</value>
+                    <value>.9676476190476191</value>
+                    <value>.9610095238095238</value>
+                    <value>.9596714285714285</value>
+                    <value>.962795238095238</value>
+                    <value>.9691142857142856</value>
+                    <value>.9769</value>
+                    <value>.1504</value>
+                    <value>.16499523809523808</value>
+                    <value>.18178095238095238</value>
+                    <value>.19775714285714285</value>
+                    <value>.21467619047619046</value>
+                    <value>.23423809523809525</value>
+                    <value>.2558714285714286</value>
+                    <value>.2782333333333333</value>
+                    <value>.3005952380952381</value>
+                    <value>.3227571428571429</value>
+                    <value>.3446714285714286</value>
+                    <value>.36668095238095244</value>
+                    <value>.3892</value>
+                    <value>.41232857142857143</value>
+                    <value>.43583333333333335</value>
+                    <value>.46025714285714286</value>
+                    <value>.4847190476190476</value>
+                    <value>.5073714285714286</value>
+                    <value>.5288571428571428</value>
+                    <value>.5499047619047619</value>
+                    <value>.5702619047619047</value>
+                    <value>.5902</value>
+                    <value>.6091190476190476</value>
+                    <value>.6276285714285715</value>
+                    <value>.6459285714285714</value>
+                    <value>.6635</value>
+                    <value>.6798285714285714</value>
+                    <value>.6947714285714286</value>
+                    <value>.7081666666666666</value>
+                    <value>.7202666666666666</value>
+                    <value>.7312142857142857</value>
+                    <value>.741095238095238</value>
+                    <value>.75</value>
+                    <value>.7584</value>
+                    <value>.7669619047619047</value>
+                    <value>.7757666666666666</value>
+                    <value>.7843</value>
+                    <value>.7917952380952381</value>
+                    <value>.7972904761904762</value>
+                    <value>.8008</value>
+                    <value>.8028714285714285</value>
+                    <value>.8024190476190476</value>
+                    <value>.7993</value>
+                    <value>.7942333333333333</value>
+                    <value>.7876190476190476</value>
+                    <value>.7792714285714286</value>
+                    <value>.7698428571428572</value>
+                    <value>.7598047619047619</value>
+                    <value>.7498142857142858</value>
+                    <value>.7405999999999999</value>
+                    <value>.7330285714285714</value>
+                    <value>.7287857142857143</value>
+                    <value>.7297714285714285</value>
+                    <value>.7433714285714286</value>
+                    <value>.7658571428571429</value>
+                    <value>.7892523809523809</value>
+                    <value>.8135666666666665</value>
+                    <value>.8386285714285715</value>
+                    <value>.8638999999999999</value>
+                    <value>.8890190476190476</value>
+                    <value>.9134571428571429</value>
+                    <value>.9373380952380951</value>
+                    <value>.9606285714285714</value>
+                    <value>.9839</value>
+                    <value>.6603</value>
+                    <value>.7076142857142856</value>
+                    <value>.7511380952380953</value>
+                    <value>.7952142857142857</value>
+                    <value>.8363714285714285</value>
+                    <value>.8709857142857143</value>
+                    <value>.8990714285714285</value>
+                    <value>.9220999999999999</value>
+                    <value>.9413761904761906</value>
+                    <value>.9578857142857143</value>
+                    <value>.9716761904761906</value>
+                    <value>.982904761904762</value>
+                    <value>.9906</value>
+                    <value>.9951571428571429</value>
+                    <value>.9988333333333332</value>
+                    <value>.9972857142857143</value>
+                    <value>.989152380952381</value>
+                    <value>.979795238095238</value>
+                    <value>.9681571428571428</value>
+                    <value>.9520190476190477</value>
+                    <value>.9358714285714285</value>
+                    <value>.9218</value>
+                    <value>.9078571428571429</value>
+                    <value>.8972904761904761</value>
+                    <value>.8883428571428572</value>
+                    <value>.8763142857142857</value>
+                    <value>.8597809523809524</value>
+                    <value>.8393571428571429</value>
+                    <value>.8163333333333334</value>
+                    <value>.7917000000000001</value>
+                    <value>.7660142857142858</value>
+                    <value>.7394095238095237</value>
+                    <value>.7120380952380954</value>
+                    <value>.6841571428571428</value>
+                    <value>.6554428571428572</value>
+                    <value>.6251000000000001</value>
+                    <value>.5922999999999999</value>
+                    <value>.5567428571428572</value>
+                    <value>.5188285714285715</value>
+                    <value>.4788571428571428</value>
+                    <value>.43544761904761914</value>
+                    <value>.39091904761904755</value>
+                    <value>.348</value>
+                    <value>.3044809523809525</value>
+                    <value>.26123809523809516</value>
+                    <value>.22270000000000004</value>
+                    <value>.19102857142857133</value>
+                    <value>.16460952380952382</value>
+                    <value>.15352857142857143</value>
+                    <value>.15963333333333338</value>
+                    <value>.1774142857142857</value>
+                    <value>.20995714285714273</value>
+                    <value>.23944285714285718</value>
+                    <value>.23714761904761905</value>
+                    <value>.21994285714285708</value>
+                    <value>.20276190476190475</value>
+                    <value>.18853333333333336</value>
+                    <value>.17655714285714283</value>
+                    <value>.1642904761904762</value>
+                    <value>.15367619047619052</value>
+                    <value>.14225714285714286</value>
+                    <value>.12650952380952382</value>
+                    <value>.1063619047619047</value>
+                    <value>.0805</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uicontainer" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uicontrol" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+            <key name="ForegroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uiflowcontainer" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uigridcontainer" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uimenu" visible="false">
+            <key name="ForegroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uipanel" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+            <key name="ForegroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                </double>
+            </key>
+            <key name="HighlightColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>1.0</value>
+                </double>
+            </key>
+            <key name="ShadowColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.7</value>
+                    <value>.7</value>
+                    <value>.7</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uitab" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+            <key name="ForegroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uitable" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="6">
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+            <key name="ForegroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                </double>
+            </key>
+        </settings>
+    </settings>
+    <settings name="view" visible="false">
+        <settings name="edit_uicontrol" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>1.0</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="list_uicontrol" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>1.0</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="popup_uicontrol" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>1.0</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uitabgroup" visible="false">
+            <key name="BackgroundColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>.94</value>
+                    <value>.94</value>
+                    <value>.94</value>
+                </double>
+            </key>
+        </settings>
+        <settings name="uitable" visible="false">
+            <key name="WhitespaceColor" visible="false">
+                <double minArraySize="0" maxArraySize="3">
+                    <value>1.0</value>
+                    <value>1.0</value>
+                    <value>1.0</value>
+                </double>
+            </key>
+        </settings>
+    </settings>
+</settings>

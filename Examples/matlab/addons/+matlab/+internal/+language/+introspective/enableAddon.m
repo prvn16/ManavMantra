@@ -1,0 +1,2 @@
+function enableAddon(addonUID)
+end

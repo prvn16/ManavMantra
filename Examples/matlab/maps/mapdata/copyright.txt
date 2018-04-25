@@ -1,0 +1,18 @@
+Copyright 2017 The MathWorks, Inc. Modified from Natural Earth datasets as described below. 
+
+Modifications:
+* At 8 distinct zoom levels (0 to 7), an image was constructed by projecting vector polygons from Natural Earth to Web Mercator    
+* The image for each zoom level was colored with two colors, one for land and one for water, and divided into tiles of uniform size
+* Specific vector boundary overlays from Natural Earth shapefiles are embedded in the tiled dataset at zoom levels 1 to 7
+	
+Natural Earth Source Datasets:
+* 1:110m Cultural Vectors - Admin 0 - Boundary Lines
+* 1:110m Physical Vectors - Land 
+* 1:110m Physical Vectors - Lakes + Reservoirs
+* 1:50m Cultural Vectors - Admin 0 - Boundary Lines
+* 1:50m Physical Vectors - Land
+* 1:50m Physical Vectors - Lakes + Reservoirs
+* 1:10m Cultural Vectors - Admin 0 - Boundary Lines
+* 1:10m Cultural Vectors - Admin 1 - States, Provinces
+* 1:10m Physical Vectors - Land 
+* 1:10m Physical Vectors - Lakes + Reservoirs

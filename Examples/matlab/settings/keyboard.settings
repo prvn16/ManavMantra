@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 MathWorks, Inc. -->
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Keyboard -->
+    <settings name="keyboard" visible="true">
+     <!-- Suggestions and Completions -->
+            <settings name="suggestions" visible="true">
+                <key name="ShowAutomatically" visible="true">
+					<int32>
+						<metadata>
+						   <min>0</min>
+						   <max>1</max>
+						</metadata>
+						<value>1</value>
+					</int32>
+                </key>
+            </settings>
+
+        </settings>
+    </settings>

@@ -1,0 +1,94 @@
+<productinfo
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.mathworks.com/namespace/info/v1/info.xsd">
+<?xml-stylesheet type="text/xsl" href="http://www.mathworks.com/namespace/info/v1/info.xsl"?>
+
+
+<matlabrelease>14</matlabrelease>
+<name>MATLAB</name>
+<type>matlab</type>
+<icon>ApplicationIcon.MATLAB</icon>
+<help_location>$docroot/techdoc</help_location>
+
+<dialogpref_registrar>  
+    <source>com.mathworks.mde.editor.EditorOptions</source>
+</dialogpref_registrar>
+<dialogpref_registrar>  
+    <source>com.mathworks.mde.cmdhist.CmdHistoryPrefs</source>
+</dialogpref_registrar>
+<dialogpref_registrar>  
+    <source>com.mathworks.mlwidgets.workspace.WorkspaceDialogs</source>
+</dialogpref_registrar>
+<dialogpref_registrar>  
+    <source>com.mathworks.toolbox.matlab.guide.LayoutPrefs</source>
+</dialogpref_registrar> 
+<dialogpref_registrar> 
+    <source>com.mathworks.explorer.MATFileDialogItemProvider</source>
+</dialogpref_registrar> 	
+
+<list>
+
+<listitem>
+<label>Import Wizard</label>
+<callback>uiimport</callback>
+<icon>ApplicationIcon.GENERIC_GUI</icon>
+</listitem>
+
+<listitem>
+<label>Profiler</label>
+<callback>profile viewer</callback>
+<icon>ApplicationIcon.PROFILER</icon>
+</listitem>
+
+<listitem>
+<label>GUIDE (GUI Builder)</label>
+<callback>guide</callback>
+<icon>ApplicationIcon.GUIDE</icon>
+</listitem>
+
+<listitem>
+<label>Notebook</label>
+<callback>notebook</callback>
+<unsupported-platform>unix</unsupported-platform>
+<icon>ApplicationIcon.GENERIC_GUI</icon>
+</listitem>
+
+<listitem>
+<label>Plot Tools</label>
+<callback>figure; plottools</callback>
+<icon>ApplicationIcon.GENERIC_GUI</icon>
+</listitem>
+
+<listitem>
+<label>Time Series Tools</label>
+<callback>tstool</callback>
+<icon>ApplicationIcon.GENERIC_GUI</icon>
+</listitem>
+
+<listitem>
+<label>Help</label>
+<callback>doc matlab/</callback>
+<icon>$toolbox/matlab/icons/book_mat.gif</icon>
+</listitem>
+
+<listitem>
+<label>Demos</label>
+<callback>demo matlab</callback>
+<icon>ApplicationIcon.DEMOS</icon>
+</listitem>
+
+<listitem>
+<label>MATLAB Central (Web)</label>
+<callback>web http://www.mathworks.com/matlabcentral_redirect -browser;</callback>
+<icon>CommonIcon.WEB</icon>
+</listitem>
+
+<listitem>
+<label>Product Page (Web)</label>
+<callback>web http://www.mathworks.com/products/matlab/ -browser;</callback>
+<icon>CommonIcon.WEB</icon>
+</listitem>
+
+</list>
+
+</productinfo>

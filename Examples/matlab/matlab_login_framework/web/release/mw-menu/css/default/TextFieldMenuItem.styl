@@ -1,0 +1,10 @@
+@import "variables";
+
+.mwDefaultVisualFamily.mwWidget.mwTextFieldMenuItem.mwSharedMenuItem:focus {
+  background: none; /* No Highlight color  on entire TextField MenuItem*/
+}
+
+.mwDefaultVisualFamily.mwWidget.mwTextFieldMenuItemFocused.mwSharedMenuItem .mwTextField,
+.mwDefaultVisualFamily.mwWidget.mwTextFieldMenuItemFocused.mwSharedMenuItem .mwTextField .mwInputNode{
+  background: $color-lightgray3; /* Highlight color only on TextField */
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright 2017 The MathWorks, Inc. -->
+<BaseLayer>darkwater</BaseLayer>
+<BaseLayer>grayland</BaseLayer>
+<BaseLayer>bluegreen</BaseLayer>
+<BaseLayer>grayterrain</BaseLayer>
+<BaseLayer>colorterrain</BaseLayer>
+<BaseLayer>landcover</BaseLayer>

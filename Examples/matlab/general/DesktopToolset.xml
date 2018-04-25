@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2014-2017 The MathWorks, Inc. -->
+<toolset id="matlab_preferences_toolset">
+    <preference_panel id="matlab" message_catalog="matlab_preferences/l10n/nls/matlabPreferencePanel" source="matlab_preferences/preferencesUI/preferencePanels/MATLABPreferencePanel" code_type="JavaScript">
+        <preference_panel id="Command Window" source="matlab_preferences/preferencesUI/preferencePanels/CommandWindowPreferencePanel" code_type="JavaScript" help="matlab,matlab_env,matlab_env_commandwindow_prefs" message_catalog="matlab_preferences/l10n/nls/commandWindowPreferencePanel">
+        </preference_panel>
+        <preference_panel id="General" source="matlab_preferences/preferencesUI/preferencePanels/GeneralPreferencePanel" code_type="JavaScript" help="matlab,matlab_env,matlab_env_general_prefs" message_catalog="matlab_preferences/l10n/nls/generalPreferencePanel">
+            <preference_panel id="Confirmation Dialogs" source="matlab_preferences/preferencesUI/preferencePanels/ConfirmationDialogsPreferencePanel" code_type="JavaScript" help="matlab,matlab_env,matlab_env_confdialog_prefs" message_catalog="matlab_preferences/l10n/nls/confirmationDialogPreferencePanel">
+            </preference_panel>
+        </preference_panel>
+        <preference_panel id="Variables" source="matlab_preferences/preferencesUI/preferencePanels/VariablesPreferencePanel" code_type="JavaScript" help="matlab,matlab_env,matlab_env_general_prefs" message_catalog="matlab_preferences/l10n/nls/variablesPreferencePanel">
+        </preference_panel>
+    </preference_panel>
+</toolset>

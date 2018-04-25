@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- Copyright 2015-2017 The MathWorks, Inc. -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Add-Ons</title>
+
+    <script type="text/javascript">
+        var routingkey, computeToken;
+
+        updateSessionCookie();
+        var headID = document.getElementsByTagName("head")[0];
+
+        var dojoConfigScript = document.createElement("script");
+        dojoConfigScript.src = "release/addons-ui/dojoConfig-release-global.js";
+        dojoConfigScript.onload = onDojoConfigLoad;
+        dojoConfigScript.type = "text/javascript";
+
+        var dojoScript =   document.createElement("script");
+        dojoScript.src = "release/dojo/dojo.js";
+        dojoScript.onload = onDojoLoad;
+        dojoScript.type = "text/javascript";
+
+        headID.appendChild(dojoConfigScript);
+
+        /**
+         * Updates session cookie to add routingkey and computeToken which enables loading static css and js resources.
+         * They need to be added to the session before loading the css and jss files
+         */
+        function updateSessionCookie() {
+            var params = {};
+            if (location.search) {
+                var parts = location.search.substring(1).split('&');
+
+                for (var i = 0; i < parts.length; i++) {
+                    var nv = parts[i].split('=');
+                    if (!nv[0]) continue;
+                    params[nv[0]] = nv[1] || true;
+                }
+            }
+            routingkey = params.routingkey;
+            computeToken =  params.computeToken;
+
+            document.cookie = "routingkey=" + routingkey + ";domain=" + window.location.host;
+            document.cookie = "computeToken=" + computeToken + ";domain=" + window.location.host;
+        };
+
+        function onDojoConfigLoad () {
+            headID.appendChild(dojoScript);
+        };
+
+        function onDojoLoad () {
+            require(["addons-ui/browsercheck"], function () {
+                require(["mw-browser-utils/BrowserCheck!"], function () {
+                    // If the browser compatability check passes, require in the web widget lib
+                    require(["addons-ui/addons-ui"], function () {
+                        require([
+                            "mw-remote/Remote",
+                            "dojo/domReady!"
+                        ], function (Remote) {
+                            if (routingkey && computeToken) {
+                                Remote.setServiceEndPoint("ROUTER_LEAF_SECURE_ENDPOINT", window.location.origin, routingkey);
+                                Remote.setServiceEndPoint("ROUTER_LEAF_INSECURE_ENDPOINT", window.location.origin, routingkey);
+                                Remote.setComputeToken({"computeResourceAddress": routingkey, "computeSessionId": computeToken, "serviceUrl": "unset"});
+                                Remote.setWorkerEndpoint(window.location.origin, routingkey);
+                                Remote.allowAllMessages();
+                            }
+
+                            require([
+                                "addons-ui/app/js/AddonsBrowser/GetAddonsPageLoad",
+                            ], function (GetAddonsPageLoad) {
+                                new GetAddonsPageLoad().startup();
+                            });
+                        });
+                    });
+                });
+            });
+        };
+
+    </script>
+</head>
+</html>

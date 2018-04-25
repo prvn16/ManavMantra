@@ -1,0 +1,39 @@
+function tagnames = get_mattrc_tagnames(version)
+%GET_MATTRC_TAGNAMES Create table of tagnames
+%   TAGNAMES = GET_MATTRC_TAGNAMES(VERSION) returns an (n x 2) matrix
+%   of strings constituting a translation table for ICC profile tags
+%   of the "Matrix TRC" type.  ("TRC" means "Tone Reproduction Curve".)
+%   The first column contains all the valid 4-character signatures
+%   for the MatTRC tags, while the second column contains the
+%   corresponding field names for MIPS (the in-Matlab ICC Profile
+%   Structure).  VERSION is the major-version number of the relevant
+%   ICC profile spec
+%
+%   See ICCREAD, ICCWRITE, GET_PUBLIC_TAGNAMES.
+
+%   Copyright 1993-2004 The MathWorks, Inc.
+%      Poe
+%   Original authors: Scott Gregory, Toshia McCabe, Robert Poe 12/03/03
+
+if nargin < 1
+    version = 2;
+end
+
+% Build up a list of MatTRC tag names:
+if version <= 2
+    tagnames = { ...
+            'bTRC', 'BlueTRC'; ...
+            'bXYZ', 'BlueColorant'; ...
+            'gTRC', 'GreenTRC'; ...
+            'gXYZ', 'GreenColorant'; ...
+            'rTRC', 'RedTRC'; ...
+            'rXYZ', 'RedColorant'};
+else
+    tagnames = { ...
+            'bTRC', 'BlueTRC'; ...
+            'bXYZ', 'BlueMatrixColumn'; ...
+            'gTRC', 'GreenTRC'; ...
+            'gXYZ', 'GreenMatrixColumn'; ...
+            'rTRC', 'RedTRC'; ...
+            'rXYZ', 'RedMatrixColumn'};
+end

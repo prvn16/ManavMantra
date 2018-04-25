@@ -1,0 +1,2 @@
+all:	
+	nvcc -o alexnet_exe main_webcam.cu alexnet_predict.a -lcublas -L$(NVIDIA_CUDA_TX1)/lib64 -lcudnn -lopencv_core -lopencv_highgui -lopencv_video -lopencv_videoio -lopencv_imgproc --linker-options -rpath,$(NVIDIA_CUDA_TX1)/lib64

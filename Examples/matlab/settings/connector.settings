@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="connector" visible="false">
+        <key name="InterfacesBlacklist">
+			<string minArraySize="0">
+            <value><![CDATA[awdl]]></value>
+			</string>
+		</key>
+		<key name="StaticPaths" visible="true">
+			<string minArraySize="0" maxArraySize="0">
+			</string>
+		</key>
+    </settings>
+</settings>

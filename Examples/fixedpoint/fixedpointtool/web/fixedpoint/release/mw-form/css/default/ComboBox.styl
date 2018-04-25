@@ -1,0 +1,172 @@
+@import "variables";
+
+/*Editable ComboBox Styles*/
+
+.mwDefaultVisualFamily.mwComboBox {
+  background-color: $color-lightgray1;
+  border: 1px solid $color-mediumgray3;
+  color: $color-text-user;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwComboBoxHover {
+  border-color:  $color-mediumgray4;
+}
+
+
+.mwDefaultVisualFamily.mwComboBox.mwComboBoxFocused {
+  border-color: $color-selection;
+}
+
+.mwDefaultVisualFamily.mwComboBox:not(.mwComboBoxHover) .mwArrowContainerNode {
+  background: $color-lightgray2;
+}
+
+
+.mwDefaultVisualFamily.mwComboBox .mwArrowContainerNode:hover {
+  background: $color-lightgray1;
+}
+
+.mwDefaultVisualFamily.mwComboBox .mwArrowContainerNode:active {
+  background: $color-lightgray4;
+}
+
+.mwDefaultVisualFamily.mwComboBox .mwDefaultVisualFamily.mwTextField {
+  background-color: none;
+  border-radius: 0;
+  border: none;
+  color: $color-darkgray2;
+}
+
+.mwDefaultVisualFamily.mwComboBox .mwDefaultVisualFamily.mwTextField.mwWidgetDisabled {
+  background: $color-lightgray2;
+  opacity: 1;
+}
+
+.mwDefaultVisualFamily.mwComboBox {
+  border-radius: 0 5px 5px 0;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwHasMenuOpened {
+  border-radius: 0 5px 0 0;
+}
+
+.mwDefaultVisualFamily.mwComboBox .mwArrowContainerNode:active {
+  box-shadow: $color-dropdownbutton-boxshadow-active;
+}
+
+/*Non Editable ComboBox Styles */
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable {
+  background: $color-lightgray2;
+  border: 1px solid $color-mediumgray3;
+  border-radius: 5px;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable:not(.mwComboBoxDisabled) {
+  box-shadow: rgba(255, 255, 255, 0.9) 0 1px 0 0 inset;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable:not(.mwComboBoxHover),
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable:not(.mwComboBoxHover) .mwArrowContainerNode {
+  background: $color-lightgray2;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwArrowContainerNode{
+  border-left: 1px solid $color-mediumgray3 ;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwComboBoxHover,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwArrowContainerNode:hover {
+  background: $color-lightgray1;
+  box-shadow: rgba(255,255,255,0.9) 0 1px 0 0 inset;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwComboBoxActive,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwComboBoxFocused,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwComboBoxFocused .mwArrowContainerNode
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwArrowContainerNode:active {
+  border-color: $color-selection;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwHasMenuOpened.mwComboBoxActive,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwHasMenuOpened.mwComboBoxFocused,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwHasMenuOpened.mwComboBoxFocused .mwArrowContainerNode
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable.mwHasMenuOpened .mwArrowContainerNode:active {
+
+  background: $color-lightgray5;
+  border-color: $color-selection;
+  box-shadow: $color-dropdownbutton-boxshadow-active;
+}
+
+/* Common styles to Editable and Non Editable */
+
+.mwDefaultVisualFamily.mwComboBox .mwDefaultVisualFamily.mwTextField.mwWidgetDisabled,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwDefaultVisualFamily.mwTextField input {
+  background: none;
+}
+
+/* Menu and Menu related styles (common to both Editable and Non-Editable) */
+
+.mwComboBoxPopupParent.mwWidgetPopup{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+
+.mwWidget.mwDefaultVisualFamily.mwComboBoxPopup{
+  background-color: $color-lightgray1;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwComboBoxPopup .mwSharedMenuItem {
+  background: $color-lightgray1;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwComboBoxPopup .mwSharedMenuItem:focus {
+  background: $color-selection-row-hover;
+}
+
+.mwDefaultVisualFamily.mwWidget.mwComboBoxPopup .mwSharedMenuItem.mwComboBoxSelectedMenuItem {
+  background: $color-selection-row;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwComboBox .mwArrowContainerNode {
+  border-left: 1px solid $color-mediumgray4;
+
+}
+
+.mwWidget.mwDefaultVisualFamily.mwComboBox.mwHasMenuOpened.mwNonEditable {
+  border-radius: 5px 5px 0 0;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwArrowContainerNode {
+  border-left: none;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable:not(.mwComboBoxDisabled) .mwArrowContainerNode {
+
+  box-shadow: rgba(255,255,255,0.9) 0 1px 0 0 inset;
+}
+
+.mwDefaultVisualFamily.mwComboBox .mwDefaultVisualFamily.mwTextField, .mwDefaultVisualFamily.mwComboBox .mwDefaultVisualFamily.mwTextField .mwInputNode {
+  box-shadow: none;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwDefaultVisualFamily.mwTextField {
+  cursor: default;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwDefaultVisualFamily.mwTextField .mwInputNode {
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwDisabledOverlayNode,
+.mwDefaultVisualFamily.mwComboBox.mwNonEditable .mwDefaultVisualFamily.mwTextField .mwDisabledOverlayNode {
+  display: none;
+}

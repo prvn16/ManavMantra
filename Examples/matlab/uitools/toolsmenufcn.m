@@ -1,0 +1,465 @@
+function toolsmenufcn(hfig, cmd)
+% This function is undocumented and will change in a future release
+
+%TOOLSMENUFCN Implements part of the figure tools menu.
+%  TOOLSMENUFCN(CMD) invokes tools menu command CMD on figure GCBF.
+%  TOOLSMENUFCN(H, CMD) invokes tools menu command CMD on figure H.
+%
+%  CMD can be one of the following:
+%
+%    PlotEdit
+%    ZoomIn
+%    ZoomOut
+%    Rotate
+%    ToggleCamera
+%    CameraModeOrbit
+%    CameraModeOrbitSceneLight
+%    CameraModePan
+%    CameraModeDollyHV
+%    CameraModeDollyFB
+%    CameraModeZoom
+%    CameraModeRoll
+%    CameraModeWalk
+%    CameraCoordX
+%    CameraCoordY
+%    CameraCoordZ
+%    CameraCoordNone
+%    CameraResetCameraAndSceneLight
+%    CameraResetTarget
+%    CameraResetSceneLight
+%    AlignLeft
+%    AlignCenter
+%    AlignRight
+%    AlignTop
+%    AlignMiddle
+%    AlignBottom
+%    DistributeVAdj
+%    DistributeVTop
+%    DistributeVMid
+%    DistributeVBot
+%    DistributeHAdj
+%    DistributeHLeft
+%    DistributeHCent
+%    DistributeHRight
+%    AlignDistributeSmart
+%    AlignDistributeTool
+%    BasicFitting
+%    DataStatistics
+%    Brush
+
+%  CMD Values For Internal Use Only:
+%    ToolsPost
+%    InitCameraMotionMode
+%    InitCameraPrincipalAxis
+%    InitAlignDistribute
+
+%  Copyright 1984-2014 The MathWorks, Inc.
+
+if nargin > 1
+    cmd = convertStringsToChars(cmd);
+end
+
+narginchk(1,2)
+
+if ischar(hfig)
+    cmd = hfig;
+    hfig = gcbf;
+end
+
+% DELETE THESE OLD MENU ENTRIES FROM FIGTOOLS.M ONCE TESTED
+%  '&Tools',              'figMenuTools',           'domymenu menubar inittoolsmenu',
+%   '>&Edit Plot',         'figMenuToolsPlotedit',   'plotedit(gcbf)',
+%   '>&Zoom In',           'figMenuZoomIn',          'domymenu menubar zoomin',
+%   '>Zoom &Out',          'figMenuZoomOut',         'domymenu menubar zoomout',
+%   '>&Rotate 3D',         'figMenuRotate3D',        'domymenu menubar rotate3d',
+%   '>Move &Camera',       'figMenuMoveCamera',      'domymenu menubar togglecamera',
+%   '>Camera &Motion',     'figMenuCameraMotionMode','domymenu menubar initcameramotionmode',
+%   '>>&Orbit Camera',     'figMenuMode_orbit',      'cameratoolbar setmodegui orbit',
+%   '>>Orbit Scene &Light','figMenuMode_orbitscenelight', 'cameratoolbar setmodegui orbitscenelight',
+%   '>>&Pan - Turn/Tilt',  'figMenuMode_pan',        'cameratoolbar setmodegui pan',
+%   '>>Move - &Horizontally/Vertically', 'figMenuMode_dollyhv',   'cameratoolbar setmodegui dollyhv',
+%   '>>Move - &Forward/Back', 'figMenuMode_dollyfb',   'cameratoolbar setmodegui dollyfb',
+%   '>>&Zoom',              'figMenuMode_zoom',      'cameratoolbar setmodegui zoom',
+%   '>>&Roll',              'figMenuMode_roll',      'cameratoolbar setmodegui roll',
+%   '>>&Walk',              'figMenuMode_walk',      'cameratoolbar setmodegui walk',
+%   '>Camera A&xis',        'figMenuCameraPAx',      'domymenu menubar initcameraprincipalaxis',
+%   '>>&X Principal Axis',  'figMenuAxis_x',         'cameratoolbar setcoordsys x',
+%   '>>&Y Principal Axis',  'figMenuAxis_y',         'cameratoolbar setcoordsys y',
+%   '>>&Z Principal Axis',  'figMenuAxis_z',         'cameratoolbar setcoordsys z',
+%   '>>&No Principal Axis', 'figMenuAxis_none',      'cameratoolbar setcoordsys none',
+%   '>>Reset &Camera && Scene Light',  '',      'cameratoolbar(''resetcameraandscenelight'');',
+%   '>>Reset &Target Point','',                      'cameratoolbar(''resettarget'')',
+%   '>>Reset &Scene Light', '',                      'cameratoolbar(''resetscenelight'');',
+%   '>Ali&gn/Distribute',   'figMenuToolsAlign',     '',
+%   '>>Align Left Edges',   '',                      'scribealign(gcbf,''Left'')',
+%   '>>Align Centers (X)',  '',                      'scribealign(gcbf,''Center'')',
+%   '>>Align Right Edges',  '',                      'scribealign(gcbf,''Right'')',
+%   '>>Align Top Edges',    '',                      'scribealign(gcbf,''Top'')',
+%   '>>Align Middles (Y)',  '',                      'scribealign(gcbf,''Middle'')',
+%   '>>Align Bottom Edges', '',                      'scribealign(gcbf,''Bottom'')',
+%   '>>Distribute Vertical Adjacent Edges', '',      'scribealign(gcbf,''VDistAdj'')',
+%   '>>Distribute Vertical Top Edges', '',           'scribealign(gcbf,''VDistTop'')',
+%   '>>Distribute Vertical Middles',  '',            'scribealign(gcbf,''VDistMid'')',
+%   '>>Distribute Vertical Bottom Edges',  '',       'scribealign(gcbf,''VDistBot'')',
+%   '>>Distribute Horizontal Adjacent Edges',  '',   'scribealign(gcbf,''HDistAdj'')',
+%   '>>Distribute Horizontal Left Edges',    '',     'scribealign(gcbf,''HDistLeft'')',
+%   '>>Distribute Horizontal Centers',   '',         'scribealign(gcbf,''HDistCent'')',
+%   '>>Distribute Horizontal Right Edges',   '',     'scribealign(gcbf,''HDistRight'')',
+%   '>>Smart Align and Distribute',   '',            'scribealign(gcbf,''Smart'')',
+%   '>Basic &Fitting',      'figMenuToolsBFDS',      'basicfitdatastat(''bfit'', gcbf, ''bf'');',
+%   '>&Data Statistics',    'figMenuToolsBFDS',      'basicfitdatastat(''bfit'', gcbf, ''ds'');',
+
+switch cmd
+case 'ToolsPost'
+    LUpdateToolsMenu(hfig);
+case 'PlotEdit'
+    plotedit(hfig)
+case 'ZoomIn'
+    if strcmp(zoom(hfig,'getmode'),'in') % strcmp(get(gcbo,'checked'),'on')
+        zoom(hfig,'off');
+    else
+        zoom(hfig,'inmode');
+    end
+case 'ZoomOut'    
+    if strcmp(zoom(hfig,'getmode'),'out') % strcmp(get(gcbo,'checked'),'on')
+        zoom(hfig,'off');
+    else
+        zoom(hfig,'outmode');        
+    end
+case 'Pan'
+    pan(hfig); % toggle
+case 'Rotate'
+    rotate3d(hfig); % toggle
+case 'Datatip'
+    datacursormode(hfig); % toggle
+case 'Options'
+    localUpdateOptions(hfig);
+case 'ZoomX'
+    localUpdateOptions(hfig,'ZoomX');
+case 'ZoomY'
+    localUpdateOptions(hfig,'ZoomY');
+case 'ZoomXY'
+    localUpdateOptions(hfig,'ZoomXY');
+case 'PanX'
+    localUpdateOptions(hfig,'PanX');
+case 'PanY'
+    localUpdateOptions(hfig,'PanY');
+case 'PanXY'
+    localUpdateOptions(hfig,'PanXY');
+case 'RotateCont'
+    localUpdateOptions(hfig,'RotateCont');
+case 'RotateBox'
+    localUpdateOptions(hfig,'RotateBox');
+case 'DatatipStyle'
+    localUpdateOptions(hfig,'DatatipStyle');
+case 'DataBarStyle'
+    localUpdateOptions(hfig,'DataBarStyle');
+case 'ResetView'
+    localResetView(hfig);    
+case 'EditPinning'
+    startscribepinning(hfig,'on')
+case 'Brush'
+    brush(hfig); % toggle
+case 'Linked'
+   datamanager.linkbtnoncallback; % toggle
+% case 'ToggleCamera'
+%     domymenu menubar togglecamera
+% case 'InitCameraMotionMode'
+%     modeParent=findall(hfig,'type','uimenu','tag','figMenuCameraMotionMode');
+%     modeItems=allchild(modeParent);
+%     set(modeItems,'checked','off');
+%     currMode=cameratoolbar('getmode');
+%     activeItem=findall(modeItems,'tag',['figMenuMode_' currMode]);
+%     set(activeItem,'Checked','on');
+% case 'CameraModeOrbit'
+%     cameratoolbar setmodegui orbit
+% case 'CameraModeOrbitSceneLight'
+%     cameratoolbar setmodegui orbitscenelight
+% case 'CameraModePan'
+%     cameratoolbar setmodegui pan
+% case 'CameraModeDollyHV'
+%     cameratoolbar setmodegui dollyhv
+% case 'CameraModeDollyFB'
+%     cameratoolbar setmodegui dollyfb
+% case 'CameraModeZoom'
+%     cameratoolbar setmodegui zoom
+% case 'CameraModeRoll'
+%     cameratoolbar setmodegui roll
+% case 'CameraModeWalk'
+%     cameratoolbar setmodegui walk
+% case 'InitCameraPrincipalAxis'
+%     paxParent=findall(hfig,'type','uimenu','tag','figMenuCameraPAx');
+%     paxItems=allchild(paxParent);
+%     offon={'off','on'};
+%     isActive=ismember(cameratoolbar('getmode'), {'orbit' 'pan' 'walk'});
+%     set(paxItems,'checked','off','enable',offon{isActive+1});
+%     if isActive
+% 		currPAx=cameratoolbar('getcoordsys');
+%         activeItem=findall(paxItems,'tag',['figMenuAxis_' currPAx]);
+%         set(activeItem,'Checked','on');
+%     end
+% case 'CameraCoordX'
+%     cameratoolbar setcoordsys x
+% case 'CameraCoordY'
+%     cameratoolbar setcoordsys y
+% case 'CameraCoordZ'
+%     cameratoolbar setcoordsys z
+% case 'CameraCoordNone'
+%     cameratoolbar setcoordsys none
+% case 'CameraResetCameraAndSceneLight'
+%     cameratoolbar resetcameraandscenelight
+% case 'CameraResetTarget'
+%     cameratoolbar resettarget
+% case 'CameraResetSceneLight'
+%     cameratoolbar resetscenelight
+case 'InitAlignDistribute' 
+    % scribealign(hfig,'Init');
+case 'AlignLeft'
+    scribealign(hfig,'Left');
+case 'AlignCenter'
+    scribealign(hfig,'Center');
+case 'AlignRight'
+    scribealign(hfig,'Right');
+case 'AlignTop'
+    scribealign(hfig,'Top');
+case 'AlignMiddle'
+    scribealign(hfig,'Middle');
+case 'AlignBottom'
+    scribealign(hfig,'Bottom');
+case 'DistributeVAdj'
+    scribealign(hfig,'VDistAdj');
+case 'DistributeVTop'
+    scribealign(hfig,'VDistTop');
+case 'DistributeVMid'
+    scribealign(hfig,'VDistMid');
+case 'DistributeVBot'
+    scribealign(hfig,'VDistBot');
+case 'DistributeHAdj'
+    scribealign(hfig,'HDistAdj');
+case 'DistributeHLeft'
+    scribealign(hfig,'HDistLeft');
+case 'DistributeHCent'
+    scribealign(hfig,'HDistCent');
+case 'DistributeHRight'
+    scribealign(hfig,'HDistRight');
+case 'AlignDistributeSmart'
+    scribealign(hfig,'Smart');
+case 'AlignDistributeTool'
+    scribealign(hfig);
+case 'BasicFitting'
+    basicfitdatastat('bfit', hfig, 'bf');
+case 'DataStatistics'
+    basicfitdatastat('bfit', hfig, 'ds');
+case 'ToggleSnapToGrid'
+    snaptogrid(gcbf,'togglesnap');
+case 'ToggleViewGrid'
+    snaptogrid(gcbf,'toggleview');
+end
+
+%-----------------------------------------------------------------------%
+function LUpdateToolsMenu(fig)
+
+toolsMenuItems = allchild(findobj(allchild(fig),'flat','Type','uimenu','Tag','figMenuTools'));
+
+offon = {'off' 'on'};
+
+%Mutually exclusive groups - set checked -------------------
+ploteditActive = plotedit(fig,'isactive');
+set(findall(toolsMenuItems,'Tag','figMenuToolsPlotedit'),'Checked',offon{ploteditActive+1});
+
+isCameraActive = ~isempty(cameratoolbar('getmode'));
+set(findall(toolsMenuItems,'Tag','figMenuMoveCamera'), 'Checked',offon{isCameraActive+1} );
+
+% determine whether or not to enable Basic Fitting and Data Statistics
+% enable them as long as there is a least one line without any zdata
+% and the HandleVisibility for the Figure is 'on' (not 'off' or 'callback').
+
+handlevis = isequal(get(fig,'HandleVisibility'),'on');
+
+is2d = 0;
+
+% The separate residual plot should never have BasicFitting and DataStats enabled
+if isempty(findprop(handle(fig),'Basic_Fit_Resid_Figure'))
+    axesList = datachildren(fig);
+    if ~isempty(axesList) && ~isempty(plotchild(axesList, 2, true))
+        is2d = 1;
+    end
+end
+
+set(findall(toolsMenuItems,'-regexp','Tag','figMenuTools(BF|DS)'), 'Enable', offon{( is2d & handlevis ) +1} );
+
+if ~usejava('MWT')   % hide java dependent items if java is not supported 
+	set(findall(toolsMenuItems,'-regexp','Tag','figMenuTools(BF|DS)'), 'Visible', 'off' );
+end
+
+% Make sure the layout grid toggle is in sync with the visibility of the
+% layout grid:
+t = findall(fig,'tag','figMenuViewGrid');
+scribeunder = graph2dhelper('getDefaultCamera',fig,'underlay','-peek');
+if isempty(scribeunder)
+    set(t,'Checked','off');
+else    
+    if ~isempty(scribeunder)
+        underkids = graph2dhelper('getScribeGrid',scribeunder,'-peek');
+    else
+        underkids = [];
+    end
+    if isempty(underkids)
+        set(t,'Checked','off');
+    else
+        set(t,'Checked',get(underkids(1),'Visible'));
+    end
+end
+
+% Check to see if the ScribePloteditEnable is set to "off". If so, disable
+% the zoom, pan, rotate, Basic Fitting and Data Statistics menus.
+% (If ScribePloteditEnable is "on", Basic Fitting and Data Statistics menu
+% enabling is determined by the is2d flag above.)
+scribeEnable = getappdata(fig,'ScribePloteditEnable');
+if ~isempty(scribeEnable) && strcmp(scribeEnable,'off')
+    set(findall(toolsMenuItems,'Tag','figMenuToolsPlotedit'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuOptions'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuResetView'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuDatatip'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuRotate3D'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuPan'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuZoomOut'),'Enable','off');
+    set(findall(toolsMenuItems,'Tag','figMenuZoomIn'),'Enable','off');
+    set(findall(toolsMenuItems,'-regexp','Tag','figMenuTools(BF|DS)'), 'Enable', 'off');
+    set(findall(toolsMenuItems,'Tag','figBrush'), 'Enable', 'off');
+else
+    set(findall(toolsMenuItems,'Tag','figMenuToolsPlotedit'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuOptions'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuResetView'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuDatatip'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuRotate3D'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuPan'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuZoomOut'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figMenuZoomIn'),'Enable','on');
+    set(findall(toolsMenuItems,'Tag','figBrush'), 'Enable', 'on');
+end
+
+
+%----------------------------------------------%
+function localUpdateOptions(hfig,option)
+
+if nargin==1
+   pan_style = pan(hfig,'getstyle');
+   localUpdatePanMenu(hfig,pan_style);
+
+   zoom_style = zoom(hfig,'Constraint');
+   localUpdateZoomMenu(hfig,zoom_style);
+
+   hTool = datacursormode(hfig);
+   datacursor_style = get(hTool,'DisplayStyle');
+   localUpdateDataCursorMenu(hfig,datacursor_style);
+   
+else
+   switch(option)
+         case 'ZoomX'
+             localUpdateZoomMenu(hfig,'Horizontal');
+         case 'ZoomY'
+             localUpdateZoomMenu(hfig,'Vertical');
+         case 'ZoomXY'
+             localUpdateZoomMenu(hfig,'None');
+         case 'PanX'
+             localUpdatePanMenu(hfig,'x');
+         case 'PanY'
+             localUpdatePanMenu(hfig,'y');
+         case 'PanXY'
+             localUpdatePanMenu(hfig,'xy');
+         case 'DatatipStyle'
+             localUpdateDataCursorMenu(hfig,'datatip');
+         case 'DataBarStyle'
+             localUpdateDataCursorMenu(hfig,'window');
+   end % switch  
+end 
+
+%----------------------------------------------%
+function localUpdateDataCursorMenu(hfig,option)
+
+datatip_menu = findall(hfig,'Tag','figMenuOptionsDatatip');
+databar_menu = findall(hfig,'Tag','figMenuOptionsDataBar');
+
+% Update tool
+hTool = datacursormode(hfig);
+set(hTool,'DisplayStyle',option);
+
+% Update menu
+switch(option)
+    case 'datatip'
+        set(datatip_menu,'Checked','On');
+        set(databar_menu,'Checked','Off');
+    case 'window'
+        %If there are any datacursors in the figure, turn on the mode.
+        if isa(hTool, 'graphics.datacursormanager')
+            enable = ~isempty(get(hTool,'DataCursors'));
+        else
+            enable = ~isempty(hTool.CurrentCursor);
+        end
+        if enable
+            set(hTool,'Enable','on');
+        end
+        set(datatip_menu,'Checked','Off');
+        set(databar_menu,'Checked','On');
+end
+
+%----------------------------------------------%
+function localUpdatePanMenu(hfig,option)
+
+xpan_menu = findall(hfig,'Tag','figMenuOptionsXPan');
+ypan_menu = findall(hfig,'Tag','figMenuOptionsYPan');
+xypan_menu = findall(hfig,'Tag','figMenuOptionsXYPan');
+
+% Update pan
+pan(hfig,option);
+
+% Update menu
+switch(option)
+   case 'x'
+      set(xpan_menu,'Checked','on');
+      set(ypan_menu,'Checked','off');
+      set(xypan_menu,'Checked','off');
+   case 'y'
+      set(xpan_menu,'Checked','off');
+      set(ypan_menu,'Checked','on');
+      set(xypan_menu,'Checked','off');
+   case 'xy'
+      set(xpan_menu,'Checked','off');
+      set(ypan_menu,'Checked','off');
+      set(xypan_menu,'Checked','on');
+end
+
+%----------------------------------------------%
+function localUpdateZoomMenu(hfig,constraint)
+
+% Get menu handles
+xzoom_menu = findall(hfig,'Tag','figMenuOptionsXZoom');
+yzoom_menu = findall(hfig,'Tag','figMenuOptionsYZoom');
+xyzoom_menu = findall(hfig,'Tag','figMenuOptionsXYZoom');
+
+% Update zoom
+zoom(hfig,'Constraint',constraint);
+
+% Update menus
+switch(lower(constraint))
+   case 'horizontal'
+      set(xzoom_menu,'Checked','on');
+      set(yzoom_menu,'Checked','off');
+      set(xyzoom_menu,'Checked','off');
+   case 'vertical'
+      set(xzoom_menu,'Checked','off');
+      set(yzoom_menu,'Checked','on');
+      set(xyzoom_menu,'Checked','off');
+   case 'none'
+      set(xzoom_menu,'Checked','off');
+      set(yzoom_menu,'Checked','off');
+      set(xyzoom_menu,'Checked','on');
+end
+
+%----------------------------------------------%
+function localResetView(hfig)
+
+hax = get(hfig,'CurrentAxes');
+hax = matlab.graphics.interaction.vectorizePlotyyAxes(hax);
+resetplotview(hax,'ApplyStoredView');

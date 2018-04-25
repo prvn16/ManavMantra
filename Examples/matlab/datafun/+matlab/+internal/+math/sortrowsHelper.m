@@ -1,0 +1,8 @@
+%sortrowsHelper
+%
+%   FOR INTERNAL USE ONLY -- This feature is intentionally undocumented.
+%   Its behavior may change, or it may be removed in a future release.
+%
+
+%   Copyright 2016 The MathWorks, Inc.
+%   Built-in function.

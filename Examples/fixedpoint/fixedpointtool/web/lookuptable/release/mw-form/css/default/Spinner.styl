@@ -1,0 +1,183 @@
+@import "variables";
+
+.mwDefaultVisualFamily.mwSpinner .mwTextField {
+  margin-right: -1px;
+  border: 1px solid $color-mediumgray2;
+  border-right: 1px solid transparent;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwContainerNode {
+  margin-right: -2px;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwButtonsContainer {
+  border-right: 1px solid $color-mediumgray2;
+  border-radius: 5px;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwIncrementButtonWrapper,
+.mwDefaultVisualFamily.mwSpinner .mwDecrementButtonWrapper {
+  width: 16px;
+  display: block;
+  text-align: center;
+  background: $color-lightgray2;
+  border-left: 1px solid transparent;
+
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwIncrementButtonWrapper {
+  border-radius: 0 5px 0 0;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwDecrementButtonWrapper {
+  border-radius: 0 0 5px 0;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwIncrementButtonWrapper {
+  border-top: 1px solid $color-mediumgray2;
+  border-bottom: 1px solid transparent;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwDecrementButtonWrapper {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid $color-mediumgray2;
+}
+
+.mwDefaultVisualFamily.mwSpinner .mwButtonsContainer .mwIncrementButtonDisabled,
+.mwDefaultVisualFamily.mwSpinner .mwButtonsContainer .mwDecrementButtonDisabled {
+  opacity: 0.35;
+}
+
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwButtonsContainer {
+  border-right: none;
+}
+
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwTextField {
+  margin-right: 0px;
+  border-right: none;
+}
+
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwTextField {
+  margin-right: -1px;
+  border: 1px solid $color-mediumgray3;
+}
+
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwIncrementButtonWrapper,
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwDecrementButtonWrapper {
+  background: $color-lightgray2;
+  border: 1px solid $color-mediumgray2;
+}
+
+
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwButtonsContainer .mwIncrementButtonWrapper,
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwButtonsContainer .mwDecrementButtonWrapper {
+  border: 1px solid $color-mediumgray4;
+}
+
+
+
+// ===== Focused Widget =====
+.mwDefaultVisualFamily.mwSpinnerFocused.mwSpinner:not(.mwSpinnerDisabled) .mwTextField {
+  margin-right: -1px;
+  border: 1px solid $color-selection;
+  border-right: 1px solid $color-mediumgray2;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerFocused:not(.mwSpinnerDisabled) .mwButtonsContainer {
+  border-right: 1px solid $color-selection;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerFocused:not(.mwSpinnerDisabled) .mwIncrementButtonWrapper {
+  background: $color-lightgray2;
+  border-top: 1px solid $color-selection;
+  border-right: 0px;
+  border-bottom: 1px solid $color-mediumgray2;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerFocused:not(.mwSpinnerDisabled) .mwDecrementButtonWrapper {
+  background: $color-lightgray2;
+  border-bottom: 1px solid $color-selection;
+  border-right: 0px;
+  border-top: 1px solid $color-mediumgray2;
+}
+
+
+
+.mwDefaultVisualFamily.mwSpinner:not(.mwSpinnerDisabled) .mwTextField:hover {
+  border: 1px solid $color-mediumgray4;
+}
+
+// ===== Focused Hover =====
+.mwDefaultVisualFamily.mwSpinnerFocused.mwSpinner:hover:not(.mwSpinnerDisabled) .mwTextField {
+  margin-right: -1px;
+  border: 1px solid $color-selection;
+  border-right: 1px solid $color-mediumgray4;
+}
+
+.mwDefaultVisualFamily.mwSpinnerFocused.mwSpinner:not(.mwSpinnerDisabled) .mwTextField:hover {
+  border-right: 1px solid $color-mediumgray2;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerFocused:not(.mwSpinnerDisabled) .mwButtonsContainer:hover .mwIncrementButtonWrapper {
+  border-top: 1px solid $color-selection;
+  border-right: 0px;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerFocused:not(.mwSpinnerDisabled) .mwButtonsContainer:hover .mwDecrementButtonWrapper {
+  border-bottom: 1px solid $color-selection;
+  border-right: 0px;
+}
+
+
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerHover:not(.mwSpinnerDisabled) .mwIncrementButtonWrapper:hover,
+.mwDefaultVisualFamily.mwSpinner.mwSpinnerHover:not(.mwSpinnerDisabled) .mwDecrementButtonWrapper:hover {
+  background: $color-lightgray1;
+}
+
+// ===== Error =====
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled),
+.mwDefaultVisualFamily.mwSpinner.mwValidationError.mwWidgetHoverFocused:not(.mwSpinnerDisabled) {
+  border: none;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled) .mwTextField {
+  border-left: 1px solid $color-error;
+  border-top: 1px solid $color-error;
+  border-bottom: 1px solid $color-error;
+}
+
+  
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled) .mwButtonsContainer {
+  border-right: 1px solid $color-error;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled) .mwIncrementButtonWrapper {
+  border-top: 1px solid $color-error;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled) .mwDecrementButtonWrapper {
+  border-bottom: 1px solid $color-error;
+}
+
+// ===== Error Hover =====
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:hover:not(.mwSpinnerDisabled) .mwTextField {
+  border-left: 1px solid $color-error;
+  border-top: 1px solid $color-error;
+  border-bottom: 1px solid $color-error;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled) .mwButtonsContainer:hover .mwIncrementButtonWrapper {
+  border-top: 1px solid $color-error;
+}
+
+.mwDefaultVisualFamily.mwSpinner.mwValidationError:not(.mwSpinnerDisabled) .mwButtonsContainer:hover .mwDecrementButtonWrapper {
+  border-bottom: 1px solid $color-error;
+}
+
+// ===== Active =====
+
+.mwDefaultVisualFamily.mwSpinnerActiveFocused:not(.mwSpinnerDisabled) .mwButtonsContainer .mwIncrementButtonWrapper:active,
+.mwDefaultVisualFamily.mwSpinnerActiveFocused:not(.mwSpinnerDisabled) .mwButtonsContainer .mwDecrementButtonWrapper:active {
+  background: $color-lightgray4;
+  box-shadow: $color-spinner-button-boxshadow-active;
+}

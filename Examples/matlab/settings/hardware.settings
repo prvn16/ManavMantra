@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="hardware" visible="false">
+        <settings name="raspi" visible="false">
+            <key name="IsOnline" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+        <settings name="webcam" visible="false">
+            <key name="IsOnline" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+    </settings>
+</settings>

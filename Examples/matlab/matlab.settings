@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="true" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+    <key name="UserPath" visible="false">
+        <string>
+            <runtimedefault type="C" packagename="libmwservices" functionname="getDefaultUserFolder"/>
+        </string>
+    </key>
+    <key name="DeleteFilesPermanently" visible="false">
+        <bool>
+            <value>1</value>
+        </bool>
+    </key>
+    <key name="G11nLanguagePref" visible="false">
+        <string>
+            <value></value>
+        </string>
+    </key>
+  <settings name="workingfolder" visible="false">
+    <key name="InitialWorkingFolder" visible="false">
+       <string>
+        <value></value>
+       </string>
+    </key>
+    <key name="LastFolderPath" visible="false">
+       <string>
+        <value></value>
+       </string>
+    </key>
+    <key name="CustomFolderPath" visible="false">
+       <string>
+        <value></value>
+       </string>
+    </key>
+  </settings>
+  <settings name="class" visible="false">
+    <key name="UseFullNameInDisplayHeader" visible="false">
+       <bool>
+        <value>0</value>
+       </bool>
+    </key>
+  </settings>
+  <settings name="string" visible="false">
+    <key name="DefaultTextType" visible="false">
+       <string>
+        <value>char</value>
+       </string>
+    </key>
+  </settings> 
+  <settings name="toolboxpathcache" visible="true">        
+    <key name="EnableToolboxPathCache" visible="true">
+        <bool>
+            <value>1</value>
+        </bool>
+    </key>        
+  </settings>  
+  <additionalpath>settings/addons.settings</additionalpath>
+  <additionalpath>settings/desktop.settings</additionalpath>
+  <additionalpath>settings/unittest.settings</additionalpath>
+  <additionalpath>settings/workspace.settings</additionalpath>
+  <additionalpath>settings/datetime.settings</additionalpath>
+  <additionalpath>settings/images.settings</additionalpath>
+  <additionalpath>settings/graphics.settings</additionalpath>
+  <additionalpath>settings/external.settings</additionalpath>
+  <additionalpath>settings/findfiles.settings</additionalpath>
+  <additionalpath>settings/guide.settings</additionalpath>
+  <additionalpath>settings/appdesigner.settings</additionalpath>
+  <additionalpath>settings/errorrecovery.settings</additionalpath>
+  <additionalpath>settings/commandwindow.settings</additionalpath>
+  <additionalpath>settings/commandhistory.settings</additionalpath>
+  <additionalpath>settings/confirmationdialogs.settings</additionalpath>
+  <additionalpath>settings/variables.settings</additionalpath>
+  <additionalpath>settings/importtool.settings</additionalpath>
+  <additionalpath>settings/videoreader.settings</additionalpath>
+  <additionalpath>settings/ddux.settings</additionalpath>
+  <additionalpath>settings/ssi.settings</additionalpath>
+  <additionalpath>settings/ui.settings</additionalpath>
+  <additionalpath>settings/migratePrefHelper.settings</additionalpath>
+  <additionalpath>settings/matfile.settings</additionalpath>
+  <additionalpath>settings/help.settings</additionalpath>
+  <additionalpath>settings/web.settings</additionalpath>
+  <additionalpath>settings/editor.settings</additionalpath>
+  <additionalpath>settings/connector.settings</additionalpath>
+  <additionalpath>settings/fonts.settings</additionalpath>
+  <additionalpath>settings/hardware.settings</additionalpath> 
+  <additionalpath>settings/keyboard.settings</additionalpath>
+  <additionalpath>settings/liveeditorinteractiveoutputs.settings</additionalpath>
+</settings>

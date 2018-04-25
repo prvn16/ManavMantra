@@ -1,0 +1,19 @@
+function autoscaleDerivedMinMaxView = getAutoscalingDerivedView(this)
+
+% Copyright 2014 The MathWorks, Inc.
+
+autoscaleDerivedMinMaxProps = [DAStudio.MEViewProperty('Run'),DAStudio.MEViewProperty('CompiledDT'),...
+    DAStudio.MEViewProperty('Accept'),DAStudio.MEViewProperty('ProposedDT'),....
+    DAStudio.MEViewProperty('SpecifiedDT'),DAStudio.MEViewProperty('CompiledDesignMin'),...
+    DAStudio.MEViewProperty('CompiledDesignMax'), DAStudio.MEViewProperty('DerivedMin'),...
+    DAStudio.MEViewProperty('DerivedMax'),DAStudio.MEViewProperty('ProposedMin'),...
+    DAStudio.MEViewProperty('ProposedMax')];
+autoscaleDerivedMinMaxView = DAStudio.MEView(fxptui.message('labelViewAutoscalingDerivedMinMax'),...
+                                             fxptui.message('descViewAutoscalingDerivedMinMax'));
+autoscaleDerivedMinMaxView.Properties = autoscaleDerivedMinMaxProps;
+autoscaleDerivedMinMaxView.SortName = 'Name';
+autoscaleDerivedMinMaxView.SortOrder = 'Asc';
+autoscaleDerivedMinMaxView.IsFactoryView = true;
+this.addInternalName(autoscaleDerivedMinMaxView);
+
+%-----------------------------------------------------------------------

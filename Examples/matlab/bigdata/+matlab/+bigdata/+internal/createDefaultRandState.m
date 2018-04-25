@@ -1,0 +1,13 @@
+function state = createDefaultRandState()
+%CREATEDEFAULTRANDSTATE  Create the default BigData RNG state
+%
+%   state = matlab.bigdata.internal.createDefaultRandState() returns the
+%   default random number generator state used for BigData calculations.
+
+%   Copyright 2017 The MathWorks, Inc.
+
+state = struct( ...
+    'Type', 'combRecursive', ...
+    'Seed', uint32(0), ...
+    'StreamIndex', uint64(1), ...
+    'Substream', 1 );

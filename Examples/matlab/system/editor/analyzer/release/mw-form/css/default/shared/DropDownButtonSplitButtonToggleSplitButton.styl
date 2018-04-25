@@ -1,0 +1,316 @@
+/* Styles shared among the DropDownButton, SplitButton, and ToggleSplitButton widgets for this visual family. */
+
+@import "../variables";
+
+/* ===== General (Mixin Agnostic) ===== */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton {
+  padding: 0px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwTextLine,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwTextLine,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwTextLine {
+  white-space: pre;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentMixin.mwArrowModeMixin .mwTextNode.mwInlineTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentMixin.mwArrowModeMixin .mwTextNode.mwInlineTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentMixin.mwArrowModeMixin .mwTextNode.mwInlineTextNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwTextNode.mwEmptyNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwTextNode.mwEmptyNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwTextNode.mwEmptyNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwLastTextLineNode.mwEmptyNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwLastTextLineNode.mwEmptyNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwLastTextLineNode.mwEmptyNode {
+  display: none;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwDropDownNode {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwButtonAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwDropDownAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwButtonAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwDropDownAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwButtonAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwDropDownAlignmentNode {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwButtonContainerNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwDropDownContainerNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwButtonContainerNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwDropDownContainerNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwButtonContainerNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwDropDownContainerNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwDropDownNode {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwTextNode {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwIconNode {
+  margin-left: 2px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeInline .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeInline .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeInline .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwNoText .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwNoText .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwNoText .mwIconNode {
+  margin-right: 2px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton:not(.mwNoText) .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton:not(.mwNoText) .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton:not(.mwNoText) .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton:not(.mwNoText) .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton:not(.mwNoText) .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton:not(.mwNoText) .mwTextNode {
+  padding-left: 2px;
+  padding-right: 4px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwArrowIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwArrowIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwArrowIconNode {
+  display: inline-block;
+  margin: 0px 2px 2px 2px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 4px 0 4px;
+  border-color: $color-black transparent transparent transparent;
+  line-height: 0px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton .mwLastTextLineNode {
+  display: inline-block;
+}
+
+.mwDefaultVisualFamily.mwWidget.mwDropDownButton.mwDropDownButtonFocused,
+.mwDefaultVisualFamily.mwWidget.mwSplitButton.mwSplitButtonFocused,
+.mwDefaultVisualFamily.mwWidget.mwToggleSplitButton.mwToggleSplitButtonFocused {
+  border-color: $color-selection;
+}
+
+/* ----- General Horizontal (IconAlignment = "left") ----- */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwFocusNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwFocusNode {
+   display: table-cell;
+   height: 100%;
+ }
+
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwDropDownNode {
+  height: 100%;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwButtonNode {
+  padding: 2px 0px 2px 0px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwDropDownNode {
+  padding: 2px 2px 2px 0px;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwTextNode {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* ..... Split-Style Buttons Only ..... */
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft .mwDropDownNode {
+  border-left: $pixels-button-border-width $value-button-border-style $color-button-single-border-normal;
+  margin-left: -1px;
+}
+
+/* ----- General Vertical (IconAlignment = "top") ----- */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop .mwDropDownNode {
+  display: block;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop .mwIconNode {
+  margin: 0px 0px 3px 0px;
+}
+
+/* ..... Split-Style Buttons Only ..... */
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop .mwFocusNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop .mwFocusNode {
+  border-top: $pixels-button-border-width $value-button-border-style $color-button-single-border-normal;
+  margin-top: -1px;
+}
+
+/* ===== Block ===== */
+
+/* ----- Block Horizontal (IconAlignment = "left", ArrowMode = "auto"/"block") ----- */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeAuto .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeAuto .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeBlock .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeBlock .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwTextNode {
+  display: inline-block;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeAuto .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeBlock .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwDropDownNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwDropDownNode {
+  padding-left: 2px;
+}
+
+/* ..... Split-Style Buttons Only ..... */
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeAuto .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeBlock .mwButtonNode {
+  padding-right: 6px;
+}
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeAuto.mwNoText .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeAuto.mwNoText .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeBlock.mwNoText .mwButtonNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeBlock.mwNoText .mwButtonNode {
+  padding-right: 1px;
+}
+
+/* ----- Block Vertical (IconAlignment = "top", ArrowMode = "block") ----- */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeBlock .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeBlock .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeBlock .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeBlock .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeBlock .mwIconNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeBlock .mwTextNode {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Inline ===== */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwArrowModeInline .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwArrowModeInline .mwLastTextLineNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwArrowModeInline .mwLastTextLineNode {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+/* ----- Inline Horizontal (IconAlignment = "left", ArrowMode = "inline") ----- */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeInline.mwContentWrapperNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeInline.mwContentWrapperNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeInline.mwContentWrapperNode {
+  table-layout: fixed; /* Collapses child table cells to fit their contents */
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeInline .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentLeft.mwArrowModeInline .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentLeft.mwArrowModeInline .mwSeparatorNode {
+  left: 50%;
+}
+
+/* ..... DropDownButtons Only ..... */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeInline .mwButtonNode {
+  text-align: right;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentLeft.mwArrowModeInline .mwDropDownNode {
+  text-align: left;
+}
+
+/* ----- Inline Vertical (IconAlignment = "top", ArrowMode = "auto"/"inline") ----- */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeAuto .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeAuto .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeAuto .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeInline .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeInline .mwSeparatorNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeInline .mwSeparatorNode {
+  top: 50%;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeAuto .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeAuto .mwArrowNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeAuto .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeAuto .mwArrowNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeAuto .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeAuto .mwArrowNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeInline .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeInline .mwArrowNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeInline .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwSplitButton.mwIconAlignmentTop.mwArrowModeInline .mwArrowNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeInline .mwTextNode,
+.mwWidget.mwDefaultVisualFamily.mwToggleSplitButton.mwIconAlignmentTop.mwArrowModeInline .mwArrowNode {
+  display: block;
+}
+
+/* ..... DropDownButtons Only ..... */
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeAuto .mwButtonAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeInline .mwButtonAlignmentNode {
+  vertical-align: bottom;
+}
+
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeAuto .mwDropDownAlignmentNode,
+.mwWidget.mwDefaultVisualFamily.mwDropDownButton.mwIconAlignmentTop.mwArrowModeInline .mwDropDownAlignmentNode {
+  vertical-align: top;
+}

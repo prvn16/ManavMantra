@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Copyright 2017 The MathWorks, Inc. -->
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<html style="height:100%">
+    <head>
+        <title>Property Inspector</title>
+        <link rel="stylesheet" href="release/css-inspector/main.css" type="text/css"/>
+        <!--[if IE 9]>
+        <link href="release/css/overrides_ie9.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+
+        <!-- Load dojo -->
+        <script src="release/inspector/dojoConfig-release-global.js"></script>
+        <script type="text/javascript" src="release/dojo/dojo.js"></script>
+
+        <script type="text/javascript">
+            require(["inspector/browsercheck"], function () {
+                require(["mw-browser-utils/BrowserCheck!"], function () {
+                    // If the browser compatability check passes, require in the web widget lib
+                    require(["inspector/inspector"], function () {
+                        require([
+                        "dojo/dom",
+                        "dojo/dom-construct",
+                        "dojo/dom-style",
+                        "inspector/InspectorObject",
+                        "inspector/peer/InspectorFactory",
+                        "mw-overlay-utils/BusyOverlay",
+                        "variableeditor/VariableEditorUtils",
+                        "dojo/i18n!inspector/app/l10n/nls/app"
+                        ], function(dom, domConstruct, domStyle, InspectorObject,
+                            InspectorFactory, BusyOverlay, VEUtils, nls) {
+
+                            InspectorFactory.start();
+                            // ************************************************************
+                            // Create the inspector by passing the required channel and dataTagRot
+                            // ************************************************************
+                            var propertyInspectorManager = InspectorFactory.createInspector({
+                                dataTagRoot: 'mw.test.inspector',
+                                channel: '/PropertyInspector'
+                            });
+                            propertyInspectorManager.startup();
+
+                            // Place the property inspector's domNode
+                            domConstruct.place(propertyInspectorManager.domNode, dom.byId('propertyInspectorDiv'), 'last');
+
+                            // Show a busy indicator (cold-start)
+                            var initialBusyOverlay = new BusyOverlay(
+                            {
+                                size: BusyOverlay.SIZE.SMALL,
+                                text: nls.busyText
+                            });
+
+                            initialBusyOverlay.set("target", propertyInspectorManager.domNode);
+                            initialBusyOverlay.show();
+
+                            // listen to serverErrror event message and show an error dialog
+                            propertyInspectorManager.addEventListener("serverError", propertyInspectorManager.handleError);
+
+                            var busyIndicator;
+
+                            // Show busy indicator when inspector opens or change in object selection
+                            propertyInspectorManager.addEventListener("inspectorOpened", function(event) {
+                                busyIndicator = new BusyOverlay(BusyOverlay.SIZE.SMALL);
+
+                                // Make the background of the busy indicator transparent
+                                domStyle.set(busyIndicator.domNode.firstElementChild,"background-color","transparent");
+                                var showBusyDiv = propertyInspectorManager.domNode;
+                                busyIndicator.set("target", showBusyDiv);
+                                busyIndicator.show();
+                            });
+
+                            propertyInspectorManager.addEventListener("viewRestored", function(event) {
+                                if (busyIndicator && busyIndicator.hide) {
+                                    busyIndicator.hide();
+                                }
+                            });
+                        });
+                    });
+                });
+            });
+        </script>
+
+    </head>
+    <body class="tundra" style="height:100%">
+        <div id="propertyInspectorDiv" style="height:100%"></div>
+    </body>
+</html>

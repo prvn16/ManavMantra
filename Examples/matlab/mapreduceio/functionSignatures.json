@@ -1,0 +1,44 @@
+{
+"gcmr":
+{
+        "inputs":
+        [
+                {"name":"'nocreate'", "kind":"ordered", "type":"choices={'nocreate'}"}
+        ],
+        "outputs":
+        [
+                {"name":"mr", "type":"matlab.mapreduce.MapReducer"}
+        ]
+}
+,
+"mapreduce":
+{
+        "inputs":
+        [
+                {"name":"ds", "kind":"required", "type":["matlab.io.datastore.Datastore"]},
+                {"name":"mapfun", "kind":"required", "type":"function_handle"},
+                {"name":"reducefun", "kind":"required", "type":"function_handle"},
+                {"name":"mr", "kind":"ordered", "type":["matlab.mapreduce.MapReducer"]},
+                {"name":"OutputType", "kind":"namevalue", "type":["choices={'Binary','TabularText'}"], "default":"Binary"},
+                {"name":"OutputFolder", "kind":"namevalue", "type":[["file"], ["cell"], ["char"]]},
+                {"name":"Display", "kind":"namevalue", "type":["choices={'on','off'}"], "default":"on"}        
+        ],
+        "outputs":
+        [
+                {"name":"outds", "type":["choices={'matlab.io.datastore.KeyValueDatastore','matlab.io.datastore.TabularTextDatastore'}"], "default":"matlab.io.datastore.KeyValueDatastore"}
+        ]
+}
+,
+"mapreducer":
+{
+        "inputs":
+        [
+                {"name":"mr", "kind":"ordered", "type":[["choices={0}"],["matlab.mapreduce.MapReducer"],["parallel.Pool"],["parallel.cluster.Hadoop"]]},
+                {"name":"ObjectVisibility", "kind":"namevalue", "type":["char", "choices={'Off'}"]}
+        ],
+        "outputs":
+        [
+                {"name":"mr", "type":"matlab.mapreduce.MapReducer"}
+        ]
+}
+}

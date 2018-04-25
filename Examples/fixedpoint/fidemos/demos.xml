@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    -->
+<!-- Copyright 2004-2013 The MathWorks, Inc. -->
+<demos xmlns:xi="http://www.w3.org/2001/XInclude">
+   <name>Fixed-Point Designer</name>
+   <type>matlab</type>
+   <icon>$toolbox/matlab/icons/matlabicon.gif</icon>
+   <description isCdata="no">
+       <p>Fixed-Point Designer&#8482; provides data types and tools for developing fixed-point algorithms in MATLAB&#174; code, Simulink&#174; models, and Stateflow&#174; charts.  It automatically proposes fixed-point data types and attributes such as word length and rounding mode. You can also specify these attributes manually. You can perform accelerated bit-true simulations to observe the impact of limited range and precision.</p> 
+       <p>Fixed-Point Designer lets you convert floating-point algorithms to fixed point. You can create and optimize fixed-point data types that meet your numerical accuracy requirements and target-hardware constraints. You can simulate your design and analyze the results to obtain range information. Fixed-Point Designer uses this information to recommend word lengths and scalings for your fixed-point algorithm and enable you to compare fixed-point results with floating-point baselines. Fixed-Point Designer supports C, HDL, and PLC code generation.</p>
+   </description>
+
+   <demosection>
+     <label>MATLAB Examples</label>
+
+     <demosection>
+       <label>Fixed-Point Basics</label>
+
+       <demoitem>
+         <label>Create Fixed-Point Data</label>
+         <type>M-file</type>
+         <source>fibasicsdemo</source>
+       </demoitem>
+       <demoitem>
+         <label>Perform Fixed-Point Arithmetic</label>
+         <type>M-file</type>
+         <source>fiarithmeticdemo</source>
+       </demoitem>
+       <demoitem>
+         <label>Set Fixed-Point Math Attributes</label>
+         <type>M-file</type>
+         <source>fi_setfimath_removefimath_example</source>
+       </demoitem>
+       <demoitem>
+         <label>View Fixed-Point Number Circles</label>
+         <type>M-file</type>
+         <source>numbercircledemo</source>
+       </demoitem>
+       <demoitem>
+         <label>Perform Binary-Point Scaling</label>
+         <type>M-file</type>
+         <source>fiscalingdemo</source>
+       </demoitem>
+       <demoitem>
+         <label>Compute Quantization Error</label>
+         <type>M-file</type>
+         <source>qerrordemo</source>
+       </demoitem>
+       <demoitem>
+         <label>Detect Limit Cycles in Fixed-Point State-Space Systems</label>
+         <type>M-file</type>
+         <source>filimitcycledemo</source>
+       </demoitem>
+       
+     </demosection>
+     
+     <demosection>
+       <label>Algorithm Implementation</label>
+       
+       <demoitem>
+         <label>Develop Fixed-Point Algorithms</label>
+         <type>M-file</type>
+         <source>fialgorithmdevelopmentdemo</source>
+       </demoitem>
+       <demoitem>
+         <label>Calculate Fixed-Point Arctangent</label>
+         <type>M-file</type>
+         <source>fixpt_atan2_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Calculate Fixed-Point Sine and Cosine</label>
+         <type>M-file</type>
+         <source>fi_sin_cos_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Compute Sine and Cosine Using CORDIC Rotation Kernel</label>
+         <type>M-file</type>
+         <source>fi_cordic_sincos_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Perform QR Factorization Using CORDIC</label>
+         <type>M-file</type>
+         <source>cordicqr_demo</source>
+       </demoitem> 
+       <demoitem>
+         <label>Convert Cartesian to Polar Using CORDIC Vectoring Kernel</label>
+         <type>M-file</type>
+         <source>fi_cordic_cart_polar_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Compute Square Root Using CORDIC</label>
+         <type>M-file</type>
+         <source>fi_cordic_sqrt_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Normalize Data for Lookup Tables</label>
+         <type>M-file</type>
+         <source>fi_normalize_unsigned_8_bit_byte_example</source>
+       </demoitem>
+       <demoitem>
+         <label>Implement Fixed-Point Log2 Using Lookup Table</label>
+         <type>M-file</type>
+         <source>fi_log2lookup_8_bit_byte_example</source>
+       </demoitem>
+       <demoitem>
+         <label>Implement Fixed-Point Square Root Using Lookup Table</label>
+         <type>M-file</type>
+         <source>fi_sqrtlookup_8_bit_byte_example</source>
+       </demoitem>
+      
+     </demosection>
+
+     <demosection>
+       <label>Algorithm Conversion</label>
+       
+       <demoitem>
+         <label>Convert Fast Fourier Transform (FFT) to Fixed Point</label>
+         <type>M-file</type>
+         <source>fi_radix2fft_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Set Data Types Using Min/Max Instrumentation</label>
+         <type>M-file</type>
+         <source>fi_instrumentation_fixed_point_filter_demo</source>
+       </demoitem>
+       <demoitem>
+         <label>Implement FIR Filter Algorithm for Floating-Point and Fixed-Point Types using cast and zeros</label>
+         <type>M-file</type>
+         <source>fir_filt_circ_buff_fixed_point_conversion_example</source>
+       </demoitem>
+
+     </demosection>
+
+     <demosection>
+       <label>Algorithm Acceleration</label>
+
+       <demoitem>
+         <label>Accelerate Fixed-Point Simulation</label>
+         <type>M-file</type>
+         <source>fiaccelbasicsdemo</source>
+       </demoitem>
+
+     </demosection>
+     
+     <demosection>
+       <label>Code Generation</label>
+       <demoitem>
+         <label>Set Fixed-Point Math Attributes</label>
+         <type>M-file</type>
+         <source>fi_setfimath_removefimath_example</source>
+       </demoitem>
+       
+     </demosection>
+
+   </demosection>
+   
+   <!-- fixpoint_demos component-->
+   <xi:include href="../../simulink/fixedandfloat/fxpdemos/fxpdemos.xml"/>
+   
+ </demos>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011-2017 The MathWorks, Inc. -->
+<!-- THIS FILE CONTRIBUTES TO THE MATLAB APPS GALLERY WHICH IS CAREFULLY CURATED -->
+<!-- ADDITIONS AND CHANGES MUST GO THROUGH A DESIGN REVIEW PROCESS WITH SENIOR MANGEMENT -->
+<!-- THIS PROCESS IS MANAGED BY THE MATLAB DESKTOP TEAM. CONSULT THE TOOLSTRIP GUIDELINES TO GET STARTED -->
+<toolset id="gpucoder_toolset" message_catalog="gpucoder:desktop">
+    <tool id="gpucoder">
+        <icon filename="gpu_coder_16.png" path="." />
+        <icon filename="gpu_coder_24.png" path="." />
+        <callback>gpucoder</callback>
+        <parent_tool id="code_gen_products" toolset_id="apps_toolset" />
+    </tool>
+</toolset>

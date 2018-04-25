@@ -1,0 +1,66 @@
+/* CSS Properties shared between TextField and TextArea */
+
+@import "../variables";
+
+.mwDefaultVisualFamily.mwTextField .mwInputNode,
+.mwDefaultVisualFamily.mwTextArea .mwInputNode {
+  background-color: rgb(255, 255, 255);
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: none;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box; /* To avoid border and padding on outer content effect the input element */
+}
+
+.mwDefaultVisualFamily.mwTextField:not(.mwNonEditable) .mwInputNode,
+.mwDefaultVisualFamily.mwTextArea:not(.mwNonEditable) .mwInputNode {
+  box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px inset;
+}
+
+.mwDefaultVisualFamily.mwTextField,
+.mwDefaultVisualFamily.mwTextArea {
+  background-color: rgb(255, 255, 255);
+  color: $color-text-user;
+  border-style: solid;
+  border-width: 1px;
+  /* Inset shadow color is rgb(226) and: no horizontal offset, 1px vertical offset, 1 px blur and no spread */
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05);
+  border-color: $color-mediumgray3;
+}
+
+.mwDefaultVisualFamily.mwTextArea .mwInputNode,
+.mwDefaultVisualFamily.mwTextField {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.mwDefaultVisualFamily.mwTextArea .mwInputNode {
+  padding-top: 3px;
+}
+
+.mwDefaultVisualFamily.mwTextField.mwTextFieldHover:not(.mwValidationError),
+.mwDefaultVisualFamily.mwTextArea.mwTextAreaHover:not(.mwValidationError) {
+  border-color:  $color-mediumgray4;
+}
+
+.mwDefaultVisualFamily.mwTextField.mwTextFieldFocused:not(.mwValidationError),
+.mwDefaultVisualFamily.mwTextArea.mwTextAreaFocused:not(.mwValidationError) {
+  border-color: $color-selection;
+}
+
+.mwDefaultVisualFamily.mwTextField.mwNonEditable,
+.mwDefaultVisualFamily.mwTextArea.mwNonEditable{
+  background-color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(153, 153, 153, 0.65);
+}
+
+.mwDefaultVisualFamily.mwTextField.mwNonEditable .mwInputNode,
+.mwDefaultVisualFamily.mwTextArea.mwNonEditable .mwInputNode{
+  background-color: rgba(255, 255, 255, 0.65);
+}
+.mwDefaultVisualFamily.mwTextField.mwWidget .mwInputNode::selection
+.mwDefaultVisualFamily.mwTextArea.mwWidget .mwInputNode::selection {
+  background: $color-selection-text;
+  color: black;
+}

@@ -1,0 +1,3027 @@
+{
+
+// =====================================================================
+// TOP-LEVEL FUNCTIONS
+// =====================================================================
+"addtodate":
+{
+    "inputs": [
+        {"name":"D","kind":"required","type":["numeric", "scalar"]},
+        {"name":"Q","kind":"required","type":["numeric", "scalar", "integer"]},
+        {"name":"F","kind":"required","type":["choices={'year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond'}"]}            
+    ],
+    "outputs": [
+        {"name":"R","type":"numeric"}
+    ]
+},
+"caldays":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"calendarDuration"}
+    ]    
+},
+"calmonths":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"calendarDuration"}
+    ]    
+},
+"calquarters":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"Q","type":"calendarDuration"}
+    ]    
+},
+"calweeks":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"W","type":"calendarDuration"}
+    ]    
+},
+"calyears":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"Y","type":"calendarDuration"}
+    ]    
+},
+"calendar":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"d","kind":"positional","type":[["numeric", "scalar"], ["char", "row"]]}
+            ],
+            [
+                {"name":"y","kind":"positional","type":["numeric", "scalar"]},
+                {"name":"m","kind":"positional","type":["numeric", "scalar"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"c","type":"numeric"}
+    ]
+},
+"clock":
+{
+    "outputs": [
+        {"name":"c","type":["numeric", "vector"]}
+    ]
+},
+"datenum":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"DateString","kind":"required","type":[["char"],["cellstr"]]}, // char row or char matrix
+                {"name":"formatIn","kind":"optional","type":["char","row"]}, // format number not accepted
+                {"name":"PivotYear","kind":"optional","type":["numeric","scalar"]}
+            ],
+            [
+                {"name":"DateVector","kind":"required","type":["numeric"]}
+            ],
+            [
+                {"name":"Y","kind":"required","type":["numeric"]},
+                {"name":"M","kind":"required","type":["numeric"]},
+                {"name":"D","kind":"required","type":["numeric"]}
+            ],
+            [
+                {"name":"Y","kind":"required","type":["numeric"]},
+                {"name":"M","kind":"required","type":["numeric"]},
+                {"name":"D","kind":"required","type":["numeric"]},
+                {"name":"H","kind":"required","type":["numeric"]},
+                {"name":"MN","kind":"required","type":["numeric"]},
+                {"name":"S","kind":"required","type":["numeric"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"DateNumber","type":["numeric"]}
+    ]
+},
+"datestr":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"DateNumber","kind":"required","type":["numeric"]},
+                {"name":"formatOut","kind":"optional","type":[["char"],["numeric","scalar"]]}
+            ],
+            [
+                {"name":"DateVector","kind":"required","type":["numeric"]},
+                {"name":"formatOut","kind":"optional","type":[["char"],["numeric","scalar"]]}
+            ],
+            [
+                {"name":"DateStringIn","kind":"required","type":[["char"],["cellstr"]]},
+                {"name":"formatOut","kind":"optional","type":[["char"],["numeric","scalar"]]},
+                {"name":"PivotYear","kind":"optional","type":["numeric","scalar"]}
+            ]
+        ]},
+        {"name":"local","kind":"flag","type":["choices={'local'}"]}
+    ],
+    "outputs": [
+        {"name":"DateString","type":["char"]}
+    ]
+},
+"datevec":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"DateNumber","kind":"required","type":["numeric"]}
+            ],
+            [
+                {"name":"DateStringIn","kind":"required","type":[["char"],["cellstr"]]}, // char row or char matrix
+                {"name":"formatIn","kind":"optional","type":["char"]}, // format number not accepted
+                {"name":"PivotYear","kind":"optional","type":["numeric","scalar"]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"DateVector","type":["numeric"]}
+            ],
+            [
+                {"name":"Y","type":["numeric","scalar"]},
+                {"name":"M","type":["numeric","scalar"]},
+                {"name":"D","type":["numeric","scalar"]},
+                {"name":"H","type":["numeric","scalar"]},
+                {"name":"MN","type":["numeric","scalar"]},
+                {"name":"S","type":["numeric","scalar"]}                
+            ]
+        ]}
+    ]
+},
+"days":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"duration"}
+    ]    
+},
+"iscalendarduration":
+{
+    "inputs": [
+        {"name":"d","kind":"required"}
+    ],
+    "outputs": [
+        {"name":"tf","type":["logical","scalar"]}
+    ]    
+},
+"isdatetime":
+{
+    "inputs": [
+        {"name":"t","kind":"required"}
+    ],
+    "outputs": [
+        {"name":"tf","type":["logical","scalar"]}
+    ]    
+},
+"isduration":
+{
+    "inputs": [
+        {"name":"t","kind":"required"}
+    ],
+    "outputs": [
+        {"name":"tf","type":["logical","scalar"]}
+    ]    
+},
+"hours":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"duration"}
+    ]    
+},
+"milliseconds":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"MS","type":"duration"}
+    ]    
+},
+"minutes":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"}
+    ]    
+},
+"NaT":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"n","kind":"required","type":[["numeric","scalar"]]}
+            ],
+            [
+                {"name":"sz","kind":"required","type":[["numeric","scalar"]],"multiplicity":"append"}
+            ],
+            [
+                {"name":"sz","kind":"required","type":[["numeric","row"]]}
+            ]
+        ]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default','defaultdate'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]},            
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]    
+},
+"seconds":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"S","type":"duration"}
+    ]    
+},
+"timezones":
+{
+    "inputs": [
+        {"name":"area","kind":"positional","type":["choices={'Africa','Asia','Europe','America','Atlantic','Indian','Antarctica','Australia','Pacific','Arctic','Etc','All'}"]}
+    ],
+    "outputs": [
+        {"name":"T","type":"table"}
+    ]
+},
+"weekday":
+{
+    "inputs": [
+        {"name":"D","kind":"required","type":[["numeric"],["char"],["cellstr","row"],["cellstr","column"]]},
+        {"name":"DayForm","kind":"positional","type":["choices={'short','long'}"]},
+        {"name":"language","kind":"positional","type":["choices={'en_US','local'}"],"default":"'en_US'"}
+    ],
+    "outputs": [
+        {"name":"DayNumber","type":["numeric", "integer"]},
+        {"name":"DayName","type":["char"]}
+    ]
+},
+"years":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["numeric"],["logical"]]}
+    ],
+    "outputs": [
+        {"name":"Y","type":"duration"}
+    ]    
+},
+
+// ================================================================
+//  DATETIME METHODS
+// ================================================================
+"between":
+{
+    "inputs": [
+        {"name":"t1","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+        {"name":"t2","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+        {"name":"components","kind":"positional","type":["choices={'years','quarters','months','weeks','days','time'}"]} // possibly a list
+    ],
+    "outputs": [
+        {"name":"dt","type":"numeric"}
+    ]
+},
+"cat":
+{
+    "inputs": [
+        {"name":"dim", "kind":"required", "type":["numeric", "scalar", ">=1"]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["datetime"],["char","row"],["cellstr"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"caldiff":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"components","kind":"positional","type":["choices={'years','quarters','months','weeks','days','time'}"]}, // possibly a list
+        {"name":"dim","kind":"positional","type":["numeric","integer","positive","scalar"]}
+
+    ],
+    "outputs": [
+        {"name":"dt","type":"calendarDuration"}
+    ]
+},
+// *** cellstr in common block below
+// *** char in common block below
+"ctranspose":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"B","type":"datetime"}
+    ]
+},
+// *** datenum in common block below
+"dateshift":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'start'","kind":"required","type":["choices={'start'}"]},
+                {"name":"unit","kind":"required","type":["choices={'year','quarter','month','week','day','hour','minute','second'}"]}
+            ],
+            [
+                {"name":"'end'","kind":"required","type":["choices={'end'}"]},
+                {"name":"unit","kind":"required","type":["choices={'year','quarter','month','week','day','hour','minute','second'}"]}
+            ],
+            [
+                {"name":"'dayofweek'","kind":"required","type":["choices={'dayofweek'}"]},
+                {"name":"dow","kind":"required","type":[["choices=matlab.internal.datetime.getDayNames('long','en_US')"],["numeric","scalar","choices={1:7}"]]}
+            ]
+        ]},
+        {"name":"rule","kind":"positional","type":[["choices={'next','previous','nearest','current'}"],["numeric","integer"]]}
+
+    ],
+    "outputs": [
+        {"name":"t2","type":"datetime"}
+    ]
+},
+"datestr":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":["datetime"]},
+        {"name":"formatOut","kind":"optional","type":[["char"],["numeric","scalar"]]},
+        {"name":"local","kind":"flag","type":["choices={'local'}"]}
+    ],
+    "outputs": [
+        {"name":"DateString","type":["char"]}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"relativeDay","kind":"required","type":["choices={'yesterday','today','tomorrow','now'}"]},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"DateStrings","kind":"required","type":[["char"],["cellstr"]]}, // accept char row or matrix
+        {"name":"InputFormat","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices('datetime')"], ["char","row"]]},
+        {"name":"PivotYear","kind":"namevalue","type":["integer","scalar"]},
+        {"name":"Locale","kind":"namevalue","type":[["choices=[{'system'}, matlab.internal.datetime.functionsignatures.localechoices()]"], ["char","row"]]},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"DateVectors","kind":"required","type":"numeric"},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"Datetimes","kind":"required","type":"datetime"},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"Y","kind":"required","type":["numeric","integer"]},
+        {"name":"M","kind":"required","type":["numeric","integer"]},
+        {"name":"D","kind":"required","type":["numeric","integer"]},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"Y","kind":"required","type":["numeric","integer"]},
+        {"name":"M","kind":"required","type":["numeric","integer"]},
+        {"name":"D","kind":"required","type":["numeric","integer"]},
+        {"name":"H","kind":"required","type":["numeric","integer"]},
+        {"name":"MI","kind":"required","type":["numeric","integer"]},
+        {"name":"S","kind":"required","type":["numeric"]},
+        {"name":"MS","kind":"optional","type":"numeric"},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"numeric"},
+        {"name":"ConvertFrom","kind":"required","type":"choices={'ConvertFrom'}"},
+        {"name":"dateType","kind":"required","type":"choices={'datenum','excel','excel1904','juliandate','modifiedjuliandate','posixtime','yyyymmdd'}"},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+"datetime":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"numeric"},
+        {"name":"ConvertFrom","kind":"required","type":"choices={'ConvertFrom'}"},
+        {"name":"dateType","kind":"required","type":"choices={'epochtime'}"},
+        {"name":"'Epoch'","kind":"required","type":"choices={'Epoch'}"},
+        {"name":"epochValue","kind":"required","type":[["datetime"],["char","row"]]},
+        {"name":"TimeZone","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.timezonechoices()"], ["char","row"]]},
+        {"name":"Format","kind":"namevalue","type":[["choices=[{'default', 'defaultdate', 'preserveinput'}, matlab.internal.datetime.functionsignatures.formatchoices('datetime')]"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"t","type":"datetime"}
+    ]
+},
+// *** datevec in common block below
+"day":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"dayType","kind":"positional","type":"choices={'dayofmonth','dayofweek','dayofyear'}","default":"dayofmonth"}
+    ],
+    "outputs": [
+        {"name":"d","type":"numeric"}
+    ]
+},
+"day":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"dayType","kind":"positional","type":"choices={'name','shortname'}"}
+    ],
+    "outputs": [
+        {"name":"d","type":"cellstr"}
+    ]
+},
+"diff":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"name":"n","kind":"positional","type":["numeric","integer","scalar","positive"]},
+        {"name":"dim","kind":"positional","type":["numeric","integer","positive","scalar"]}
+
+    ],
+    "outputs": [
+        {"name":"Y","type":"duration"}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"name":"edges","kind":"required","type":"datetime"},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["datetime","vector"]]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"name":"edges","kind":"required","type":"datetime"},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["datetime","vector"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"}
+            ],
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"displayFormat","kind":"required","type":["char","row"]}
+            ],
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"categoryNames","kind":"required","type":"cellstr"}
+            ]
+        ]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"N","kind":"required","type":["positive","scalar","integer","numeric"]}
+            ],
+            [
+                {"name":"dur","kind":"required","type":[["duration","scalar"],["calendarDuration","scalar"],["choices={'second','minute','hour','day','week','month','quarter','year','decade','century'}"]]}
+            ]    
+        ]},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["datetime","vector"]]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]},
+        {"name":"E","kind":"optional","type":["datetime","vector"]}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"N","kind":"required","type":["positive","scalar","integer","numeric"]}
+            ],
+            [
+                {"name":"dur","kind":"required","type":[["duration","scalar"],["calendarDuration","scalar"],["choices={'second','minute','hour','day','week','month','quarter','year','decade','century'}"]]}
+            ]    
+        ]},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["datetime","vector"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"}
+            ],
+            [
+        {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"displayFormat","kind":"required","type":["char","row"]}
+            ],
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"categoryNames","kind":"required","type":"cellstr"}
+            ]
+        ]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]},
+        {"name":"E","kind":"optional","type":["datetime","vector"]}
+    ]
+},
+"exceltime":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"dateType","kind":"positional","type":"choices={'1900','1904'}","default":"1900"}
+    ],
+    "outputs": [
+        {"name":"d","type":"numeric"}
+    ]
+},
+"histcounts":
+{   
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"name":"nbins","kind":"optional","type":["integer", "positive"]},
+        {"name":"BinLimits","kind":"namevalue","type":["vector"]},
+        {"name":"BinMethod","kind":"namevalue","type":"choices={'auto','scott','fd','sturges','sqrt','second','minute','hour','day','week','month','quarter','year','decade','century'}","default":"'auto'"},
+        {"name":"BinWidth","kind":"namevalue","type":["duration","scalar"]},
+        {"name":"Normalization","kind":"namevalue","type":"choices={'count','countdensity','cumcount','probability','pdf','cdf'}","default":"'count'"}
+    ],
+    "outputs": [
+        {"name":"N","type":["numeric","vector","row"]},
+        {"name":"edges","type":["datetime","vector"]},  
+        {"name":"bin","type":"numeric"}
+    ]
+},
+"histcounts":
+{   
+    "inputs": [
+        {"name":"X","kind":"required","type":"datetime"},
+        {"name":"edges","kind":"optional","type":["datetime","vector"]},
+        {"name":"BinLimits","kind":"namevalue","type":["vector"]},
+        {"name":"BinMethod","kind":"namevalue","type":"choices={'auto','scott','fd','sturges','sqrt','second','minute','hour','day','week','month','quarter','year','decade','century'}","default":"'auto'"},
+        {"name":"BinWidth","kind":"namevalue","type":["duration","scalar"]},
+        {"name":"Normalization","kind":"namevalue","type":"choices={'count','countdensity','cumcount','probability','pdf','cdf'}","default":"'count'"}
+    ],
+    "outputs": [
+        {"name":"N","type":["numeric","vector","row"]},
+        {"name":"edges","type":["datetime","vector"]},  
+        {"name":"bin","type":"numeric"}
+    ]
+},
+// *** hms in common block below
+"horzcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["char", "row"],["cellstr"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"hour":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"h","type":"numeric"}
+    ]
+},
+"interp1":
+{   
+    "inputs": [  
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"x","kind":"required","type":["datetime","vector"]},
+                {"name":"v","kind":"required","type":[["datetime"],["duration"],["numeric"]]},
+                {"name":"xq","kind":"required","type":["datetime"]}
+            ],
+            [
+                {"name":"x","kind":"required","type":["numeric","vector"]},
+                {"name":"v","kind":"required","type":["datetime"]},
+                {"name":"xq","kind":"required","type":["numeric"]}
+            ]
+        ]},
+        {"name":"method","kind":"positional","type":"choices={'linear','nearest','next','previous','spline','pchip','cubic','v5cubic'}","default":"'linear'"},
+        {"name":"extrapolation","kind":"optional","type":[["choices={'extrap'}"],["datetime","scalar"],["duration","scalar"],["numeric","scalar"]]}
+    ],
+    "outputs": [
+        {"name":"vq","type":[["datetime"],["duration"],["numeric"]]}
+    ]
+},
+"intersect":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"},
+        {"name":"ia","type":["numeric","column"]},
+        {"name":"ib","type":["numeric","column"]}
+    ]
+},
+// *** iscolumn in common block below
+// *** isdst in common block below
+// *** isempty in common block below
+"isequal":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":["datetime"],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"isequaln":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":["datetime"],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+// *** isfinite in common block below
+// *** isinf in common block below
+// *** ismatrix in common block below
+"ismember":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ]
+        ]},
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"Lia","type":"logical"},
+        {"name":"Locb","type":"logical"}
+    ]
+},
+"isnat":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+// *** isrow in common block below
+// *** isscalar in common block below
+// *** issorted in common block below
+// *** issortedrows in common block below
+// *** isvector in common block below
+"isweekend":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"juliandate":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"dateType","kind":"positional","type":"choices={'juliandate','modifiedjuliandate'}","default":"juliandate"}
+    ],
+    "outputs": [
+        {"name":"d","type":"numeric"}
+    ]
+},
+// *** length in common block below
+"linspace":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"x1","kind":"required","type":["datetime","scalar"]},
+                {"name":"x2","kind":"required","type":[["datetime","scalar"],["char","row"]]}
+            ],
+            [
+                {"name":"x1","kind":"required","type":["char","row"]},
+                {"name":"x2","kind":"required","type":["datetime","scalar"]}
+            ]
+        ]},
+        {"name":"n","kind":"optional","type":["numeric","scalar"]}
+    ],
+    "outputs": [
+        {"name":"y","type":"datetime"}
+    ]
+},
+"max":
+{   
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["datetime"]},
+        {"name":"[]", "kind":"required", "type":["double", "@(x)isequal(x,[])"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"datetime"},
+        {"name":"I","type":"numeric"}
+    ]
+},
+"max":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["datetime"]},
+                {"name":"B", "kind":"required", "type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["datetime"],["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["datetime"]}
+            ]
+        ]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"maxk":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["datetime"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+        // no ComparisonMethod for datetime
+    ],
+    "outputs": [
+        {"name":"B", "type":["datetime"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"mean":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnan','includenan'}","default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"datetime"}
+    ]
+},
+"median":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnan','includenan'}","default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"datetime"}
+    ]
+},
+"min":
+{   
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["datetime"]},
+        {"name":"[]", "kind":"required", "type":["double", "@(x)isequal(x,[])"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"datetime"},
+        {"name":"I","type":"numeric"}
+    ]
+},
+"min":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A", "kind":"required", "type":["datetime"]},
+                {"name":"B", "kind":"required", "type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["datetime"],["char", "row"], ["cellstr"]]},
+                {"name":"B", "kind":"required", "type":["datetime"]}
+            ]
+        ]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"minute":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"m","type":"numeric"}
+    ]
+},
+"mink":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["datetime"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+        // no ComparisonMethod for datetime
+    ],
+    "outputs": [
+        {"name":"B", "type":["datetime"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"minus":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"minus":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"name":"B","kind":"required","type":[["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"mode":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"name":"dim","kind":"flag","type":["numeric","scalar"]}
+    ],
+    "outputs": [
+        {"name":"M","type":"datetime"},
+        {"name":"F","type":"numeric"},
+        {"name":"C","type":"cell"}
+    ]
+},
+"month":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"monthType","kind":"positional","type":"choices={'monthofyear'}","default":"monthofyear"}
+    ],
+    "outputs": [
+        {"name":"d","type":"numeric"}
+    ]
+},
+"month":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"monthType","kind":"positional","type":"choices={'name','shortname'}"}
+    ],
+    "outputs": [
+        {"name":"d","type":"cellstr"}
+    ]
+},
+// *** ndims in common block below
+// *** numel incommon block below
+"permute":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"name":"order","kind":"required","type":["numeric","integer","row"]}
+    ],
+    "outputs": [
+        {"name":"B","type":"datetime"}
+    ]
+},
+"plus":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":[["duration"],["calendarDuration"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ],
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["duration"],["calendarDuration"]]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"posixtime":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"p","type":"numeric"}
+    ]
+},
+"quarter":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"q","type":"numeric"}
+    ]
+},
+"reshape":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz","kind":"required","type":["numeric","integer","row"]}
+            ],
+            [
+                {"name":"sz","kind":"required","type":["numeric","integer","scalar"],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"B","type":"datetime"}
+    ]
+},
+"setdiff":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","kind":"required","type":"datetime"},
+        {"name":"ia","kind":"required","type":["numeric","column"]},
+        {"name":"ib","kind":"required","type":["numeric","column"]}
+    ]
+},
+"setxor":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","kind":"required","type":"datetime"},
+        {"name":"ia","kind":"required","type":["numeric","column"]},
+        {"name":"ib","kind":"required","type":["numeric","column"]}
+    ]
+},
+"second":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"secondType","kind":"positional","type":"choices={'secondofminute','secondofday'}","default":"secondofminute"}
+    ],
+    "outputs": [
+        {"name":"s","type":"numeric"}
+    ]
+},
+// *** size in common block below
+"sort":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"datetime"},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for datetime
+    ],
+    "outputs": [
+        {"name":"B", "type":["datetime"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"sortrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["datetime"]]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for datetime
+    ],
+    "outputs": [
+        {"name":"B", "type":["datetime"]},
+        {"name":"Index", "type":[["integer",">=1"]]}
+    ]
+},
+"std":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"name":"w","kind":"optional","type":"choices={0,1}"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnat','includenat'}","default":"omitnat"}
+    ],
+    "outputs": [
+        {"name":"S","type":"datetime"}
+    ]
+},
+// *** string in common block below
+"timeofday":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"d","type":"duration"}
+    ]
+},
+"topkrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["datetime"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector", ">=1"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'descend'"}
+        // no ComparisonMethod for datetime
+    ],
+    "outputs": [
+        {"name":"B", "type":["datetime"]},
+        {"name":"Index", "type":[["integer",">=1"]]}
+    ]
+},
+"transpose":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"B","type":"datetime"}
+    ]
+},
+"tzoffset":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"dt","type":"duration"},
+        {"name":"dst","type":"duration"}
+    ]
+},
+"union":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"datetime"},
+                {"name":"B","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["datetime"],["char","row"],["cellstr"]]},
+                {"name":"B","kind":"required","type":"datetime"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","kind":"required","type":"datetime"},
+        {"name":"ia","kind":"required","type":["numeric","column"]},
+        {"name":"ib","kind":"required","type":["numeric","column"]}
+    ]
+},
+"unique":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"datetime"},
+        {"mutuallyExclusiveGroup": [
+            // when 'rows' is present, it's documented as must be first
+            [
+                {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+                {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+            ],
+            [ // occurrence is not allowed with setOrder
+                {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+                {"name":"occurrence", "kind":"optional", "type":["choices={'first', 'last'}"], "default":"'first'"}
+                // 'legacy' is not documented to work for datetime
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","kind":"required","type":"datetime"},
+        {"name":"ia","kind":"required","type":["numeric","vector"]},
+        {"name":"ic","kind":"required","type":["numeric","vector"]}
+    ]
+},
+"vertcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["char", "row"],["cellstr"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C","type":"datetime"}
+    ]
+},
+"week":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"weekType","kind":"positional","type":"choices={'weekofyear','weekofmonth'}","default":"weekofyear"}
+    ],
+    "outputs": [
+        {"name":"w","type":"numeric"}
+    ]
+},
+"yyyymmdd":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"pd","type":"numeric"}
+    ]
+},
+"year":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"},
+        {"name":"yearType","kind":"optional","type":"choices={'iso','gregorian'}","default":"iso"}
+    ],
+    "outputs": [
+        {"name":"y","type":["numeric"]}    
+    ]
+},
+"ymd":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"y","type":["numeric"]},
+        {"name":"m","type":["numeric"]},
+        {"name":"d","type":["numeric"]}            
+    ]
+},
+
+// ================================================================
+//  DURATION METHODS
+// ================================================================
+"abs":
+{   
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"}
+    ],
+    "outputs": [
+        {"name":"Y","type":"numeric"}
+    ]
+},
+"cat":
+{
+    "inputs": [
+        {"name":"dim", "kind":"required", "type":["numeric", "scalar", ">=1"]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["duration"],["numeric"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},  
+"ceil":
+{   
+    "inputs": [
+        {"name":"t","kind":"required","type":"duration"},
+        {"name":"unit","kind":"optional","type":"choices={'seconds','minutes','hours','days','years'}","default":"'seconds'"}
+    ],
+    "outputs": [
+        {"name":"Y","type":"duration"}
+    ]
+},
+// *** cellstr in common block below
+// *** char in common block below
+"ctranspose":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"}
+    ],
+    "outputs": [
+        {"name":"B","type":"duration"}
+    ]
+},
+"cummax":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"direction","kind":"optional","type":"choices={'forward','reverse'}","default":"'forward'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"}
+    ]
+},
+"cummin":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"direction","kind":"optional","type":"choices={'forward','reverse'}","default":"'forward'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"}
+    ]
+},
+"cumsum":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"direction","kind":"optional","type":"choices={'forward','reverse'}","default":"'forward'"}
+    ],
+    "outputs": [
+        {"name":"B","type":"duration"}
+    ]
+},
+// *** datenum in common block below
+// *** datevec in common block below
+"days":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["duration"]}
+    ],
+    "outputs": [
+        {"name":"D","type":"numeric"}
+    ]    
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"},
+        {"name":"edges","kind":"required","type":"duration"},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["duration","vector"]]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"},
+        {"name":"edges","kind":"required","type":"duration"},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["duration","vector"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"}
+            ],
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"displayFormat","kind":"required","type":["char","row"]}
+            ],
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"categoryNames","kind":"required","type":"cellstr"}
+            ]
+        ]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"N","kind":"required","type":["positive","scalar","integer","numeric"]}
+            ],
+            [
+                {"name":"dur","kind":"required","type":[["duration","scalar"],["calendarDuration","scalar"],["choices={'second','minute','hour','day','year'}"]]}
+            ]    
+        ]},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["duration","vector"]]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]},
+        {"name":"E","kind":"optional","type":["datetime","vector"]}
+    ]
+},
+"discretize":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"N","kind":"required","type":["positive","scalar","integer","numeric"]}
+            ],
+            [
+                {"name":"dur","kind":"required","type":[["duration","scalar"],["calendarDuration","scalar"],["choices={'second','minute','hour','day','year'}"]]}
+            ]    
+        ]},
+        {"name":"values","kind":"optional","type":[["numeric","vector"],["duration","vector"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"}
+            ],
+            [
+        {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"displayFormat","kind":"required","type":["char","row"]}
+            ],
+            [
+                {"name":"'categorical'","kind":"required","type":"choices={'categorical'}"},
+                {"name":"categoryNames","kind":"required","type":"cellstr"}
+            ]
+        ]},
+        {"name":"IncludedEdge","kind":"namevalue","type":"choices={'left','right'}"}
+    ],
+    "outputs": [
+        {"name":"Y","type":["numeric"]},
+        {"name":"E","kind":"optional","type":["datetime","vector"]}
+    ]
+},
+"duration":
+{   
+    "inputs": [
+        {"name":"X","kind":"required","type":"numeric"},
+        {"name":"Format","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices('duration')"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"duration"}
+    ]
+},
+"duration":
+{   
+    "inputs": [
+        {"name":"H","kind":"required","type":"numeric"},
+        {"name":"MI","kind":"required","type":"numeric"},
+        {"name":"S","kind":"required","type":"numeric"},
+        {"name":"MS","kind":"optional","type":"numeric"},
+        {"name":"Format","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices('duration')"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"duration"}
+    ]
+},  
+"duration": 
+{
+    "inputs": [
+      {"name": "X","kind": "required","type": [[ "string" ],[ "cellstr" ],[ "char" ]]},
+      {"name": "Format","kind": "namevalue","type": [[ "choices=matlab.internal.datetime.functionsignatures.formatchoices('duration')" ],[ "char", "row" ]]},
+      {"name": "InputFormat","kind": "namevalue","type": [[ "choices=matlab.internal.datetime.functionsignatures.formatchoices('duration-input')" ],[ "char", "row" ]]}
+    ],
+    "outputs": [
+        {"name": "D","type": "duration"}
+    ]
+},
+"floor":
+{   
+    "inputs": [
+        {"name":"t","kind":"required","type":"duration"},
+        {"name":"unit","kind":"optional","type":"choices={'seconds','minutes','hours','days','years'}","default":"'seconds'"}
+    ],
+    "outputs": [
+        {"name":"Y","type":"duration"}
+    ]
+},
+"histcounts":
+{   
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"},
+        {"name":"nbins","kind":"optional","type":["integer", "positive"]},
+        {"name":"BinLimits","kind":"namevalue","type":["vector"]},
+        {"name":"BinMethod","kind":"namevalue","type":"choices={'auto','scott','fd','sturges','sqrt','second','minute','hour','day','year'}","default":"'auto'"},
+        {"name":"BinWidth","kind":"namevalue","type":["duration","scalar"]},
+        {"name":"Normalization","kind":"namevalue","type":"choices={'count','countdensity','cumcount','probability','pdf','cdf'}","default":"'count'"}
+    ],
+    "outputs":  
+    [
+        {"name":"N","type":["numeric","vector","row"]},
+        {"name":"edges","type":["duration","vector"]},  
+        {"name":"bin","type":"numeric"}
+    ]
+},
+"histcounts":
+{   
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"},
+        {"name":"edges","kind":"optional","type":["duration", "vector"]},
+        {"name":"BinLimits","kind":"namevalue","type":["vector"]},
+        {"name":"BinMethod","kind":"namevalue","type":"choices={'auto','scott','fd','sturges','sqrt','second','minute','hour','day','year'}","default":"'auto'"},
+        {"name":"BinWidth","kind":"namevalue","type":["duration","scalar"]},
+        {"name":"Normalization","kind":"namevalue","type":"choices={'count','countdensity','cumcount','probability','pdf','cdf'}","default":"'count'"}
+    ],
+    "outputs": [
+        {"name":"N","type":["numeric","vector","row"]},
+        {"name":"edges","type":["duration","vector"]},  
+        {"name":"bin","type":"numeric"}
+    ]
+},
+"horzcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["duration"],["numeric"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"hours":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["duration"]}
+    ],
+    "outputs": [
+        {"name":"H","type":"numeric"}
+    ]    
+},
+"interp1":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"x","kind":"required","type":["duration","vector"]},
+                {"name":"v","kind":"required","type":[["datetime"],["duration"],["numeric"]]},
+                {"name":"xq","kind":"required","type":["duration"]}
+            ],
+            [
+                {"name":"x","kind":"required","type":["numeric","vector"]},
+                {"name":"v","kind":"required","type":["duration"]},
+                {"name":"xq","kind":"required","type":["numeric"]}
+            ]
+        ]},
+        {"name":"method","kind":"positional","type":"choices={'linear','nearest','next','previous','spline','pchip','cubic','v5cubic'}","default":"'linear'"},
+        {"name":"extrapolation","kind":"optional","type":[["choices={'extrap'}"],["datetime","scalar"],["duration","scalar"],["numeric","scalar"]]}
+    ],
+    "outputs": [
+        {"name":"vq","type":[["datetime"],["duration"],["numeric"]]}
+    ]
+},
+"intersect":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"},
+        {"name":"ia","type":["numeric","vector"]},
+        {"name":"ib","type":["numeric","vector"]}
+    ]
+},
+// *** iscolumn in common block below
+// *** isdst in common block below
+// *** isempty in common block below
+"isequal":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["duration"],["numeric"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"isequaln":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["numeric"],["duration"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+// *** isfinite in common block below
+// *** isinf in common block below
+// *** ismatrix in common block below
+"ismember":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]},
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"Lia","type":"logical"},
+        {"name":"Locb","type":"logical"}
+    ]
+},
+"isnan":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+// *** isrow in common block below
+// *** isscalar in common block below
+// *** issorted in common block below
+// *** issortedrows in common block below
+// *** isvector in common block below
+"ldivide":
+{   
+    "inputs": [
+        {"name":"B","kind":"required","type":[["duration"],["numeric"]]},
+        {"name":"A","kind":"required","type":"duration"}
+    ],
+    "outputs": [
+        {"name":"x","type":"numeric"}
+    ]
+},
+// *** length in common block below
+"linspace":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"x1","kind":"required","type":["duration","scalar"]},
+                {"name":"x2","kind":"required","type":[["duration","scalar"],["numeric","scalar"]]}
+            ],
+            [
+                {"name":"x1","kind":"required","type":["numeric","scalar"]},
+                {"name":"x2","kind":"required","type":["duration","scalar"]}
+            ]
+        ]},
+        {"name":"n","kind":"optional","type":["numeric","scalar"]}
+    ],
+    "outputs": [
+        {"name":"y","type":"duration"}
+    ]
+},
+"max":
+{   
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["duration"]},
+        {"name":"[]", "kind":"required", "type":["double", "@(x)isequal(x,[])"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"},
+        {"name":"I","type":"numeric"}
+    ]
+},
+"max":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                // This signature will match max(d,[]<tab>. In most cases that will be the one-input
+                // syntax whose signature is above, but it is valid as a two-input syntax.
+                {"name":"A", "kind":"required", "type":["duration"]},
+                {"name":"B", "kind":"required", "type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["duration"],["numeric"]]},
+                {"name":"B", "kind":"required", "type":["duration"]}
+            ]
+        ]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"maxk":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["duration"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+        // no ComparisonMethod for duration
+    ],
+    "outputs": [
+        {"name":"B", "type":["duration"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"mean":
+{   
+    "inputs": [
+        {"name":"T","kind":"required","type":"duration"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnan','includenan'}","default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"}
+    ]
+},
+"median":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnan','includenan'}","default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"}
+    ]
+},
+"milliseconds":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["duration"]}
+    ],
+    "outputs": [
+        {"name":"MS","type":"numeric"}
+    ]    
+},
+"min":
+{   
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["duration"]},
+        {"name":"[]", "kind":"required", "type":["double", "@(x)isequal(x,[])"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"},
+        {"name":"I","type":"numeric"}
+    ]
+},
+"min":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                // This signature will match min(d,[]<tab>. In most cases that will be the one-input
+                // syntax whose signature is above, but it is valid as a two-input syntax.
+                {"name":"A", "kind":"required", "type":["duration"]},
+                {"name":"B", "kind":"required", "type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A", "kind":"required", "type":[["duration"],["numeric"]]},
+                {"name":"B", "kind":"required", "type":["duration"]}
+            ]
+        ]},
+        {"name":"nanflag", "kind":"flag", "type":["choices={'omitnan' 'includenan'}"], "default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"mink":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["duration"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]}
+        // no ComparisonMethod for duration
+    ],
+    "outputs": [
+        {"name":"B", "type":["duration"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"minus":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"minutes":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["duration"]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]    
+},
+"mod":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"a","kind":"required","type":"duration"},
+                {"name":"m","kind":"optional","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"a","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"m","kind":"optional","type":"duration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"b","type":"duration"}
+    ]
+},
+"mode":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"dim","kind":"required","type":"numeric"}
+    ],
+    "outputs": [
+        {"name":"M","type":"duration"},
+        {"name":"F","type":"numeric"},
+        {"name":"C","type":"cell"}
+    ]
+},
+// *** ndims in common block below
+// *** numel in common block below
+"permute":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"order","kind":"required","type":["numeric","integer","row"]}
+    ],
+    "outputs": [
+        {"name":"B","type":"duration"}
+    ]
+},
+"plus":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"rem":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"a","kind":"required","type":"duration"},
+                {"name":"b","kind":"optional","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"a","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"b","kind":"optional","type":"duration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"r","type":"duration"}
+    ]
+},
+"reshape":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz","kind":"required","type":["numeric","integer","row"]}
+            ],
+            [
+                {"name":"sz","kind":"required","type":["numeric","integer","scalar"],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"B","type":"duration"}
+    ]
+},
+"round":
+{   
+    "inputs": [
+        {"name":"t","kind":"required","type":"duration"},
+        {"name":"unit","kind":"optional","type":"choices={'seconds','minutes','hours','days','years'}","default":"'seconds'"}
+    ],
+    "outputs": [
+        {"name":"Y","type":"duration"}
+    ]
+},
+"seconds":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":"duration"}
+    ],
+    "outputs": [
+        {"name":"S","type":"numeric"}
+    ]    
+},
+"setdiff":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"},
+        {"name":"ia","type":["numeric","vector"]}
+    ]
+},
+"setxor":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"},
+        {"name":"ia","type":["numeric","vector"]},
+        {"name":"ib","type":["numeric","vector"]}
+    ]
+},
+// *** size in common block below
+"sort":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":"duration"},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for duration
+    ],
+    "outputs": [
+        {"name":"B", "type":["duration"]},
+        {"name":"I", "type":[["integer",">=1"]]}
+    ]
+},
+"sortrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["duration"]]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for duration
+    ],
+    "outputs": [
+        {"name":"B", "type":["duration"]},
+        {"name":"Index", "type":[["integer",">=1"]]}
+    ]
+},
+"std":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"w","kind":"optional","type":"choices={0,1}"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnan','includenan'}","default":"omitnat"}
+    ],
+    "outputs": [
+        {"name":"S","type":"duration"}
+    ]
+},
+// *** string in common block below
+"sum":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        {"name":"dim","kind":"optional","type":["numeric","scalar"]},
+        {"name":"nanflag","kind":"flag","type":"choices={'omitnan','includenan'}","default":"'omitnan'"}
+    ],
+    "outputs": [
+        {"name":"S","type":"duration"}
+    ]
+},
+"topkrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":["duration"]},
+        {"name":"k", "kind":"required", "type":["integer", "scalar", ">=0"]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector", ">=1"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend'}"], "default":"'descend'"}
+        // no ComparisonMethod for duration
+    ],
+    "outputs": [
+        {"name":"B", "type":["duration"]},
+        {"name":"Index", "type":[["integer",">=1"]]}
+    ]
+},
+"transpose":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"}
+    ],
+    "outputs": [
+        {"name":"B","type":"duration"}
+    ]
+},
+"union":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"duration"},
+                {"name":"B","kind":"required","type":[["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"duration"}
+            ]
+        ]},
+        // when 'rows' is present, it's documented as must be first
+        {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+        {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+        // 'legacy' is not documented to work
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"},
+        {"name":"ia","type":["numeric","vector"]},
+        {"name":"ib","type":["numeric","vector"]}
+    ]
+},
+"unique":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"},
+        // when 'rows' is present, it's documented as must be first
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+                {"name":"setOrder", "kind":"optional", "type":["choices={'sorted', 'stable'}"], "default":"'sorted'"}
+            ],
+            [ // occurrence is not allowed with setOrder
+                {"name":"'rows'", "kind":"optional", "type":["choices={'rows'}"]},
+                {"name":"occurrence", "kind":"optional", "type":["choices={'first', 'last'}"], "default":"'first'"}
+                // 'legacy' is not documented to work for datetime
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","kind":"required","type":"datetime"},
+        {"name":"ia","kind":"required","type":["numeric","vector"]},
+        {"name":"ic","kind":"required","type":["numeric","vector"]}
+    ]
+},
+"uminus":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"duration"}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+"vertcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["duration"],["numeric"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C","type":"duration"}
+    ]
+},
+"years":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["duration"]}
+    ],
+    "outputs": [
+        {"name":"Y","type":"numeric"}
+    ]
+},
+
+// ================================================================
+//  CALENDARDURATION METHODS
+// ================================================================
+"caldays":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["calendarDuration"]}
+    ],
+    "outputs": [
+        {"name":"D","type":"numeric"}
+    ]    
+},
+"calendarDuration":
+{   
+    "inputs": [
+        {"name":"Y","kind":"required","type":["numeric","integer"]},
+        {"name":"M","kind":"required","type":["numeric","integer"]},
+        {"name":"D","kind":"required","type":["numeric","integer"]},
+        {"mutuallyExclusiveGroup": [
+            [
+                // match no additional inputs
+            ],
+            [
+                {"name":"H","kind":"optional","type":["numeric","integer"]},
+                {"name":"M","kind":"optional","type":["numeric","integer"]},
+                {"name":"S","kind":"optional","type":"numeric"}
+            ],
+            [
+                {"name":"T","kind":"optional","type":"duration"}
+            ]
+        ]},
+        {"name":"Format","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices('calendarDuration')"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"calendarDuration"}
+    ]
+},
+"calendarDuration":
+{   
+    "inputs": [
+        {"name":"YMD","kind":"required","type":["numeric","integer"]},
+        {"name":"Format","kind":"namevalue","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices('calendarDuration')"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"D","type":"calendarDuration"}
+    ]
+},
+"calmonths":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["calendarDuration"]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]    
+},
+"calquarters":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["calendarDuration"]}
+    ],
+    "outputs": [
+        {"name":"Q","type":"numeric"}
+    ]    
+},
+"calweeks":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["calendarDuration"]}
+    ],
+    "outputs": [
+        {"name":"W","type":"numeric"}
+    ]    
+},
+"calyears":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":["calendarDuration"]}
+    ],
+    "outputs": [
+        {"name":"Y","type":"numeric"}
+    ]    
+},
+"cat":
+{
+    "inputs": [
+        {"name":"dim", "kind":"required", "type":["numeric", "scalar", ">=1"]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":[["calendarDuration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["calendarDuration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"calendarDuration"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["calendarDuration"],["numeric"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+// *** cellstr in common block below
+// *** char in common block below
+"ctranspose":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"calendarDuration"}
+    ],
+    "outputs": [
+        {"name":"B","type":"calendarDuration"}
+    ]
+},
+// *** datevec in common block below
+"horzcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["calendarDuration"],["numeric"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+// *** iscolumn in common block below
+// *** isdst in common block below
+// *** isempty in common block below
+"isequal":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":[["calendarDuration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["calendarDuration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"calendarDuration"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["calendarDuration"],["numeric"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"isequaln":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":[["calendarDuration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["calendarDuration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"calendarDuration"}
+            ],
+            [
+                {"name":"A","kind":"optional","type":[["calendarDuration"],["numeric"]],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+// *** isfinite in common block below
+// *** isinf in common block below
+// *** ismatrix in common block below
+// *** isrow in common block below
+// *** isscalar in common block below
+// *** isvector in common block below
+// *** length in common block below
+"minus":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":[["calendarDuration"],["duration"],["numeric"]]}
+            ],
+            [
+                {"name":"A","kind":"required","type":[["calendarDuration"],["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"calendarDuration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+"movmad": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmax": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmean": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmedian": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movmin": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movprod": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movstd": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"w","kind":"optional","type":"choices={0,1}"},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movsum": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"movvar": // this is a datetime/duration method, but datetime/duration is NOT the primary input
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["numeric"],["logical"]]},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"k","kind":"required","type":["duration","scalar"]}
+            ],
+            [
+                {"name":"[kb kf]","kind":"required","type":["duration","vector","numel=2"]}
+            ]
+        ]},
+        {"name":"w","kind":"optional","type":"choices={0,1}"},
+        {"name":"dim","kind":"optional","type":["numeric","integer","scalar",">0"]},
+        // nanflag must come before name/value pairs, so it's optional not a flag
+        {"name":"nanflag","kind":"optional","type":"choices={'omitnan','includenan'}","default":"'omitnan'"},
+        {"name":"Endpoints","kind":"namevalue",
+         "type":[["choices={'shrink','discard','fill'}"],["numeric","scalar"],["logical","scalar"]],"default":"'shrink'"},
+        // samplepoints MUST be provided and MUST be duration/datetime, if k or [kb kf] is duration
+        {"name":"SamplePoints","kind":"namevalue","type":[["datetime","vector"],["duration","vector"]]}
+    ],
+    "outputs": [
+        {"name":"M","type":"numeric"}
+    ]
+},
+"mtimes":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":["numeric","integer"]}
+            ],
+            [
+                {"name":"A","kind":"required","type":["numeric","integer"]},
+                {"name":"B","kind":"required","type":"calendarDuration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+// *** ndims in common block below
+// *** numel in common block below
+"permute":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"calendarDuration"},
+        {"name":"order","kind":"required","type":["numeric","integer","row"]}
+    ],
+    "outputs": [
+        {"name":"B","type":"calendarDuration"}
+    ]
+},
+"plus":
+{
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":[["calendarDuration"],["duration"],["numeric"]]},
+                {"name":"B","kind":"required","type":"calendarDuration"}                    
+            ],
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":[["calendarDuration"],["duration"],["numeric"]]}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+"reshape":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"calendarDuration"},
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz","kind":"required","type":["numeric","integer","row"]}
+            ],
+            [
+                {"name":"sz","kind":"required","type":["numeric","integer","scalar"],"multiplicity":"append"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"B","type":"calendarDuration"}
+    ]
+},
+// *** size in common block below
+"split":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"calendarDuration"},
+        {"name":"units","kind":"required","type":["choices={'years','quarters','months','weeks','days','time'}"]}
+
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+// *** string in common block below
+"time":
+{   
+    "inputs": [
+        {"name":"d","kind":"required","type":"calendarDuration"}
+    ],
+    "outputs": [
+        {"name":"t","type":"duration"}
+    ]
+},
+"times":
+{   
+    "inputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"A","kind":"required","type":"calendarDuration"},
+                {"name":"B","kind":"required","type":["numeric","integer"]}
+            ],
+            [
+                {"name":"A","kind":"required","type":["numeric","integer"]},
+                {"name":"B","kind":"required","type":"calendarDuration"}
+            ]
+        ]}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+"transpose":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":"calendarDuration"}
+    ],
+    "outputs": [
+        {"name":"B","type":"calendarDuration"}
+    ]
+},
+"uminus":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":"calendarDuration"}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+"vertcat":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["calendarDuration"],["numeric"]],"multiplicity":"append"}
+    ],
+    "outputs": [
+        {"name":"C","type":"calendarDuration"}
+    ]
+},
+
+// ================================================================
+// Common Signatures Across Classes
+// ================================================================
+"cellstr":
+{
+    "inputs": [
+        {"name":"D","kind":"required","type":[["datetime"], ["duration"], ["calendarDuration"]]},
+        {"name":"fmt","kind":"positional","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices(D)"], ["char","row"]]},
+        {"name":"locale","kind":"positional","type":[["choices=matlab.internal.datetime.functionsignatures.localechoices()"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"S","type":"cellstr"}
+    ]
+},
+"char":
+{
+    "inputs": [
+        {"name":"D","kind":"required","type":[["datetime"], ["duration"], ["calendarDuration"]]},
+        {"name":"fmt","kind":"positional","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices(D)"], ["char","row"]]},
+        {"name":"locale","kind":"positional","type":[["choices=matlab.internal.datetime.functionsignatures.localechoices()"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"S","type":"char"}
+    ]
+},
+"datenum":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":[["datetime"],["duration"]]}
+    ],
+    "outputs": [
+        {"name":"DateNumber","type":["numeric"]}
+    ]
+},
+"datevec":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":[["datetime"],["calendarDuration"],["duration"]]}
+    ],
+    "outputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"DateVector","type":["numeric"]}
+            ],
+            [
+                {"name":"Y","type":["numeric","scalar"]},
+                {"name":"M","type":["numeric","scalar"]},
+                {"name":"D","type":["numeric","scalar"]},
+                {"name":"H","type":["numeric","scalar"]},
+                {"name":"MN","type":["numeric","scalar"]},
+                {"name":"S","type":["numeric","scalar"]}                
+            ]
+        ]}
+    ]
+},
+"hms":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":[["datetime"],["duration"]]}
+    ],
+    "outputs": [
+        {"name":"h","type":["numeric"]},
+        {"name":"m","type":["numeric"]},
+        {"name":"s","type":["numeric"]}                
+    ]
+},
+"iscolumn":
+{
+    "inputs": [
+        {"name":"V","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"isdst":
+{
+    "inputs": [
+        {"name":"t","kind":"required","type":"datetime"}
+    ],
+    "outputs": [
+        {"name":"tf","type":"logical"}
+    ]
+},
+"isempty":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"isfinite":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"isinf":
+{   
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"ismatrix":
+{
+    "inputs": [
+        {"name":"V","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"isrow":
+{
+    "inputs": [
+        {"name":"V","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"isscalar":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"issorted":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["duration"], ["datetime"]]},
+        {"name":"dim", "kind":"optional", "type":["integer", "scalar", ">=1"]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for datetime, duration
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"issortedrows":
+{
+    "inputs": [
+        {"name":"A", "kind":"required", "type":[["datetime"],["duration"]]},
+        {"name":"column", "kind":"optional", "type":[["integer", "vector"], ["logical", "vector"]]},
+        {"name":"direction", "kind":"optional", "type":["choices={'ascend','descend','monotonic','strictascend','strictdescend','strictmonotonic'}"], "default":"'ascend'"},
+        {"name":"MissingPlacement", "kind":"namevalue", "type":["choices={'auto','last', 'first'}"], "default":"'auto'"}
+        // no ComparisonMethod for datetime, duration
+    ],
+    "outputs": [
+        {"name":"TF", "type":["logical", "scalar"]}
+    ]
+},
+"isvector":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"TF","type":"logical"}
+    ]
+},
+"length":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"L","type":["numeric","integer","scalar"]}
+    ]
+},
+"ndims":
+{
+    "inputs": [
+        {"name":"X","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"N","type":["numeric","integer","scalar"]}
+    ]
+},
+"numel":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"name":"n","type":["numeric","integer","scalar"]}
+    ]
+},
+"size":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]}
+    ],
+    "outputs": [
+        {"mutuallyExclusiveGroup": [
+            [
+                {"name":"sz","type":["numeric","integer","row"]}
+            ],
+            [
+                {"name":"m","type":["numeric","integer","scalar"]},
+                {"name":"n","type":["numeric","integer","scalar"]}
+            ],
+            [
+                {"name":"sz","type":["numeric","integer","scalar"],"multiplicity":"append"}
+            ]
+        ]}
+    ]
+},
+"size":
+{
+    "inputs": [
+        {"name":"A","kind":"required","type":[["datetime"],["duration"],["calendarDuration"]]},
+        {"name":"dim","kind":"positional","type":["numeric","integer","scalar"]}
+    ],
+    "outputs": [
+        {"name":"szdim","type":["numeric","integer","scalar"]}
+    ]
+},
+"string":
+{
+    "inputs": [
+        {"name":"D","kind":"required","type":[["datetime"], ["duration"], ["calendarDuration"]]},
+        {"name":"fmt","kind":"positional","type":[["choices=matlab.internal.datetime.functionsignatures.formatchoices(D)"], ["char","row"]]},
+        {"name":"locale","kind":"positional","type":[["choices=matlab.internal.datetime.functionsignatures.localechoices()"], ["char","row"]]}
+    ],
+    "outputs": [
+        {"name":"str","type":"string"}
+    ]
+}
+}

@@ -1,0 +1,165 @@
+{
+	"matlab_login": {
+
+		"mw-event-utils":{
+			"name": "mw-event-utils",
+			"moduleLocation": "derived/ui/mw-event-utils"
+		},
+		"l10n":{
+			"name": "l10n",
+			"moduleLocation": "ui/webwidgets/src/l10n"
+		},
+		"mw-dom-utils":{
+			"name": "mw-dom-utils",
+			"moduleLocation": "derived/ui/mw-dom-utils"
+		},
+		"mw-remote":{
+			"name": "mw-remote",
+			"moduleLocation": "derived/ui/mw-remote"
+		},
+		"dijit":{
+			"name": "dijit",
+			"moduleLocation": "derived/ui/dijit"
+		},
+		"dojox":{
+			"name": "dojox",
+			"moduleLocation": "derived/ui/dojox"
+		},
+		"mw-log":{
+			"name": "mw-log",
+			"moduleLocation": "derived/ui/mw-log"
+		},
+		"images":{
+			"name": "images",
+			"moduleLocation": "ui/webwidgets/src/images"
+		},
+		"put-selector":{
+			"name": "put-selector",
+			"moduleLocation": "derived/ui/put-selector"
+		},
+		"mw-store-utils":{
+			"name": "mw-store-utils",
+			"moduleLocation": "derived/ui/mw-store-utils"
+		},
+		"mw-mixins":{
+			"name": "mw-mixins",
+			"moduleLocation": "derived/ui/mw-mixins"
+		},
+		"mw-filename-utils":{
+			"name": "mw-filename-utils",
+			"moduleLocation": "derived/ui/mw-filename-utils"
+		},
+		"mw-keybindings":{
+			"name": "mw-keybindings",
+			"moduleLocation": "derived/ui/mw-keybindings"
+		},
+		"dojo":{
+			"name": "dojo",
+			"moduleLocation": "derived/ui/dojo"
+		},
+		"mw-dialog-utils":{
+			"name": "mw-dialog-utils",
+			"moduleLocation": "derived/ui/mw-dialog-utils",
+			"images": "derived/ui/mw-dialog-utils/images",
+			"css": "derived/ui/mw-dialog-utils/css"
+		},
+		"InstallServiceHandler":{
+			"name": "InstallServiceHandler",
+			"moduleLocation": "install/installservicehandler/web/installservicehandler"
+		},
+		"mw-messageservice":{
+			"name": "mw-messageservice",
+			"moduleLocation": "derived/ui/mw-messageservice"
+		},
+		"mw-dnd":{
+			"name": "mw-dnd",
+			"moduleLocation": "derived/ui/mw-dnd"
+		},
+		"mw-deprecation-utils":{
+			"name": "mw-deprecation-utils",
+			"moduleLocation": "derived/ui/mw-deprecation-utils"
+		},
+		"mw-menu":{
+			"name": "mw-menu",
+			"moduleLocation": "derived/ui/mw-menu",
+			"images": "derived/ui/mw-menu/images",
+			"css": "derived/ui/mw-menu/css"
+		},
+		"mw-html-utils":{
+			"name": "mw-html-utils",
+			"moduleLocation": "derived/ui/mw-html-utils"
+		},
+		"maven_component_ui":{
+			"name": "maven_component_ui",
+			"moduleLocation": "derived/ui/maven_component_ui"
+		},
+		"MW":{
+			"name": "MW",
+			"moduleLocation": "ui/webwidgets/src/js/MW"
+		},
+		"matlab_login":{
+			"name": "matlab_login",
+			"moduleLocation": "toolbox/matlab/matlab_login/web/matlab_login"
+		},
+		"mw-peermodel":{
+			"name": "mw-peermodel",
+			"moduleLocation": "derived/ui/mw-peermodel"
+		},
+		"spinner":{
+			"name": "spinner",
+			"moduleLocation": "derived/3p/ui/spinner"
+		},
+		"mw-colorpicker":{
+			"name": "mw-colorpicker",
+			"moduleLocation": "derived/ui/mw-colorpicker",
+			"css": "derived/ui/mw-colorpicker/css"
+		},
+		"mw-utils":{
+			"name": "mw-utils",
+			"moduleLocation": "derived/ui/mw-utils"
+		},
+		"dgrid":{
+			"name": "dgrid",
+			"moduleLocation": "derived/ui/dgrid"
+		},
+		"xstyle":{
+			"name": "xstyle",
+			"moduleLocation": "derived/ui/xstyle"
+		},
+		"mw-string-utils":{
+			"name": "mw-string-utils",
+			"moduleLocation": "derived/ui/mw-string-utils"
+		},
+		"mw-navigationbar":{
+			"name": "mw-navigationbar",
+			"moduleLocation": "derived/ui/mw-navigationbar",
+			"css": "derived/ui/mw-navigationbar/css"
+		},
+		"mw-overlay-utils":{
+			"name": "mw-overlay-utils",
+			"moduleLocation": "derived/ui/mw-overlay-utils"
+		},
+		"mw-actiondataservice":{
+			"name": "mw-actiondataservice",
+			"moduleLocation": "derived/ui/mw-actiondataservice"
+		},
+		"mw-gesture":{
+			"name": "mw-gesture",
+			"moduleLocation": "derived/ui/mw-gesture"
+		},
+		"mw-form":{
+			"name": "mw-form",
+			"moduleLocation": "derived/ui/mw-form",
+			"css": "derived/ui/mw-form/css",
+			"images": "derived/ui/mw-form/images"
+		},
+		"mw-statemachine":{
+			"name": "mw-statemachine",
+			"moduleLocation": "derived/ui/mw-statemachine"
+		},
+		"mw-browser-utils":{
+			"name": "mw-browser-utils",
+			"moduleLocation": "derived/ui/mw-browser-utils"
+		}
+	}
+}

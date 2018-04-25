@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015-2017 The MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="confirmationdialogs" visible="false">
+        <key name="CommandWindowClearConfirmation" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+
+        <key name="CommandHistoryDeleteConfirm" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+
+        <key name="MatlabExitConfirm" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+
+        <key name="WorkspaceBrowserClearConfirmation" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="WorkspaceChangeConfirm" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="MatFileChangeConfirm" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTRestartPoolOnClusterChange" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTRestartPoolOnPrefSizeChange" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTForcefullyShutdownCluster" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTValidateCloudStartsCluster" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTSetCloudProfileAsDefault" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTStartCloudCluster" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTMDCSRequired" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="PCTDeleteProfile" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+    </settings>
+</settings>

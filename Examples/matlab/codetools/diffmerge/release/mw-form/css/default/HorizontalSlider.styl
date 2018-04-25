@@ -1,0 +1,84 @@
+
+/********************* Hover and Focused states of field-type components  ends  ************************/
+
+/******************************** Slider **********************************/
+
+.mwSlider {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    cursor: default;
+    top: auto;
+}
+
+/* preserve white space in major-tick labels */
+/* set mouse pointer to default when hovering over text */
+.mwSlider .dijitRuleLabel {
+    white-space: pre;
+    cursor: default;
+}
+
+.mwSliderThumb {
+    position: absolute;
+    outline: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/** Horizontal Slider  **/
+
+/*thumb icon - normal state */
+.mwHorizontalSlider .mwSliderThumb {
+    background-image: url('../../images/Horz_Slider_Thumb.svg');
+    height: 14px;
+    width: 11px;
+    top: -6px;
+}
+
+/*thumb icon - hover and pressed state */
+.mwHorizontalSlider .mwSliderThumb:hover,
+.mwHorizontalSlider .mwSliderThumb:active{
+    background-image: url('../../images/Horz_Slider_Thumb_Hover.svg');
+}
+
+.mwHorizontalSlider .mwSliderTrack {
+    background-color: rgb(153, 153, 153);
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.25);
+    height: 3px;
+    position: relative;
+    left: 7.5px;
+    top: 6px;
+}
+
+.mwHorizontalSlider .mwSliderRuleAndLabelContainer {
+    position: relative;
+    top: 12px;
+    left: 7px;
+    width: 100%;
+}
+
+.mwHorizontalSlider .mwSliderRuleAndLabelContainer .dijitRuleContainer {
+    width: 100%;
+    position: absolute;
+}
+
+.mwHorizontalSlider .mwMinorTickMarks {
+    height: 5px;
+}
+
+.mwHorizontalSlider .mwMajorTickMarks {
+    height: 10px;
+}
+
+.mwHorizontalSlider .mwMajorTickLabels {
+    top: 10px;
+}
+
+/*
+Override left: -50% in dijit.css
+For more details see g1061541
+The fix also involves changes to the Slider custom dijit class
+*/
+.mwSlider.mwHorizontalSlider .dijitRuleLabelH {
+    left: 0;
+}

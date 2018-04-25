@@ -1,0 +1,178 @@
+{
+"axes":
+{
+	"inputs":
+	[
+		{"name":"h", "kind":"ordered", "type":"matlab.graphics.axis.AbstractAxes"}
+	]
+},
+"axes":
+{
+	"inputs":
+	[
+		{"name":"parent", "kind":"ordered", "type":"matlab.ui.container.CanvasContainer"},
+		{"name":"properties", "kind":"properties", "type":"matlab.graphics.axis.Axes"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.axis.Axes"}
+	]
+},
+"close":
+{ 
+    "inputs": 
+    [ 
+        {"name":"h", "kind":"required", "type":"matlab.ui.Figure"}, 
+        {"name":"option", "kind":"ordered", "type":["char", "choices={'hidden','force'}"]}
+     ], 
+    "outputs": 
+    [ 
+        {"name":"status", "type":"double"} 
+    ] 
+},
+"close": 
+{ 
+    "inputs": 
+    [ 
+        {"name":"'all'", "kind":"required", "type":["char", "choices={'all'}"]}, 
+        {"name":"option", "kind":"ordered", "type":["char", "choices={'hidden','force'}"]} 
+    ], 
+    "outputs": 
+    [ 
+        {"name":"status", "type":"double"}
+    ] 
+},
+"close": 
+{ 
+    "inputs": 
+    [ 
+        {"name":"name", "kind":"ordered", "type":["char", "@(x) ~ismember(lower(x),{'hidden','force','all'})"]}, 
+        {"name":"option", "kind":"ordered", "type":["char", "choices={'hidden','force'}"]} 
+    ], 
+    "outputs": 
+    [ 
+        {"name":"status", "type":"double"} 
+    ] 
+},
+"close": 
+{ 
+    "inputs": 
+    [ 
+        {"name":"option", "kind":"ordered", "type":["char", "choices={'hidden','force'}"]} 
+    ], 
+    "outputs": 
+    [ 
+        {"name":"status", "type":"double"} 
+    ] 
+},
+"figure":
+    {
+        "inputs":
+        [
+            {"name":"f", "kind":"ordered", "type":"matlab.ui.Figure"},
+            {"name":"n", "kind":"ordered", "type":"numeric"},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.Figure"}
+        ]
+    },
+"gca":
+{
+	"outputs":
+	[
+		{"name":"ax", "type":"matlab.graphics.axis.AbstractAxes"}
+	]
+},
+"gcf":
+{
+	"outputs":
+	[
+		{"name":"ax", "type":"matlab.ui.Figure"}
+	]
+},
+"hold":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"action", "kind":"ordered", "type":["char", "choices={'on','off'}"]}
+	]
+},
+"openfig":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file=*.fig"},
+		{"name":"copies", "kind":"ordered", "type":"choices={'new','reuse'}", "default":"'new'"},
+		{"name":"visibility", "kind":"ordered", "type":"choices={'invisible','visible'}"}
+	]
+},
+"rectangle":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.primitive.Rectangle"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.primitive.Rectangle"}
+	]
+},
+"reset":
+{
+	"inputs":
+	[
+		{"name":"h", "type":"numeric"}
+	]
+},
+"surface":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"x", "kind":"ordered", "type":["double"], "promotion":"primary"},
+		{"name":"y", "kind":"ordered", "type":["double"], "promotion":"primary"},
+		{"name":"z", "kind":"required", "type":["double"]},
+		{"name":"c", "kind":"ordered", "type":["double"]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.primitive.Surface"}
+	],
+	"outputs":
+	[
+		{"name":"h", "type":"matlab.graphics.primitive.Surface"}
+	]
+},
+"yyaxis":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.Axes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"side", "kind":"ordered", "type":["char", "choices={'left','right'}"]}
+	]
+},
+
+"uicontextmenu":
+{
+	"inputs":
+	[
+		{"name":"parent", "kind":"ordered", "type":"matlab.ui.Figure"},
+		{"name":"opts", "kind":"properties", "type":"matlab.ui.container.ContextMenu"}
+	]
+},
+
+"uicontrol":
+{
+	"inputs":
+	[
+		{"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.ButtonGroup"], ["matlab.ui.container.Tab"]]},
+		{"name":"opts", "kind":"properties", "type":"matlab.ui.control.UIControl"}
+	]
+},
+
+"uimenu":
+{
+	"inputs":
+	[
+		{"name":"parent", "kind":"ordered", "type":[["matlab.ui.container.Menu"], ["matlab.ui.Figure"], ["matlab.ui.container.ContextMenu"]]},
+		{"name":"opts", "kind":"properties", "type":"matlab.ui.container.Menu"}
+	]
+}
+}

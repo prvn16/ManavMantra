@@ -1,0 +1,13 @@
+function defaultShortcutButtons = getDefaultShortcutButtons(h) %#ok
+%GETDEFAULTSHORTCUTBUTTONS Gets the names of the default shortcut buttons
+%that show up in the FPT dialog.
+
+%   Copyright 2011-2015 The MathWorks, Inc.
+
+defaultShortcutButtons = {...
+    fxptui.message('lblDblOverride'),... 
+    fxptui.message('lblFxptOverride'),...
+    fxptui.message('lblDTOMMOOff'),...
+    };
+
+% [EOF]

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="false" xmlns="urn:mathworks.matlab.settings"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings name="external" visible="false">
+    <settings name="interfaces" visible="false">
+      <settings name="python" visible="false">
+        <key name="Version" visible="false">
+          <string minArraySize="4" maxArraySize="4">
+            <runtimedefault type="C" packagename="pycli" functionname="getDefaultPythonVersion"/>
+          </string>
+        </key>
+      </settings>
+    </settings>
+  </settings>
+</settings>

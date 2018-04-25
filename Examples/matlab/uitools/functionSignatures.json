@@ -1,0 +1,435 @@
+{  
+    "align":
+    {
+        "inputs":
+        [
+            {"name":"HandleList_CurPosition", "kind":"required"},
+            {"name":"HorizontalAlignment", "kind":"required", "type":"choices={'None', 'Left', 'Center', 'Right', 'Distribute', 'Fixed'}"},
+            {"name":"VerticalAlignment", "kind":"required", "type":"choices={'None', 'Top', 'Middle', 'Bottom', 'Distribute', 'Fixed'}"}
+        ]
+    },
+
+    "btngroup":
+    {
+        "inputs":
+        [
+            {"name":"fighandle", "kind":"ordered"},
+            {"name":"GroupID", "kind":"namevalue", "type":"char"},
+            {"name":"ButtonID", "kind":"namevalue", "type":"char"},
+            {"name":"IconFunctions", "kind":"namevalue", "type":"char"},
+            {"name":"Cdata", "kind":"namevalue", "type":"cell"},
+            {"name":"PressType", "kind":"namevalue", "type":"choices={'flash', 'toggle'}"},
+            {"name":"Exclusive", "kind":"namevalue", "type":"choices={'yes', 'no'}"},
+            {"name":"Callbacks", "kind":"namevalue", "type":"char"},
+            {"name":"ButtonDownFcn", "kind":"namevalue", "type":"char"},
+            {"name":"GroupSize", "kind":"namevalue", "type":["numeric", "vector", "numel=2"]},
+            {"name":"InitialState", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"Units", "kind":"namevalue", "type":"choices={'centimeters', 'characters', 'inches', 'normalized', 'pixels', 'points'}"},
+            {"name":"Position", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"BevelWidth", "kind":"namevalue", "type":["numeric", "scalar"]},
+            {"name":"ButtonColor", "kind":"namevalue"},
+            {"name":"ButtonDark", "kind":"namevalue"},
+            {"name":"BevelLight", "kind":"namevalue"},
+            {"name":"BevelDark", "kind":"namevalue"},
+            {"name":"Orientation", "kind":"namevalue", "type":"choices={'horizontal', 'vertical'}"}
+        ]
+    },
+
+    "btnicon":
+    {
+        "inputs":
+        [
+            {"name":"option", "kind":"required", "type":"choices={'bigzoom', 'circle', 'deltaomega', 'doublearrow', 'downarrow', 'ellpc', 'ellp', 'fillcircle', 'fillellipse', 'equal', 'eraser', 'littlezoom', 'omega', 'pause', 'pixel', 'play', 'polyfill', 'polygon', 'polyline', 'record', 'rect', 'rectc', 'select', 'spline', 'stop', 'triangle', 'triangle2', 'text', 'uparrow', 'zoom'}"}
+        ]
+    },
+
+    "clipboard":
+    {
+        "inputs":
+        [
+            {"name":"action", "kind":"required", "type":"choices={'copy', 'paste', 'pastespecial'}"},
+            {"name":"data", "kind":"ordered"}
+        ]
+    },
+
+    "dialog":
+    {
+        "inputs":
+        [
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.Figure"}
+        ]
+    },
+
+    "errordlg":
+    {
+        "inputs":  
+        [
+            {"name":"msg", "kind":"positional", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"positional", "type":"char"},
+            {"name":"opts", "kind":"ordered", "type":[["choices={'non-modal', 'modal', 'replace'}"], ["struct"]]}
+        ]
+    },
+
+
+    "getpixelposition":
+    {
+        "inputs":
+        [
+            {"name":"handle", "kind":"required"},
+            {"name":"recursive", "kind":"ordered", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "inputdlg":
+    {
+        "inputs":
+        [
+            {"name":"prompt", "kind":"required", "type":[["cellstr"], ["char"]]},
+            {"name":"title", "kind":"positional", "type":"char"},
+            {"name":"dims", "kind":"positional", "type":"numeric"},
+            {"name":"definput", "kind":"positional", "type":"cellstr"},
+            {"name":"opts", "kind":"ordered", "type":[["choices={'off', 'on'}"], ["struct"]]}
+        ]
+    },
+
+    "listdlg":
+    {
+        "inputs":
+        [
+            {"name":"ListString", "kind":"namevalue", "type":"cellstr"},
+            {"name":"SelectionMode", "kind":"namevalue", "type":"choices={'single', 'multiple'}"},
+            {"name":"ListSize", "kind":"namevalue", "type":["numeric", "vector", "numel=2"]},
+            {"name":"InitialValue", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"Name", "kind":"namevalue", "type":"char"},
+            {"name":"PromptString", "kind":"namevalue", "type":[["cellstr"], ["char"]]},
+            {"name":"OKString", "kind":"namevalue", "type":"char"},
+            {"name":"CancelString", "kind":"namevalue", "type":"char"}
+        ]
+    },
+
+    "movegui":
+    {
+        "inputs":
+        [
+            {"name":"h", "kind":"ordered"},
+            {"name":"position", "kind":"ordered", "type":[["choices={'north', 'south', 'east', 'west', 'northeast', 'northwest', 'southeast', 'southwest', 'center', 'onscreen'}"], ["numeric", "vector", "numel=2"]]}
+        ]
+    },
+
+    "msgbox":
+    {
+        "inputs":  
+        [
+            {"name":"message", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"createmode", "kind":"ordered", "type":[["choices={'non-modal', 'modal', 'replace'}"], ["struct"]]}
+        ]
+    },
+
+    "msgbox":
+    {
+        "inputs":  
+        [
+            {"name":"message", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"required", "type":"char"},
+            {"name":"createmode", "kind":"ordered", "type":[["choices={'non-modal', 'modal', 'replace'}"], ["struct"]]}
+        ]
+    },
+
+    "msgbox":
+    {
+        "inputs":  
+        [
+            {"name":"message", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"required", "type":"char"},
+            {"name":"icon", "kind":"required", "type":"choices={'none', 'error', 'help', 'warn'}"},
+            {"name":"createmode", "kind":"ordered", "type":[["choices={'non-modal', 'modal', 'replace'}"], ["struct"]]}
+        ]
+    },
+
+    "msgbox":
+    {
+        "inputs":  
+        [
+            {"name":"message", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"required", "type":"char"},
+            {"name":"icon", "kind":"required", "type":"choices={'custom'}"},
+            {"name":"icondata", "kind":"required", "type":"numeric"},
+            {"name":"iconcmap", "kind":"required"},
+            {"name":"createmode", "kind":"ordered", "type":[["choices={'non-modal', 'modal', 'replace'}"], ["struct"]]}
+        ]
+    },
+
+    "setpixelposition":
+    {
+        "inputs":
+        [
+            {"name":"handle", "kind":"required"},
+            {"name":"position", "kind":"required", "type":["numeric", "vector", "numel=4"]},
+            {"name":"recursive", "kind":"ordered", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "uibuttongroup":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.ButtonGroup"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.ButtonGroup"}
+        ]
+    },
+
+    "uigetdir":
+    {
+        "inputs":
+        [
+            {"name":"path", "kind":"positional", "type":"filepath"},
+            {"name":"title", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uigetfile":
+    {
+        "inputs":
+        [
+            {"name":"filter", "kind":"ordered", "type":[["char"], ["cellstr"]]},
+            {"name":"title", "kind":"ordered", "type":"char"},
+            {"name":"defname", "kind":"ordered", "type":"char"},
+            {"name":"MultiSelect", "kind":"namevalue", "type":"choices={'on', 'off'}"}
+        ]
+    },
+
+    "uigetpref":
+    {
+        "inputs":
+        [
+            {"name":"group", "kind":"required", "type":"char"},
+            {"name":"pref", "kind":"required", "type":"char"},
+            {"name":"quest", "kind":"required", "type":[["char"], ["cellstr"]]},
+            {"name":"btns", "kind":"required", "type":[["char"], ["cellstr"]]},
+
+            {"name":"CheckboxState", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"CheckboxString", "kind":"namevalue", "type":"char"},
+            {"name":"HelpString", "kind":"namevalue", "type":"char"},
+            {"name":"HelpFcn", "kind":"namevalue", "type":[["char"], ["function_handle"]]},
+            {"name":"ExtraOptions", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+            {"name":"DefaultButton", "kind":"namevalue", "type":"char"}
+        ]
+    },
+
+    "uiopen":
+    {
+        "inputs":
+        [
+        ]
+    },
+
+    "uiopen":
+    {
+        "inputs":
+        [
+            {"name":"type", "kind":"ordered", "type":"choices={'matlab', 'load', 'figure', 'simulink', 'editor'}"}
+        ]
+    },
+
+    "uiopen":
+    {
+        "inputs":
+        [
+            {"name":"file", "kind":"positional", "type":"char"},
+            {"name":"tf", "kind":"ordered", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "uipanel":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.ButtonGroup"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.Panel"}
+        ]
+    },
+
+    "uipushtool":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":"matlab.ui.container.Toolbar"},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.toolbar.PushTool"}
+        ]
+    },
+
+    "uiputfile":
+    {
+        "inputs":
+        [
+            {"name":"FilterSpec", "kind":"positional", "type":[["char"], ["cellstr"]]},
+            {"name":"DialogTitle", "kind":"positional", "type":"char"},
+            {"name":"DefaultName", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uiresume":
+    {
+        "inputs":
+        [
+            {"name":"h", "kind":"required"}
+        ]
+    },
+
+    "uisave":
+    {
+        "inputs":
+        [
+            {"name":"type", "kind":"positional", "type":[["char"], ["cellstr"]]},
+            {"name":"file", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uisetcolor":
+    {
+        "inputs":
+        [
+            {"name":"RGB", "kind":"positional"},
+            {"name":"title", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uisetcolor":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"positional"},
+            {"name":"title", "kind":"ordered", "type":"char"}
+        ]
+    }, 
+
+    "uisetfont":
+    {
+        "inputs":
+        [
+            {"name":"title", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uisetfont":
+    {
+        "inputs":
+        [
+            {"name":"h", "kind":"ordered"},
+            {"name":"title", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uisetfont":
+    {
+        "inputs":
+        [
+            {"name":"opts", "kind":"ordered", "type":"struct"},
+            {"name":"title", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "uisetpref":
+    {
+        "inputs":
+        [
+            {"name":"clearall", "kind":"required", "type":"choices={'clearall'}"}
+        ]
+    },
+
+    "uistack":
+    {
+        "inputs":
+        [
+            {"name":"h", "kind":"required"},
+            {"name":"stackopt", "kind":"positional", "type":"choices={'up', 'down', 'top', 'bottom'}"},
+            {"name":"step", "kind":"ordered", "type":"integer"}
+        ]
+    },
+
+    "uitab":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":"matlab.ui.container.TabGroup"},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.Tab"}
+        ]
+    },
+
+    "uitabgroup":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.ButtonGroup"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.TabGroup"}
+        ]
+    },
+
+    "uitable":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.ButtonGroup"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.control.Table"}
+        ]
+    },
+
+    "uitoggletool":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":"matlab.ui.container.Toolbar"},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.toolbar.ToggleTool"}
+        ]
+    },
+
+    "uitoolbar":
+    {
+        "inputs":
+        [
+            {"name":"parent", "kind":"ordered", "type":"matlab.ui.Figure"},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.container.Toolbar"}
+        ]
+    },
+
+    "uiwait":
+    {
+        "inputs":
+        [
+            {"name":"h", "kind":"positional"},
+            {"name":"timeout", "kind":"ordered", "type":"integer"}
+        ]
+    },
+
+
+    "waitbar":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", ">=0", "<=1"]},
+            {"name":"f", "kind":"positional"},
+            {"name":"msg", "kind":"ordered", "type":"char"}
+        ]
+    },
+
+    "waitbar":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", ">=0", "<=1"]},
+            {"name":"msg", "kind":"required", "type":"char"},
+            {"name":"CreateCancelBtn", "kind":"namevalue"},
+            {"name":"opts", "kind":"properties", "type":"matlab.ui.Figure"}
+        ]
+    },
+
+    "warndlg":
+    {
+        "inputs":
+        [
+            {"name":"msg", "kind":"positional", "type":[["char"],["cellstr"]]},
+            {"name":"title", "kind":"positional", "type":"char"},
+            {"name":"opts", "kind":"ordered", "type":[["choices={'modal', 'non-modal', 'replace'}"], ["struct"]]}
+        ]
+    }
+}

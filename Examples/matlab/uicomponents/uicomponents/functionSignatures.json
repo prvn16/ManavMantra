@@ -1,0 +1,429 @@
+{  
+    "uibutton":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]}
+                    ],
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'push'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'push'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Button"}
+        ]
+    },
+
+    "uibutton":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'state'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'state'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.StateButton"}
+        ]
+    },
+
+    "uicheckbox":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.CheckBox"}
+        ]
+    },
+
+    "uidatepicker":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.DatePicker"}
+        ]
+    },
+
+    "uidropdown":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.DropDown"}
+        ]
+    },
+
+    "uieditfield":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+               [
+                    [
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]}
+                    ],
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'text'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'text'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.EditField"}
+        ]
+    },
+
+    "uieditfield":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'numeric'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'numeric'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.NumericEditField"}
+        ]
+    },
+
+    "uigauge":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]}
+                    ],
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'circular'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'circular'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Gauge"}
+        ]
+    },
+
+    "uigauge":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'semicircular'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'semicircular'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.SemicircularGauge"}
+        ]
+    },
+
+    "uigauge":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'ninetydegree'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'ninetydegree'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.NinetyDegreeGauge"}
+        ]
+    },
+
+    "uigauge":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'linear'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'linear'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.LinearGauge"}
+        ]
+    },
+
+    "uiknob":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]}
+                    ],
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'continuous'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'continuous}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Knob"}
+        ]
+    },
+
+    "uiknob":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'discrete'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'discrete}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.DiscreteKnob"}
+        ]
+    },
+
+    "uilabel":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Label"}
+        ]
+    },
+
+    "uilamp":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Lamp"}
+        ]
+    },
+
+    "uilistbox":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.ListBox"}
+        ]
+    },
+
+    "uiradiobutton":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":"matlab.ui.container.ButtonGroup"},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.RadioButton"}
+        ]
+    },
+
+    "uislider":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Slider"}
+        ]
+    },
+
+    "uispinner":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Spinner"}
+        ]
+    },
+
+    "uiswitch":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]}
+                    ],
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'slider'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'slider'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.Switch"}
+        ]
+    },
+
+    "uiswitch":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'toggle'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'toggle'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.ToggleSwitch"}
+        ]
+    },
+
+    "uiswitch":
+    {
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Style", "kind":"required", "type":"choices={'rocker'}"}
+                    ],
+                    [
+                        {"name":"Parent", "kind":"required",  "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+                        {"name":"Style", "kind":"required", "type":"choices={'rocker'}"}
+                    ]
+                ]
+            },
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.RockerSwitch"}
+        ]
+    },
+
+    "uitextarea":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.TextArea"}
+        ]
+    },
+
+    "uitogglebutton":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":"matlab.ui.container.ButtonGroup"},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.ToggleButton"}
+        ]
+    },
+
+    "uitree":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.container.Tree"}
+        ]
+    },
+
+    "uitreenode":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.container.Tree"], ["matlab.ui.container.TreeNode"]]},
+            {"name":"sibling", "kind":"ordered", "type":"matlab.ui.container.TreeNode"},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.container.TreeNode"}
+        ]
+    },
+
+    "uitreenode":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"positional", "type":[["matlab.ui.container.Tree"], ["matlab.ui.container.TreeNode"]]},
+            {"name":"sibling", "kind":"positional", "type":"matlab.ui.container.TreeNode"},
+            {"name":"location", "kind":"ordered", "type":[["choices={'before', 'after'}"], ["char"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.container.TreeNode"}
+        ]
+    }
+}

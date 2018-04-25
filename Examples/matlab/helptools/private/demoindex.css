@@ -1,0 +1,157 @@
+/* page elements
+========================================================================= */
+body					{
+						background-color: #F4F6F7;
+						margin: 0px auto;
+						padding: 0px;
+						}
+body, table 			{
+						font-family: Arial, Helvetica, sans-serif;
+						font-size: 12px;
+}
+#background-container	{
+						background-image: url(background.gif);
+						background-repeat: repeat-x;
+						height: 200px;
+						}						
+/* header
+========================================================================= */						
+sup						{
+						vertical-align: text-top;
+						}
+						
+#header-container		{
+						padding-bottom: 20px;
+						clear: both;
+						}
+						
+#header					{
+						padding: 20px 20px 0px 20px;
+						}
+
+.header-demo-name		{
+						font-size: 1.6em;
+						color: #324678;
+						}
+.header-demos			{
+						font-size: 1.4em;
+						font-weight: bold;
+						color: #FF6600;
+						}
+.header-content			{
+						color: #324678;
+						width: 95%;
+						}
+
+.header-link			{
+						text-align: right;
+						/* width: 75%; */
+						}
+
+.header-link a,
+.header-link a:active,
+.header-link a:link,
+.header-link a:visited	{
+						text-decoration: none;
+						}
+						
+.header-link a:hover	{
+						text-decoration: underline;
+						}
+/* content
+========================================================================= */
+.demopanel-container	{
+						}
+
+/*-- top-level demo styles --*/
+.demopanel				{
+						padding: 0px 20px 20px 20px;
+						}
+.demopanel-title		{
+						font-size: 1.2em;
+						background-color: #9DAAC3;
+						font-weight: bold;
+						color: #FFFFFF;
+						margin: 0px 0px 0px 0px;
+						padding: 5px 5px 5px 5px;
+						}
+.demopanel table	
+						{
+						color: #324678;
+						margin-top: 10px;
+						padding-bottom: 10px;
+						border-bottom: 1px solid #E7EAEF;
+						}					
+				
+.demopanel-thumbnail	{
+						text-align: center;
+						width: 85;
+						height: 64;
+						padding-right: 8px;
+						padding-left: 8px;
+						}
+
+.demothumb img {
+  border: 0px solid;
+}
+
+.demopanel-thumbnail img		
+						{
+						border: 1px solid #E3E6EB;
+						}						
+				
+.demopanel-description	{
+						}
+
+.demopanel-description a,
+.demopanel-description a:active,
+.demopanel-description a:link,
+.demopanel-description a:visited	
+						{
+						text-decoration: none;
+						}
+.demopanel-description a:hover
+						{
+						text-decoration: underline;
+						}											
+					
+.demopanel-type			{
+						width: 100px;
+						}
+.demopanel-type	img		
+						{
+						padding-right: 3px;
+						}
+/*-- Sub category styles --*/											
+.demopanel-sub-container
+						{
+						padding: 0px 0px 0px 95px;
+						}
+.demopanel-sub-title		{
+						/* background-color: #9DAAC3; */
+						font-size: 1.2em;
+						font-weight: bold;
+						color: #324678;
+						margin: 10px 0px 0px 0px;
+						padding: 5px 5px 5px 5px;
+						}
+						
+/* editing borders
+========================================================================= 						
+
+#background-container	{
+						border: 1px solid #5A1111;				/* editing border  
+						}
+#content				{
+						border: 1px solid #0000FF;				/* editing border 
+						}
+#header				{
+						border: 1px solid #0000FF;				/* editing border  
+						}						
+div.rightContainer 		{
+						border: 1px solid #5A1111;
+						}
+						
+div.leftContainer 		{
+						border: 1px solid #5A1111;
+						} */

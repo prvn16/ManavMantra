@@ -1,0 +1,127 @@
+{
+	"abs":
+	{
+	    "inputs":
+	    [
+	        {"name":"X", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"Y", "type":["numeric"]}
+	    ]
+	},
+	"ceil":
+	{
+	    "inputs":
+	    [
+	        {"name":"X", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"Y", "type":["numeric", "integer"]}
+	    ]
+	},
+	"conj":
+	{
+	    "inputs":
+	    [
+	        {"name":"Z", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"ZC", "type":["numeric"]}
+	    ]
+	},
+	"fix":
+	{
+	    "inputs":
+	    [
+	        {"name":"X", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"Y", "type":["numeric", "integer"]}
+	    ]
+	},
+	"floor":
+	{
+	    "inputs":
+	    [
+	        {"name":"X", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"Y", "type":["numeric", "integer"]}
+	    ]
+	},
+	"imag":
+	{
+	    "inputs":
+	    [
+	        {"name":"Z", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"Y", "type":["numeric", "real"]}
+	    ]
+	},
+	"mod":
+	{
+	    "inputs":
+	    [
+	        {"name":"a", "kind":"required", "type":["numeric"]},
+	        {"name":"m", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"b", "type":["numeric"]}
+	    ]
+	},
+	"real":
+	{
+	    "inputs":
+	    [
+	        {"name":"Z", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"X", "type":["numeric", "real"]}
+	    ]
+	},
+	"rem":
+	{
+	    "inputs":
+	    [
+	        {"name":"a", "kind":"required", "type":["numeric"]},
+	        {"name":"b", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"r", "type":["numeric"]}
+	    ]
+	},
+	"round":
+	{
+	    "inputs":
+	    [
+	        {"name":"X", "kind":"required", "type":["numeric"]},
+	        {"name":"N", "kind":"positional", "type":["numeric", "scalar", "integer"]},
+	        {"name":"type", "kind":"positional", "type":"choices={'decimals','significant'}"}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"Y", "type":["numeric"]}
+	    ]
+	},
+	"sign":
+	{
+	    "inputs":
+	    [
+	        {"name":"x", "kind":"required", "type":["numeric"]}
+	    ],
+	    "outputs":
+	    [
+	        {"name":"y", "type":["numeric"]}
+	    ]
+	}
+}

@@ -1,0 +1,12 @@
+# SDK for uicomponents/components_m component.
+# Copyright 2016 The MathWorks, Inc.
+
+# Grid entry point is exluded from retail.mtf. Adding it to sdk.mtf so it is accessible to the test component 
+toolbox/matlab/uicomponents/uicomponents/+matlab/+ui/+container/+internal/+model/Grid.m
+
+@IFDEF common
+  include derived/share/deploy/uicomponents/components_m/mcr_sdk.mtf
+@ENDIF common
+@IFDEF arch
+  include derived/<ARCH>/deploy/uicomponents/components_m/mcr_sdk.mtf
+@ENDIF arch

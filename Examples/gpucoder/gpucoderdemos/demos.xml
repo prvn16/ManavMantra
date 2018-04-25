@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  -->
+<!-- Copyright 2001-2017 The MathWorks, Inc. -->
+<demos>
+  <name>GPU Coder</name>
+  <type>matlab</type>
+  <icon>$toolbox/matlab/icons/matlabicon.gif</icon>
+  <description isCdata="no">
+    <p>
+      GPU Coder&#8482; generates optimized CUDA&#174; code from MATLAB&#174; code for deep learning, embedded vision, and autonomous systems.
+      The generated code calls optimized NVIDIA&#174; CUDA libraries, including cuDNN, cuFFT, cuSolver, and cuBLAS. It can be integrated into
+      your project as source code, static libraries, or dynamic libraries, and can be used for prototyping on GPUs such as the NVIDIA Tesla&#174; and NVIDIA Tegra&#174;.
+      You can use the generated CUDA within MATLAB to accelerate computationally intensive portions of your MATLAB code.
+      GPU Coder lets you incorporate legacy CUDA code into your MATLAB algorithms and the generated code. When used with Embedded Coder&#8482;,
+      GPU Coder lets you verify the numerical behavior of the generated code via software-in-the-loop (SIL) testing.
+    </p>
+  </description>
+
+
+  <!-- ==================== GETTING STARTED ======================= -->
+  <demosection>
+    <label>Getting Started</label>
+    <demoitem>
+      <label>GPU Code Generation: The Mandelbrot Set</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_mandelbrot</source>
+    </demoitem>
+    <demoitem>
+      <label>Simulate Diffraction Patterns using CUDA FFT Libraries</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_fft2</source>
+    </demoitem>
+    <demoitem>
+      <label>Benchmarking A\b with GPU Coder</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_backslash_bench</source>
+    </demoitem>
+    <demoitem>
+      <label>Integrating GPU Coder(TM) into Simulink(R)</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_in_simulink</source>
+    </demoitem>
+  </demosection>
+
+  <!-- =========== GENERATING CUDA CODE FROM IMAGE PROCESSING AND COMPUTER VISION ALGORITHMS  ============= -->
+  <demosection>
+    <label>Image Processing and Computer Vision</label>
+    <demoitem>
+      <label>Stencil Processing on GPU</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_stencil</source>
+      <thumbnail>html/gpucoderdemo_stencil_rules.png</thumbnail>
+    </demoitem>
+    <demoitem>
+      <label>Fog Rectification</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_fog_rectification</source>
+    </demoitem>
+
+    <demoitem>
+      <label>Stereo Disparity</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_stereo_disparity</source>
+    </demoitem>
+    <demoitem>
+      <label>Feature Extraction using SURF</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_feature_extraction</source>
+    </demoitem>
+    
+    <demoitem>
+        <label>Feature Matching</label>
+        <type>M-file</type>
+        <source>gpucoderdemo_feature_matching</source>
+    </demoitem>
+  </demosection>
+
+  <!-- =========== GENERATING CUDA FROM NNT SeriesNetwork CLASS  ============= -->
+
+  <demosection>
+    <label>Deep Learning</label>
+
+    <demoitem>
+      <label>Code Generation for Deep Learning Networks</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_alexnet_live</source>
+    </demoitem>
+
+    <demoitem>
+      <label>Object Detection</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_object_detection</source>
+    </demoitem>
+
+    <demoitem>
+      <label>Lane Detection Optimized With GPU Coder</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_lane_detection</source>
+    </demoitem>
+
+    <demoitem>
+      <label>Code Generation for Traffic Sign Detection and Recognition Networks</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_tsdr</source>
+    </demoitem>
+
+    <demoitem>
+      <label>Code Generation for Logonet</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_logonet</source>
+    </demoitem>
+    <demoitem>
+      <label>Pedestrian Detection</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_pedestrian_detection</source>
+    </demoitem>
+    
+     <demoitem>
+      <label>Multitarget CNNCodegen</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_multitarget_cnncodegen</source>
+      <thumbnail>html/gpucoderdemo_logonet_02.png</thumbnail>
+    </demoitem>
+    
+    <demoitem>
+      <label>Semantic Segmentation</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_segnet</source>
+    </demoitem>
+
+  </demosection>
+
+  <!-- =========== CROSS-COMPILE AND DEPLOY GENERATED CUDA CODE ON EMBEDDED BOARDS ============= -->
+  <demosection>
+    <label>GPU Board Targeting</label>
+
+    <demoitem>
+      <label>Running an Embedded Application on the NVIDIA(R) Jetson TX2 Developer Kit</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_jetson_tx2</source>
+    </demoitem>
+    
+     <demoitem>
+      <label>Top-Hat Filtering Demo on the NVIDIA(R) Jetson TX1 Developer Kit</label>
+      <type>M-file</type>
+      <source>gpucoderdemo_topHatFilteringOnJetsonTX1</source>
+    </demoitem>
+  </demosection>
+</demos>

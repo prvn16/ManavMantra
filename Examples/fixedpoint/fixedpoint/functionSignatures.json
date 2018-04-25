@@ -1,0 +1,54 @@
+{
+"fiaccel":
+{
+	"inputs":
+	[
+		{"name":"compile_only", "kind":"flag", "type":"choices={'-c'}"},
+		{"name":"debug", "kind":"flag", "type":"choices={'-g'}"},
+		{"name":"report", "kind":"flag", "type":"choices={'-report','-launchreport'}"},
+		{"name":"file", "kind":"flag", "type":"file=*.m,*.mlx,*.c,*.cpp,*.h,*.o,*.obj,*.a,*.so,*.lib,*.tmf", "repeating":true},
+		{"name":"-d", "kind":"namevalue", "type":"folder"},
+		{"name":"-I", "kind":"namevalue", "type":"folder"},
+		{"name":"-globals", "kind":"namevalue"},
+		{"name":"-o", "kind":"namevalue", "type":[["char"], ["file"]]},
+		{"name":"-O", "kind":"namevalue", "type":"choices={'enable:inline','disable:inline'}"},
+		{"name":"-args", "kind":"namevalue", "type":[["identifier=variable"], ["char"]]},
+		{"name":"-config", "kind":"namevalue", "type":[["identifier=variable"], ["char"]]}
+	]
+},
+"fimath":
+{
+    "inputs":
+    [
+        {"name":"RoundingMethod",       "kind":"namevalue",     "type":"choices=FixedpointFunctionSignatures.queryfimathRoundingMethod"},
+        {"name":"OverflowAction",       "kind":"namevalue",     "type":"choices=FixedpointFunctionSignatures.queryfimathOverflowAction"},
+        {"name":"ProductMode",          "kind":"namevalue",     "type":"choices=FixedpointFunctionSignatures.queryfimathProductMode"},
+        {"name":"ProductWordLength",    "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"ProductFractionLength","kind":"namevalue",     "type":["numeric", "scalar"]},
+        {"name":"ProductSlope",         "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"ProductSlopeAdjustmentFactor","kind":"namevalue",  "type":["numeric","scalar"]},
+        {"name":"ProductFixedExponent", "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"ProductBias",          "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"SumMode",              "kind":"namevalue",     "type":"choices=FixedpointFunctionSignatures.queryfimathSumMode"},
+        {"name":"SumWordLength",        "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"SumFractionLength",    "kind":"namevalue",     "type":["numeric", "scalar"]},
+        {"name":"SumSlope",             "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"SumSlopeAdjustmentFactor","kind":"namevalue",  "type":["numeric","scalar"]},
+        {"name":"SumFixedExponent",     "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"SumBias",              "kind":"namevalue",     "type":["numeric","scalar"]},
+        {"name":"CastBeforeSum",        "kind":"namevalue",     "type":["logical", "scalar"]}
+    ]
+},
+"fixed.DataTypeSelector":
+{
+    "inputs":
+    [
+        {"name":"SafetyMargin",         "kind":"namevalue",     "type":"numeric"},
+        {"name":"AbsTol",               "kind":"namevalue",     "type":"numeric"},
+        {"name":"RelTol",               "kind":"namevalue",     "type":"numeric"},
+        {"name":"Signedness",           "kind":"namevalue",     "type":"choices={'Auto','Lock'}"},
+        {"name":"WordLength",           "kind":"namevalue",     "type":"choices={'Auto','Lock'}"},
+        {"name":"Scaling",              "kind":"namevalue",     "type":"choices={'Auto','Lock'}"}
+    ]
+}
+}

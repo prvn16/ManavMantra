@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Cache-Control" content="no-cache">
+<html>
+<head>
+    <link rel="stylesheet" href="release/variableeditor_client/css/main.css"  type="text/css" />
+    <link rel="stylesheet" href="release/variableeditor_peer/css/main.css"  type="text/css" />
+    <link rel="stylesheet" href="release/variableeditor_peer/css/LiveEditorVariablePopout.css"  type="text/css" />
+
+
+    <script src="release/variableeditor_peer/dojoConfig-release-global.js"></script>
+    <!-- Include dojo release build -->
+    <script type="text/javascript" src="release/dojo/dojo.js"></script>
+
+
+    <script type="text/javascript">
+       // Require browser compatability check lib
+    require(["variableeditor_peer/browsercheck"], function () {  // Loads the Layer browsercheck.js
+                                                                 //       (a collection of JavaScript files that are
+                                                                 //       concatenated and minified) required by the browsercheck.js "src" file...
+        require(["mw-browser-utils/BrowserCheck!"], function () {  // Now that the layer is loaded, we load code from a file
+                                                                   //    "Embedded/Cached in the Layer" the browsercheck.js "src" file.
+            require(["variableeditor_peer/variableeditor_peer"], function () {
+                require([
+                    "variableeditor_peer/PeerVariableEditorMain",
+                    "variableeditor_peer/VariableEditorPopoutHandlerWidget",
+                    "dojo/domReady!"
+                ], function(main, PopoutHandlerWidget) {
+                    var popoutHandlerWidget = new PopoutHandlerWidget();
+                });
+            });
+        });
+    });
+
+    </script>
+
+</head>
+<body class="tundra" id="PopOutHandlerBody">
+</body>
+</html>
+

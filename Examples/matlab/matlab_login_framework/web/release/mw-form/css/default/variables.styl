@@ -1,0 +1,76 @@
+// Defines the variables used by the .styl files in the default directory
+
+@import "../variables";
+
+
+/* ===== BUTTON STYLES ===== */
+// Button Backgrounds:
+$color-button-background-normal = $color-lightgray2;
+$color-toggle-button-background-checked-normal = $color-lightgray5;
+
+$color-button-background-hover = $color-lightgray1;
+$color-toggle-button-background-checked-hover = $color-lightgray4;
+
+$color-button-background-active = $color-lightgray5;
+$color-toggle-button-background-checked-active = $color-lightgray5;
+
+// Button Borders:
+$color-button-single-border-normal = rgb(182, 182, 182); // used in DropDownButtonBase
+
+$color-button-border-normal = $color-mediumgray3;
+$color-toggle-button-border-checked-normal = $color-mediumgray3;
+
+$color-button-border-hover = $color-mediumgray4;
+$color-toggle-button-border-checked-hover = $color-mediumgray4;
+
+$color-button-border-active = $color-mediumgray4;
+$color-toggle-button-border-checked-active = $color-mediumgray4;
+
+$value-button-border-style = solid;
+$pixels-button-border-width = 1px;
+$pixels-button-border-radius = 5px;
+
+// Button Paddings:
+$pixels-button-padding = 2px;
+
+// Button Box Shadows:
+$color-button-boxshadow-normal = inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+$color-toggle-button-boxshadow-normal = $color-button-boxshadow-normal;
+
+$color-button-boxshadow-active = inset 0 1px 0 0 rgba(0, 0, 0, 0.15);
+$color-toggle-button-boxshadow-active = $color-button-boxshadow-active;
+
+
+$color-dropdownbutton-background-hover = $color-button-background-hover;
+$color-dropdownbutton-boxshadow-hover = inset 0 1px 1px 0 rgb(240, 240, 240), 0 1px 0 0 rgb(230, 230, 230);
+$color-dropdownbutton-background-active = $color-button-background-active;
+$color-dropdownbutton-border-active = $color-button-border-active;
+$color-dropdownbutton-boxshadow-active = $color-button-boxshadow-active;
+
+
+/* ===== COMBOBOX STYLES ===== */
+
+//COMBOBOX Backgrounds
+$color-combobox-background-normal = $color-lightgray1;
+
+$color-combobox-noneditable-background-normal = $color-lightgray2;
+
+$color-combobox-arrowcontainer-background-normal = $color-lightgray2;
+$color-combobox-arrowcontainer-background-hover = $color-lightgray1;
+$color-combobox-arrowcontainer-background-active = $color-lightgray4;
+
+//COMBOBOX Borders
+$color-combobox-border-normal = 1px solid $color-mediumgray3;
+$color-combobox-border-hover = $color-mediumgray4;
+$color-combobox-border-focused = $color-selection;
+
+$color-combobox-noneditable-border-normal = 1px solid rgb(182, 182, 182);
+$color-combobox-noneditable-arrowcontainer-border-normal = 1px solid $color-mediumgray3;
+
+//COMBOBOX Box Shadow
+$color-combobox-boxshadow-normal = rgba(0, 0, 0, 0.5) 0px 1px 0px 0px inset;
+$color-combobox-noneditable-boxshadow-normal = rgba(255, 255, 255, 0.9) 0 1px 0 0 inset;
+
+//COMBOBOX Text Color
+$color-combobox-text-normal = $color-text-user;
+$color-combobox-textfield-text-normal = $color-darkgray2;

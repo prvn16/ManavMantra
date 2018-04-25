@@ -1,0 +1,55 @@
+{
+"matlab.system.display.Header":
+{
+    "inputs": 
+    [ 
+        {"name":"system", "kind":"ordered", "type":"char"},
+        {"name":"Title", "kind":"namevalue", "type":"char"}, 
+        {"name":"Text", "kind":"namevalue", "type":"char"},
+        {"name":"ShowSourceLink", "kind":"namevalue", "type":["logical","scalar"]}
+    ] 
+},
+"matlab.system.display.Icon":
+{
+    "inputs":
+    [
+        {"name":"ImageFile","kind":"required"}
+    ]
+},
+"matlab.system.display.SectionGroup":
+{
+    "inputs": 
+    [ 
+        {"name":"system", "kind":"ordered", "type":"char"},
+        {"name":"Title", "kind":"namevalue", "type":"char"},
+        {"name":"TitleSource", "kind":"namevalue", "type":"choices={'Auto','Property'}"},
+        {"name":"Description", "kind":"namevalue", "type":"char"},
+        {"name":"PropertyList", "kind":"namevalue", "type":"cell"},
+        {"name":"Sections", "kind":"namevalue", "type":"matlab.system.display.Section"},
+        {"name":"Actions", "kind":"namevalue", "type":"matlab.system.display.Action"}
+    ] 
+},
+"matlab.system.display.Section":
+{
+    "inputs": 
+    [ 
+        {"name":"system", "kind":"ordered", "type":"char"},
+        {"name":"Title", "kind":"namevalue", "type":"char"},
+        {"name":"TitleSource", "kind":"namevalue", "type":"choices={'Auto','Property'}"},
+        {"name":"Description", "kind":"namevalue", "type":"char"},
+        {"name":"PropertyList", "kind":"namevalue", "type":"cell"},
+        {"name":"Actions", "kind":"namevalue", "type":"matlab.system.display.Action"}
+    ] 
+},
+"matlab.system.display.Action":
+{
+    "inputs": 
+    [ 
+        {"name":"ActionCalledFcn", "kind":"required", "type":[["char"],["function_handle"]]},
+        {"name":"Label", "kind":"namevalue", "type":"char"},
+        {"name":"Description", "kind":"namevalue", "type":"char"},
+        {"name":"Placement", "kind":"namevalue", "type":[["char"],["choices={'first','last'}"]]},
+        {"name":"Alignment", "kind":"namevalue", "type":"choices={'left','right'}"}
+    ] 
+}
+}

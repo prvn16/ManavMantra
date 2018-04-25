@@ -1,0 +1,1 @@
+#resultsPaneContent {display:flex; flex-direction: column; justify-content: center; text-align: center;}#resultsPaneHeader {text-align: center; align-self: flex-start; margin: 2em; font-size: 12px;}#resultsPaneContent .mwPushButton{width: 20em !important; margin: 2em; font-size: 12px; align-self: center; cursor: pointer;}

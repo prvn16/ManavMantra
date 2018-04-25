@@ -1,0 +1,57 @@
+{
+"gpucoder":
+{
+	"inputs":
+	[
+		{"name":"projectname", "kind":"required", "type":"file=*.prj"}
+	]
+},
+"gpucoder":
+{
+	"inputs":
+	[
+		{"name":"-open", "kind":"namevalue", "type":"file=*.prj"}
+	]
+},
+"gpucoder":
+{
+	"inputs":
+	[
+		{"name":"-build", "kind":"namevalue", "type":"file=*.prj"}
+	]
+},
+"gpucoder":
+{
+	"inputs":
+	[
+		{"name":"-new", "kind":"namevalue", "type":[["file=*.prj"], ["char"]]}
+	]
+},
+"gpucoder":
+{
+	"inputs":
+	[
+		{"name":"ecoderFlag", "kind":"required", "type":"choices={'-ecoder'}"},
+		{"name":"ecoderValue", "kind":"required", "type":[["logical"], ["choices={'false'}"]]},
+		{"name":"newFlag", "kind":"required", "type":"choices={'-new'}"},
+		{"name":"newvalue", "kind":"required", "type":[["file=*.prj"], ["char"]]}
+	]
+},
+"gpucoder":
+{
+	"inputs":
+	[
+		{"name":"tocodeFlag", "kind":"required", "type":"choices={'-tocode'}"},
+		{"name":"tocodevalue", "kind":"required", "type":"file=*.prj"},
+		{"mutuallyExclusiveGroup":
+			[
+				[],
+				[
+					{"name":"scriptFlag", "kind":"required", "type":"choices={'-script'}"},
+					{"name":"scriptname", "kind":"required", "type":[["file=*.m"], ["char"]]}
+				]
+			]
+		}
+	]
+}
+}

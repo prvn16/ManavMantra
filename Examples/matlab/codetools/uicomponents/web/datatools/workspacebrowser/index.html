@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Workspace Browser</title>
+	
+    <!-- CSS : implied media="all" -->
+	<link rel="stylesheet" href="release/css-workspacebrowser/main.css"  type="text/css" />
+    <!--[if IE 9]>
+		<link href="release/workspacebrowser/css/overrides_ie9.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+ </head>
+ <body class="tundra">
+	 
+	 <div id="root" style="left: 0px; top: 0px; width: 100%; height: 500px; display: inline-block;">
+		<div id="wb_root"></div>
+	 </div>
+	 <script src="release/workspacebrowser/dojoConfig-release-global.js"></script>
+	 <!-- Include dojo release build -->
+	 <script type="text/javascript" src="release/dojo/dojo.js"></script>
+	 <script type="text/javascript">
+	     // Require browser compatability check lib
+		 require(["workspacebrowser/browsercheck"], function () {
+			 require(["mw-browser-utils/BrowserCheck!"], function () {
+				 // If the browser compatability check passes, require in the web widget lib
+				 require(["workspacebrowser/workspacebrowser"], function () {
+					require([
+						"workspacebrowser/app/Main", 
+						"dojo/dom",
+						"dojo/domReady!"
+						], function (MainApp, dom) {
+							//Get a node from the HTML Doc
+							var rootNode = dom.byId("root");
+							var app = new MainApp(rootNode);
+							//Start Your Widget
+							app.start(rootNode);
+					});
+				});
+			});
+	     });
+	 </script>
+ </body>
+ </html>

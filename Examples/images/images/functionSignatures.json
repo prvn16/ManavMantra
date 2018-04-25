@@ -1,0 +1,972 @@
+{
+
+"activecontour":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"], ["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"MASK", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"n", "kind":"ordered", "type":"numeric"},
+    {"name":"method", "kind":"ordered", "type":"char"},
+    {"name":"SmoothFactor", "kind":"namevalue", "type":"numeric"},
+    {"name":"ContractionBias", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"BW", "type":"numeric"}
+  ]
+},
+
+"adaptthresh":
+{
+  "inputs":
+  [
+    {"name":"I","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"Sensitivity","kind":"ordered","type":"numeric"},
+    {"name":"NeighborhoodSize","kind":"namevalue","type":"numeric"},
+    {"name":"ForegroundPolarity","kind":"namevalue","type":"choices={'bright','dark'}"},
+    {"name":"Statistic","kind":"namevalue","type":"choices={'mean','median','gaussian'}"}
+  ],
+  "outputs":
+  [
+    {"name":"T","type":["double"]}
+  ]
+},
+
+"bfscore":
+{
+  "inputs":
+  [
+    {"name":"PREDICTION","kind":"required","type":[["logical"],["double"],["categorical"]]},
+    {"name":"GROUNDTRUTH","kind":"required","type":[["logical"],["double"],["categorical"]]},
+    {"name":"THRESHOLD","kind":"ordered","type":"double"}
+  ],
+  "outputs":
+  [
+    {"name":"SCORE","type":"double"},
+    {"name":"PRECISION","type":"double"},
+    {"name":"RECALL","type":"double"}
+  ]
+},
+
+"blendexposure":
+{
+  "inputs":
+  [
+    {"name":"I1","kind":"required","type":[["uint8"],["double"],["single"],["uint16"]]},
+    {"name":"I2","kind":"required","type":[["uint8"],["double"],["single"],["uint16"]]},
+    {"name":"Contrast","kind":"namevalue","type":[["double"],["single"]]},
+    {"name":"Saturation","kind":"namevalue","type":[["double"],["single"]]},
+    {"name":"WellExposedness","kind":"namevalue","type":[["double"],["single"]]},
+    {"name":"ReduceStrongLight","kind":"namevalue","type":["logical"]}
+  ],
+  "outputs":
+  [
+    {"name":"E","type":[["uint8"],["double"],["single"],["uint16"]]}
+  ]
+},
+
+"brisque":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"], ["int16"], ["single"], ["double"]]},
+    {"name":"Model", "kind":"ordered", "type":"brisqueModel"}
+  ],
+  "outputs":
+  [
+    {"name":"Score", "type":"numeric"}
+  ]
+},
+
+"brisqueModel":
+{
+  "inputs":
+  [
+    {"name":"Alpha", "kind":"required", "type":"numeric"},
+    {"name":"Bias", "kind":"required", "type":"numeric"},
+    {"name":"SupportVectors", "kind":"required", "type":"numeric"},
+    {"name":"Scale", "kind":"required", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"Model", "type":"brisqueModel"}
+  ]
+},
+
+"bwmorph3":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":[["logical"],["numeric"]]},
+    {"name":"Operation","kind":"required","type":"choices={'branchpoints','clean','endpoints','fill','majority','remove'}"}
+  ],
+  "outputs":
+  [
+    {"name":"J","type":["logical"]}
+  ]
+},
+
+"bwselect3":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":[["logical"],["numeric"]]},
+    {"name":"C","kind":"required","type":"numeric"},
+    {"name":"R","kind":"required","type":"numeric"},
+    {"name":"P","kind":"required","type":"numeric"},
+    {"name":"N","kind":"ordered","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"J","type":["logical"]}
+  ]
+},
+
+"bwselect3":
+{
+  "inputs":
+  [
+    {"name":"X","kind":"required","type":"numeric"},
+    {"name":"Y","kind":"required","type":"numeric"},
+    {"name":"Z","kind":"required","type":"numeric"},
+    {"name":"V","kind":"required","type":[["logical"],["numeric"]]},
+    {"name":"Xi","kind":"required","type":"numeric"},
+    {"name":"Yi","kind":"required","type":"numeric"},
+    {"name":"Zi","kind":"required","type":"numeric"},
+    {"name":"N","kind":"ordered","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"J","type":["logical"]}
+  ]
+},
+
+"denoiseImage":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"], ["double"]]},
+    {"name":"net", "kind":"required", "type":[["SeriesNetwork"],["DAGNetwork"]]}
+  ],
+  "outputs":
+  [
+    {"name":"I", "type":[["uint8"],["uint16"],["single"], ["double"]]}
+  ]
+},
+
+"denoisingImageSource":
+{
+  "inputs":
+  [
+    {"name":"imds", "kind":"required", "type":"matlab.io.datastore.ImageDatastore"},
+    {"name":"PatchesPerImage", "kind":"namevalue", "type":["numeric"]},
+    {"name":"PatchSize", "kind":"namevalue", "type":["numeric"]},
+    {"name":"GaussianNoiseLevel", "kind":"namevalue", "type":[["single"],["double"]]},
+    {"name":"BackgroundExecution", "kind":"namevalue", "type":["logical"]},
+    {"name":"ChannelFormat", "kind":"namevalue","type":"choices={'rgb','grayscale'}"}
+  ],
+  "outputs":
+  [
+    {"name":"source", "type":["denoisingImageSource"]}
+  ]
+},
+
+"denoisingNetwork":
+{
+  "inputs":
+  [
+    {"name":"ModelName", "kind":"required", "type":"choices={'dncnn'}"}
+  ],
+  "outputs":
+  [
+    {"name":"net", "type":[["SeriesNetwork"],["DAGNetwork"]]}
+  ]
+},
+
+"dice":
+{
+  "inputs":
+  [
+    {"mutuallyExclusiveGroup":
+      [
+        [
+          {"name":"BW1","kind":"required","type":"logical"},
+          {"name":"BW2","kind":"required","type":"logical"}
+        ],
+        [
+          {"name":"L1","kind":"required","type":"double"},
+          {"name":"L2","kind":"required","type":"double"}
+        ],
+        [
+          {"name":"C1","kind":"required","type":"categorical"},
+          {"name":"C2","kind":"required","type":"categorical"}
+        ]
+      ]
+    }
+  ],
+  "outputs":
+  [
+    {"name":"SIMILARITY","type":"double"}
+  ]
+},
+
+"displayChart":
+{
+  "inputs":
+  [
+    {"name":"CHART", "kind":"required", "type":"esfrChart"},
+	{"name":"displayEdgeROIs", "kind":"namevalue", "type":"logical"},
+    {"name":"displayGrayROIs", "kind":"namevalue", "type":"logical"},
+	{"name":"displayColorROIs", "kind":"namevalue", "type":"logical"},
+	{"name":"displayRegistrationPoints", "kind":"namevalue", "type":"logical"},
+	{"name":"Parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"}
+  ]
+},
+
+"displayColorPatch":
+{
+  "inputs":
+  [
+    {"name":"colorTable", "kind":"required", "type":"table"},
+	{"name":"displayROIIndex", "kind":"namevalue", "type":"logical"},
+	{"name":"displayDeltaE", "kind":"namevalue", "type":"logical"},
+	{"name":"Parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"}
+  ]
+},
+
+"dnCNNLayers":
+{
+  "inputs":
+  [
+    {"name":"NetworkDepth", "kind":"namevalue", "type":["numeric"]}
+  ],
+  "outputs":
+  [
+    {"name":"layers", "type":["nnet.cnn.layer.Layer"]}
+  ]
+},
+
+"edge3":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"],["logical"]]},
+    {"name":"Method","kind":"required","type":"choices={'approxcanny'}"},
+    {"name":"THRESH", "kind":"required", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"BW","type":["logical"]}
+  ]
+},
+
+"edge3":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"],["logical"]]},
+    {"name":"Method","kind":"required","type":"choices={'sobel'}"},
+    {"name":"THRESH", "kind":"required", "type":"numeric"},
+    {"name":"edgeThinning","kind":"ordered","type":"choices={'thinning','nothinning'}"}
+  ],
+  "outputs":
+  [
+    {"name":"BW","type":["logical"]}
+  ]
+},
+
+"esfrChart":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"], ["double"]]},
+    {"name":"Sensitivity", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"CHART", "type":"esfrChart"}
+  ]
+},
+
+"esfrChart":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["single"], ["double"]]},
+    {"name":"RegistrationPoints", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"CHART", "type":"esfrChart"}
+  ]
+},
+
+"fibermetric":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"], ["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"thickness", "kind":"ordered", "type":"numeric"},
+    {"name":"ObjectPolarity","kind":"namevalue","type":"choices={'bright','dark'}"},
+    {"name":"StructureSensitivity","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"B", "type":"single"}
+  ]
+},
+
+"fitbrisque":
+{
+  "inputs":
+  [
+    {"name":"IMDS", "kind":"required", "type":"matlab.io.datastore.ImageDatastore"},
+    {"name":"OpinionScore", "kind":"required", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"Model", "type":"brisqueModel"}
+  ]
+},
+
+"fitniqe":
+{
+  "inputs":
+  [
+    {"name":"IMDS", "kind":"required", "type":[["matlab.io.datastore.ImageDatastore"]]},
+    {"name":"BlockSize", "kind":"namevalue", "type":"numeric"},
+    {"name":"SharpnessThreshold", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"Model", "type":"niqeModel"}
+  ]
+},
+
+"grabcut":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"], ["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"L", "kind":"required", "type":[["numeric"],["logical"]]},
+	{"name":"ROI", "kind":"required", "type":"logical"},
+    {"name":"FOREMASK", "kind":"ordered", "type":[["numeric"],["logical"]]},
+    {"name":"BACKMASK", "kind":"ordered", "type":[["numeric"],["logical"]]},
+    {"name":"Connectivity", "kind":"namevalue", "type":"numeric"},
+    {"name":"MaximumIterations", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"BW", "type":"logical"}
+  ]
+},
+
+"gradientweight":
+{
+  "inputs":
+  [
+    {"name":"I","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"sigma","kind":"ordered","type":"numeric"},
+    {"name":"RolloffFactor","kind":"namevalue","type":"numeric"},
+    {"name":"WeightCutoff","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"W","type":"numeric"}
+  ]
+},
+
+"graydiffweight":
+{
+  "inputs":
+  [
+    {"name":"I","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"refGrayVal","kind":"required","type":"numeric"},
+    {"name":"MASK","kind":"ordered","type":"numeric"},
+    {"name":"C","kind":"ordered","type":"numeric"},
+    {"name":"RolloffFactor","kind":"namevalue","type":"numeric"},
+    {"name":"GrayDifferenceCutoff","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"W","type":"numeric"}
+  ]
+},
+
+"imadjustn":
+{
+ "inputs":
+ [
+    {"name":"V","kind":"required","type":[["uint8"],["uint16"],["int16"],["double"],["single"]]},
+    {"name":"LowHighIn","kind":"ordered","type":"numeric"},
+    {"name":"LowHighOut","kind":"ordered","type":"numeric"},
+    {"name":"gamma","kind":"ordered","type":"numeric"}
+ ],
+"outputs":
+  [
+    {"name":"J","type":[["uint8"],["uint16"],["int16"],["double"],["single"]]}
+  ]
+},
+
+"images.geotrans.Warper":
+{
+  "inputs":
+  [
+    {"name":"tform", "kind":"required", "type":[["affine2d"],["projective2d"],["numeric"]]},
+    {"name":"inputSize", "kind":"required", "type":[["numeric"],["imref2d"]]},
+    {"name":"outputRef", "kind":"ordered", "type":"imref2d"},
+    {"name":"Interpolation","kind":"namevalue","type":"choices={'nearest','linear','cubic'}"},
+    {"name":"FillValue","kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"warper", "type":"images.geotrans.Warper"}
+  ]
+},
+
+"imbilatfilt":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"DegreeOfSmoothing", "kind":"ordered", "type":"numeric"},
+    {"name":"SpatialSigma", "kind":"ordered", "type":"numeric"},
+    {"name":"NeighborhoodSize", "kind":"namevalue", "type":"numeric"},
+    {"name":"Padding","kind":"namevalue","type":[["choices={'replicate','symmetric'}"], ["numeric"]]}
+  ],
+  "outputs":
+  [
+    {"name":"B", "type":"numeric"}
+  ]
+},
+
+"imbinarize":
+{
+  "inputs":
+  [
+    {"name":"I","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"Method","kind":"ordered","type":"choices={'global'}"}
+  ],
+  "outputs":
+  [
+    {"name":"BW","type":["logical"]}
+  ]
+},
+
+"imbinarize":
+{
+  "inputs":
+  [
+    {"name":"I","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"Method","kind":"required","type":"choices={'adaptive'}"},
+    {"name":"Sensitivity","kind":"namevalue","type":"numeric"},
+    {"name":"ForegroundPolarity","kind":"namevalue","type":"choices={'bright','dark'}"}
+  ],
+  "outputs":
+  [
+    {"name":"BW","type":["logical"]}
+  ]
+},
+
+"imdiffuseest":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["int16"],["double"],["single"]]},
+    {"name":"Connectivity", "kind":"namevalue", "type":"choices={'maximal','minimal'}"},
+    {"name":"ConductionMethod", "kind":"namevalue", "type":"choices={'exponential','quadratic'}"}
+  ],
+  "outputs":
+  [
+    {"name":"gradientThreshold", "type":[["uint8"],["uint16"],["int16"],["double"],["single"]]},
+    {"name":"numberOfIterations", "type":"double"}
+  ]
+},
+
+"imdiffusefilt":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"GradientThreshold", "kind":"namevalue", "type":"numeric"},
+    {"name":"NumberOfIterations", "kind":"namevalue", "type":"numeric"},
+    {"name":"Connectivity", "kind":"namevalue", "type":"choices={'maximal','minimal'}"},
+    {"name":"ConductionMethod", "kind":"namevalue", "type":"choices={'exponential','quadratic'}"}
+  ],
+  "outputs":
+  [
+    {"name":"B", "type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]}
+  ]
+},
+
+"imfindcircles":
+{
+  "inputs":
+  [
+    {"name":"A","kind":"required","type":[["uint8"],["uint16"],["double"],["logical"],["single"],["int16"]]},
+    {"name":"Radius range","kind":"required","type":"numeric"},
+    {"name":"ObjectPolarity","kind":"namevalue","type":"choices={'bright','dark'}"},
+    {"name":"Method","kind":"namevalue","type":"choices={'PhaseCode','TwoStage'}"},
+    {"name":"Sensitivity","kind":"namevalue","type":"numeric"},
+    {"name":"EdgeThreshold","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"Centers","type":"numeric"},
+    {"name":"Radii","type":"numeric"},
+    {"name":"Metric","type":"numeric"}
+  ]
+},
+
+"imhistmatch":
+{
+  "inputs":
+  [
+    {"name":"A","kind":"required","type":[["uint8"],["uint16"],["double"],["single"],["int16"]]},
+    {"name":"REF","kind":"required","type":[["uint8"],["uint16"],["double"],["single"],["int16"]]},
+    {"name":"NBINS","kind":"optional","type":"numeric"},
+    {"name":"Method","kind":"namevalue","type":"choices={'uniform','polynomial'}"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":[["uint8"],["uint16"],["double"],["single"],["int16"]]},
+    {"name":"hgram","type":["double"]}
+  ]
+},
+
+"imreducehaze":
+{
+  "inputs":
+  [
+    {"name":"X", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"amount", "kind":"ordered", "type":"numeric"},
+    {"name":"Method", "kind":"namevalue", "type":"choices={'approxdcp','simpledcp'}"},
+    {"name":"AtmosphericLight", "kind":"namevalue", "type":"numeric"},
+    {"name":"ContrastEnhancement", "kind":"namevalue", "type":"choices={'global','boost','none'}"},
+    {"name":"BoostAmount", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"D", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"T", "type":[["single"],["double"]]},
+    {"name":"L", "type":[["single"],["double"]]}
+  ]
+},
+
+"imregmtb":
+{
+  "inputs":
+  [
+    {"name":"M1", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"M2", "kind":"required", "type":[["uint8"],["uint16"],["single"],["double"]]}
+  ],
+ "outputs":
+  [
+    {"name":"R1", "type":[["uint8"],["uint16"],["single"],["double"]]},
+    {"name":"shifts", "type":[["double"]]}
+  ]
+},
+
+"imresize3":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"Scale","kind":"required","type":"numeric"},
+    {"name":"Method","kind":"namevalue","type":"choices={'nearest','linear','cubic'}"},
+    {"name":"AntiAliasing","kind":"namevalue","type":"logical"},
+    {"name":"OutputSize","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":"numeric"}
+  ]
+},
+
+"imrotate":
+{
+  "inputs":
+  [
+    {"name":"A","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["logical"],["double"],["single"]]},
+    {"name":"Angle","kind":"required","type":"numeric"},
+    {"name":"Method","kind":"ordered","type":"choices={'nearest','bilinear','bicubic'}"},
+    {"name":"BBOX","kind":"ordered","type":"choices={'loose','crop'}"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":"numeric"}
+  ]
+},
+
+"imrotate3":
+{
+  "inputs":
+  [
+    {"name":"V","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["logical"],["double"],["single"]]},
+    {"name":"Angle","kind":"required","type":"numeric"},
+    {"name":"W","kind":"required","type":"numeric"},
+    {"name":"Method","kind":"ordered","type":"choices={'nearest','linear','cubic'}"},
+    {"name":"BBOX","kind":"ordered","type":"choices={'loose','crop'}"},
+    {"name":"FillValues","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":"numeric"}
+  ]
+},
+
+"imsegfmm":
+{
+  "inputs":
+  [
+    {"name":"W","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"MASK","kind":"required","type":"numeric"},
+    {"name":"THRESH","kind":"required","type":"numeric"},
+    {"name":"C","kind":"ordered","type":"numeric"},
+    {"name":"R","kind":"ordered","type":"numeric"},
+    {"name":"P","kind":"ordered","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"BW","type":"numeric"}
+  ]
+},
+
+"jaccard":
+{
+  "inputs":
+  [
+    {"mutuallyExclusiveGroup":
+      [
+        [
+          {"name":"BW1","kind":"required","type":"logical"},
+          {"name":"BW2","kind":"required","type":"logical"}
+        ],
+        [
+          {"name":"L1","kind":"required","type":"double"},
+          {"name":"L2","kind":"required","type":"double"}
+        ],
+        [
+          {"name":"C1","kind":"required","type":"categorical"},
+          {"name":"C2","kind":"required","type":"categorical"}
+        ]
+      ]
+    }
+  ],
+  "outputs":
+  [
+    {"name":"SIMILARITY","type":"double"}
+  ]
+},
+
+"labeloverlay":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"], ["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"L", "kind":"required", "type":[["categorical"],["logical"],["uint8"], ["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"Colormap", "kind":"namevalue", "type":"numeric"},
+    {"name":"IncludedLabels", "kind":"namevalue","type":"numeric"},
+    {"name":"Transparency", "kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":[["uint8"]]}
+  ]
+},
+
+"lazysnapping":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"], ["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"L", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"FOREMASK", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"BACKMASK", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"Connectivity", "kind":"namevalue", "type":"numeric"},
+    {"name":"EdgeWeightScaleFactor", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"BW", "type":"numeric"}
+  ]
+},
+
+"localcontrast":
+{
+  "inputs":
+  [
+    {"name":"A","kind":"required","type":[["uint8"],["uint16"],["int8"],["int16"],["single"]]},
+    {"name":"edgeThreshold","kind":"positional","type":"numeric"},
+    {"name":"amount","kind":"ordered","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":[["uint8"],["uint16"],["int8"],["int16"],["single"]]}
+  ]
+},
+
+"locallapfilt":
+{
+  "inputs":
+  [
+    {"name":"A","kind":"required","type":[["uint8"],["uint16"],["int8"],["int16"],["single"]]},
+    {"name":"sigma","kind":"required","type":"numeric"},
+    {"name":"alpha","kind":"required","type":"numeric"},
+    {"name":"beta","kind":"ordered","type":"numeric"},
+    {"name":"ColorMode","kind":"namevalue","type":"choices={'luminance','separate'}"},
+    {"name":"NumIntensityLevels","kind":"namevalue","type":[["numeric"],["choices={'auto'}"]]}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":[["uint8"],["uint16"],["int8"],["int16"],["single"]]}
+  ]
+},
+
+"localtonemap":
+{
+  "inputs":
+  [
+    {"name":"HDR","kind":"required","type":"single"},
+    {"name":"RangeCompression","kind":"namevalue","type":"numeric"},
+    {"name":"EnhanceContrast","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"RGB","type":"single"}
+  ]
+},
+
+
+"measureChromaticAberration":
+{
+  "inputs":
+  [
+    {"name":"CHART", "kind":"required", "type":"esfrChart"},
+	{"name":"ROIIndex", "kind":"namevalue", "type":"numeric"},
+    {"name":"ROIOrientation", "kind":"namevalue", "type":"choices={'vertical','horizontal','both'}"}
+  ],
+  "outputs":
+  [
+	{"name":"aberrationTable", "type":"table"}
+  ]
+},
+
+"measureColor":
+{
+  "inputs":
+  [
+    {"name":"CHART", "kind":"required", "type":"esfrChart"}
+  ],
+  "outputs":
+  [
+    {"name":"colorTable", "type":"table"},
+	{"name":"colorCorrectionMatrix", "type":"numeric"}
+  ]
+},
+
+"measureIlluminant":
+{
+  "inputs":
+  [
+    {"name":"CHART", "kind":"required", "type":"esfrChart"}
+  ],
+  "outputs":
+  [
+    {"name":"illum", "type":"numeric"}
+  ]
+},
+
+
+"measureNoise":
+{
+  "inputs":
+  [
+    {"name":"CHART", "kind":"required", "type":"esfrChart"}
+  ],
+  "outputs":
+  [
+    {"name":"noiseTable", "type":"table"}
+  ]
+},
+
+"measureSharpness":
+{
+  "inputs":
+  [
+    {"name":"CHART", "kind":"required", "type":"esfrChart"},
+	{"name":"ROIIndex", "kind":"namevalue", "type":"numeric"},
+    {"name":"ROIOrientation", "kind":"namevalue", "type":"choices={'vertical','horizontal','both'}"},
+	{"name":"PercentResponse", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+	{"name":"sharpnessTable", "type":"table"},
+	{"name":"aggregateSharpnessTable", "type":"numeric"}
+  ]
+},
+
+"niqe":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["uint16"], ["int16"], ["single"], ["double"]]},
+    {"name":"Model", "kind":"ordered", "type":"niqeModel"}
+  ],
+  "outputs":
+  [
+    {"name":"Score", "type":"numeric"}
+  ]
+},
+
+
+"niqeModel":
+{
+  "inputs":
+  [
+    {"name":"Mean", "kind":"required", "type":"numeric"},
+    {"name":"Covariance", "kind":"required", "type":"numeric"},
+    {"name":"BlockSize", "kind":"required", "type":"numeric"},
+    {"name":"SharpnessThreshold", "kind":"required", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"Model", "type":"niqeModel"}
+  ]
+},
+
+
+"plotChromaticity":
+{
+  "inputs":
+  [
+    {"name":"colorTable", "kind":"required", "type":"table"},
+	{"name":"displayROIIndex", "kind":"namevalue", "type":"logical"},
+	{"name":"Parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"}
+  ]
+},
+
+
+"plotSFR":
+{
+  "inputs":
+  [
+    {"name":"sharpnessMeasurementTable", "kind":"required", "type":"table"},
+	{"name":"ROIIndex", "kind":"namevalue", "type":"numeric"},
+	{"name":"displayLegend", "kind":"namevalue", "type":"logical"},
+	{"name":"displayTitle", "kind":"namevalue", "type":"logical"},
+	{"name":"Parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"}
+  ]
+},
+
+"regionprops3":
+{
+  "inputs":
+  [
+    {"name":"BW", "kind":"required", "type":[["logical"],["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"],["struct"]]},
+    {"name":"Properties", "repeating":true, "kind":"ordered", "type":"choices={'Volume', ...
+                'Centroid','BoundingBox','SubarrayIdx', 'Image', 'EquivDiameter', ...
+                'Extent', 'VoxelIdxList', 'VoxelList', 'PrincipalAxisLength', ...
+                'Orientation', 'EigenVectors', 'EigenValues', 'ConvexVolume', ...
+                'ConvexHull', 'ConvexImage', 'Solidity', 'SurfaceArea'}"}
+  ],
+  "outputs":
+  [
+    {"name":"stats", "type":"table"}
+  ]
+},
+
+"regionprops3":
+{
+  "inputs":
+  [
+    {"name":"BW", "kind":"required", "type":[["logical"],["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"],["struct"]]},
+    {"name":"V", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"Properties", "repeating":true, "kind":"ordered", "type":"choices={'Volume', ...
+                'Centroid','BoundingBox','SubarrayIdx', 'Image', 'EquivDiameter', ...
+                'Extent', 'VoxelIdxList', 'VoxelList', 'PrincipalAxisLength', ...
+                'Orientation', 'EigenVectors', 'EigenValues', 'ConvexVolume', ...
+                'ConvexHull', 'ConvexImage', 'Solidity', 'SurfaceArea', ...
+                'VoxelValues', 'WeightedCentroid', 'MeanIntensity', ...
+                'MinIntensity', 'MaxIntensity'}"}
+  ],
+  "outputs":
+  [
+    {"name":"stats", "type":"table"}
+  ]
+},
+
+"regionprops3":
+{
+  "inputs":
+  [
+    {"name":"BW", "kind":"required", "type":[["logical"],["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"],["struct"]]},
+    {"name":"Properties", "kind":"ordered", "type":"choices={'all'}"}
+  ],
+  "outputs":
+  [
+    {"name":"stats", "type":"table"}
+  ]
+},
+
+"regionprops3":
+{
+  "inputs":
+  [
+    {"name":"BW", "kind":"required", "type":[["logical"],["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"],["struct"]]},
+    {"name":"Properties", "kind":"ordered", "type":"choices={'basic'}"}
+  ],
+  "outputs":
+  [
+    {"name":"stats", "type":"table"}
+  ]
+},
+
+"regionprops3":
+{
+  "inputs":
+  [
+    {"name":"BW", "kind":"required", "type":[["logical"],["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"],["struct"]]},
+    {"name":"V", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"Properties", "kind":"ordered", "type":"choices={'all'}"}
+  ],
+  "outputs":
+  [
+    {"name":"stats", "type":"table"}
+  ]
+},
+
+"regionprops3":
+{
+  "inputs":
+  [
+    {"name":"BW", "kind":"required", "type":[["logical"],["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"],["struct"]]},
+    {"name":"V", "kind":"required", "type":[["numeric"],["logical"]]},
+    {"name":"Properties", "kind":"ordered", "type":"choices={'basic'}"}
+  ],
+  "outputs":
+  [
+    {"name":"stats", "type":"table"}
+  ]
+},
+
+"superpixels3":
+{
+  "inputs":
+  [
+    {"name":"A", "kind":"required", "type":[["uint8"],["int8"], ["uint16"], ["int16"], ["uint32"], ["int32"], ["single"], ["double"]]},
+    {"name":"N", "kind":"required", "type":"numeric"},
+    {"name":"Compactness", "kind":"namevalue", "type":"numeric"},
+    {"name":"Method", "kind":"namevalue", "type":"choices={'slic0','slic'}"},
+    {"name":"NumIterations", "kind":"namevalue", "type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"L", "type":"numeric"},
+    {"name":"NumLabels", "type":"numeric"}
+  ]
+}
+
+}
+

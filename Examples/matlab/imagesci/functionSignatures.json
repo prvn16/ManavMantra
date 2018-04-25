@@ -1,0 +1,1058 @@
+{
+"cdfinfo":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.cdf"], ["matlabpathfile=*.cdf"], ["char"]]}
+	],
+	"outputs":
+	[
+        {"name":"info", "type":[["struct", "scalar"]]}
+	]
+},
+"cdfread":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.cdf"], ["matlabpathfile=*.cdf"], ["char"]]},
+        {"name":"Records", "kind":"namevalue", "type":[["numeric", "row"], ["numeric", "column"]]},
+        {"name":"Variables", "kind":"namevalue", "type":[["cell", "row"], ["cell", "column"]]},
+        {"name":"Slices", "kind":"namevalue", "type":[["numeric", "2d", "@(x) size(x, 2) == 3"]]},
+        {"name":"ConvertEpochToDatenum", "kind":"namevalue", "type":[["logical", "scalar"]]},
+        {"name":"CombineRecords", "kind":"namevalue", "type":[["logical", "scalar"]]}
+	],
+	"outputs":
+	[
+        {"name":"data"},
+        {"name":"info", "type":[["struct", "scalar"]]}
+    ]
+},
+"cdfwrite":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.cdf"], ["char"]]},
+        {"name":"variablelist", "kind":"required", "type":[["cell", "2d", "@(x) size(x, 2) == 2"]]},
+        {"name":"PadValues", "kind":"namevalue", "type":[["cell", "2d", "@(x) size(x, 2) == 2"]]},
+        {"name":"GlobalAttributes", "kind":"namevalue", "type":[["scalar", "struct"]]},
+        {"name":"VariableAttributes", "kind":"namevalue", "type":[["scalar", "struct"]]},
+        {"name":"WriteMode", "kind":"namevalue", "type":"choices={'overwrite', 'append'}"},
+        {"name":"Format", "kind":"namevalue", "type":"choices={'multifile', 'singlefile'}"}
+	]
+},
+"fitsdisp":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.fts,*.fits"], ["matlabpathfile=*.fts,*.fits"], ["char"]]},
+        {"name":"Index", "kind":"namevalue", "type":[["numeric", "column"], ["numeric", "row"], ["numeric", "scalar"]]},
+        {"name":"Mode", "kind":"namevalue", "type":"choices={'standard', 'min', 'full'}"}
+	]
+},
+"fitsinfo":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.fts,*.fits"], ["matlabpathfile=*.fts,*.fits"], ["char"]]}
+	],
+	"outputs":
+	[
+        {"name":"info", "type":[["struct", "scalar"]]}
+	]
+},
+"fitsread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.fts,*.fits"], ["matlabpathfile=*.fts,*.fits"], ["char"]]},
+		{"name":"extname", "kind":"ordered", "type":"choices={'primary', 'asciitable', 'binarytable', 'image', 'unknown'}"},
+        {"name":"index", "kind":"ordered", "type":[["numeric", "scalar"]]},
+        {"name":"'raw'", "kind":"ordered", "type":"choices={'raw'}"},
+        {"name":"Info", "kind":"namevalue", "type":[["struct", "scalar"]]},
+        {"name":"PixelRegion", "kind":"namevalue", "type":[["cell"]]},
+        {"name":"TableColumns", "kind":"namevalue", "type":[["numeric", "row"], ["numeric", "column"]]},
+        {"name":"TableRows", "kind":"namevalue", "type":[["numeric", "row"], ["numeric", "column"]]}
+	],
+    "outputs":
+	[
+        {"name":"data"}
+    ]
+},
+"fitsread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.fts,*.fits"], ["matlabpathfile=*.fts,*.fits"], ["char"]]},
+        {"name":"'raw'", "kind":"ordered", "type":"choices={'raw'}"},
+		{"name":"extname", "kind":"ordered", "type":"choices={'primary', 'asciitable', 'binarytable', 'image', 'unknown'}"},
+        {"name":"index", "kind":"ordered", "type":[["numeric", "scalar"]]},
+        {"name":"Info", "kind":"namevalue", "type":[["struct", "scalar"]]},
+        {"name":"PixelRegion", "kind":"namevalue", "type":[["cell"]]},
+        {"name":"TableColumns", "kind":"namevalue", "type":[["numeric", "row"], ["numeric", "column"]]},
+        {"name":"TableRows", "kind":"namevalue", "type":[["numeric", "row"], ["numeric", "column"]]}
+	],
+    "outputs":
+	[
+        {"name":"data"}
+    ]
+},
+"fitswrite":
+{
+    "inputs":
+    [
+        {"name":"imagedata", "kind":"required", "type":"numeric"},
+        {"name":"filename", "kind":"required", "type":[["file=*.fts,*.fits"], ["char"]]},
+        {"name":"WriteMode", "kind":"namevalue", "type":"choices={'overwrite', 'append'}"},
+        {"name":"Compression", "kind":"namevalue", "type":"choices={'none', 'gzip', 'rice', 'hcompress', 'plio'}"}
+    ]    
+},
+"h5create":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["char", "@(x) endsWith(lower(x), '.h5')"]]},
+		{"name":"datasetname", "kind":"required", "type":[["char", "row"]]},
+        {"name":"size", "kind": "required", "type":[["numeric", "row"]]},
+        {"name":"Datatype", "kind":"namevalue", "type":"choices={'double', 'single', 'uint64', 'int64', 'uint32', 'int32', 'uint16', 'int16', 'uint8', 'int8'}"},
+        {"name":"Chunksize", "kind":"namevalue", "type":[["numeric", "row"]]},
+        {"name":"Deflate", "kind":"namevalue", "type":"choices=num2cell(0:9)"},
+        {"name":"Fillvalue", "kind":"namevalue", "type":[["numeric", "scalar"]]},
+        {"name":"Fletcher32", "kind":"namevalue", "type":[["logical", "scalar"]]},
+        {"name":"Shuffle", "kind":"namevalue", "type":[["logical", "scalar"]]},
+        {"name":"TextEncoding", "kind":"namevalue", "type":"choices={'system', 'UTF-8'}"}
+	]
+},
+"h5disp":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["matlabpathfile=*.h5"], ["char"]]},
+        {"name":"location", "kind":"positional", "type":[["char", "row"]]},
+        {"name":"mode", "kind":"positional", "type":"choices={'min', 'simple'}"},
+		{"name":"TextEncoding", "kind":"namevalue", "type":"choices={'system', 'UTF-8'}"}
+	]
+},
+"h5info":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["matlabpathfile=*.h5"], ["char"]]},
+        {"name":"location", "kind":"positional", "type":[["char", "row"]]},
+        {"name":"TextEncoding", "kind":"namevalue", "type":"choices={'system', 'UTF-8'}"}
+	],
+    "outputs":
+    [
+        {"name":"info", "type":[["struct", "scalar"]]}
+	]
+},
+"h5read":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["matlabpathfile=*.h5"], ["char"]]},
+		{"name":"datasetname", "kind":"required", "type":[["char", "row"]]},
+        {"name":"start", "kind":"positional", "type":[["numeric", "row"]]},
+        {"name":"count", "kind":"positional", "type":[["numeric", "row"]]},
+        {"name":"stride", "kind":"positional", "type":[["numeric", "row"]]}
+	],
+    "outputs":
+    [
+        {"name":"info", "type":[["numeric"]]}
+	]
+},
+"h5readatt":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["matlabpathfile=*.h5"], ["char"]]},
+		{"name":"location", "kind":"required", "type":[["char", "row"]]},
+        {"name":"attr", "kind":"required", "type":[["char", "row"]]}
+	],
+    "outputs":
+    [
+        {"name":"attval"}
+	]
+},
+"h5write":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["char"]]},
+		{"name":"datasetname", "kind":"required", "type":[["char", "row"]]},
+        {"name":"data", "kind":"required", "type":[["numeric"]]},
+        {"name":"start", "kind":"positional", "type":[["numeric", "row"]]},
+        {"name":"count", "kind":"positional", "type":[["numeric", "row"]]},
+        {"name":"stride", "kind":"positional", "type":[["numeric", "row"]]}
+	]
+},
+"h5writeatt":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.h5"], ["char"]]},
+		{"name":"location", "kind":"required", "type":[["char", "row"]]},
+        {"name":"attname", "kind":"required", "type":[["char", "row"]]},
+        {"name":"attvalue", "kind":"required", "type":[["numeric"], ["char", "row"]]},
+        {"name":"TextEncoding", "kind":"namevalue", "type":"choices={'system', 'UTF-8'}"}
+	]
+},
+"hdf5":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdf5info":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdf5read":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdf5write":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfan":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfdf24":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfdfr8":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfgd":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfhd":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfhe":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfhx":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfinfo":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.hdf"], ["matlabpathfile=*.hdf"], ["char"]]},
+        {"name":"'HDF'", "kind":"ordered", "type":"choices={'HDF', 'EOS'}"}
+	],
+	"outputs":
+	[
+        {"name":"info", "type":[["struct", "scalar"]]}
+	]
+},
+"hdfml":
+{
+},
+"hdfpt":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfread":
+{
+    "inputs":
+	[
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.hdf"], ["matlabpathfile=*.hdf"], ["char"]]},
+                    {"name":"datasetname", "kind":"required", "type":[["char", "row"]] }
+                ],
+                [
+                    {"name":"hinfo", "kind":"required", "type":"struct"}
+                ]
+            ] 
+        }
+    ],
+	"outputs":
+	[
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"data"}
+                ],
+                [
+                    {"name":"data"},
+                    {"name":"map"}
+                ]
+            ]
+        }
+	]
+},
+"hdfsd":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfsw":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdftool":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file=*.hdf"], ["matlabpathfile=*.hdf"], ["char"]]}
+	],
+	"outputs":
+	[
+        {"name":"h"}
+	]
+},
+"hdfv":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfvf":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfvh":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"hdfvs":
+{
+	"inputs":
+	[
+	],
+	"outputs":
+	[
+	]
+},
+"imfinfo":
+{
+	"inputs":
+	[
+		{"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.bmp,*.cur,*.fts,*.fits,*.gif,*.hdf,*.ico,*.j2c,*.j2k,*.jp2,*.jpf,*.jpx,*.jpg,*.jpeg,*.pbm,*.pcx,*.pgm,*.png,*.pnm,*.ppm,*.ras,*.tif,*.tiff,*.xwd"],["matlabpathfile=*.bmp,*.cur,*.fts,*.fits,*.gif,*.hdf,*.ico,*.j2c,*.j2k,*.jp2,*.jpf,*.jpx,*.jpg,*.jpeg,*.pbm,*.pcx,*.pgm,*.png,*.pnm,*.ppm,*.ras,*.tif,*.tiff,*.xwd"]]},
+                    {"name":"fmt", "kind":"ordered", "type":[["char"],["char", "choices={'bmp','cur','fts','fits','gif','hdf','ico','j2c','j2k','jp2','jpf','jpx','jpg','jpeg','pbm','pcx','pgm','png','pnm','ppm','ras','tif','tiff','xwd'}"]]}
+                ],
+                [
+                    {"name":"URL", "kind":"required", "type":"char"}
+                ]
+            ]
+        }
+	]
+},
+"imformats":
+{
+	"inputs":
+	[
+        {"mutuallyExclusiveGroup":
+            [
+                [],
+                [
+                    {"name":"fmt", "kind":"required", "type":[["char"],["char", "choices={'bmp','cur','fts','fits','gif','hdf','ico','j2c','j2k','jp2','jpf','jpx','jpg','jpeg','pbm','pcx','pgm','png','pnm','ppm','ras','tif','tiff','xwd'}"]]}
+                ],
+                [
+                    {"name":"formatStruct", "kind":"required", "type":"struct"}
+                ],
+                [
+                    {"name":"'add'", "kind":"required", "type":["char", "choices={'add'}"]},
+                    {"name":"formatStruct", "kind":"required", "type":"struct"}
+                ],
+                [
+                    {"name":"'remove'", "kind":"required", "type":["char", "choices={'remove'}"]},
+                    {"name":"fmt", "kind":"required", "type":[["char"],["char", "choices={'bmp','cur','fts','fits','gif','hdf','ico','j2c','j2k','jp2','jpf','jpx','jpg','jpeg','pbm','pcx','pgm','png','pnm','ppm','ras','tif','tiff','xwd'}"]]}
+                ],
+                [
+                    {"name":"'update'", "kind":"required", "type":["char", "choices={'update'}"]},
+                    {"name":"fmt", "kind":"required", "type":[["char"],["char", "choices={'bmp','cur','fts','fits','gif','hdf','ico','j2c','j2k','jp2','jpf','jpx','jpg','jpeg','pbm','pcx','pgm','png','pnm','ppm','ras','tif','tiff','xwd'}"]]},
+                    {"name":"formatStruct", "kind":"required", "type":"struct"}
+                ],
+                [
+                    {"name":"'factory'", "kind":"required", "type":["char", "choices={'factory'}"]}
+                ]
+            ]
+        }
+	]
+},
+"imread":
+{
+	"inputs":
+	[
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.bmp"], ["matlabpathfile=*.bmp"], ["char", "@(x) endsWith(x,'.bmp')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.cur"], ["matlabpathfile=*.cur"], ["char", "@(x) endsWith(x,'.cur')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"idx", "kind":"ordered", "type":["numeric", "vector", ">=1"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.gif"], ["matlabpathfile=*.gif"], ["char", "@(x) endsWith(x,'.gif')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"idx", "kind":"ordered", "type":["numeric", "vector", ">=1"]},
+                    {"name":"Frames", "kind":"namevalue", "type":[["numeric", "vector", ">=1"], ["char", "choices={'all'}"]]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.hdf"], ["matlabpathfile=*.hdf"], ["char", "@(x) endsWith(x,'.hdf')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"idx", "kind":"ordered", "type":["numeric", "vector", ">=1"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.ico"], ["matlabpathfile=*.ico"], ["char", "@(x) endsWith(x,'.ico')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"idx", "kind":"ordered", "type":["numeric", "vector", ">=1"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.jpg,*.jpeg"], ["matlabpathfile=*.jpg,*.jpeg"], ["char", "@(x) endsWith(x,{'.jpg','.jpeg'})"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.jp2,*.jpx,*.j2c,*.j2k,*.jpf"], ["matlabpathfile=*.jp2,*.jpx,*.j2c,*.j2k,*.jpf"], ["char", "@(x) endsWith(x,{'*.jp2','*.jpx','*.j2c','*.j2k','*.jpf'})"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"PixelRegion", "kind":"namevalue", "type":"cell"},
+                    {"name":"ReductionLevel", "kind":"namevalue", "type":["numeric","scalar"]},
+                    {"name":"V79Compatible", "kind":"namevalue", "type":["logical", "scalar"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.png"], ["matlabpathfile=*.png"], ["char", "@(x) endsWith(x,'.png')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"BackgroundColor", "kind":"namevalue", "type":[["numeric"],["char", "choices={'none'}"]]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.tif,*.tiff"], ["matlabpathfile=*.tif,*.tiff"], ["char", "@(x) endsWith(x,{'.tif','tiff'})"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Index", "kind":"namevalue", "type":["numeric", ">=1"]},
+                    {"name":"Info", "kind":"namevalue", "type":["struct"]},
+                    {"name":"PixelRegion", "kind":"namevalue", "type":["cell"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.fts,*.fits,*.pbm,*.pcx,*.pgm,*.pnm,*.ppm,*.ras,*.xwd"], ["matlabpathfile=*.fts,*.fits,*.pbm,*.pcx,*.pgm,*.pnm,*.ppm,*.ras,*.xwd"]]},
+                    {"name":"fmt", "kind":"ordered", "type":"char"},
+                    {"name":"idx", "kind":"ordered", "type":["numeric", "vector", ">=1"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":"char"},
+                    {"name":"fmt", "kind":"ordered", "type":[["char"],["char", "choices={'bmp','cur','fts','fits','gif','hdf','ico','j2c','j2k','jp2','jpf','jpx','jpg','jpeg','pbm','pcx','pgm','png','pnm','ppm','ras','tif','tiff','xwd'}"]]},
+                    {"name":"idx", "kind":"ordered", "type":["numeric", "vector", ">=1"]}
+                ]
+                
+            ]
+        }
+    ]
+},
+"imwrite":
+{
+	"inputs":
+	[
+		{"name":"A", "kind":"required"},
+        {"name":"map", "kind":"ordered", "type":["numeric"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.bmp"], ["matlabpathfile=*.bmp"], ["char", "@(x) endsWith(x,'.bmp')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.gif"], ["matlabpathfile=*.gif"], ["char", "@(x) endsWith(x,'.gif')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"BackgroundColor", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"Comment", "kind":"namevalue", "type":[["char"], ["cell"]]},
+                    {"name":"DelayTime", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"DisposalMethod", "kind":"namevalue", "type":["char", "choices={'doNotSpecify','leaveInPlace','restoreBG','restorePrevious'}"]},
+                    {"name":"Location", "kind":"namevalue", "type":["numeric", "numel=2"]},
+                    {"name":"LoopCount", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"ScreenSize", "kind":"namevalue", "type":["numeric", "numel=2"]},
+                    {"name":"TransparentColor", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"WriteMode", "kind":"namevalue", "type":["char", "choices={'overwrite','append'}"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.hdf"], ["matlabpathfile=*.hdf"], ["char", "@(x) endsWith(x,'.hdf')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Compression", "kind":"namevalue", "type":["char", "choices={'none','jpeg','rle'}"]},
+                    {"name":"Quality", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"WriteMode", "kind":"namevalue", "type":["char", "choices={'overwrite','append'}"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.jpg,*.jpeg"], ["matlabpathfile=*.jpg,*.jpeg"], ["char", "@(x) endsWith(x,{'.jpg','.jpeg'})"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"BitDepth", "kind":"namevalue", "type":["numeric", "choices={8,12,16}"]},
+                    {"name":"Comment", "kind":"namevalue", "type":[["char"], ["cell"]]},
+                    {"name":"Mode", "kind":"namevalue", "type":["char", "choices={'lossy','lossless'}"]},
+                    {"name":"Quality", "kind":"namevalue", "type":["numeric", "scalar"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.jp2,*.jpx,*.j2c,*.j2k,*.jpf"], ["matlabpathfile=*.jp2,*.jpx,*.j2c,*.j2k,*.jpf"], ["char", "@(x) endsWith(x,{'.jp2','.jpx'})"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Comment", "kind":"namevalue", "type":[["char"], ["cell"]]},
+                    {"name":"CompressionRatio", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"Mode", "kind":"namevalue", "type":["char", "choices={'lossy','lossless'}"]},
+                    {"name":"ProgressionOrder", "kind":"namevalue", "type":["char", "choices={'LRCP','RLCP','RPCL','PCRL','CPRL'}"]},
+                    {"name":"QualityLayers", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"ReductionLevels", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"TileSize", "kind":"namevalue", "type":["numeric", "numel=2"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.pbm"], ["matlabpathfile=*.pbm"], ["char", "@(x) endsWith(x,'.pbm')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Encoding", "kind":"namevalue", "type":["char", "choices={'rawbits','ASCII'}"]},
+                    {"name":"MaxValue", "kind":"namevalue", "type":["numeric", "scalar"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.pcx"], ["matlabpathfile=*.pcx"], ["char", "@(x) endsWith(x,'.pcx')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.pgm"], ["matlabpathfile=*.pgm"], ["char", "@(x) endsWith(x,'.pgm')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Encoding", "kind":"namevalue", "type":["char", "choices={'rawbits','ASCII'}"]},
+                    {"name":"MaxValue", "kind":"namevalue", "type":["numeric", "scalar"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.png"], ["matlabpathfile=*.png"], ["char", "@(x) endsWith(x,'.png')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Alpha", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"Author", "kind":"namevalue", "type":["char"]},
+                    {"name":"Background", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"BitDepth", "kind":"namevalue", "type":["numeric", "choices={1,2,4,8,16}"]},
+                    {"name":"Chromaticities", "kind":"namevalue", "type":["numeric", "numel=8"]},
+                    {"name":"Comment", "kind":"namevalue", "type":["char"]},
+                    {"name":"Copyright", "kind":"namevalue", "type":["char"]},
+                    {"name":"CreationTime", "kind":"namevalue", "type":["char"]},
+                    {"name":"Description", "kind":"namevalue", "type":["char"]},
+                    {"name":"Disclaimer", "kind":"namevalue", "type":["char"]},
+                    {"name":"Gamma", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"ImageModTime", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+                    {"name":"InterlaceType", "kind":"namevalue", "type":["char", "choices={'none', 'adam7'}"]},
+                    {"name":"ResolutionUnit", "kind":"namevalue", "type":["char", "choices={'unknown','meter'}"]},
+                    {"name":"SignificantBits", "kind":"namevalue", "type":["numeric", "numel<=4"]},
+                    {"name":"Software", "kind":"namevalue", "type":["char"]},
+                    {"name":"Source", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"Transparency", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"Warning", "kind":"namevalue", "type":["char"]},
+                    {"name":"XResolution", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"YResolution", "kind":"namevalue", "type":["numeric", "scalar"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.pnm"], ["matlabpathfile=*.pnm"], ["char", "@(x) endsWith(x,'.pnm')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.ppm"], ["matlabpathfile=*.ppm"], ["char", "@(x) endsWith(x,'.ppm')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Encoding", "kind":"namevalue", "type":["char", "choices={'rawbits','ASCII'}"]},
+                    {"name":"MaxValue", "kind":"namevalue", "type":["numeric", "scalar"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.ras"], ["matlabpathfile=*.ras"], ["char", "@(x) endsWith(x,'.ras')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"Alpha", "kind":"namevalue", "type":["numeric"]},
+                    {"name":"Type", "kind":"namevalue", "type":["char", "choices={'standard','rgb','rle'}"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.tif,*.tiff"], ["matlabpathfile=*.tif,*.tiff"], ["char", "@(x) endsWith(x,{'.tif','.tiff'})"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]},
+                    {"name":"ColorSpace", "kind":"namevalue", "type":["char", "choices={'rgb','cielab','icclab'}"]},
+                    {"name":"Compression", "kind":"namevalue", "type":["char", "choices={'packbits','none','lzw','deflate','jpeg','ccitt','fax3','fax4'}"]},
+                    {"name":"Description", "kind":"namevalue", "type":["char"]},
+                    {"name":"Resolution", "kind":"namevalue", "type":["numeric", "numel=2"]},
+                    {"name":"RowsPerStrip", "kind":"namevalue", "type":["numeric", "scalar"]},
+                    {"name":"WriteMode", "kind":"namevalue", "type":["char", "choices={'overwite','append'}"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.ras"], ["matlabpathfile=*.ras"], ["char", "@(x) endsWith(x,'.ras')"]]},
+                    {"name":"fmt", "kind":"ordered", "type":["char"]}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":[["file=*.cur,*.fts,*.fits,*.ico,*.ras,*.xwd"], ["matlabpathfile=*.cur,*.fts,*.fits,*.ico,*.ras,*.xwd"]]},
+                    {"name":"fmt", "kind":"ordered", "type":"char"}
+                ],
+                [
+                    {"name":"filename", "kind":"required", "type":"char"},
+                    {"name":"fmt", "kind":"ordered", "type":[["char"],["char", "choices={'bmp','cur','fts','fits','gif','hdf','ico','j2c','j2k','jp2','jpf','jpx','jpg','jpeg','pbm','pcx','pgm','png','pnm','ppm','ras','tif','tiff','xwd'}"]]}
+                ]
+            ]
+        }
+    ]
+},
+"multibandread":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file"], ["char"]]},
+        {"name":"size", "kind":"required", "type":["numeric", "numel=3"]},
+        {"name":"precision", "kind":"required", "type":["char"]},
+        {"name":"offset", "kind":"required", "type":["numeric", "scalar"]},
+        {"name":"interleave", "kind":"required", "type":["char", "choices={'bsq','bil','bip'}"]},
+        {"name":"byteorder", "kind":"required", "type":["char", "choices={'n','b','l','s','a','native','ieee-be','ieee-le','ieee-be.l64','ieee-le.l64'}"]},
+        {"name":"subset1", "kind":"ordered", "type":["cell"]},
+        {"name":"subset2", "kind":"ordered", "type":["cell"]},
+        {"name":"subset3", "kind":"ordered", "type":["cell"]}
+	]
+},
+"multibandwrite":
+{
+	"inputs":
+	[
+        {"name":"data", "kind":"required"},
+        {"name":"filename", "kind":"required", "type":[["file"], ["char"]]},
+        {"name":"interleave", "kind":"required", "type":["char", "choices={'bsq','bil','bip'}"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [],
+                [
+                    {"name":"start", "kind":"required", "type":["numeric", "numel=3"]},
+                    {"name":"totalsize", "kind":"positional", "type":["numeric", "numel=3"]}
+                ]
+            ]
+        },
+        {"name":"precision", "kind":"namevalue", "type":["char"]},
+        {"name":"offset", "kind":"namevalue", "type":["numeric"]},
+        {"name":"machfmt", "kind":"namevalue", "type":["char", "choices={'n','b','l','s','a','native','ieee-be','ieee-le','ieee-be.l64','ieee-le.l64'}"]},
+        {"name":"fillvalue", "kind":"namevalue", "type":["numeric"]}
+	]
+},
+"nccreate":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.nc"], ["char"]]},
+		{"name":"varname", "kind":"required", "type":["char"]},
+        {"name":"Dimensions", "kind":"namevalue", "type":["cell"]},
+        {"name":"Datatype", "kind":"namevalue", "type":["char", 
+            "choices={'double','single','int64','uint64','int32','uint32','int16', 'uint16','int8','uint8','char'}"]},
+        {"name":"Format", "kind":"namevalue","type":["char", "choices={'classic', '64bit', 'netcdf4_classic', 'netcdf4'}"]},
+        {"name":"FillValue", "kind":"namevalue"},
+        {"name":"ChunkSize", "kind":"namevalue", "type":["numeric"]},
+        {"name":"DeflateLevel", "kind":"namevalue", "type":["numeric", "choices={0,1,2,3,4,5,6,7,8,9}"]},
+        {"name":"Shuffle", "kind":"namevalue", "type":["logical", "scalar"]}
+	]
+},
+"ncdisp":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"location", "kind":"positional", "type":["char"]},
+        {"name":"dispFormat", "kind":"positional", "type":["char", "choices={'full','min'}"]}
+	]
+},
+"ncinfo":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"varname", "kind":"ordered", "type":["char"]}
+	]
+},
+"ncinfo":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"groupname", "kind":"ordered", "type":["char"]}
+	]
+},
+"ncread":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"varname", "kind":"required", "type":["char"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [],
+                [
+                    {"name":"start", "kind":"required", "type":["numeric"]},
+                    {"name":"count", "kind":"required", "type":["numeric"]},
+                    {"name":"stride", "kind":"ordered", "type":["numeric"]}
+                ]
+            ]
+        }
+	]
+},
+"ncreadatt":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"location", "kind":"required", "type":["char"]},
+        {"name":"attname", "kind":"required", "type":["char"]}
+	]
+},
+"ncwrite":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"varname", "kind":"required", "type":["char"]},
+        {"name":"vardata", "kind":"required", "type":["char"]},
+        {"mutuallyExclusiveGroup":
+            [
+                [],
+                [
+                    {"name":"start", "kind":"required", "type":["numeric"]},
+                    {"name":"stride", "kind":"ordered", "type":["numeric"]}
+                ]
+            ]
+        }
+	]
+},
+"ncwriteatt":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"location", "kind":"required", "type":["char"]},
+        {"name":"attname", "kind":"required", "type":["char"]},
+        {"name":"attvalue", "kind":"required"}
+	]
+},
+"ncwriteschema":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.nc"], ["matlabpathfile=*.nc"], ["char"]]},
+		{"name":"schema", "kind":"required",  "type":["struct"]}
+	]
+},
+"Tiff":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.tif,*.tiff"], ["matlabpathfile=*.tif,*.tiff"], ["char"]]},
+		{"name":"mode", "kind":"ordered", "type":"choices={'r','w','w8','a','r+'}"}
+	]
+},
+"Tiff.close":
+{
+},
+"Tiff.computeStrip":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"row", "kind":"required", "type":["numeric"]},
+		{"name":"plane", "kind":"ordered", "type":["numeric"]}
+	]
+},
+"Tiff.computeTile":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"rowcol", "kind":"required", "type":["numeric"]},
+		{"name":"plane", "kind":"ordered", "type":["numeric", "numel=2"]}
+	]
+},
+"Tiff.currentDirectory":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"rowcol", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.getTag":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"tagId", "kind":"required", "type":[["numeric"],["char", "choices=Tiff.getTagNames"]]}
+	]
+},
+"Tiff.getTagNames":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.getVersion":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.isTiled":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.lastDirectory":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.nextDirectory":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.numberOfStrips":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.numberOfTiles":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.read":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.readEncodedStrip":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"stripNumber", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.readEncodedTile":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"tileNumber", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.readRGBAImage":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.readRGBAStrip":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"row", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.readRGBATile":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"row", "kind":"required", "type":["numeric"]},
+        {"name":"col", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.rewriteDirectory":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.setDirectory":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"dirNum", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.setSubDirectory":
+{
+	"inputs":
+	[   
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"offset", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.setTag":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"tagId", "kind":"required", "type":[["numeric"],["char", "choices=Tiff.getTagNames"]]},
+        {"name":"tagValue", "kind":"required"}
+	]
+},
+"Tiff.setTag":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"tagStruct", "kind":"required", "type":["struct"]}
+	]
+},
+"Tiff.write":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"imageData", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.write":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"Y", "kind":"required", "type":["numeric"]},
+        {"name":"Cb", "kind":"required", "type":["numeric"]},
+        {"name":"Cr", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.writeDirectory":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]}
+	]
+},
+"Tiff.writeEncodedStrip":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"stripNumber", "kind":"required", "type":["numeric"]},
+        {"name":"imageData", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.writeEncodedStrip":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"stripNumber", "kind":"required", "type":["numeric"]},
+        {"name":"Y", "kind":"required", "type":["numeric"]},
+        {"name":"Cb", "kind":"required", "type":["numeric"]},
+        {"name":"Cr", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.writeEncodedTile":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"tileNumber", "kind":"required", "type":["numeric"]},
+        {"name":"imageData", "kind":"required", "type":["numeric"]}
+	]
+},
+"Tiff.writeEncodedTile":
+{
+	"inputs":
+	[
+        {"name":"tiffobj", "kind":"required", "type":["Tiff"]},
+        {"name":"tileNumber", "kind":"required", "type":["numeric"]},
+        {"name":"Y", "kind":"required", "type":["numeric"]},
+        {"name":"Cb", "kind":"required", "type":["numeric"]},
+        {"name":"Cr", "kind":"required", "type":["numeric"]}
+	]
+}
+}

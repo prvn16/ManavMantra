@@ -1,0 +1,138 @@
+{
+"integral":
+{
+    "inputs":
+    [
+        {"name":"fun", "kind":"required", "type":["function_handle"]},
+        {"name":"xmin", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"xmax", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"AbsTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"RelTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"ArrayValued", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"Waypoints", "kind":"namevalue", "type":["numeric","vector"]}
+    ],
+    "outputs":
+    [
+        {"name":"q", "type":["numeric","scalar"]}
+    ]
+},
+"integral2":
+{
+    "inputs":
+    [
+        {"name":"fun", "kind":"required", "type":["function_handle"]},
+        {"name":"xmin", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"xmax", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"ymin", "kind":"required", "type":[["numeric","scalar"], ["function_handle"]]},
+        {"name":"ymax", "kind":"required", "type":[["numeric","scalar"], ["function_handle"]]},
+        {"name":"AbsTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"RelTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"Method", "kind":"namevalue", "type":["char", "choices={'auto','tiled','iterated'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"q", "type":["numeric","scalar"]}
+    ]
+},
+"integral3":
+{
+    "inputs":
+    [
+        {"name":"fun", "kind":"required", "type":["function_handle"]},
+        {"name":"xmin", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"xmax", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"ymin", "kind":"required", "type":[["numeric","scalar"], ["function_handle"]]},
+        {"name":"ymax", "kind":"required", "type":[["numeric","scalar"], ["function_handle"]]},
+        {"name":"zmin", "kind":"required", "type":[["numeric","scalar"], ["function_handle"]]},
+        {"name":"zmax", "kind":"required", "type":[["numeric","scalar"], ["function_handle"]]},
+        {"name":"AbsTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"RelTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"Method", "kind":"namevalue", "type":["char", "choices={'auto','tiled','iterated'}"], "default":"'auto'"}
+    ],
+    "outputs":
+    [
+        {"name":"q", "type":["numeric","scalar"]}
+    ]
+},
+"odeget":
+{
+    "inputs":
+    [
+        {"name":"options", "kind":"required", "type":["struct"]},
+        {"name":"name", "kind":"required", "type":["char", "choices={'RelTol','AbsTol','NormControl','Refine','OutputFcn','OutputSel','Stats','Jacobian','JPattern','Vectorized','Events','Mass','MStateDependence','MassSingular','MvPattern','InitialSlope','InitialStep','MaxStep','NonNegative','BDF','MaxOrder'}"]},
+        {"name":"default", "kind":"ordered", "type":[["numeric"],["char"]]}
+    ]
+},
+"odeset":
+{
+    "inputs":
+    [
+        {"name":"oldopts", "kind":"ordered", "type":["struct"]},
+        {"name":"newopts", "kind":"ordered", "type":["struct"]},
+        {"name":"RelTol", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+        {"name":"AbsTol", "kind":"namevalue", "type":["numeric", "vector", ">0"]},
+        {"name":"NormControl", "kind":"namevalue", "type": ["char", "choices={'on','off'}"]},
+        {"name":"Refine", "kind":"namevalue", "type":["integer", "scalar"]},
+        {"name":"OutputFcn", "kind":"namevalue", "type":["function_handle"]},
+        {"name":"OutputSel", "kind":"namevalue", "type":["integer", "vector"]},
+        {"name":"Stats", "kind":"namevalue", "type":["char", "choices={'on','off'}"]},
+        {"name":"Jacobian", "kind":"namevalue", "type":[["function_handle"], ["numeric"], ["cell"]]},
+        {"name":"JPattern", "kind":"namevalue", "type":[["numeric"], ["cell"]]},
+        {"name":"Vectorized", "kind":"namevalue", "type":["char", "choices={'on','off'}"]},
+        {"name":"Events", "kind":"namevalue", "type":["function_handle"]},
+        {"name":"Mass", "kind":"namevalue", "type":[["function_handle"], ["numeric"]]},
+        {"name":"MStateDependence", "kind":"namevalue", "type":["char", "choices={'none','weak','strong'}"]},
+        {"name":"MassSingular", "kind":"namevalue", "type":["char", "choices={'yes','no','maybe'}"]},
+        {"name":"MvPattern", "kind":"namevalue", "type":["numeric"]},
+        {"name":"InitialSlope", "kind":"namevalue", "type":["numeric","vector"]},
+        {"name":"InitialStep", "kind":"namevalue", "type":["numeric","scalar"]},
+        {"name":"MaxStep", "kind":"namevalue", "type":["numeric","scalar"]},
+        {"name":"NonNegative", "kind":"namevalue", "type":["integer", "vector"]},
+        {"name":"BDF", "kind":"namevalue", "type":["char", "choices={'on','off'}"]},
+        {"name":"MaxOrder", "kind":"namevalue", "type":["numeric", "choices={1,2,3,4,5}"]}
+    ],
+    "outputs":
+    [
+        {"name":"options", "type":["struct"]}
+    ]
+},
+"quadgk":
+{
+    "inputs":
+    [
+        {"name":"fun", "kind":"required", "type":["function_handle"]},
+        {"name":"a", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"b", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"AbsTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"RelTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"Waypoints", "kind":"namevalue", "type":["numeric","vector"]},
+        {"name":"MaxIntervalCount", "kind":"namevalue", "type":["numeric","scalar"]}
+    ],
+    "outputs":
+    [
+        {"name":"q", "type":["numeric","scalar"]},
+        {"name":"errbnd", "type":["numeric","scalar"]}
+    ]
+},
+"quad2d":
+{
+    "inputs":
+    [
+        {"name":"fun", "kind":"required", "type":["function_handle"]},
+        {"name":"a", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"b", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"c", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"d", "kind":"required", "type":["numeric","scalar"]},
+        {"name":"AbsTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"RelTol", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"MaxFunEvals", "kind":"namevalue", "type":["numeric","scalar"]},
+        {"name":"FailurePlot", "kind":"namevalue", "type":["logical","scalar"]},
+        {"name":"Singular", "kind":"namevalue", "type":["logical","scalar"]}
+    ],
+    "outputs":
+    [
+        {"name":"q", "type":["numeric","scalar"]},
+        {"name":"errbnd", "type":["numeric","scalar"]}
+    ]
+}
+}

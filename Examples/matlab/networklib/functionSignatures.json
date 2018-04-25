@@ -1,0 +1,34 @@
+{
+  "tcpclient": {
+    "inputs":
+    [
+      {"name": "Address","kind": "required","type": "char"},
+      {"name": "Port","kind": "required","type": ["numeric","<=65535",">=1"]},
+      {"name": "Timeout","kind": "namevalue","type": ["numeric","<2147483647",">=0"]},
+      {"name": "ConnectTimeout","kind": "namevalue","type": ["numeric",">=0"]}
+    ],
+    "outputs":
+    [
+      {"name":"t","type":"tcpclient"}
+    ]
+  },
+  "write": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "tcpclient"},
+      {"name": "data","kind": "required","type": "double"}
+    ]
+  },
+  "read": {
+    "inputs":
+    [
+      {"name": "obj","kind": "required","type": "tcpclient"},
+      {"name": "size","kind": "positional","type": "double"},
+      {"name": "datatype","kind": "ordered","type": "choices={'uint8','int8','uint16','int16','uint32','int32','uint64','int64','single','double'}"}
+    ],
+    "outputs":
+    [
+      {"name":"data","type":"double"}
+    ]
+  }
+}

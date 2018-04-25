@@ -1,0 +1,11 @@
+{  
+    "uiaxes":
+    {
+        "inputs":
+        [
+            {"name":"Parent", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"], ["matlab.ui.container.ButtonGroup"]]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.ui.control.UIAxes"}
+        ]
+    }
+}

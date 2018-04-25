@@ -1,0 +1,61 @@
+License Compiler, compiler
+
+% Copyright 2011-2017 The MathWorks, Inc.
+
+% Don't include files present in MCR
+% The list of expected directories is extracted from the PCM database.
+Expect MCR [
+]
+
+% Even if these files would be optimized out of the parts list, allow them if
+% they were explicitly specified as inputs to REQUIREMENTS. 
+
+Allow MCR ROOTSET [
+$MATLABROOT/.*/demos/
+]
+
+Allow MCR COMPLETION [
+$MATLABROOT/.*/demos/
+]
+
+% Explicitly exclude files called by matlabrc.m, because they are not used 
+% in deployed mode.
+Exclude MCR [
+$MATLABROOT/toolbox/matlab/codetools/
+$MATLABROOT/toolbox/local/pathdef[.]m
+$MATLABROOT/toolbox/local/[+]matlab/[+]internal/[+]toolboxes/
+$MATLABROOT/toolbox/local/[+]matlab/[+]internal/[+]zipAddOns/ 
+$MATLABROOT/.*/ja/.*[.]m$
+]
+
+% Scripts can't be in the root set -- they're not entry points
+Remove MCR ROOTSET [
+isbuiltin(#ROOTSET) ? msg2why(message('MATLAB:depfun:req:BuiltinEntryPoint', #FILE), #RULE)
+]
+
+% Unlicensed files should not show up in the completion.
+Remove MCR COMPLETION [
+~licensed(#COMPLETION, #SCHEMA) ? msg2why(message('MATLAB:depfun:req:UnlicensedPart', #FILE), #RULE)
+]
+
+% Order matters. If the ROOTSET contains .p files, look for the corresponding
+% .m files before moving the .p files to the COMPLETION.
+Substitute MCR ROOTSET COMPLETION [
+replaceIfExist(#ROOTSET, regexprep(#ROOTSET, '(.*)[.](p)$', '$1.m')) ? msg2why(message('MATLAB:depfun:req:PcodeEntryPoint', #FILE), #RULE)
+]
+
+% Non-executable files in the ROOTSET need to move into the COMPLETION.
+Move MCR ROOTSET COMPLETION [
+isscript(#ROOTSET) ? msg2why(message('MATLAB:depfun:req:ScriptEntryPoint', #FILE), #RULE)
+hasext(#ROOTSET, '.p') ? msg2why(message('MATLAB:depfun:req:PcodeEntryPoint', #FILE), #RULE)
+hasext(#ROOTSET, [ '.' mexext]) ? msg2why(message('MATLAB:depfun:req:MexEntryPoint', #FILE), #RULE)
+isClassdef(#ROOTSET) ? msg2why(message('MATLAB:depfun:req:McosEntryPoint', #FILE), #RULE)
+~isfunction(#ROOTSET) ? msg2why(message('MATLAB:depfun:req:NonFunctionEntryPoint', #FILE), #RULE)
+]
+
+% Order matters. Insert these files after removing non-function files, or the
+% FIG files (which are not function files) will get removed.
+Insert MCR COMPLETION [
+existing(setdiff(regexprep(#COMPLETION, '(.*)[.](m|mlx)$', '$1.fig'),#COMPLETION))
+]
+

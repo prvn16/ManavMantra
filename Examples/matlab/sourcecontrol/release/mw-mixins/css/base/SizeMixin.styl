@@ -1,0 +1,8 @@
+.mwSizeMixin {
+  display: inline-block;
+  white-space: nowrap;
+  /* To prevent inner inline-block elements from wrapping when the width of the domNode is
+     smaller than the combined width of the inner elements */
+  overflow: hidden;
+  box-sizing: border-box;
+}

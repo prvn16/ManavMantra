@@ -1,0 +1,350 @@
+classdef Warper
+    %Warper Apply same geometric transformation to many images efficiently
+    %  warper = Warper(tform, inputSize) creates an image warper from the
+    %  geometric transform object tform for images with size inputSize. The
+    %  transform can then be applied to images of size inputSize by calling
+    %  warp: B = warp(warper, A). If A has P planes ([M, N, P]), the
+    %  transform is applied to each [M, N] plane independently.
+    %
+    %  warper = Warper(tform, inputRef) specifies the coordinate
+    %  system of input images. inputRef is a spatial referencing object of
+    %  type imref2d.
+    %
+    %  warper = Warper(tform, inputRef, outputRef) additionally specifies
+    %  the coordinate system of the output image. This syntax can be used
+    %  to improve performance by limiting the application of the geometric
+    %  transformation to a specific output region of interest.
+    %
+    %  warper = Warper(sourceX, sourceY) specifies the input image
+    %  coordinates required to perform the geometric transformation.
+    %  sourceX and sourceY are 2-D matrices of the same size as the
+    %  required output image. Each (x, y) index in sourceX and sourceY
+    %  specifies the location in the input image for the corresponding
+    %  output pixel.
+    %
+    %  warper = Warper(..., Name, Value) specifies name-value pair
+    %  arguments described below:
+    %
+    %  'Interpolation'    A string specifying the interpolation method.
+    %                     Supported values:
+    %                       'nearest' - nearest-neighbor interpolation
+    %                       'linear'  - linear interpolation (Default)
+    %                       'cubic'   - cubic interpolation
+    %
+    %  'FillValue'        A numeric scalar. The fill value is used to
+    %                     populate output pixels whose source mapping
+    %                     results in locations outside the input image
+    %                     boundaries. The FillValue is cast to the datatype
+    %                     of the input image before use. Default FillValue
+    %                     is uint8(0).
+    %
+    %  Warper properties:
+    %    InputSize     - Expected input image size
+    %    OutputSize    - Output size of the warped image
+    %    Interpolation - String specifying the interpolation method
+    %    FillValue     - Fill value used for out-of-bound pixel locations
+    %
+    %  Warper methods:
+    %    warp          - Apply the geometric transformation
+    %
+    %  Notes
+    %  -----
+    %  Warper is optimized to apply the same geometric transformation
+    %  across a batch of same size images. This is achieved by splitting
+    %  the warping process into two steps: Computation of the transformed
+    %  coordinates (done once) and interpolation on the image (done for
+    %  each image). Compared to IMWARP, this approach speeds up the whole
+    %  process significantly for small to medium sized images, with
+    %  diminishing returns for larger images.
+    %
+    %  Class Support
+    %  -------------
+    %  tform is either affine2d or projective2d object. The input size,
+    %  inputSize is numeric integer valued with two or three elements.
+    %  inputRef and outputRef are of type imref2d. sourceX and sourceY are
+    %  both of type single with size [M, N] (the first two dimensions of
+    %  inputSize). 
+    %
+    %  Example: Apply a shear to multiple images
+    %  ------------------------------------------
+    %  % Pick a set of images with the same size
+    %  imds = imageDatastore(fullfile(matlabroot,'toolbox','images','imdata','AT*'));
+    %
+    %  % Create a geometric transform to rotate by 45 degrees and shrink an image
+    %  tform = affine2d([ 0.5*cos(pi/4) sin(pi/4)     0;
+    %                    -sin(pi/4)     0.5*cos(pi/4) 0;
+    %                     0             0             1]);
+    %
+    %  % Create a warper object to apply the above geometric transform
+    %  im = readimage(imds, 1);
+    %  warper = images.geotrans.Warper(tform, size(im));
+    %
+    %  % Preallocate output
+    %  numFiles = numel(imds.Files);
+    %  imr = zeros([warper.OutputSize, 1, numFiles],'like', im);
+    %
+    %  % Apply the same transformation to each of the input images
+    %  for ind = 1:numFiles
+    %      im = read(imds);
+    %      imr(:,:,1, ind) = warper.warp(im);
+    %  end
+    %  % Visualize the output
+    %  montage(imr);
+    %
+    % See also affine2d, projective2d, imwarp, imref2d, imrotate
+    
+    
+    % Copyright 2017 The MathWorks, Inc.
+    
+    
+    properties (SetAccess = private)
+        %InputSize Expected input image size
+        %  The InputSize specifies the first two or three dimensions of the
+        %  input image that the warper supports.
+        InputSize = [];
+        
+        %OutputSize Output size of the warped image
+        %  The OutputSize specified the first two dimensions of the output
+        %  image generated by the application of the geometrical transform.
+        OutputSize = [];
+        
+        %Interpolation String specifying the interpolation method
+        % Value is one of:
+        %   'nearest' - nearest-neighbor interpolation
+        %   'linear'  - linear interpolation
+        %   'cubic'   - cubic interpolation
+        Interpolation = [];
+        
+        %FillValue Fill value used for out-of-bound pixel locations
+        %  The FillValue is a scalar numeric value specifying the value to
+        %  use for a input pixel location that is outside the bounds of
+        %  the input image. FillValue is cast to the datatype of the input
+        %  image before use.
+        FillValue = [];
+    end
+    
+    properties (Access = private)
+        UseIPP = true;
+        SourceX = [];
+        SourceY = [];
+    end
+    
+    methods
+        function warper = Warper(varargin)
+            narginchk(2, 7);
+            [tform, sourceSizeOrRef, OutputReference, FillValue, Interpolation, sourceX, sourceY] ...
+                = warper.parseInputs(varargin{:});
+            
+            if isempty(sourceX)
+                % Compute coordinate transform from tform and input ref/size
+                if isa(sourceSizeOrRef,'imref2d')
+                    warper.InputSize = sourceSizeOrRef.ImageSize;
+                    refIn  = sourceSizeOrRef;
+                else
+                    % Pick only first two dimensions
+                    warper.InputSize = sourceSizeOrRef(1:2);
+                    refIn  = imref2d(warper.InputSize);
+                end
+                
+                if isempty(OutputReference)
+                    OutputReference = images.spatialref.internal.applyGeometricTransformToSpatialRef(refIn,tform);
+                end
+                [sourceX, sourceY] = images.geotrans.internal.getSourceMappingInvertible2d(refIn, tform, OutputReference);
+            end
+            
+            warper.UseIPP = ippl;
+            if warper.UseIPP
+                % Convert to zero-based indexing for IPP
+                sourceX = sourceX-1;
+                sourceY = sourceY-1;
+            end
+            
+            warper.SourceX = single(sourceX);
+            warper.SourceY = single(sourceY);
+            warper.Interpolation = Interpolation;
+            warper.OutputSize = size(sourceX);
+            warper.FillValue = FillValue;
+        end
+        
+        function out = warp(warper, im)
+            %WARP Apply the geometric transformation
+            %  B = warper.warp(A) performs the geometrical
+            %  transformation on the input image A and returns the warped
+            %  image in B. A has to be of size inputSize.
+            %
+            %  Class Support
+            %  -------------
+            %  warper is an object of type images.geotrans.Warper. A has to
+            %  be a numeric matrix of either uint8, int16 or single
+            %  datatype, with size [M, N] or [M, N, P]. B has the same type
+            %  as A and its first two dimensions are warper.OutputSize. If
+            %  A has P planes, B will also have P planes.
+            %
+            
+            if ~isa(im,'uint8') && ~isa(im,'int16') && ~isa(im,'single')
+                error(message('images:validate:unsupportedDataType','uint8, int16, single'));
+            end
+            if ~(ndims(im)<4)
+                % Had to be 2d or 3d
+                error(message('images:Warper:expected2or3d'))
+            end
+            if ~isempty(warper.InputSize) && ~isequal([size(im,1), size(im,2)], warper.InputSize)
+                % Check image size only if tform/inputsize is given.
+                error(message('images:Warper:inconsistentSize'))
+            end
+            
+            inClass = class(im);
+            if isa(im, 'int16')
+                im = single(im);
+            end
+            
+            if warper.UseIPP
+                % Prepare fill value
+                fillValue = cast(warper.FillValue, 'like', im);
+                fillValue = repmat(fillValue, [1, size(im,3)]);
+                
+                out = images.internal.remapmex(im,...
+                    warper.SourceX, warper.SourceY,...
+                    warper.Interpolation, fillValue);
+            else
+                out = zeros([warper.OutputSize, size(im,3)],'single');
+                for pInd = 1:size(im,3)
+                    f = griddedInterpolant({1:size(im,1), 1:size(im,2)}, single(im(:,:,pInd)));
+                    f.Method = warper.Interpolation;
+                    f.ExtrapolationMethod = 'none';
+                    out(:,:,pInd) = f(warper.SourceY, warper.SourceX);
+                end
+                out(isnan(out)) = warper.FillValue;
+            end
+            
+            out = cast(out, inClass);
+        end
+    end
+    
+    methods (Access = private)
+        function [tform, sourceSizeOrRef, OutputReference, FillValue, Interpolation, sourceX, sourceY] = parseInputs(~, varargin)
+            args = matlab.images.internal.stringToChar(varargin);
+            
+            parser = inputParser;
+            
+            parser.CaseSensitive = false;
+            parser.PartialMatching = true;
+            
+            if isnumeric(args{1})
+                parser.addRequired('sourceX', @(parm)checkSourceXY(parm, 'sourceX'));
+                parser.addRequired('sourceY', @(parm)checkSourceXY(parm, 'sourceY'));
+            else
+                parser.addRequired('tform',@checktform);
+                parser.addRequired('sourceSizeOrRef', @checksourceSizeOrRef);
+                parser.addOptional('OutputReference',imref2d.empty(), @checkOutputRef);
+            end
+            
+            parser.addParameter('FillValue',uint8(0), @checkFillValues);
+            parser.addParameter('Interpolation', 'linear', @checkInterpolation);
+            parser.parse(args{:});
+            parsedResults = parser.Results;
+            parsedResults.Interpolation = validatestring(parser.Results.Interpolation,...
+                {'nearest', 'linear', 'cubic'}, mfilename);
+            
+            if isnumeric(args{1})
+                tform = [];
+                sourceSizeOrRef = [];
+                sourceX = parsedResults.sourceX;
+                sourceY = parsedResults.sourceY;
+            else
+                tform = parsedResults.tform;
+                sourceSizeOrRef = parsedResults.sourceSizeOrRef;
+                sourceX = [];
+                sourceY = [];
+            end
+            
+            if isnumeric(args{1})
+                % If srcX/Y is given, no output ref is required (size of
+                % srcX/Y is the output size)
+                OutputReference = [];
+            else
+                OutputReference = parsedResults.OutputReference;
+            end
+            
+            FillValue = parsedResults.FillValue;
+            Interpolation = char(parsedResults.Interpolation);
+        end
+    end
+    
+    methods(Access=private, Static)
+        function name = matlabCodegenRedirect(~)
+            name = 'images.internal.coder.Warper';
+        end
+        
+    end
+end
+
+
+
+
+%% Validation functions
+function tf = checktform(tform)
+validateattributes(tform,...
+    {'affine2d', 'projective2d'},...
+    {'scalar'}, ...
+    mfilename, 'tform');
+tf = true;
+end
+
+function tf = checksourceSizeOrRef(sourceSizeOrRef)
+if isa(sourceSizeOrRef,'imref2d')
+    validateattributes(sourceSizeOrRef,...
+        {'imref2d'},...
+        {'scalar'},...
+        mfilename, 'InputReference');
+    if isa(sourceSizeOrRef,'imref3d')
+        % Note - imref3d isa imref2d.
+        error(message('images:Warper:imref3dNotSupported'));
+    end
+else
+    % MXN, or MxNxP
+    validateattributes(sourceSizeOrRef,...
+        {'numeric'},...
+        {'nonsparse','integer', 'positive', 'finite', 'nonempty'},...
+        mfilename, 'InputSize');
+    coder.internal.errorIf(~(numel(sourceSizeOrRef)<4),...
+        'images:Warper:expected2or3d');
+end
+tf = true;
+end
+
+function tf = checkSourceXY(srcxy, varName)
+validateattributes(srcxy,...
+    {'single'},...
+    {'2d','finite','nonempty'},...
+    mfilename, varName);
+tf = true;
+end
+
+function tf = checkOutputRef(outputRef)
+validateattributes(outputRef,...
+    {'imref2d'},...
+    {'scalar'},...
+    mfilename, 'OutputReference');
+if isa(outputRef,'imref3d')
+    % Note - imref3d isa imref2d.
+    error(message('images:Warper:imref3dNotSupported'));
+end
+tf = true;
+end
+
+function tf = checkInterpolation(interpString)
+validateattributes(interpString,...
+    {'char','string'},...
+    {'scalartext'},...
+    mfilename,'Interpolation');
+tf = true;
+end
+
+function tf = checkFillValues(fillValue)
+validateattributes(fillValue,...
+    {'numeric'},...
+    {'scalar', 'real'}, ...
+    mfilename, 'FillValue');
+tf = true;
+end

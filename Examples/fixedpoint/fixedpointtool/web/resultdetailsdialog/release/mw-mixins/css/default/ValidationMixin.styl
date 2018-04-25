@@ -1,0 +1,79 @@
+.mwValidationTooltipDialog .mwTextNode  {
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:    2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  box-shadow:         2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Error and not focused state of widget*/
+.mwDefaultVisualFamily.mwWidget.mwValidationError, .mwDefaultVisualFamily.mwWidget.mwValidationError:hover, .mwDefaultVisualFamily.mwWidgetHover.mwValidationError  {
+  border: 1px solid rgba(225, 27, 34, 0.7);
+}
+
+.mwDefaultVisualFamily.mwValidationError.mwWidgetHoverFocused {
+     border: 1px solid rgb(225, 27, 34);
+}
+
+/* Warning Tooltip when not focused */
+.mwValidationTooltipDialog.mwWarningTooltip .mwContentsNode .mwTextNode {
+  border: 1px solid rgb(67, 116, 171);
+}
+
+/* Warning Tooltip when focused */
+.mwValidationTooltipDialog.mwWarningTooltip.mwValidationFocused .mwContentsNode .mwTextNode {
+  border: 1px solid rgb(17, 74, 135);
+}
+
+/* Error Tooltip when not focused */
+.mwValidationTooltipDialog.mwErrorTooltip .mwContentsNode .mwTextNode {
+  border: 1px solid rgba(225, 27, 34, 0.7);
+}
+
+/* Error Tooltip when focused */
+.mwValidationTooltipDialog.mwErrorTooltip.mwValidationFocused .mwContentsNode .mwTextNode {
+  border: 1px solid rgb(225, 27, 34);
+}
+
+.mwValidationTooltipDialog.mwWarningTooltip .mwIconNode {
+  background: rgb(67, 116, 171);
+  background-image: url("../../images/widgets/visualfamilies/default/tooltip_info_4x12.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mwValidationTooltipDialog.mwWarningTooltip.mwValidationFocused .mwIconNode {
+  background: rgb(17, 74, 135);
+  background-image: url("../../images/widgets/visualfamilies/default/tooltip_info_4x12.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mwValidationTooltipDialog.mwErrorTooltip.mwValidationFocused .mwIconNode {
+  background: rgb(225, 27, 34);
+  background-image: url("../../images/widgets/visualfamilies/default/tooltip_exclamation_4x12.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mwValidationTooltipDialog.mwErrorTooltip .mwIconNode {
+  background: rgb(234, 95, 100);
+  background-image: url("../../images/widgets/visualfamilies/default/tooltip_exclamation_4x12.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.mwValidationTooltipDialog .mwTextNode {
+  background: rgb(250, 250, 250);
+}
+
+  /*
+    Style specific to Combo Box in focused state. This rule enforces
+    more specific rule over the mwComboBoxFocused class to ensure the
+    validation error related border colors are correctly applied.
+  */
+
+.mwDefaultVisualFamily.mwComboBox.mwComboBoxFocused.mwValidationError {
+  border: 1px solid rgba(225,27,34,0.7);
+}
+

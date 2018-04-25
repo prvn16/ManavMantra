@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!-- Load dojo -->
+<script src="/derived/ui/generated/datatools/variableeditor_js_client/variableeditor_client/generatedDojoConfig.js"></script>
+<script type="text/javascript" src="../../../../../../../derived/ui/dojo/dojo.js"></script>
+
+<!-- Load css -->
+<link rel="stylesheet" type="text/css" href="../../../../../../../derived/ui/mw-table/css/themes/default/widgets/Table.css"/>
+<link rel="stylesheet" type="text/css" href="variableeditor_client/css/SummaryBar.css"/>
+<link rel="stylesheet" type="text/css" href="variableeditor_client/css/VariableOutputHandler.css"/>
+
+
+<script type="text/javascript">
+function openVar() {
+var data = document.getElementById("data").value;
+
+require([
+    "variableeditor_client/Manager",
+	"mw-tabular-data-model/On",
+    "dojo/dom-class",
+    "dojo/dom-construct",
+    "mw-tabular-data-model/DataStore"
+], function(Manager, on, domClass, domConstruct,  datastore) {
+        var columns = 4;
+        var dummyData = makeTableData(25000, columns);
+		var ds = new datastore(data);
+		var manager = new Manager({channel: "/VEMWTableManager"});
+        var veDoc = manager.openDocument('x', {data: dummyData, columnData: getFixedColumnModel(), viewType:"variableeditor_client/TableViewModel", varName: 'x', varSize: '25000x4',varType:'table'}, null);
+        domClass.add(veDoc.domNode, 'constrictHeight');
+        var outerWrapper = domConstruct.toDom("<div class='embeddedOutputsVariableTableElement'></div>");
+        domConstruct.place(veDoc.domNode,outerWrapper);
+        document.body.appendChild(outerWrapper);
+    });
+}
+
+function closeVariable(){
+    var clientDoc = window.document.getElementsByClassName('ClientDocument');
+    if (clientDoc && clientDoc[0]){
+        var document = dijit.getEnclosingWidget(clientDoc[0]);
+        document.destroy();
+    }
+}
+
+// create mock data
+function makeTableData(rows, cols) {
+    var tableData = [];
+
+    for (var r = 0; r < rows; r++) {
+        var row = [];
+
+        for (var c = 0; c < cols; c++) {
+            var value = r;
+            if ( 1 < (Math.random() * 2)) {
+                value = Number(r) * -1;
+            }
+            var val = value + ',' + c;
+            row.push(val);
+        }
+        tableData.push(row);
+    }
+
+    return tableData;
+}
+
+function getFixedColumnModel() {
+			return {
+            columnModel: {
+                columnConfig: [
+                    {
+                        label: 'One',
+                        dataIndex: 0,
+                        renderer: new renderChooser(),
+                        width: {
+                            value: 155,
+                            unit: 'px'
+                        }
+                    },
+                    {
+                        label: 'A Very Very Very Very Very Very Very Very Long Name',
+                        dataIndex: 1,
+                        width: {
+                            value: 115,
+                            unit: 'px'
+                        }
+                    },
+                    {
+                        label: 'Three (DataIndex=3)',
+                        dataIndex: 3,
+                        renderer: new stringRenderer(),
+                        width: {
+                            value: 110,
+                            unit: 'px'
+                        }
+                    },
+                    {
+                        label: 'Four (DataIndex=4)',
+                        dataIndex: 4,
+                        renderer: new stringRenderer(),
+                        width: {
+                            value: 100,
+                            unit: '%'
+                        }
+                    }
+                ]
+            }
+        };
+		}
+
+// Define a number renderer
+        function numberRenderer () {
+
+            this.isEven = function(value) {
+                return value % 2 === 0;
+            };
+
+            this.getDomNode = function(value) {
+    			if (value) {
+                var v = Number(value.split(',')[0]);
+    			} else {
+    				var v = 0;
+    			}
+                var div = document.createElement('div');
+
+                div.style.color = 'red';
+                div.style.textAlign = "right";
+                div.textContent = v.toFixed(2);
+
+                return div;
+            };
+
+        }
+
+        // Define a string renderer
+        function stringRenderer()  {
+
+            this.getDomNode = function(value) {
+    			var div = document.createElement('div');
+
+    			if (value) {
+    				var values = value.split(',');
+
+    				if (values.length < 2) {
+    					values = ['', ''];
+    				}
+    			} else {
+    				values = ['', ''];
+    			}
+
+                div.style.color = 'green';
+
+                div.textContent = value;
+                return div;
+            };
+
+        }
+
+        function renderChooser() {
+            var numberRender = new numberRenderer();
+            var stringRender = new stringRenderer();
+
+            this.getDomNode = function(value) {
+    			return stringRender.getDomNode(value);
+            };
+        }
+
+
+
+</script>
+</head>
+<body class="tundra" style="margin:10pt;overflow:auto;" id="theBody">
+<div class="Text Fields">
+    <div class="inputSection">
+        <strong> Enter Data Input </strong>
+        <br/>
+        <br/>
+        <div class="inputwrap">
+            <label>Data : </label><input type="text" id="data" required/>
+        </div>
+    </div>
+</div>
+<br/>
+<input type="button" id="openButton" value="Open Variable" onclick="openVar();" style="margin-left:5px;"/><input type="button" id="closeButton" value="Close Variable" onclick="closeVariable();" style="margin-left:5px;"/>
+</body>
+</body>
+</html>

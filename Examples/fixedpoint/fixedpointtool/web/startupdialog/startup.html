@@ -1,0 +1,45 @@
+<!-- Copyright 2014-2017 The MathWorks, Inc. -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- CSS : implied media="all" -->
+    <link rel="stylesheet" href="release/Startup/css/main.css"  type="text/css" />
+    <!--[if IE 9]>
+        <link href="release/css/overrides_ie9.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+ </head>
+ <body class="tundra">
+
+    <div id="root"></div>
+    <script src="release/Startup/dojoConfig-release-global.js"></script>
+     <!-- Include dojo release build -->
+     <script type="text/javascript" src="release/dojo/dojo.js"></script>
+     <script type="text/javascript">
+        // Require browser compatability check lib
+         require(["Startup/browsercheck"], function () {
+             require(["mw-browser-utils/BrowserCheck!"], function () {
+                 // If the browser compatability check passes, require in the web widget lib
+                 require(["Startup/Startup"], function () {
+                    require([
+                        "Startup/View",
+                        "dojo/_base/lang",
+                        "dojo/_base/unload",
+                        "dojo/domReady!"
+                      ], function (View, lang, baseUnload) {
+                            //Get a node from the HTML Doc
+                            var s = new View("root");
+                            baseUnload.addOnUnload(lang.hitch(s, s.destroy));
+                    });
+                });
+            });
+         });
+     </script>
+ </body>
+ </html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="false" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+  <settings name="desktop" visible="false">
+    <settings name="workspace" visible="false">
+        <!-- ArraySizeLimit and ArraySizeLimitEnabled are used for configuring the array size limit -->
+	    <!-- ArraySizeLimit defaults to a 100% and ArraySizeLimitEnabled defaults to true i.e. enabled -->
+        <key name="ArraySizeLimit" visible="true">
+          <uint8>
+              <metadata>
+	        <min>1</min>
+	        <max>100</max>
+	      </metadata>
+              <value>100</value>
+          </uint8>
+        </key>
+        <key name="ArraySizeLimitEnabled" visible="true">
+          <bool>
+            <value>1</value>
+          </bool>
+        </key>
+      <settings name="savevariablestoscript" visible="true">  
+        <key name="MaximumArraySize" visible="true">
+          <validationfunc type="C" packagename="libmwsavevars" functionname="validateMaximumArraySizeValue"/>
+          <double>
+            <value>1000</value>
+          </double>
+        </key>
+        <key name="MaximumNestingLevel" visible="true">
+          <validationfunc type="C" packagename="libmwsavevars" functionname="validateMaximumNestingLevel"/>
+          <double>
+            <value>20</value>
+          </double>
+        </key>
+        <!-- RowVectorWithReshape and Use2Dslice are mutually exclusive keys -->
+        <key name="Using2Dslice" visible="true">
+          <bool>
+            <value>0</value>
+          </bool>
+        </key>
+        <key name="ArrayDimensionsFor2Dslice" visible="true">
+          <validationfunc type="C" packagename="libmwsavevars" functionname="validateArrayDimensions"/>
+          <double minArraySize="2" maxArraySize="2">
+            <value>1</value> 
+            <value>2</value>
+          </double>
+        </key>
+        <key name="MaximumTextWidth" visible="true">
+          <validationfunc type="C" packagename="libmwsavevars" functionname="validateMaximumTextWidth"/>
+          <double>
+            <value>76</value>
+          </double>
+        </key>
+      </settings> <!-- savevariablespref node-->
+      <settings name="statisticalcalculations" visible="true">        
+        <key name="WorkspaceBrowserStatNumelLimit" visible="true">
+          <double>
+            <value>500000</value>
+          </double>
+        </key>
+        <!-- Workspacebrowser use NaN's and ignore NaN's are mutually exclusive keys -->
+        <key name="WorkspaceBrowserUseNaNs" visible="true">
+          <bool>
+            <value>1</value>
+          </bool>
+        </key>
+      </settings> <!-- Statistical Calculations node-->
+    </settings> <!-- workspace node-->
+  </settings> <!-- desktop node -->
+</settings> <!-- matlab node -->
+

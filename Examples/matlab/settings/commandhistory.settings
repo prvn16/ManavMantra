@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="true" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings name="desktop" visible="false">
+    <settings name="commandhistory" visible="false">
+        <key name="SaveToFile" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="ObsoleteSaveOption" visible="false">
+            <int32>
+                <value>0</value>
+            </int32>
+        </key>
+        <key name="CommandCountLimit" visible="true">
+            <int32>
+                <value>25000</value>
+            </int32>
+        </key>
+        <key name="SaveOptions" visible="false">
+            <int32>
+                <value>0</value>
+            </int32>
+        </key>
+        <key name="MatchAnywhere" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="MatchCase" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="FilterMatches" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="ShowMatchBar" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="ShowMatchBarWhenDocked" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="ShowMatchLocations" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="ShowExecutionTime" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="ShowExecutionTimeWhenDocked" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="ShowFavoriteCommands" visible="false">
+            <int32>
+                <value>1</value>
+            </int32>
+        </key>
+        <key name="ShowFavoriteCommandsWhenDocked" visible="false">
+            <int32>
+                <value>0</value>
+            </int32>
+        </key>
+        <key name="PopupWidth" visible="false">
+            <int32>
+                <value>-1</value>
+            </int32>
+        </key>
+         <key name="PopupHeight" visible="false">
+             <int32>
+                 <value>-1</value>
+             </int32>
+         </key>
+      </settings> <!-- commandhistory node-->
+  </settings> <!-- desktop node -->
+</settings> <!-- matlab node -->

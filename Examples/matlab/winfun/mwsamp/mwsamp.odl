@@ -1,0 +1,94 @@
+// mwsamp.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (mwsamp.tlb) that will become a resource in
+// mwsamp.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(9999DD44-4D4D-11D1-A663-00A0249C4B9F), version(1.0),
+  helpfile("mwsamp.hlp"),
+  helpstring("mwsamp ActiveX Control module"),
+  control ]
+library MWSAMPLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CMwsampCtrl
+
+	[ uuid(9999DD45-4D4D-11D1-A663-00A0249C4B9F),
+	  helpstring("Dispatch interface for Mwsamp Control"), hidden ]
+	dispinterface _DMwsamp
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMwsampCtrl)
+			[id(1)] BSTR Label;
+			[id(2)] short Radius;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMwsampCtrl)
+			[id(3)] void Beep();
+			[id(4)] void Redraw();
+			[id(5)] VARIANT GetVariantArray();
+			[id(6)] IDispatch* GetIDispatch();
+			[id(7)] BSTR GetBSTR();
+			[id(8)] VARIANT GetI4Array();
+			[id(9)] VARIANT GetBSTRArray();
+			[id(10)] long GetI4();
+			[id(11)] double GetR8();
+			[id(12)] VARIANT GetR8Array();
+			[id(13)] void FireClickEvent();
+			[id(14)] VARIANT GetVariantVector();
+			[id(15)] VARIANT GetR8Vector();
+			[id(16)] VARIANT GetI4Vector();
+			[id(17)] VARIANT SetBSTRArray(VARIANT v);
+			[id(18)] long SetI4(long l);
+			[id(19)] VARIANT SetI4Vector(VARIANT v);
+			[id(20)] VARIANT SetI4Array(VARIANT v);
+			[id(21)] double SetR8(double d);
+			[id(22)] VARIANT SetR8Vector(VARIANT v);
+			[id(23)] VARIANT SetR8Array(VARIANT v);
+			[id(24)] BSTR SetBSTR(BSTR b);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CMwsampCtrl
+
+	[ uuid(9999DD46-4D4D-11D1-A663-00A0249C4B9F),
+	  helpstring("Event interface for Mwsamp Control") ]
+	dispinterface _DMwsampEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMwsampCtrl)
+			[id(DISPID_CLICK)] void Click();
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMwsampCtrl
+
+	[ uuid(9999DD47-4D4D-11D1-A663-00A0249C4B9F),
+	  helpstring("Mwsamp Control"), control ]
+	coclass Mwsamp
+	{
+		[default] dispinterface _DMwsamp;
+		[default, source] dispinterface _DMwsampEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

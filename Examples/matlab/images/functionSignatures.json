@@ -1,0 +1,22 @@
+{
+
+"imresize":
+{
+  "inputs":
+  [
+    {"name":"A","kind":"required","type":[["uint8"],["uint16"],["uint32"],["int8"],["int16"],["int32"],["double"],["single"]]},
+    {"name":"Scale","kind":"required","type":"numeric"},
+    {"name":"Method","kind":"namevalue","type":"choices={'nearest','bilinear','bicubic'}"},
+    {"name":"Colormap","kind":"namevalue","type":"choices={'original','optimized'}"},
+    {"name":"Dither","kind":"namevalue","type":"logical"},
+    {"name":"AntiAliasing","kind":"namevalue","type":"logical"},
+    {"name":"OutputSize","kind":"namevalue","type":"numeric"}
+  ],
+  "outputs":
+  [
+    {"name":"B","type":"numeric"}
+  ]
+}
+
+}
+

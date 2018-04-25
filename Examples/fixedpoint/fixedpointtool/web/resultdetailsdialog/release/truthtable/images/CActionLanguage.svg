@@ -1,0 +1,24 @@
+<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="0.000035" x2="0.500036" y1="1" x1="0.500036" id="SVGID_1_">
+   <stop stop-color="#273558" offset="0.0368"/>
+   <stop stop-color="#42668D" offset="0.9939"/>
+  </linearGradient>
+  <linearGradient y2="1.007533" x2="0.499958" y1="-0.318483" x1="0.499958" id="SVGID_2_">
+   <stop stop-color="#FFFFFF" offset="0.2883"/>
+   <stop stop-color="#EBD479" offset="0.6258"/>
+   <stop stop-color="#F4E395" offset="0.7117"/>
+   <stop stop-color="#FFEED6" offset="0.9141"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m14,11c0,1.657 -1.343,3 -3,3l-8,0c-1.657,0 -3,-1.343 -3,-3l0,-8c0,-1.657 1.343,-3 3,-3l8,0c1.657,0 3,1.343 3,3l0,8z" fill="url(#SVGID_1_)"/>
+  <path id="svg_2" d="m11,1l-8,0c-1.104,0 -2,0.896 -2,2l0,1l0,7c0,1.104 0.896,2 2,2l8,0c1.104,0 2,-0.896 2,-2l0,-7l0,-1c0,-1.104 -0.896,-2 -2,-2z" fill="url(#SVGID_2_)"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_12" y="11.137019" x="2.672397" fill="url(#SVGID_1_)">C</text>
+ </g>
+</svg>

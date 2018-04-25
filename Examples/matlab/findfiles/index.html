@@ -1,0 +1,97 @@
+<!--Copyright 2015-2017 MathWorks, Inc.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Find Files</title>
+    <script type="text/javascript">
+        var routingkey, computeToken;
+        updateSessionCookie();
+
+        var headID = document.getElementsByTagName("head")[0];
+
+        var dojoConfigScript = document.createElement("script");
+        dojoConfigScript.src = "release/findfiles-ui/dojoConfig-release-global.js";
+        dojoConfigScript.onload = onDojoConfigLoad;
+        dojoConfigScript.type = "text/javascript";
+
+        var dojoScript =   document.createElement("script");
+        dojoScript.src = "release/dojo/dojo.js";
+        dojoScript.onload = onDojoLoad;
+        dojoScript.type = "text/javascript";
+
+        loadCssFile("release/findfiles-ui/css/main.css");
+        headID.appendChild(dojoConfigScript);
+
+        /**
+         * Updates session cookie to add routingkey and computeToken which enables loading static css and js resources.
+         * They need to be added to the session before loading the css and jss files on MOSD stack
+         */
+        function updateSessionCookie() {
+            var params = {};
+            if (location.search) {
+                var parts = location.search.substring(1).split('&');
+
+                for (var i = 0; i < parts.length; i++) {
+                    var nv = parts[i].split('=');
+                    if (!nv[0]) continue;
+                    params[nv[0]] = nv[1] || true;
+                }
+            }
+            routingkey = params.routingkey;
+            computeToken =  params.computeToken;
+
+            document.cookie = "routingkey=" + routingkey + ";domain=" + window.location.host;
+            document.cookie = "computeToken=" + computeToken + ";domain=" + window.location.host;
+        };
+
+        function loadCssFile(filePath) {
+            var fileref = document.createElement("link");
+            fileref.setAttribute("rel", "stylesheet")
+            fileref.setAttribute("type", "text/css");
+            fileref.setAttribute("href", filePath);
+
+            if (typeof fileref!="undefined") {
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+            }
+        };
+
+        function onDojoConfigLoad () {
+            headID.appendChild(dojoScript);
+        };
+
+        function onDojoLoad () {
+            require(["findfiles-ui/browsercheck"], function () {
+                require(["mw-browser-utils/BrowserCheck!"], function () {
+                    // If the browser compatibility check passes, require in the web widget lib
+                    require(["findfiles-ui/findfiles-ui"], function () {
+                        require([
+                            "findfiles-ui/js/widgets/FindFilesUi",
+                            "mw-remote/Remote",
+                            "dojo/dom",
+                            "dojo/domReady!"
+                        ], function (FindFilesUi, Remote, dom) {
+                            if (routingkey && computeToken) {
+                                Remote.setServiceEndPoint("ROUTER_LEAF_SECURE_ENDPOINT", window.location.origin, routingkey);
+                                Remote.setServiceEndPoint("ROUTER_LEAF_INSECURE_ENDPOINT", window.location.origin, routingkey);
+                                Remote.setComputeToken({"computeResourceAddress": routingkey, "computeSessionId": computeToken, "serviceUrl": "unset"});
+                                Remote.setWorkerEndpoint(window.location.origin, routingkey);
+                                Remote.allowAllMessages();
+                            }
+                            var findFilesContainer = dom.byId("findFiles");
+                            var findFilesWidget = new FindFilesUi();
+                            findFilesWidget.placeAt(findFilesContainer);
+                            findFilesWidget.startup();
+                        });
+                    });
+                });
+            });
+        }
+
+    </script>
+</head>
+<body class="findFilesBody tundra">
+<div id="findFiles">
+</div>
+</body>
+</html>

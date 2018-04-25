@@ -1,0 +1,19 @@
+{
+"runperf":
+{
+        "inputs":
+        [
+                {"name":"tests", "kind":"required", "type":[["identifier=function,package"], ["file=*.m,*.p,*.mlx"],
+                    ["choices=matlab.unittest.internal.TabCompletion.nameChoicesFromPartialMatch(tests)"]]},
+                {"name":"BaseFolder", "kind":"namevalue"},
+                {"name":"IncludeSubfolders", "kind":"namevalue", "type":["logical","scalar"]},
+                {"name":"IncludeSubpackages", "kind":"namevalue", "type":["logical","scalar"]},
+                {"name":"Name", "kind":"namevalue", "type":[["char"], ["choices=matlab.unittest.internal.TabCompletion.nameChoices(tests)"]]},
+                {"name":"ParameterName", "kind":"namevalue", "type":[["char"], ["choices=matlab.unittest.internal.TabCompletion.parameterNameChoices(tests)"]]},
+                {"name":"ParameterProperty", "kind":"namevalue", "type":[["char"], ["choices=matlab.unittest.internal.TabCompletion.parameterPropertyChoices(tests)"]]},
+                {"name":"Tag", "kind":"namevalue", "type":[["char"], ["choices=matlab.unittest.internal.TabCompletion.tagChoices(tests)"]]},
+                {"name":"ProcedureName", "kind":"namevalue", "type":[["char"], ["choices=matlab.unittest.internal.TabCompletion.procedureNameChoices(tests)"]]},
+                {"name":"Superclass", "kind":"namevalue", "type":[["char"], ["choices= matlab.unittest.internal.TabCompletion.superclassChoices(tests)"]]}
+        ]
+}
+}

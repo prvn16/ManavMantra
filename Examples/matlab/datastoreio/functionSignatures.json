@@ -1,0 +1,466 @@
+{
+    "datastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file"], ["cell"], ["char"]]},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'file'}"},
+            {"name":"UniformRead", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"ReadFcn", "kind":"namevalue", "type":"function_handle"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.FileDatastore"}
+        ]
+    }
+    ,
+    "datastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.jpg,*.jpeg,*.png,*.tif,*.tiff,*.bmp,*.gif"], ["matlabpathfile=*.jpg,*.png,*.tif,*.tiff,*.bmp,*.gif"], ["cell"], ["char"]]},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'image'}"},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"ReadFcn", "kind":"namevalue", "type":"function_handle"},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"LabelSource", "kind":"namevalue", "type":"choices={'foldernames', 'none'}"},
+            {"name":"Labels", "kind":"namevalue", "type":[["cell"], ["logical"], ["categorical"]]}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.ImageDatastore"}
+        ]
+    }
+    ,
+    "datastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.mat,*.seq"], ["matlabpathfile=*.mat,*.seq"], ["cell"], ["char"]]},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'keyvalue'}"},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileType", "kind":"namevalue", "type":"choices={'mat', 'seq'}"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.KeyValueDatastore"}
+        ]
+    }
+    ,
+    "datastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.mat,*.seq"], ["matlabpathfile=*.mat,*.seq"], ["cell"], ["char"]]},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'tall'}"},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileType", "kind":"namevalue", "type":"choices={'mat', 'seq'}"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.TallDatastore"}
+        ]
+    }
+    ,
+    "datastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.xlsx,*.xls,*.xlsm,*.xltm,*.xltx"], ["matlabpathfile=*.xlsx,*.xls,*.xlsm,*.xltm,*.xltx"], ["cell"], ["char"]]},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'spreadsheet'}"},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"Sheets", "kind":"namevalue", "type":[["cell"], ["char"], ["numeric"]]},
+            {"name":"Range", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"ReadSize", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+            {"name":"NumHeaderLines", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadVariableNames", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char', 'string'}"]},
+            {"name":"VariableNames", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"VariableTypes", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"SelectedVariableNames", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"SelectedVariableTypes", "kind":"namevalue", "type":[["cell"], ["char"]]}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.SpreadsheetDatastore"}
+        ]
+    }
+    ,
+    "datastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.csv,*.txt,*.dat,*.dlm,*.asc,*.text"], ["matlabpathfile=*.csv,*.txt,*.dat,*.dlm,*.asc,*.text"], ["cell"], ["char"]]},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'tabulartext'}"},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileEncoding", "kind":"namevalue", "type":["char"]},
+            {"name":"Delimiter", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"RowDelimiter", "kind":"namevalue", "type":["char"]},
+            {"name":"TreatAsMissing", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"MissingValue", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadSize", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+            {"name":"NumHeaderLines", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadVariableNames", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"VariableNames", "kind":"namevalue", "type":"cell"},
+            {"name":"TextscanFormats", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char', 'string'}"]},
+            {"name":"DatetimeType", "kind":"namevalue", "type":["char", "choices={'datetime', 'text'}"]},
+            {"name":"SelectedVariableNames", "kind":"namevalue", "type":"cell"},
+            {"name":"SelectedFormats", "kind":"namevalue", "type":"cell"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.TabularTextDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileReader":
+    {
+        "inputs":
+        [
+            {"name":"filename", "kind":"required", "type":[["file=*.csv,*.txt,*.jpg,*.png,*.tif,*.xls,*.xlsx"], ["matlabpathfile=*.csv,*.txt,*.jpg,*.png,*.tif,*.xls,*.xlsx"], ["cell"], ["char"]]},
+            {"name":"TextEncoding", "kind":"namevalue", "type":"char"}
+        ],
+        "outputs":
+        [
+            {"name":"fr", "type":"matlab.io.datastore.DsFileReader"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileReader.read":
+    {
+        "inputs":
+        [
+            {"name":"fr", "kind":"required", "type":"matlab.io.datastore.DsFileReader"},
+            {"name":"size", "kind":"required", "type":"numeric"},
+            {"name":"SizeMethod", "kind":"namevalue", "type":"choices={'NumBytes', 'OutputSize'}"},
+            {"name":"OutputType", "kind":"namevalue", "type":"choices={'uint8', 'uint16', 'uint32', 'uint64', 'int8', 'int16', 'int32', 'int64', 'single', 'double', 'char'}"}
+        ],
+        "outputs":
+        [
+            {"name":"A"},
+            {"name":"count", "type":"numeric"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileReader.seek":
+    {
+        "inputs":
+        [
+            {"name":"fr", "kind":"required", "type":"matlab.io.datastore.DsFileReader"},
+            {"name":"bytes", "kind":"required", "type":"numeric"},
+            {"name":"RespectTextEncoding", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"Origin", "kind":"namevalue", "type":"choices={'currentposition', 'start-of-file', 'end-of-file'}"}
+        ],
+        "outputs":
+        [
+            {"name":"numbytes", "type":"numeric"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileReader.hasdata":
+    {
+        "inputs":
+        [
+            {"name":"fr", "kind":"required", "type":"matlab.io.datastore.DsFileReader"}
+        ],
+        "outputs":
+        [
+            {"name":"status", "type":"logical"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileSet":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.csv,*.txt,*.jpg,*.png,*.tif,*.xls,*.xlsx"], ["matlabpathfile=*.csv,*.txt,*.jpg,*.png,*.tif,*.xls,*.xlsx"], ["cell"], ["char"], ["struct"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileSplitSize", "kind":"namevalue", "type":[["numeric"],["char"]]}
+        ],
+        "outputs":
+        [
+            {"name":"fs", "type":"matlab.io.datastore.DsFileSet"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileSet.partition":
+    {
+        "inputs":
+        [
+            {"name":"fs", "kind":"required", "type":"matlab.io.datastore.DsFileSet"},
+            {"name":"N", "kind":"required", "type":["scalar","integer"]},
+            {"name":"ii", "kind":"required", "type":["scalar","integer"]}
+        ],
+        "outputs":
+        [
+            {"name":"subfs", "type":"matlab.io.datastore.DsFileSet"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileSet.resolve":
+    {
+        "inputs":
+        [
+            {"name":"fs", "kind":"required", "type":"matlab.io.datastore.DsFileSet"}
+        ],
+        "outputs":
+        [
+            {"name":"files", "type":"table"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileSet.nextfile":
+    {
+        "inputs":
+        [
+            {"name":"fs", "kind":"required", "type":"matlab.io.datastore.DsFileSet"}
+        ],
+        "outputs":
+        [
+            {"name":"filename", "type":"table"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileSet.hasfile":
+    {
+        "inputs":
+        [
+            {"name":"fs", "kind":"required", "type":"matlab.io.datastore.DsFileSet"}
+        ],
+        "outputs":
+        [
+            {"name":"tf", "type":"logical"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.DsFileSet.reset":
+    {
+        "inputs":
+        [
+            {"name":"fs", "kind":"required", "type":"matlab.io.datastore.DsFileSet"}
+        ]
+    }
+    ,
+    "fileDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file"],["cell"], ["char"]]},
+            {"name":"UniformRead", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"ReadFcn", "kind":"namevalue", "type":"function_handle"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.FileDatastore"}
+        ]
+    }
+    ,
+    "imageDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.jpg,*.jpeg,*.png,*.tif,*.tiff,*.bmp,*.gif"], ["matlabpathfile=*.jpg,*.jpeg,*.png,*.tif,*.tiff,*.bmp,*.gif"], ["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"ReadFcn", "kind":"namevalue", "type":"function_handle"},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"LabelSource", "kind":"namevalue", "type":"choices={'foldernames', 'none'}"},
+            {"name":"Labels", "kind":"namevalue", "type":[["cell"], ["logical"], ["categorical"]]}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.ImageDatastore"}
+        ]
+    }
+    ,
+    "spreadsheetDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.xlsx,*.xls,*.xlsm,*.xltm,*.xltx"], ["matlabpathfile=*.xlsx,*.xls,*.xlsm,*.xltm,*.xltx"], ["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"Sheets", "kind":"namevalue", "type":[["cell"], ["char"], ["numeric"]]},
+            {"name":"Range", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"ReadSize", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+            {"name":"NumHeaderLines", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadVariableNames", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char', 'string'}"]},
+            {"name":"VariableNames", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"VariableTypes", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"SelectedVariableNames", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"SelectedVariableTypes", "kind":"namevalue", "type":[["cell"], ["char"]]}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.SpreadSheetDatastore"}
+        ]
+    }
+    ,
+    "tabularTextDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.csv,*.txt,*.dat,*.dlm,*.asc,*.text"], ["matlabpathfile=*.csv,*.txt,*.dat,*.dlm,*.asc,*.text"], ["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileEncoding", "kind":"namevalue", "type":["char"]},
+            {"name":"Delimiter", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"RowDelimiter", "kind":"namevalue", "type":["char"]},
+            {"name":"TreatAsMissing", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"MissingValue", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadSize", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+            {"name":"NumHeaderLines", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadVariableNames", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"VariableNames", "kind":"namevalue", "type":"cell"},
+            {"name":"TextscanFormats", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char', 'string'}"]},
+            {"name":"DatetimeType", "kind":"namevalue", "type":["char", "choices={'datetime', 'text'}"]},
+            {"name":"SelectedVariableNames", "kind":"namevalue", "type":"cell"},
+            {"name":"SelectedFormats", "kind":"namevalue", "type":"cell"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.TabularTextDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.FileDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file"],["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"ReadFcn", "kind":"namevalue", "type":"function_handle"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.FileDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.ImageDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.jpg,*.jpeg,*.png,*.tif,*.tiff,*.bmp,*.gif"], ["matlabpathfile=*.jpg,*.jpeg,*.png,*.tif,*.tiff,*.bmp,*.gif"], ["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"ReadFcn", "kind":"namevalue", "type":"function_handle"},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"LabelSource", "kind":"namevalue", "type":"choices={'foldernames', 'none'}"},
+            {"name":"Labels", "kind":"namevalue", "type":[["cell"], ["logical"], ["categorical"]]}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.ImageDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.SpreadsheetDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.xlsx,*.xls,*.xlsm,*.xltm,*.xltx"], ["matlabpathfile=*.xlsx,*.xls,*.xlsm,*.xltm,*.xltx"], ["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"Sheets", "kind":"namevalue", "type":[["cell"], ["char"], ["numeric"]]},
+            {"name":"Range", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"ReadSize", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+            {"name":"NumHeaderLines", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadVariableNames", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char', 'string'}"]},
+            {"name":"VariableNames", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"VariableTypes", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"SelectedVariableNames", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"SelectedVariableTypes", "kind":"namevalue", "type":[["cell"], ["char"]]}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.SpreadSheetDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.TabularTextDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.csv,*.txt,*.dat,*.dlm,*.asc,*.text"], ["matlabpathfile=*.csv,*.txt,*.dat,*.dlm,*.asc,*.text"], ["cell"], ["char"]]},
+            {"name":"IncludeSubfolders", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"FileExtensions", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileEncoding", "kind":"namevalue", "type":["char"]},
+            {"name":"Delimiter", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"RowDelimiter", "kind":"namevalue", "type":["char"]},
+            {"name":"TreatAsMissing", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"MissingValue", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadSize", "kind":"namevalue", "type":[["char"], ["numeric"]]},
+            {"name":"NumHeaderLines", "kind":"namevalue", "type":["numeric"]},
+            {"name":"ReadVariableNames", "kind":"namevalue", "type":[["logical", "scalar"], ["numeric"]]},
+            {"name":"VariableNames", "kind":"namevalue", "type":"cell"},
+            {"name":"TextscanFormats", "kind":"namevalue", "type":[["cell"], ["char"]]},
+            {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char', 'string'}"]},
+            {"name":"DatetimeType", "kind":"namevalue", "type":["char", "choices={'datetime', 'text'}"]},
+            {"name":"SelectedVariableNames", "kind":"namevalue", "type":"cell"},
+            {"name":"SelectedFormats", "kind":"namevalue", "type":"cell"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.TabularTextDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.KeyValueDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.mat,*.seq"], ["matlabpathfile=*.mat,*.seq"], ["cell"], ["char"]]},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileType", "kind":"namevalue", "type":"choices={'mat', 'seq'}"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.KeyValueDatastore"}
+        ]
+    }
+    ,
+    "matlab.io.datastore.TallDatastore":
+    {
+        "inputs":
+        [
+            {"name":"location", "kind":"required", "type":[["file=*.mat,*.seq"], ["matlabpathfile=*.mat,*.seq"], ["cell"], ["char"]]},
+            {"name":"ReadSize", "kind":"namevalue", "type":"numeric"},
+            {"name":"AlternateFileSystemRoots", "kind":"namevalue", "type":[["cell"], ["string"]]},
+            {"name":"FileType", "kind":"namevalue", "type":"choices={'mat', 'seq'}"}
+        ],
+        "outputs":
+        [
+            {"name":"ds", "type":"matlab.io.datastore.TallDatastore"}
+        ]
+    }
+}

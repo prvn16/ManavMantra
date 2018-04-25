@@ -1,0 +1,72 @@
+{
+//  Copyright 2017 The MathWorks, Inc.
+"FunctionApproximation.Options":
+{
+    "inputs":
+    [
+        {"name":"Interpolation",            "kind":"namevalue",     "type":"choices=arrayfun(@(x) char(x), enumeration('FunctionApproximation.InterpolationMethod'),'UniformOutput',false)'"},
+        {"name":"WordLengths",              "kind":"namevalue",     "type":"numeric"},
+        {"name":"HardwareType",             "kind":"namevalue",     "type":"choices=arrayfun(@(x) char(x), enumeration('FunctionApproximation.HardwareTypes'),'UniformOutput',false)'"},
+        {"name":"BreakpointSpecification",  "kind":"namevalue",     "type":"choices=arrayfun(@(x) char(x), enumeration('FunctionApproximation.BreakpointSpecification'),'UniformOutput',false)'"},
+        {"name":"AbsTol",                   "kind":"namevalue",     "type":"numeric"},
+        {"name":"RelTol",                   "kind":"namevalue",     "type":"numeric"},
+        {"name":"AllowUpdateDiagram",       "kind":"namevalue",     "type":["logical", "scalar"]},
+        {"name":"Display",                  "kind":"namevalue",     "type":["logical", "scalar"]}
+    ]
+}
+,
+"FunctionApproximation.Problem":
+{
+    "inputs":
+    [
+        {"name":"FunctionToApproximate",            "kind":"required",      "type":"choices=FunctionApproximation.internal.functionsignatures.getFunctionChoices()"},
+        {"name":"InputTypes",                       "kind":"namevalue",     "type":"numerictype"},
+        {"name":"InputLowerBounds",                 "kind":"namevalue",     "type":"numeric"},
+        {"name":"InputUpperBounds",                 "kind":"namevalue",     "type":"numeric"},
+        {"name":"OutputType",                       "kind":"namevalue",     "type":"numerictype"},
+        {"name":"Options",                          "kind":"namevalue",     "type":"FunctionApproximation.Options"}
+    ]
+}
+,
+"FunctionApproximation.internal.database.LUTDBUnit":
+{
+    "inputs":
+    [
+        {"name":"GridSize",                           "kind":"namevalue",     "type":"numeric"},        
+        {"name":"ConstraintAt",                       "kind":"namevalue",     "type":"numeric"},
+        {"name":"ConstraintValue",                    "kind":"namevalue",     "type":"numeric"},
+        {"name":"ConstraintValueMustBeLessThan",      "kind":"namevalue",     "type":"numeric"},
+        {"name":"ConstraintMet",                      "kind":"namevalue",     "type":"numeric"},
+        {"name":"ObjectiveValue",                     "kind":"namevalue",     "type":"numeric"},
+        {"name":"BreakpointSpecification",            "kind":"namevalue",     "type":"choices=arrayfun(@(x) char(x), enumeration('FunctionApproximation.BreakpointSpecification'),'UniformOutput',false)'"},
+        {"name":"Grid",                               "kind":"namevalue",     "type":"FunctionApproximation.internal.SegmentCreator"}      
+    ]
+}
+,
+"FunctionApproximation.internal.MemoryValue":
+{
+    "inputs":
+    [
+        {"name":"Value",                           "kind":"required",      "type":"numeric"},        
+        {"name":"Unit",                            "kind":"namevalue",     "type":"choices=FunctionApproximation.internal.functionsignatures.getMemoryUnitOptions()"}
+    ]
+}
+,
+"FunctionApproximation.internal.ApproximateLUTSolution.totalmemoryusage":
+{
+    "inputs":
+    [   
+        {"name":"Object",                          "kind":"required",      "type":"FunctionApproximation.internal.ApproximateLUTSolution"},
+        {"name":"Unit",                            "kind":"required",      "type":"choices=FunctionApproximation.internal.functionsignatures.getMemoryUnitOptions()"}
+    ]
+}
+,
+"FunctionApproximation.LUTSolution.totalmemoryusage":
+{
+    "inputs":
+    [   
+        {"name":"Object",                          "kind":"required",      "type":"FunctionApproximation.LUTSolution"},
+        {"name":"Unit",                            "kind":"required",      "type":"choices=FunctionApproximation.internal.functionsignatures.getMemoryUnitOptions()"}
+    ]
+}
+}

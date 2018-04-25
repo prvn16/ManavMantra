@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="false" xmlns="urn:mathworks.matlab.settings"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<settings name="apps" visible="false">
+		<key name="AppsInstallFolder" visible="false">
+			<string>
+				<value></value>
+			</string>
+		</key>
+	</settings>
+	<settings name="desktop" visible="false">
+		<key name="EnableRichScriptSupport" visible="false">
+			<bool>
+				<value>1</value>
+			</bool>
+		</key>	
+		<key name="EnableMlxSupport" visible="false">
+			<bool>
+				<value>0</value>
+			</bool>
+		</key>
+		<key name="EnableLiveEditorFloatingPalette" visible="false">
+			<bool>
+				<value>0</value>
+			</bool>
+		</key>
+		<key name="BlockEditorGraphicalDebugging" visible="false">
+			<bool>
+				<value>0</value>
+			</bool>
+		</key>
+		<key name="DisplayScaleFactor" visible="true">
+			<double>
+				<metadata>
+					<min>1.0</min>
+					<max>5.0</max>
+				</metadata>
+				<value>1.0</value>
+			</double>
+		</key>
+         <key name="FavoriteCommandsEnabled" visible="true">
+             <bool>
+                <value>1</value>
+             </bool>
+        </key>
+		<settings name="help" visible="false">
+			<key name="DocLanguage" visible="false">
+				<string>
+					<value></value>
+				</string>
+			</key>
+			<key name="SingleSource" visible="false">
+				<bool>
+					<value>0</value>
+				</bool>				 
+			</key>
+		</settings>
+		<settings name="commandwindow" visible="false">
+			<key name="ErrorColor" visible="false">
+				<int32 minArraySize="3" maxArraySize="3">
+					<value>230</value>
+					<value>0</value>
+					<value>0</value>
+				</int32>
+			</key>
+			<key name="WarningColor" visible="false">
+				<int32 minArraySize="3" maxArraySize="3">
+					<value>255</value>
+					<value>100</value>
+					<value>0</value>
+				</int32>
+			</key>
+			<key name="ShowTypoSuggestions" visible="false">
+				<bool>
+					<value>1</value>
+				</bool>
+			</key>
+		</settings>
+		<settings name="currentfolder" visible="false">
+			<key name="CurrentFolderSize" visible="false">
+				<int32>
+					<value>15000</value>
+				</int32>
+			</key>
+			<key name="ShowHiddenFiles" visible="false">
+				<bool>
+					<value>0</value>
+				</bool>
+			</key>
+			<key name="History" visible="false">
+				<string minArraySize="0" maxArraySize="500">
+					<value></value>
+				</string>
+			</key>
+			<key name="HistorySize" visible="false">
+				<int32>
+					<value>20</value>
+				</int32>
+			</key>
+			<settings name="autorefresh" visible="false">
+				<key name="Enabled" visible="false">
+					<bool>
+						<value>1</value>
+					</bool>
+				</key>
+				<key name="Interval" visible="false">
+					<int32>
+						<value>3</value>
+					</int32>
+				</key>
+			</settings>
+			<settings name="lastfolder" visible="false">
+				<key name="ClosedGroups" visible="false">
+					<string minArraySize="0" maxArraySize="100000">
+						<value></value>
+					</string>
+				</key>
+				<key name="ColumnOrder" visible="false">
+					<string minArraySize="0" maxArraySize="100">
+						<value>icon</value>
+						<value>name</value>
+						<value>size</value>
+						<value>modified</value>
+						<value>description</value>
+						<value>type</value>
+					</string>
+				</key>
+				<key name="ColumnSizes" visible="false">
+					<string minArraySize="0" maxArraySize="100000" >
+						<value></value>
+					</string>
+				</key>
+				<key name="GroupColumn" visible="false">
+					<string>
+						<value></value>
+					</string>
+				</key>
+				<key name="GroupMode" visible="false">
+					<string >
+						<value></value>
+					</string>
+				</key>
+				<key name="OpenGroups" visible="false">
+					<string minArraySize="0" maxArraySize="100000">
+						<value></value>
+					</string>
+				</key>
+				<key name="SortColumn" visible="false">
+					<string>
+						<value>name</value>
+					</string>
+				</key>
+				<key name="SortDescending" visible="false">
+					<bool>
+						<value>0</value>
+					</bool>
+				</key>
+				<key name="VisibleColumns" visible="false">
+					<string minArraySize="0" maxArraySize="100">
+						<value>icon</value>
+						<value>name</value>
+					</string>
+				</key>
+			</settings>
+			<settings name="lastsearch" visible="false">
+				<key name="ClosedGroups" visible="false">
+					<string minArraySize="0"  maxArraySize="10000">
+						<value></value>
+					</string>
+				</key>
+				<key name="ColumnOrder" visible="false">
+					<string minArraySize="0" maxArraySize="100">
+						<value>icon</value>
+						<value>name</value>
+						<value>size</value>
+						<value>modified</value>
+						<value>description</value>
+						<value>location</value>
+						<value>type</value>
+					</string>
+				</key>
+				<key name="ColumnSizes" visible="false">
+					<string minArraySize="0" maxArraySize="100000">
+						<value></value>
+					</string>
+				</key>
+				<key name="GroupColumn" visible="false">
+					<string>
+						<value>location</value>
+					</string>
+				</key>
+				<key name="GroupMode" visible="false">
+					<string>
+						<value>location</value>
+					</string>
+				</key>
+				<key name="OpenGroups" visible="false">
+					<string minArraySize="0" maxArraySize="100000">
+						<value></value>
+					</string>
+				</key>
+				<key name="SortColumn" visible="false">
+					<string>
+						<value>modified</value>
+					</string>
+				</key>
+				<key name="SortDescending" visible="false">
+					<bool>
+						<value>1</value>
+					</bool>
+				</key>
+				<key name="VisibleColumns" visible="false">
+					<string minArraySize="0" maxArraySize="100">
+						<value>icon</value>
+						<value>name</value>
+						<value>modified</value>
+						<value>description</value>
+					</string>
+				</key>
+			</settings>
+			<settings name="pathaffordance" visible="false">
+				<key name="Enabled" visible="false">
+					<bool>
+						<value>1</value>
+					</bool>
+				</key>
+				<key name="Transparency" visible="false">
+					<int32>
+						<value>40</value>
+					</int32>
+				</key>
+			</settings>
+			<settings name="detailviewer" visible="false">
+				<key name="Size" visible="false">
+					<int32>
+						<value>0</value>
+					</int32>
+				</key>
+				<key name="Ratio" visible="false">
+					<double>
+						<value>0</value>
+					</double>
+				</key>
+				<key name="Collapsed" visible="false">
+					<bool>
+						<value>0</value>
+					</bool>
+				</key>
+			</settings>
+		</settings>
+		<settings name="arrayeditor" visible="false">
+			<key name="CodeGenEnabled" visible="false">
+				<bool>
+					<value>1</value>
+				</bool>
+			</key>
+			<key name="VECmdLineCodeGenEnabled" visible="false">
+				<bool>
+					<value>0</value>
+				</bool>
+			</key>
+		</settings>
+	</settings>
+</settings>

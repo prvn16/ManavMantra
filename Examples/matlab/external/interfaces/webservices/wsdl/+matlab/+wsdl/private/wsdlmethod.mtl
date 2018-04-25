@@ -1,0 +1,40 @@
+%% Copyright 2013-2014 The MathWorks, Inc.
+%%
+%% genericmethod.mtl
+%%    Template for createWsdlClient, for creating a method within a service class file.
+%% 
+%% OUTPUT              - Return value  '' or 'rval = ' or '[rval1, rval2, ...] ='
+%% DOCOUTPUT           - Documentation of return value
+%% METHODNAME          - method name               'SetUser' from WSDL
+%% INPUT               - function args             'obj,arg0,arg1,...'
+%% ARGDOC              - function args doc         'arg0,arg1, ...'
+%% DOCUMENTATION       - formatted documentation of ARGS and OUTPUT
+%% H1DOCUMENTATION     - documentation for H1 line
+%% MCLASSNAME          - service class name
+%% BODY    - one of these (MCLASS is the class we created for the Java return type):
+%%    if no return value 
+%%         obj.portObj.$METHODNAME%($ARGS$)        
+%%    or if one return value that isn't an XML array (maxOccurs = 1)
+%%         ret = obj.portObj.$METHODNAME$($ARGS$)  
+%%         rval = MCLASS.getInstance(ret);          % if ret is a Java class we created
+%%    or if one return value that is an array (maxOccurs > 1)
+%%         ret = obj.portObj.$METHODNAME$($ARGS$)   % returns java.util.List
+%%         ret = arrayfun(@(x)x,ret.toArray,'UniformOutput',false)'; % if List contains only boxed primitives or String
+%%         n = ret.size;              % if list contains type we created 
+%%         rval = zeros(n);
+%%         for i = 1 : n
+%%            rv = ret.get(i-1);
+%%            rval(i) = MCLASS.getInstance(rv);      
+%%         end 
+%%    or if multiple return values, do above for each return value, where 
+%%    each $ARG$ that is a javax.xml.ws.Holder is one of the return args.
+
+        function $OUTPUT$$METHODNAME$$INPUT$
+        %$METHODNAME$  $H1DOCUMENTATION$
+        %  $DOCOUTPUT$$METHODNAME$$INPUT$  $DOCUMENTATION$
+        %
+        % See also $MCLASSNAME$.
+
+            import matlab.wsdl.internal.*
+$BODY$
+        end

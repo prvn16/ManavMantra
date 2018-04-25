@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 MathWorks, Inc. -->
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+    <settings name="fonts" visible="true">
+        <settings name="codefont" visible="true">
+            <key name="Name" visible="true">
+                <string>
+                    <value>Monospaced</value>
+                </string>
+            </key>
+            <key name="Style" visible="true">
+                <int32>
+                    <metadata>
+                        <min>0</min>
+                        <max>3</max>
+                    </metadata>
+                    <value>0</value>
+                </int32>
+            </key>
+            <key name="Size" visible="true">
+                <int32>
+                    <metadata>
+                        <min>1</min>
+                        <max>100</max>
+                    </metadata>
+                    <runtimedefault type="JAVA" packagename="com.mathworks.services.DefaultFontPrefs"
+                                  functionname="getDefaultCodeFontSize"/>
+                </int32>
+            </key>
+        </settings>
+    </settings>
+</settings>

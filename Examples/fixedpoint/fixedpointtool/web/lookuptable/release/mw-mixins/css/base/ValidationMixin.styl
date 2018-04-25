@@ -1,0 +1,126 @@
+.mwValidationTooltipDialog .mwIconNode,
+.mwValidationTooltipDialog .mwContentsNode,
+.mwValidationTooltipDialog .mwTextNode,
+.mwValidationTooltipDialog .mwArrowNode {
+  display: inline-block;
+}
+
+.mwValidationTooltipDialog .mwContentsNode {
+  vertical-align: middle;
+}
+
+.mwValidationTooltipDialog {
+  height: 22px;      /* To match text field height */
+  z-index: 1000;
+  position: absolute;
+  /*Tooltip should always display over other elements*/
+  /*In toolstrip collapsed state, section has 999 zindex */
+}
+
+/* Center the contents */
+.mwValidationTooltipDialog .mwContentsNode {
+
+  height: 22px;
+  overflow: hidden;
+}
+
+/* Generic Image */
+.mwValidationTooltipDialog .mwIconNode {
+  /*padding: 5px 4px;*/
+  width: 8px;
+  height: 22px;
+  vertical-align: top;
+}
+
+
+.mwValidationTooltipDialog .mwTextNode {
+  font-family: Arial;
+  font-size: 11px;
+  font-style: normal;
+  height: 20px;
+  vertical-align: top;/* To align with image */
+  padding: 0 3px;
+  line-height:20px; /*For vertical centering */
+  white-space: nowrap;
+
+}
+
+/*Gap between widget and tooltip*/
+.mwValidationTooltipDialog.mwTooltipLeft {
+  margin-left: -3px;
+
+}
+
+.mwValidationTooltipDialog.mwTooltipRight {
+  margin-left: 3px;
+
+}
+.mwValidationTooltipDialog .mwArrowNode {
+  vertical-align: middle;
+}
+
+/*Error and Not focused: Tooltip Right means left arrow */
+.mwValidationTooltipDialog.mwErrorTooltip.mwTooltipRight .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid rgb(234, 95, 100);
+}
+
+/* Error and not Focused: Tooltip Left means right arrow */
+.mwValidationTooltipDialog.mwErrorTooltip.mwTooltipLeft .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid rgb(234, 95, 100);
+}
+
+/*Error and  focused: Tooltip Right means left arrow */
+.mwValidationTooltipDialog.mwValidationFocused.mwErrorTooltip.mwTooltipRight .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid rgb(225, 27, 34);
+}
+
+/* Error and  Focused: Tooltip Left means right arrow */
+.mwValidationTooltipDialog.mwErrorTooltip.mwValidationFocused.mwTooltipLeft .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid rgb(225, 27, 34);
+
+}
+
+/* Warning abd Bot Focused : Tooltip Left means right arrow */
+.mwValidationTooltipDialog.mwTooltipLeft.mwWarningTooltip .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid rgb(67, 116, 171);
+}
+
+/* Warning and Not Focused: Tooltip Right means left arrow */
+.mwValidationTooltipDialog.mwTooltipRight.mwWarningTooltip .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid rgb(67, 116, 171);
+}
+
+/*Warning and Focused: Tooltip Left means right arrow*/
+.mwValidationTooltipDialog.mwValidationFocused.mwTooltipLeft.mwWarningTooltip .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid rgb(17, 74, 135);
+}
+
+/* Warning and Focused: Tooltip Right means left arrow */
+.mwValidationTooltipDialog.mwValidationFocused.mwTooltipRight.mwWarningTooltip .mwArrowNode {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid rgb(17, 74, 135);
+}
+
+
+
+
+
+
+
+
+

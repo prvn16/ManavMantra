@@ -1,0 +1,270 @@
+{
+"alphaShape":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"y", "kind":"required", "type":"numeric"},
+                    {"name":"a", "kind":"ordered", "type":"numeric"},
+                    {"name":"HoleThreshold", "kind":"namevalue", "type":"numeric"},
+                    {"name":"RegionThreshold", "kind":"namevalue", "type":"numeric"}
+                ],
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"y", "kind":"required", "type":"numeric"},
+                    {"name":"z", "kind":"required", "type":"numeric"},
+                    {"name":"a", "kind":"ordered", "type":"numeric"},
+                    {"name":"HoleThreshold", "kind":"namevalue", "type":"numeric"},
+                    {"name":"RegionThreshold", "kind":"namevalue", "type":"numeric"}
+                ],
+                [
+                    {"name":"P", "kind":"required", "type":"numeric"},
+                    {"name":"a", "kind":"ordered", "type":"numeric"},
+                    {"name":"HoleThreshold", "kind":"namevalue", "type":"numeric"},
+                    {"name":"RegionThreshold", "kind":"namevalue", "type":"numeric"}
+                ]
+            ]
+        }
+    ]
+},
+"interp1":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"xq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','v5cubic','spline'}"]},
+                    {"name":"extrapolation", "kind":"positional", "type":[["char", "choices={'extrap'}"],["numeric"]]}
+                ],
+                [
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"xq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','v5cubic','spline'}"]},
+                    {"name":"extrapolation", "kind":"positional", "type":[["char", "choices={'extrap'}"],["numeric"]]}
+                ]
+            ]
+        }
+    ]
+},
+"interp2":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"X", "kind":"required", "type":"numeric"},
+                    {"name":"Y", "kind":"required", "type":"numeric"},
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Xq", "kind":"required", "type":"numeric"},
+                    {"name":"Yq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Xq", "kind":"required", "type":"numeric"},
+                    {"name":"Yq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"k", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ]
+            ]
+        }
+    ]
+},
+"interp3":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"X", "kind":"required", "type":"numeric"},
+                    {"name":"Y", "kind":"required", "type":"numeric"},
+                    {"name":"Z", "kind":"required", "type":"numeric"},
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Xq", "kind":"required", "type":"numeric"},
+                    {"name":"Yq", "kind":"required", "type":"numeric"},
+                    {"name":"Zq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Xq", "kind":"required", "type":"numeric"},
+                    {"name":"Yq", "kind":"required", "type":"numeric"},
+                    {"name":"Zq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"k", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ]
+            ]
+        }
+    ]
+},
+"interpn":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"X", "kind":"required", "type":"numeric", "repeating":true},
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Xq", "kind":"required", "type":"numeric", "repeating":true},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','pchip','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Xq", "kind":"required", "type":"numeric", "repeating":true},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','pchip','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','pchip','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"k", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','pchip','cubic','spline'}"]},
+                    {"name":"extrapval", "kind":"positional", "type":"numeric"}
+                ]
+            ]
+        }
+    ]
+},
+"griddedInterpolant":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline','none'}"]}
+                ],
+                [
+                    {"name":"X", "kind":"required", "type":"numeric", "repeating":true},
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline','none'}"]}
+                ],
+                [
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline','none'}"]}
+                ],
+                [
+                    {"name":"xg", "kind":"required", "type":"cell"},
+                    {"name":"V", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','makima','nearest','next','previous','pchip','cubic','spline','none'}"]}
+                ]
+            ]
+        }
+    ]
+},
+"scatteredInterpolant":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"y", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','nearest','natural'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','nearest','none'}"]}
+                ],
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"y", "kind":"required", "type":"numeric"},
+                    {"name":"z", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','nearest','natural'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','nearest','none'}"]}
+                ],
+                [
+                    {"name":"P", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"Method", "kind":"positional", "type":["char", "choices={'linear','nearest','natural'}"]},
+                    {"name":"ExtrapolationMethod", "kind":"positional", "type":["char", "choices={'linear','nearest','none'}"]}
+                ]
+            ]
+        }
+    ]
+},
+"griddata":
+{
+    "inputs":
+    [
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"y", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"xq", "kind":"required", "type":"numeric"},
+                    {"name":"yq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','nearest','natural','cubic','v4'}"]}
+                ],
+                [
+                    {"name":"x", "kind":"required", "type":"numeric"},
+                    {"name":"y", "kind":"required", "type":"numeric"},
+                    {"name":"z", "kind":"required", "type":"numeric"},
+                    {"name":"v", "kind":"required", "type":"numeric"},
+                    {"name":"xq", "kind":"required", "type":"numeric"},
+                    {"name":"yq", "kind":"required", "type":"numeric"},
+                    {"name":"zq", "kind":"required", "type":"numeric"},
+                    {"name":"method", "kind":"positional", "type":["char", "choices={'linear','nearest','natural','cubic','v4'}"]}
+                ]
+            ]
+        }
+    ]
+},
+"griddatan":
+{
+    "inputs":
+    [
+        {"name":"x", "kind":"required", "type":"numeric"},
+        {"name":"v", "kind":"required", "type":"numeric"},
+        {"name":"xq", "kind":"required", "type":"numeric"},
+        {"name":"method", "kind":"positional", "type":["char", "choices={'linear','nearest'}"]},
+        {"name":"options", "kind":"positional", "type":"cellstr"}
+    ]
+}
+}

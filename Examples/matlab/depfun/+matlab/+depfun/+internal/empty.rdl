@@ -1,0 +1,7 @@
+Insert NONE ROOTSET [
+regexprep(ROOTSET, '(.*)[.]m$', '$1.fig') 
+]
+
+Insert ALL ROOTSET [
+existing(regexprep(ROOTSET, '(.*)[.]m$', '$1.fig'))
+]

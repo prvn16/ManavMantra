@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" visible="false" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+  <settings name="unittest" visible="false">
+    <key name="DefaultPluginsFcn" visible="false">
+        <string>
+            <value>matlab.unittest.internal.getDefaultPlugins</value>
+        </string>
+    </key>
+  </settings> <!-- unittest node -->
+</settings> <!-- matlab node -->
+

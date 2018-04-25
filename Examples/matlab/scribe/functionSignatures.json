@@ -1,0 +1,214 @@
+{
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'line'}"},
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"x", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]},
+					{"name":"y", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]}
+				],
+				[]
+			]
+		},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.Line"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.Line"}
+	]
+},
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'arrow'}"},
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"x", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]},
+					{"name":"y", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]}
+				],
+				[]
+			]
+		},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.Arrow"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.Arrow"}
+	]
+},
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'doublearrow'}"},
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"x", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]},
+					{"name":"y", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]}
+				],
+				[]
+			]
+		},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.DoubleEndArrow"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.DoubleEndArrow"}
+	]
+},
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'textarrow'}"},
+		{"mutuallyExclusiveGroup":
+			[
+				[
+					{"name":"x", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]},
+					{"name":"y", "kind":"required", "type":["numeric", "numel=2", ">=0", "<=1"]}
+				],
+				[]
+			]
+		},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.TextArrow"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.TextArrow"}
+	]
+},
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'textbox'}"},
+		{"name":"xywh", "kind":"ordered", "type":["numeric", "numel=4", ">=0", "<=1"]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.TextBox"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.TextBox"}
+	]
+},
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'ellipse'}"},
+		{"name":"xywh", "kind":"ordered", "type":["numeric", "numel=4", ">=0", "<=1"]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.Ellipse"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.Ellipse"}
+	]
+},
+"annotation":
+{
+	"inputs":
+	[
+		{"name":"handle", "kind":"ordered", "type":[["matlab.ui.Figure"], ["matlab.ui.container.Panel"], ["matlab.ui.container.Tab"]]},
+		{"name":"annotation", "kind":"required", "type":"choices={'rectangle'}"},
+		{"name":"xywh", "kind":"ordered", "type":["numeric", "numel=4", ">=0", "<=1"]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.shape.Rectangle"}
+	],
+	"outputs":
+	[
+		{"name":"anno_obj_handle", "type":"matlab.graphics.shape.Rectangle"}
+	]
+},
+"colorbar":
+{
+	"inputs":
+	[
+		{"mutuallyExclusiveGroup":
+			[
+				[],
+				{"name":"ax", "kind":"required", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+				[
+					{"name":"peer", "kind":"required", "type":"choices={'peer'}"},
+					{"name":"ax", "kind":"required", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]}
+				]
+			]
+		},
+		{"name":"placement", "kind":"ordered", "type":"choices={'north','south','east', 'west','northoutside','southoutside','eastoutside','westoutside'}"},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.illustration.ColorBar"}
+	],
+	"outputs":
+	[
+		{"name":"leg", "type":"matlab.graphics.illustration.ColorBar"}
+	]
+},
+"colorbar":
+{
+	"inputs":
+	[
+		{"mutuallyExclusiveGroup":
+			[
+				[],
+				{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+				{"name":"h", "kind":"ordered", "type":"matlab.graphics.illustration.ColorBar"}
+			]
+		},
+		{"name":"off", "kind":"required", "type":"choices={'off'}"}
+	],
+	"outputs":
+	[
+		{"name":"leg", "type":"matlab.graphics.illustration.ColorBar"}
+	]
+},
+"legend":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"obj", "kind":"ordered", "type":"matlab.graphics.mixin.Legendable"},
+		{"name":"label", "kind":"required", "type":[["char", "~string"], ["string", "~char", "scalar"]], "repeating":true},
+		{"name":"Location", "kind":"namevalue", "type":"choices={'north','south','east', 'west','northeast','southeast','northwest','southwest','northoutside','southoutside','eastoutside','westoutside','northeastoutside','southeastoutside','northwestoutside','southwestoutside','best','bestoutside'}"},
+		{"name":"Orientation", "kind":"namevalue", "type":"choices={'horizontal','vertical'}"}
+	],
+	"outputs":
+	[
+		{"name":"leg", "type":"matlab.graphics.illustration.Legend"}
+	]
+},
+"legend":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"obj", "kind":"ordered", "type":"matlab.graphics.mixin.Legendable"},
+		{"name":"label", "kind":"required", "type":[["cellstr"], ["string", "~char"]]},
+		{"name":"opts", "kind":"properties", "type":"matlab.graphics.illustration.Legend"}
+	],
+	"outputs":
+	[
+		{"name":"leg", "type":"matlab.graphics.illustration.Legend"}
+	]
+},
+"legend":
+{
+	"inputs":
+	[
+		{"name":"ax", "kind":"ordered", "type":[["matlab.graphics.axis.AbstractAxes"], ["matlab.ui.control.UIAxes"]]},
+		{"name":"flag", "kind":"required", "type":"choices={'show','hide','toggle','off','boxon','boxoff'}"}
+		
+	],
+	"outputs":
+	[
+		{"name":"leg", "type":"matlab.graphics.illustration.Legend"}
+	]
+}
+}

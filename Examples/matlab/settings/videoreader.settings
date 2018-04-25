@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="videoreader" visible="false">
+        <key name="UseHardwareAcceleration" visible="false">
+        <bool>
+            <value>1</value>
+        </bool>
+        </key>
+    </settings>
+</settings>

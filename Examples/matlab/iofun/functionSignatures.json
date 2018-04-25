@@ -1,0 +1,676 @@
+{
+"csvread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.csv"], ["char"]]}
+	]
+},
+"csvread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.csv"], ["char"]]},
+		{"name":"R1", "kind":"required", "type":"char"},
+		{"name":"C1", "kind":"required", "type":"char"},
+		{"name":"range", "kind":"ordered", "type":[["char"], ["numeric", "numel=4"]]}
+	]
+},
+"csvwrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file=*.csv"], ["char"]]},
+        {"name":"M", "kind":"required"}
+    ]
+},
+"csvwrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":[["file=*.csv"], ["char"]]},
+        {"name":"M", "kind":"required"},
+        {"name":"row", "kind":"required", "type":["numeric", "integer", ">=0"]},
+        {"name":"col", "kind":"required", "type":["numeric", "integer", ">=0"]}
+    ]
+},
+"dlmread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file"},
+		{"name":"varargin", "kind":"ordered", "repeating":true}
+	]
+},
+"dlmwrite":
+{
+    "inputs":
+    [
+        {"name":"filename", "kind":"required", "type":"file"},
+        {"name":"N", "kind":"required", "type":"numeric"},
+        {"mutuallyExclusiveGroup":
+            [
+                {"name":"'-append'", "kind":"ordered", "type":["char", "choices={'-append'}"]},
+                [
+                    {"name":"delimiter", "kind":"ordered", "type":"char"},
+                    {"name":"row", "kind":"ordered", "type":["numeric", "scalar", "integer", ">=0"]},
+                    {"name":"col", "kind":"ordered", "type":["numeric", "scalar", "integer", ">=0"]}
+                ]
+            ]
+		},
+        {"name":"delimiter", "kind":"namevalue", "type":"char"},
+        {"name":"roffset", "kind":"namevalue", "type":["numeric", "scalar", "integer",">=0"]},
+        {"name":"coffset", "kind":"namevalue", "type":["numeric", "scalar", "integer",">=0"]},
+        {"name":"precision", "kind":"namevalue", "type":[["char"], ["numeric", "scalar", "integer"]]},
+        {"name":"newline", "kind":"namevalue", "type":["char", "choices={'pc', 'unix'}"]}
+    ]
+},
+"fclose":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]}
+	]
+},
+"fclose":
+{
+	"inputs":
+	[
+		{"name":"'all'", "kind":"required", "type":["choices={'all'}"]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric", "scalar"]}
+	]
+},
+"fileread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file"}
+	],
+	"outputs":
+	[
+		{"name":"text", "type":["char", "vector"]}
+	]
+},
+"fopen":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["char"], ["file"]]},
+		{"name":"permission", "kind":"positional", "type":"choices={'r','w','a','r+','w+','a+','A','W','rt','wt','at','rt+','wt+','at+','At','Wt'}"},
+		{"name":"machinefmt", "kind":"positional", "type":"choices={'n','b','l','s','native','ieee-be','ieee-le','ieee-be.l64','ieee-le.l64'}"},
+		{"name":"encodingIn", "kind":"positional", "type":["char", "choices={'UTF-8','ISO-8859-1','windows-1251','GB2312','Shift_JIS','windows-1252','EUC-KR','GBK','EUC-JP'}"]}
+	],
+	"outputs":
+	[
+		{"name":"fileID", "type":["file_handle", "scalar"]},
+		{"name":"errormsg", "type":"char"}
+	]
+},
+"fopen":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]}
+	],
+	"outputs":
+	[
+		{"name":"filename", "type":"file"},
+		{"name":"permission", "type":["choices={'r','w','a','r+','w+','a+','A','W','rt','wt','at','rt+','wt+','at+','At','Wt'}"]},
+		{"name":"machinefmt", "type":["choices={'n','b','l','s','a','native','ieee-be','ieee-le','ieee-be.l64','ieee-le.l64'}"]},
+		{"name":"encodingIn", "type":"char"}
+        ]
+},
+"fopen":
+{
+    "inputs":
+    [
+
+		{"name":"'all'", "kind":"required", "type":["choices={'all'}"]}
+	],
+	"outputs":
+	[
+		{"name":"fIDs", "type":"file_handle"}
+	]
+},
+"feof":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric"]}
+	]	
+},
+"ferror":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+		{"name":"'clear'", "kind":"ordered", "type":["choices={'clear'}"]}
+	],
+	"outputs":
+	[
+		{"name":"message","type":"char"},
+		{"name":"errnum", "type":["numeric", "scalar"]}
+		
+	]
+},
+"fgetl":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]}
+	],
+    "outputs":
+    [
+        {"name":"tline", "type":[["char"],["numeric","scalar"]]}
+    ]
+},
+"fgets":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+        {"name":"nchar", "kind":"ordered", "type":["numeric","scalar"]}
+	],
+    "outputs":
+    [
+        {"name":"tline", "type":[["char"],["numeric","scalar"]]}
+    ]
+},
+"fprintf":
+{
+    "inputs":
+    [
+        {"name":"fileID", "kind":"ordered", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+        {"name":"formatSpec", "kind":"required", "type":"char"},
+        {"name":"A", "kind":"required", "repeating":true}
+    ],
+    "outputs":
+    [
+        {"name":"nbytes", "type":["scalar","numeric"]}
+    ]
+},
+"fread":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+        {"name":"sizeA", "kind":"positional", "type":["numeric"]},
+        {"name":"precision", "kind":"positional", "type":[["char"],["choices={'uint','uint8','uint16','uint32','uint64','uchar','unsigned char','ushort','ulong','int','int8','int16','int32','int64','schar','signed char','short','long','single','double','float','float32','float64','char'}"]]},
+        {"name":"skip", "kind":"positional", "type":["numeric","scalar"]},
+        {"name":"machinefmt", "kind":"positional", "type":"choices={'n','b','l','s','a','native','ieee-be','ieee-le','ieee-be.l64','ieee-le.l64'}"}
+	],
+    "outputs":
+    [
+        {"name":"A"},
+        {"name":"count", "type":["scalar","numeric"]}
+    ]
+},
+"frewind":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]}
+	]
+},
+"fscanf":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+		{"name":"formatSpec", "kind":"required", "type":"char"},
+		{"name":"sizeA", "kind":"ordered", "type":[["numeric", "scalar"], ["numeric", "row", "numel=2"]]}
+	],
+	"outputs":
+	[
+		{"name":"A"},
+		{"name":"count", "type":["numeric", "scalar"]}
+		
+	]
+},
+"fseek":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+		{"name":"offset", "kind":"required", "type":"numeric"},
+		{"name":"origin", "kind":"required", "type":[["numeric"], ["char", "choices={'bof','cof','eof'}"]]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":["numeric"]}
+	]	
+},
+"ftell":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]}
+	],
+	"outputs":
+	[
+		{"name":"position", "type":"numeric"}
+	]	
+},
+"fwrite":
+{
+	"inputs":
+	[
+		{"name":"fileID", "kind":"required", "type":["scalar", "@(x) any(fopen('all')==x)"]},
+        {"name":"A", "kind":"required", "type":[["numeric"],["char"],["logical"]]},
+        {"name":"precision", "kind":"positional", "type":[["char"],["choices={'uint','uint8','uint16','uint32','uint64','uchar','unsigned char','ushort','ulong','int','int8','int16','int32','int64','schar','signed char','short','long','single','double','float','float32','float64','char'}"]]},
+        {"name":"skip", "kind":"positional", "type":["numeric","scalar"]},
+        {"name":"machinefmt", "kind":"positional", "type":"choices={'n','b','l','s','a','native','ieee-be','ieee-le','ieee-be.l64','ieee-le.l64'}"}
+	],
+    "outputs":
+    [
+        {"name":"count", "type":["scalar","numeric"]}
+    ]
+},
+"fullfile":
+{
+	"inputs":
+	[
+		{"name":"filepart", "kind":"required", "type":[["char"], ["hierarchy=matlab.internal.language.introspective.tabcompletion.fullfile_vfileparttail(filepart)"]], "repeating":true}
+	],
+	"outputs":
+	[
+		{"name":"f", "type":"char"}
+	]
+},
+"gunzip":
+{
+	"inputs":
+	[
+		{"name":"files", "kind":"required", "type":[["file=*.gz"], ["folder"], ["cellstr"], ["char"]]},
+		{"name":"outputdir", "kind":"ordered", "type":[["folder"], ["char"]]}
+	]
+},
+"gzip":
+{
+	"inputs":
+	[
+		{"name":"files", "kind":"required", "type":[["folder"], ["file"], ["cellstr"]]},
+		{"name":"outputdir", "kind":"ordered", "type":[["folder"], ["char"]]}
+	]
+},
+"importdata":
+{
+	"inputs":
+	[
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"filename", "kind":"required", "type":"file"},
+				{"name":"'-pastespecial'", "kind":"required", "type":["char", "choices={'-pastespecial'}"]}
+			]
+		},
+		{"name":"delimiterIn", "kind":"positional", "type":"char"},
+		{"name":"headerlinesIn", "kind":"ordered", "type":["numeric", ">=0"]}
+	],
+	"outputs":
+	[
+		{"name":"A"},
+		{"name":"delimiterOut"},
+		{"name":"headerlinesOut"}
+	]
+},
+"matfile":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.mat"], ["matlabpathfile=*.mat"], ["char"]]},
+		{"name":"Writable", "kind":"namevalue", "type":["logical", "scalar"]}
+	],
+	"outputs":
+	[
+		{"name":"m", "type":"matlab.io.MatFile"}
+	]	
+},
+"readtable":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.txt,*.dat,*.csv"], ["char"]]},
+		{"name":"FileType", "kind":"namevalue", "type":["char", "choices={'text'}"]},
+		{"name":"ReadVariableNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"ReadRowNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"TreatAsEmpty", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+		{"name":"Delimiter", "kind":"namevalue", "type":["char"]},
+		{"name":"HeaderLines", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"], "default":"0"},
+		{"name":"Format", "kind":"namevalue", "type":["char"]},
+		{"name":"Encoding", "kind":"namevalue", "type":[["char"], ["char", "choices={'UTF-8','ISO-8859-1','windows-1251','GB2312','Shift_JIS','windows-1252','EUC-KR','GBK','EUC-JP'}"]]},
+        {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char','string'}"]},
+        {"name":"DatetimeType", "kind":"namevalue", "type":["char", "choices={'text','datetime'}"]},
+        {"name":"DurationType", "kind":"namevalue", "type":["char", "choices={'text','duration'}"]},
+        {"name":"EmptyValue", "kind":"namevalue", "type":["numeric", "scalar"]},
+        {"name":"MultipleDelimsAsOne", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"CollectOutput", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"CommentStyle", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+        {"name":"ExpChars", "kind":"namevalue", "type":["char"]},
+        {"name":"EndOfLine", "kind":"namevalue", "type":["char"]},
+        {"name":"DateLocale", "kind":"namevalue", "type":["char"]}
+	],
+	"outputs":
+	[
+		{"name":"T", "type":"table"}
+	]	
+},
+"readtable":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.xls,*.xlsb,*.xlsm,*.xlsx,*.xltm,*.xltx,*.ods"], ["char"]]},
+		{"name":"FileType", "kind":"namevalue", "type":["char", "choices={'spreadsheet'}"]},
+		{"name":"ReadVariableNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"ReadRowNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"TreatAsEmpty", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+		{"name":"Sheet", "kind":"namevalue", "type":[["char", "choices=cellstr(matlab.io.spreadsheet.internal.sheetnames(filename))"], ["numeric", "scalar", "integer", ">=1"]]},
+		{"name":"Range", "kind":"namevalue", "type":"char"},
+		{"name":"Basic", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"TextType", "kind":"namevalue", "type":["char", "choices={'char','string'}"]},
+        {"name":"DatetimeType", "kind":"namevalue", "type":["char", "choices={'text','datetime','exceldatenum'}"]}
+	],
+	"outputs":
+	[
+		{"name":"T", "type":"table"}
+	]	
+},
+"readtable":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.xls,*.xlsb,*.xlsm,*.xlsx,*.xltm,*.xltx,*.ods"], ["char"]]},
+		{"name":"opts", "kind":"required", "type":"matlab.io.ImportOptions"},
+		{"name":"ReadVariableNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"ReadRowNames", "kind":"namevalue", "type":["logical", "scalar"]},
+        {"name":"DateLocale", "kind":"namevalue", "type":["char"]},
+        {"name":"Encoding", "kind":"namevalue", "type":[["char"], ["char", "choices={'UTF-8','ISO-8859-1','windows-1251','GB2312','Shift_JIS','windows-1252','EUC-KR','GBK','EUC-JP'}"]]},		
+        {"name":"Sheet", "kind":"namevalue", "type":[["char", "choices=matlab.io.spreadsheet.internal.sheetnames(filename)"], ["numeric", "scalar", "integer", ">=1"]]},
+		{"name":"Basic", "kind":"namevalue", "type":["logical", "scalar"]}
+    ],
+	"outputs":
+	[
+		{"name":"T", "type":"table"}
+	]	
+},
+"tar":
+{
+	"inputs":
+	[
+		{"name":"tarfilename", "kind":"required", "type":[["file=*.tar,*.tgz,*.gz"], ["char"]]},
+		{"name":"filenames", "kind":"required", "type":[["file"], ["folder"], ["cellstr"], ["char"]]},
+		{"name":"rootfolder", "kind":"ordered", "type":[["folder"], ["char"]]}
+	]
+},
+"textscan":
+{
+	"inputs":
+	[
+		{"name":"source",              "kind":"required",  "type":[["char"], ["scalar", "@(x) any(fopen('all')==x)"]]},
+		{"name":"formatSpec",          "kind":"required",  "type":"char"},
+		{"name":"N",                   "kind":"ordered",  "type":["numeric", "integer", "scalar", ">=1"], "default":"inf"},
+		{"name":"CollectOutput",       "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+		{"name":"CommentStyle",        "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+		{"name":"DateLocale",          "kind":"namevalue", "type":"char"},
+		{"name":"Delimiter",           "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+		{"name":"EmptyValue",          "kind":"namevalue", "type":["numeric", "scalar"], "default":"nan"},
+		{"name":"EndOfLine",           "kind":"namevalue", "type":"char"},
+        {"name":"ExpChars",            "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+		{"name":"HeaderLines",         "kind":"namevalue", "type":["numeric", "scalar"], "default":"0"},
+		{"name":"MultipleDelimsAsOne", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+		{"name":"ReturnOnError",       "kind":"namevalue", "type":["logical", "scalar"], "default":"true"},
+		{"name":"TreatAsEmpty",        "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+		{"name":"Whitespace",          "kind":"namevalue", "type":"char", "default":"\\b\\t"},
+        {"name":"TextType",            "kind":"namevalue", "type":"char", "default":"char"}
+    ],
+	"outputs":
+	[
+		{"name":"C",        "type":"cell"},
+		{"name":"position", "type":"double"}
+	]
+},
+"timer":
+{
+    "inputs":
+    [
+        {"name":"BusyMode", "kind":"namevalue", "type":"choices={'drop','error','queue'}"},
+        {"name":"ErrorFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"ExecutionMode", "kind":"namevalue", "type":"choices={'singleShot','fixedRate','fixedDelay','fixedSpacing'}"},
+        {"name":"Name", "kind":"namevalue", "type":[["char"]]},
+        {"name":"ObjectVisibility", "kind":"namevalue", "type":"choices={'on','off'}"},
+        {"name":"Period", "kind":"namevalue", "type":["numeric","scalar",">=0.0001"]},
+        {"name":"StartDelay", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"StartFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"StopFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"Tag", "kind":"namevalue", "type":"char"},
+        {"name":"TaskToExecute", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"TimerFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"UserData","kind":"namevalue"}
+	],
+    "outputs":
+    [
+        {"name":"t", "type":"timer"}
+    ]	
+},
+"timerfind":
+{
+    "inputs":
+    [
+        {"name":"t", "kind":"ordered", "type":"timer"},
+        {"name":"S", "kind":"ordered", "type":"struct"},
+        {"name":"BusyMode", "kind":"namevalue", "type":"choices={'drop','error','queue'}"},
+        {"name":"ErrorFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"ExecutionMode", "kind":"namevalue", "type":"choices={'singleShot','fixedRate','fixedDelay','fixedSpacing'}"},
+        {"name":"Name", "kind":"namevalue", "type":[["char"]]},
+        {"name":"ObjectVisibility", "kind":"namevalue", "type":"choices={'on','off'}"},
+        {"name":"Period", "kind":"namevalue", "type":["numeric","scalar",">=0.0001"]},
+        {"name":"StartDelay", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"StartFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"StopFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"Tag", "kind":"namevalue", "type":"char"},
+        {"name":"TaskToExecute", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"TimerFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"UserData","kind":"namevalue"}
+	],
+    "outputs":
+    [
+        {"name":"out", "type":"timer"}
+    ]	
+},
+"timerfindall":
+{
+    "inputs":
+    [
+        {"name":"t", "kind":"ordered", "type":"timer"},
+        {"name":"S", "kind":"ordered", "type":"struct"},
+        {"name":"BusyMode", "kind":"namevalue", "type":"choices={'drop','error','queue'}"},
+        {"name":"ErrorFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"ExecutionMode", "kind":"namevalue", "type":"choices={'singleShot','fixedRate','fixedDelay','fixedSpacing'}"},
+        {"name":"Name", "kind":"namevalue", "type":[["char"]]},
+        {"name":"ObjectVisibility", "kind":"namevalue", "type":"choices={'on','off'}"},
+        {"name":"Period", "kind":"namevalue", "type":["numeric","scalar",">=0.0001"]},
+        {"name":"StartDelay", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"StartFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"StopFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"Tag", "kind":"namevalue", "type":"char"},
+        {"name":"TaskToExecute", "kind":"namevalue", "type":["numeric","scalar",">=0"]},
+        {"name":"TimerFcn", "kind":"namevalue", "type":[["function_handle"],["cell"],["char"]]},
+        {"name":"UserData","kind":"namevalue"}
+	],
+    "outputs":
+    [
+        {"name":"out", "type":"timer"}
+    ]	
+},
+"startat":
+{
+    "inputs":
+    [
+        {"name":"t", "kind":"required", "type":"timer"},
+        {"mutuallyExclusiveGroup":
+            [
+              {"name":"firingTime", "kind":"required", "type":[["numeric","scalar",">=0"],["char"]]},
+              [              
+                {"name":"Y", "kind":"required", "type":["numeric","scalar"]},
+                {"name":"M", "kind":"required", "type":["numeric","scalar",">=1"]},
+                {"name":"D", "kind":"required", "type":["numeric","scalar"]},
+                {"name":"MI", "kind":"ordered", "type":["numeric","scalar"]},
+                {"name":"S", "kind":"ordered", "type":["numeric","scalar"]}
+              ]
+            ]
+        }
+    ]
+},
+"untar":
+{
+	"inputs":
+	[
+		{"name":"tarfilename", "kind":"required", "type":[["file=*.tar,*.tgz,*.gz"], ["char"]]},
+		{"name":"outputdir", "kind":"ordered", "type":[["folder"], ["char"]]}
+	]
+},
+"unzip":
+{
+	"inputs":
+	[
+		{"name":"zipfilename", "kind":"required", "type":[["file=*.zip"], ["char"]]},
+		{"name":"outputdir", "kind":"ordered", "type":[["folder"], ["char"]]}
+	]
+},
+"writetable":
+{
+	"inputs":
+	[
+		{"name":"T", "kind":"required", "type":"table"},
+		{"name":"filename", "kind":"ordered", "type":[["file=*.txt,*.dat,*.csv,*.xls,*.xlsb,*.xlsm,*.xlsx"], ["char"]]},
+		{"name":"FileType", "kind":"namevalue", "type":["char", "choices={'text','spreadsheet'}"]},
+		{"name":"WriteVariableNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"WriteRowNames", "kind":"namevalue", "type":["logical", "scalar"]},
+		{"name":"DateLocale", "kind":"namevalue", "type":["char"]},
+        {"name":"Delimiter", "kind":"namevalue", "type":["char"]},
+		{"name":"QuoteStrings", "kind":"namevalue", "type":["logical", "scalar"], "default":"false"},
+		{"name":"Sheet", "kind":"namevalue", "type":[["char", "choices=matlab.internal.language.introspective.tabcompletion.xlsread_vsheet(filename)"], ["char"], ["numeric", ">=1"]]},
+		{"name":"Encoding", "kind":"namevalue", "type":["char"]},
+        {"name":"Range", "kind":"namevalue", "type":"char"}
+	]
+},
+"xlsread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.xls,*.xlsx,*.xlsm,*.xltx,*.xltm,*.xlsb,*.csv"], ["char"]]},
+		{"mutuallyExclusiveGroup":
+			[
+				{"name":"openExcel", "kind":"required", "display":"", "type":["numeric", "<=-1"], "platforms":"win64,win32"},
+				{"name":"xlRange", "kind":"required", "type":["char", "@(x) isempty(x) || ~isempty(strfind(x, ':'))"], "default":"''"},
+				[
+					{"name":"sheet", "kind":"positional", "type":[["char", "choices=matlab.internal.language.introspective.tabcompletion.xlsread_vsheet(filename)"], ["numeric", ">=1"]], "default":"1"},
+					{"name":"xlRange", "kind":"positional", "type":"char", "default":"''"},
+					{"name":"'basic'", "kind":"positional", "display":"", "type":["char", "choices={'basic',''}"]},
+					{"name":"functionHandle", "kind":"positional", "type":"function_handle", "platforms":"win64,win32"}
+				]
+			]
+		}
+	],
+	"outputs":
+	[
+		{"name":"num", "type":"double"},
+		{"name":"txt", "type":"cellstr"},
+		{"name":"raw", "type":"cell"},
+		{"name":"custom", "platforms":"win64"}
+	]
+},
+"xlswrite":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.xls,*xlsx,*.xlsb,*.xlsm"], ["char"]]},
+		{"name":"A", "kind":"required", "type":[["cell"], ["numeric"]]},
+		{"name":"sheet", "kind":"ordered", "type":"char"},
+		{"name":"xlRange", "kind":"ordered", "type":"char"}
+	],
+    "outputs":
+    [
+        {"name":"status", "type":"logical"},
+        {"name":"message", "type":"struct"}
+    ]
+},
+"xlsfinfo":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":[["file=*.xls,*.xlsx,*.xlsm,*.xltx,*.xltm,*.xlsb,*.csv"], ["char"]]}
+	],
+	"outputs":
+	[
+		{"name":"status", "type":"char"},
+		{"name":"sheets", "type":"cellstr"},
+		{"name":"xlFormat", "type":"char"}
+	]
+},
+"xmlread":
+{
+	"inputs":
+	[
+		{"name":"filename", "kind":"required", "type":"file"},
+		{"name":"varargin", "kind":"ordered", "repeating":true}
+	]
+},
+"xmlwrite":
+{
+	"inputs":
+	[
+        {"name":"filename", "kind":"required", "type":[["file"],["char"]]},
+		{"name":"DOMnode", "kind":"required", "type":"org.apache.xerces.dom.DocumentImpl"}
+	]
+},
+"xmlwrite":
+{
+	"inputs":
+	[
+		{"name":"DOMnode", "kind":"required", "type":"org.apache.xerces.dom.DocumentImpl"}
+	],
+    "outputs":
+    [
+        {"name":"chr", "type":"char"}
+    ]
+},
+"xslt":
+{
+	"inputs":
+	[
+		{"name":"source", "kind":"required", "type":[["file"],["char"]]},
+        {"name":"style", "kind":"required", "type":[["file"],["char"]]},
+        {"mutuallyExclusiveGroup":
+            [
+                {"name":"dest", "kind":"required", "type":[["file"],["char"]]},
+                {"name":"dest", "kind":"required", "type":"choices={'-tostring'}"}
+            ]
+        },
+        {"name":"'-web'", "kind":"ordered", "type":"choices={'-web'}"}
+	],
+    "outputs":
+    [
+        {"name":"result", "type":"char"}
+    ]
+},
+"zip":
+{
+	"inputs":
+	[
+		{"name":"zipfile", "kind":"required", "type":[["file=*.zip"], ["char"]]},
+		{"name":"files", "kind":"required", "type":[["folder"], ["file"], ["cellstr"]]},
+		{"name":"rootfolder", "kind":"ordered", "type":"folder"}
+	]
+}
+}

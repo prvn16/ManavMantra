@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 MathWorks, Inc. -->
+<settings name="matlab" xmlns="urn:mathworks.matlab.settings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+    <!-- Editor -->
+    <settings name="editor" visible="true">
+        
+        <!-- Editor Top Level -->
+        <key name="UseMATLABEditor" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="OtherEditor" visible="true">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="RecentFileListSize" visible="true">
+            <int32>
+                <value>8</value>
+            </int32>
+        </key>
+        <key name="ReopenFilesOnRestart" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="OpenFileAtBreakpoint" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="SaveFilesOnClickAway" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="ReloadFilesOnChange" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="AddLineTerminationOnSave" visible="true">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <key name="OnlyStepInToUserFunctions" visible="true">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+
+        <!-- Editor Display -->
+        <settings name="displaysettings" visible="true">
+            <key name="HighlightCurrentLine" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+
+            <key name="HighlightCurrentLineColor" visible="true">
+                <int32 minArraySize="3" maxArraySize="3">
+                    <value>222</value>
+                    <value>238</value>
+                    <value>216</value>
+                </int32>
+            </key>
+
+            <key name="ShowLineNumbers" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="DataTipsInEditMode" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>            
+            <key name="ShowPauseOnCaughtErrorOption" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+
+            <settings name="linelimit" visible="true">
+                <key name="ShowLine" visible="true">
+                    <bool>
+                        <value>1</value>
+                    </bool>
+                </key>
+                <key name="LineColumn" visible="true">
+                    <int32>
+                        <metadata>
+                            <min>1</min>
+                            <max>160</max>
+                        </metadata>
+                        <value>75</value>
+                    </int32>
+                </key>
+                <key name="LineWidth" visible="true">
+                    <int32>
+                        <metadata>
+                            <min>1</min>
+                            <max>100</max>
+                        </metadata>
+                        <value>1</value>
+                    </int32>
+                </key>
+
+                <key name="LineColor" visible="true">
+                    <int32 minArraySize="3" maxArraySize="3">
+                        <value>204</value>
+                        <value>204</value>
+                        <value>204</value>
+                    </int32>
+                </key>
+            </settings>
+
+        </settings>
+
+        <!-- Editor Tab -->
+        <settings name="tab" visible="true">
+            <key name="TabSize" visible="true">
+                <int32>
+                    <value>4</value>
+                </int32>
+            </key>
+            <key name="InsertSpaces" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="IndentSize" visible="true">
+                <int32>
+                    <value>4</value>
+                </int32>
+            </key>
+            <key name="EmacsStyle" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+
+       <!-- Editor Language -->
+        <settings name="language" visible="true">
+            <settings name="matlab" visible="true">
+                <key name="EnableSyntaxHighlighting" visible="true">
+                    <bool>
+                        <value>1</value>
+                    </bool>
+                </key>
+                <key name="EnableVariableAndFunctionRenaming" visible="true">
+                    <bool>
+                        <value>1</value>
+                    </bool>
+                </key>
+
+                <!--
+                This setting needs to map a string to a boolean
+                <key name="SmartIndentWhileTyping" visible="true">
+                    <bool>
+                        <value>1</value>
+                    </bool>
+                </key>
+            	-->
+            	<!--
+           		This setting requres the String[] type in the .csv
+                <key name="FileExtensions" visible="true">
+                    <string minArraySize="0" maxArraySize="12">
+                        <value>m</value>
+                    </string>
+                </key>
+	           	-->
+
+                <settings name="comments" visible="true">
+                    <key name="MaxWidth" visible="true">
+                        <int32>
+                            <value>75</value>
+                        </int32>
+                    </key>
+                    <key name="FromCommentStart" visible="true">
+                        <bool>
+                            <value>0</value>
+                        </bool>
+                    </key>
+                    <key name="WrapAutomatically" visible="true">
+                        <bool>
+                            <value>1</value>
+                        </bool>
+                    </key>
+
+                </settings>
+
+
+            </settings>
+        </settings>
+        <!-- Editor Code Folding -->
+        <settings name="codefolding" visible="true">
+            <key name="EnableCodeFolding" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+        <!-- Editor Backup Files -->
+        <settings name="backup" visible="true">
+            <key name="EnableFileBackup" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="Frequency" visible="true">
+                <double>
+                    <value>5</value>
+                </double>
+            </key>
+            <key name="SaveUntitled" visible="true">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+            <key name="DeleteOnClose" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <!--<key name="ReplaceExtension" visible="true">
+                <bool>
+                    <value>1</value> 
+                </bool>
+            </key>-->
+            <key name="FileExtensionToReplace" visible="true">
+                <string>
+                    <value>asv</value> 
+                </string>
+            </key>
+            <key name="FileExtensionToAppend" visible="true">
+                <string>
+                    <value>~</value> 
+                </string>
+            </key>
+            <key name="SaveIntoSourceFolder" visible="true">
+                <bool>
+                    <value>1</value> 
+                </bool>
+            </key>
+            <key name="SaveToFolder" visible="true">
+                <string>
+                    <value></value> 
+                </string>
+            </key>
+        </settings>
+
+       <!-- Editor Autoformatting -->
+        <settings name="autoformat" visible="true">
+            <key name="EnableAutoFormatting" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+
+            <key name="AsteriskForItalicAndBold" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+
+            <key name="UnderscoreForItalicAndBold" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="BacktickAndBarForMonospace" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="SectionBreak" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="SectionBreakAndHeading" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="DollarSignForLatex" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="URLToHyperlink" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="AngleBracketsForHyperlink" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="LabelURLToHyperlink" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="HashtagForTitle" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="DoubleHashtagForHeading" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="AutomaticBulletedList" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="AutomaticNumberedList" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+
+       <!-- Editor Autocoding -->
+        <settings name="autocoding" visible="true">
+            <key name="EnableAutoCoding" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+
+            <key name="Parentheses" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+
+            <key name="CurlyBraces" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="SquareBrackets" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="SingleQuotes" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="DoubleQuotes" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="Comments" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="CharacterVectors" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="Strings" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="ControlFlows" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+            <key name="Definitions" visible="true">
+                <bool>
+                    <value>1</value>
+                </bool>
+            </key>
+        </settings>
+
+    </settings>
+</settings>

@@ -1,0 +1,15 @@
+/* This file contains styles shared across ALL the widgets in this visual family. */
+
+
+/* By default remove all the browser outline styles from all the widgets of this visual family, some widgets may opt in
+to show the outline, like the TextField per its visual design */
+.mwDefaultVisualFamily.mwWidget,
+.mwDefaultVisualFamily.mwWidget * {
+    outline: none;
+}
+
+.mwDefaultVisualFamily.mwWidget {
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+}

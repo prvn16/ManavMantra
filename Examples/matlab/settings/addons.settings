@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 MathWorks, Inc. -->
+<settings name="matlab" version="1" xmlns="urn:mathworks.matlab.settings"
+          xsi:schemaLocation="urn:mathworks.matlab.settings settings.xsd"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings name="addons" visible="false">
+        <key name="Enabled" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="InstallationFolder" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="AdditionalInstallationFolders" visible="false">
+            <string minArraySize="0" maxArraySize="100">
+                <value></value>
+            </string>
+        </key>
+        <key name="AddLegacyAddOnFolders" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="ImportLegacyAddOnsAtStartup" visible="false">
+            <bool>
+                <value>1</value>
+            </bool>
+        </key>
+        <key name="LastFolderPath" visible="false">
+            <string>
+                <value></value>
+            </string>
+        </key>
+        <key name="MultipleVersionInstallationEnabled" visible="false">
+            <bool>
+                <value>0</value>
+            </bool>
+        </key>
+        <settings name="explorer" visible="false">
+            <key name="Position" visible="false">
+                <double minArraySize="4" maxArraySize="4">
+
+                </double>
+            </key>
+            <key name="Maximized" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+        <settings name="manager" visible="false">
+            <key name="Position" visible="false">
+                <double minArraySize="4" maxArraySize="4">
+
+                </double>
+            </key>
+            <key name="Maximized" visible="false">
+                <bool>
+                    <value>0</value>
+                </bool>
+            </key>
+        </settings>
+    </settings>
+</settings>

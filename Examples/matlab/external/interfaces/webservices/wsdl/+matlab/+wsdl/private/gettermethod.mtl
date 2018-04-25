@@ -1,0 +1,20 @@
+%% Copyright 2013-2014 The MathWorks, Inc.
+%%
+%% GETTERMETHOD.MTL
+%% Template for createClassFromWsdl, for the a getter method for a class
+%% defined in the package.  Just a convenience call to the constructor.
+%% CLASSNAME              -- The MATLAB class name to get an instance of
+%% MCLASSNAME             -- The MATLAB class name containing this method
+%% PKGNAME                -- The package name of the MATLAB class
+%% METHODNAME             -- the name to give this method
+%% ARGS                   -- the names of the arguments: 'foo, bar'
+%% DOCUMENTATION          -- Docs on the parameters
+%% NULLARGS               -- code to set missing $ARGS$ to []
+ 
+        function retval = $METHODNAME$($ARGS$)
+        % $METHODNAME$  returns a <a href="matlab:doc $PKGNAME$.$CLASSNAME$">$CLASSNAME$</a> object
+        %   obj = <a href="matlab:doc $MCLASSNAME$">$MCLASSNAME$</a>.$METHODNAME$($ARGS$) 
+$DOCUMENTATION$
+$NULLARGS$            
+            retval = $PKGNAME$.$CLASSNAME$($ARGS$);
+        end

@@ -1,0 +1,21 @@
+# This is the RELEASE template file for
+# uicomponents. It contains all necessary 
+# piece data which builds up the
+# UI Components installer.
+#
+# This MTF file is concerned only with M
+
+# Includes files under +matlab
+toolbox/matlab/uicomponents/uicomponents/[DIRS]/*
+
+# Include scoped path information
+include derived/share/uicomponents/components_m.mtf
+
+# Exclude Plugin folder
+-toolbox/matlab/uicomponents/uicomponents/plugin/[DIRS]/[FILES]
+
+# Exclude UIAxes.m because it is P-coded
+-toolbox/matlab/uicomponents/uicomponents/graphics/+matlab/+ui/+control/UIAxes.m
+
+# Exclude Grid entry point because it is not shipping yet
+-toolbox/matlab/uicomponents/uicomponents/+matlab/+ui/+container/+internal/+model/Grid.m

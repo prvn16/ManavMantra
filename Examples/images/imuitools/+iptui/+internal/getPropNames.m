@@ -1,0 +1,13 @@
+function [props, numForDisplay] = getPropNames
+%getPropNames   Properties supported by RegionAnalysisTool
+
+% Copyright 2014 The MathWorks, Inc.
+
+props = {'Area'           'ConvexArea'        'Eccentricity', ...
+         'EquivDiameter'  'EulerNumber'       'Extent', ...
+         'FilledArea'     'MajorAxisLength'   'MinorAxisLength', ...
+         'Orientation'    'Perimeter'         'Solidity', ...
+         'PixelIdxList'};
+numForDisplay = 12;
+
+end

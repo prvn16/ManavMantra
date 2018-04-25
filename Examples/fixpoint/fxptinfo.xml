@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--    -->
+<!-- Copyright 2007-2017 The MathWorks, Inc. -->
+<product name="Fixed-Point Designer">
+<map mask="Error Rate Calculation"             class="Simulink.SFunction" 							   		value="SimulinkFixedPoint.EntityAutoscalers.ErrorRateCalculationAutoscaler"/>
+<map mask=""                                   class="Simulink.DiscreteZeroPole" 							value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.ForEachSliceSelector" 						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Sum"                 						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Abs"                 						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Gain"                						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Relay"               						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.MinMax"              						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Saturate"            						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DotProduct"          						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/> 						<!-- simulink/Math Operations/Dot Product -->
+<map mask=""                                   class="Simulink.Math"                						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask="Weighted Moving Average"            class="Simulink.SFunction"           						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/> 						<!-- simulink/Discrete/Weighted Moving Average -->
+<map mask=""                                   class="Simulink.DiscreteIntegrator"  						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask="DiscretizedDiscreteIntegrator"      class="Simulink.DiscreteIntegrator"  						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask="Lookup Table Dynamic"               class="Simulink.SFunction"           						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/> 						<!-- simulink/Lookup Tables/Lookup Table Dynamic -->
+<map mask=""                                   class="Simulink.DataTypeConversion"  						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Logic"               						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DiscreteFir"         						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DiscreteFilter"      						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DiscreteTransferFcn" 						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask="DiscretizedDiscreteTransferFcn"     class="Simulink.DiscreteTransferFcn" 						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.RealImagToComplex"   						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.ComplexToRealImag"   						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Assignment"          						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Bias"                						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Concatenate"         						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DeadZone"            						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.InitialCondition"    						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.PermuteDimensions"   						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.RateLimiter"         						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Reshape"             						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Selector"            						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask="Tapped Delay Line"                  class="Simulink.SFunction"           						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Mux"                 						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Demux"               						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.UnaryMinus"          						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/> 						<!-- simulink/Math Operations/Unary Minus -->
+<map mask="Bitwise Operator"                   class="Simulink.SFunction"           						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Backlash"            						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.RelationalOperator"  						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Probe"               						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Find"                						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Sqrt"                						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Width"               						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.SwitchCase"          						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.AllpoleFilter"       						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.BusToVector"         						value="SimulinkFixedPoint.EntityAutoscalers.SimulinkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Product"             						value="SimulinkFixedPoint.EntityAutoscalers.SLProductEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Lookup_nD"           						value="SimulinkFixedPoint.EntityAutoscalers.SLLookupTableEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.PreLookup"           						value="SimulinkFixedPoint.EntityAutoscalers.SLPreLookupEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.StateWriter"         						value="SimulinkFixedPoint.EntityAutoscalers.SLStateWriterEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.StateReader"         						value="SimulinkFixedPoint.EntityAutoscalers.SLStateReaderEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="Simulink.Signal"              						value="SimulinkFixedPoint.EntityAutoscalers.SLSignalEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="Simulink.Parameter"           						value="SimulinkFixedPoint.EntityAutoscalers.ParameterObjectEntityAutoscaler"/>
+<map mask=""                                   class="Stateflow.Data"               						value="SimulinkFixedPoint.EntityAutoscalers.StateflowEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Outport"             						value="SimulinkFixedPoint.EntityAutoscalers.SLOutportBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Inport"              						value="SimulinkFixedPoint.EntityAutoscalers.SLInportBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Constant"            						value="SimulinkFixedPoint.EntityAutoscalers.SLConstantBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Switch"              						value="SimulinkFixedPoint.EntityAutoscalers.SLRoutingBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.ManualSwitch"        						value="SimulinkFixedPoint.EntityAutoscalers.SLRoutingBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.MultiPortSwitch"     						value="SimulinkFixedPoint.EntityAutoscalers.SLRoutingBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Merge"               						value="SimulinkFixedPoint.EntityAutoscalers.SLRoutingBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DataStoreMemory"     						value="SimulinkFixedPoint.EntityAutoscalers.DataStoreMemEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DataStoreWrite"      						value="SimulinkFixedPoint.EntityAutoscalers.DataStoreRWEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DataStoreRead"       						value="SimulinkFixedPoint.EntityAutoscalers.DataStoreRWEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.DataTypeDuplicate"   						value="SimulinkFixedPoint.EntityAutoscalers.SLDTDuplicateBlkEntityAutoscaler"/> 				<!-- simulink/Signal Attributes/Data Type Duplicate -->
+<map mask=""                                   class="Simulink.SignalSpecification" 						value="SimulinkFixedPoint.EntityAutoscalers.SigSpecEntityAutoscaler"/>
+<map mask="Data Type Propagation"              class="Simulink.SFunction"           						value="SimulinkFixedPoint.EntityAutoscalers.DTPropEntityAutoscaler"/> 							<!-- simulink/Signal Attributes/Data Type Propagation -->
+<map mask=""                                   class="Simulink.Interpolation_nD"    						value="SimulinkFixedPoint.EntityAutoscalers.SLInterpolationNDEntityAutoscaler"/>
+<map mask="Integer Delay"                      class="Simulink.SFunction"           						value="SimulinkFixedPoint.EntityAutoscalers.SLGeneralDelayBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Delay"               						value="SimulinkFixedPoint.EntityAutoscalers.SLGeneralDelayBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Memory"              						value="SimulinkFixedPoint.EntityAutoscalers.SLGeneralDelayBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.RateTransition"      						value="SimulinkFixedPoint.EntityAutoscalers.SLGeneralDelayBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.UnitDelay"           						value="SimulinkFixedPoint.EntityAutoscalers.SLGeneralDelayBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.ZeroOrderHold"       						value="SimulinkFixedPoint.EntityAutoscalers.SLGeneralDelayBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.LookupNDDirect"      						value="SimulinkFixedPoint.EntityAutoscalers.LookupNDDirectEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.ModelReference"      						value="SimulinkFixedPoint.EntityAutoscalers.ModelReferenceEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.If"                  						value="SimulinkFixedPoint.EntityAutoscalers.IfEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.BusSelector"         						value="SimulinkFixedPoint.EntityAutoscalers.BusBlockEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.BusCreator"          						value="SimulinkFixedPoint.EntityAutoscalers.BusCreatorEntityAutoscaler"/>
+<map mask=""                                   class="SimulinkFixedPoint.BusObjectHandle"   				value="SimulinkFixedPoint.EntityAutoscalers.SLBusObjectEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="Simulink.NumericType" 			 					value="SimulinkFixedPoint.EntityAutoscalers.NumericTypeEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="embedded.numerictype" 			 					value="SimulinkFixedPoint.EntityAutoscalers.NumericTypeEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="Simulink.AliasType" 					 				value="SimulinkFixedPoint.EntityAutoscalers.AliasTypeEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="Simulink.LookupTable" 					 			value="SimulinkFixedPoint.EntityAutoscalers.LookupTableObjectEntityAutoscaler"/>
+<map mask="DataObjectWrapper"                  class="Simulink.Breakpoint" 					 				value="SimulinkFixedPoint.EntityAutoscalers.BreakpointObjectEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.BusAssignment"       						value="SimulinkFixedPoint.EntityAutoscalers.SLBusAssignmentBlkEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.SignalConversion"    						value="SimulinkFixedPoint.EntityAutoscalers.SLSigConversionEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.ArithShift"    								value="SimulinkFixedPoint.EntityAutoscalers.ArithShiftAutoscaler"/>
+<map mask=""                                   class="Simulink.Signum"    									value="SimulinkFixedPoint.EntityAutoscalers.SignumEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Squeeze"    									value="SimulinkFixedPoint.EntityAutoscalers.SLVirtualBusAsVecEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.SampleTimeMath"    							value="SimulinkFixedPoint.EntityAutoscalers.SLVirtualBusAsVecEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.MSFunction"    								value="SimulinkFixedPoint.EntityAutoscalers.SLVirtualBusAsVecEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Assertion"    								value="SimulinkFixedPoint.EntityAutoscalers.SLVirtualBusAsVecEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.Trigonometry"    							value="SimulinkFixedPoint.EntityAutoscalers.TrigonometryEntityAutoscaler"/>
+<map mask=""                                   class="fxptds.MATLABVariableIdentifier" 						value="SimulinkFixedPoint.EntityAutoscalers.MATLABVariableEntityAutoscaler"/>
+<map mask=""                                   class="fxptds.MATLABExpressionIdentifier" 					value="SimulinkFixedPoint.EntityAutoscalers.MATLABExpressionEntityAutoscaler"/>
+<map mask=""                                   class="fxptds.MATLABCppSystemObjectVariableIdentifier" 		value="SimulinkFixedPoint.EntityAutoscalers.MATLABCppSystemObjectVariableEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.SecondOrderIntegrator" 						value="SimulinkFixedPoint.EntityAutoscalers.SecondOrderIntegratorEntityAutoscaler"/>
+<map mask=""                                   class="Simulink.MagnitudeAngleToComplex"						value="SimulinkFixedPoint.EntityAutoscalers.MagnitudeAngleToComplexAutoscaler"/>
+</product>

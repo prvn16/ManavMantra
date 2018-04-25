@@ -1,0 +1,94 @@
+// COLOR SWATCHES
+
+$color-red = rgb(226,61,45);
+$color-green = rgb(34,172,60);
+$color-blue = rgb(0,103,179);
+
+$color-cyan = rgb(0, 153, 255);
+$color-yellow = rgb(255,238,0);
+$color-lightorange = rgb(241,181,28);
+$color-mathworksblue = rgb(0,86,149);
+
+$color-black = rgb(0, 0, 0);
+$color-white = rgb(255, 255, 255);
+
+// Light Grays:
+$color-lightgray1 = lighten($color-black, 98%);
+$color-lightgray1-transparent = transparentify($color-black, $color-white, 98%);
+
+$color-lightgray2 = lighten($color-black, 96%);
+$color-lightgray2-transparent = transparentify($color-black, $color-white, 96%);
+
+$color-lightgray3 = lighten($color-black, 94%);
+$color-lightgray3-transparent = transparentify($color-black, $color-white, 94%);
+
+$color-lightgray4 = lighten($color-black, 90%);
+$color-lightgray4-transparent = transparentify($color-black, $color-white, 90%);
+
+$color-lightgray5 = lighten($color-black, 88%);
+$color-lightgray5-transparent = transparentify($color-black, $color-white, 88%);
+
+// Medium Grays:
+$color-mediumgray1 = lighten($color-black, 85%);
+$color-mediumgray1-transparent = transparentify($color-black, $color-white, 85%);
+
+$color-mediumgray2 = lighten($color-black, 75%);
+$color-mediumgray2-transparent = transparentify($color-black, $color-white, 75%);
+
+$color-mediumgray3 = lighten($color-black, 60%);
+$color-mediumgray3-transparent = transparentify($color-black, $color-white, 60%);
+
+$color-mediumgray4 =  lighten($color-black, 50%);
+$color-mediumgray4-transparent = transparentify($color-black, $color-white, 50%);
+
+// Dark Grays:
+$color-darkgray1 = lighten($color-black, 25%);
+$color-darkgray1-transparent = transparentify($color-black, $color-white, 25%);
+
+$color-darkgray2 = lighten($color-black, 12%);
+$color-darkgray2-transparent = transparentify($color-black, $color-white, 12%);
+
+
+
+// SEMANTIC COLORS
+
+// Selection:
+$color-selection = $color-cyan;
+
+// Hover Selection:
+$color-selection-row-hover = lighten($color-cyan, 85%);
+$color-selection-row-hover-transparent = transparentify($color-cyan, $color-white, 85%);
+
+// Region Selection:
+$color-selection-region = lighten($color-cyan, 80%);
+$color-selection-region-transparent = transparentify($color-cyan, $color-white, 80%);
+
+// Row Selection:
+$color-selection-row = lighten($color-cyan, 65%);
+$color-selection-row-transparent = transparentify($color-cyan, $color-white, 65%);
+
+// Text Selection:
+$color-selection-text = rgb(166, 220, 255);
+$color-selection-text-transparent = transparentify($color-cyan, $color-white, 30%);
+
+
+// Highlight:
+$color-highlight = $color-yellow;
+// Search Result Highlight
+$color-highlight-searchresult = transparentify($color-yellow, $color-white, 70%);
+$color-highlight-searchresult-current = transparentify($color-yellow, $color-white, 30%);
+
+// Validation:
+$color-error = $color-red;
+$color-warning = $color-lightorange;
+$color-info = lighten($color-cyan, 30%);
+$color-success = $color-green;
+
+// Text:
+$color-text-ui = $color-darkgray1-transparent;
+$color-text-user = $color-darkgray2-transparent;
+$color-text-secondary = $color-mediumgray3-transparent;
+$color-text-placeholder = $color-mediumgray2-transparent;
+
+// Backgrounds:
+$color-background-figure = $color-lightgray3;
