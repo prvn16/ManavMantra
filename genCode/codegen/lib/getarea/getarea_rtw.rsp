@@ -1,0 +1,6 @@
+getarea.obj
+getarea_initialize.obj
+getarea_terminate.obj
+rtGetInf.obj
+rtGetNaN.obj
+rt_nonfinite.obj
