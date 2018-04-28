@@ -7,6 +7,7 @@ classdef MakeNet
         z1
         z2
         b1
+        javaruntime = java.lang.Runtime.getRuntime;
     end
     
     methods
@@ -70,6 +71,17 @@ classdef MakeNet
         function helpDatasets(obj)
             help nndatasets;
         end 
+        
+        function gc(obj)
+            obj.mem
+            obj.javaruntime.gc();
+            obj.mem
+        end
+        function mem(obj)
+            fmem = obj.javaruntime.freeMemory/1000000;
+            ftot = obj.javaruntime.totalMemory/1000000;
+            disp(join([fmem, "/", ftot, " = " , fmem/ftot]) );
+        end
     end
 end
 
