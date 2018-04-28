@@ -22,8 +22,9 @@ classdef MakePolymorphic
             %   Detailed explanation goes here
             outputArg = obj.Property1 + inputArg;
         end
-        function y = user_written_sum(obj,u)
+        function y = user_written_sum(obj)
             % Setup
+            u = obj.u;
             F = fimath('RoundingMethod','Floor',...
                 'OverflowAction','Wrap',...
                 'SumMode','KeepLSB',...
