@@ -8,6 +8,9 @@ classdef MakeNet
         z2
         b1
         javaruntime = java.lang.Runtime.getRuntime;
+        hiddenLayerSize = 10;
+        net 
+        tr
     end
     
     methods
@@ -33,15 +36,15 @@ classdef MakeNet
         function [net,tr] = fitNet(obj,inputs,targets)
             % Solve an Input-Output Fitting problem with a Neural Network
             
-%             load bodyfat_dataset
-%             inputs = bodyfatInputs;
-%             targets = bodyfatTargets;
+            %             load bodyfat_dataset
+            %             inputs = bodyfatInputs;
+            %             targets = bodyfatTargets;
             
             
             
             % Create a Fitting Network
-            hiddenLayerSize = 10;
-            net = fitnet(hiddenLayerSize);
+%             hiddenLayerSize = 10;
+            net = fitnet(obj.hiddenLayerSize);
             
             % Set up Division of Data for Training, Validation, Testing
             net.divideParam.trainRatio = 70/100;
@@ -50,6 +53,9 @@ classdef MakeNet
             
             % Train the Network
             [net,tr] = train(net,inputs,targets);
+            
+            obj.net = net;
+            obh.tr = tr;
             
             % Test the Network
             outputs = net(inputs);
@@ -70,8 +76,46 @@ classdef MakeNet
         
         function helpDatasets(obj)
             help nndatasets;
-        end 
+        end
         
+        function [ fi_net ] = conv2single( net, w , f )
+            %CONV2SINGLE Convert weights, biases of neural net to single precision
+            %   We are using fi objects,
+            
+            % create fixed_point net, copy of the given net
+            
+            fi_net = net;
+            
+            % extract weights and bias from net
+            % convert to signed fixed point object of wordlength w, fraction length f
+            
+            IW=fi(net.IW{1,1},1,w,f);
+            LW=fi(net.LW{2,1},1,w,f);
+            b_1=fi(net.b{1},1,w,f);
+            b_2=fi(net.b{2},1,w,f);
+            
+            % write converted data back to fixedpoint net
+            
+            fi_net.IW{1,1}=IW.data;
+            fi_net.LW{2,1}=LW.data;
+            fi_net.b{1}=b_1.data;
+            fi_net.b{2}=b_2.data;
+            
+        end
+        
+        function fiNet(obj)
+            % Input layer weights for a trained network using the NN toolbox
+            net.IW{1,1}
+            % set the weights to a temporary variable
+            net_IW_1_1 = fi(net.IW{1,1}, 1, 12, 7);
+            % convert the temporary variable object to a vector of doubles
+            % note: we need to keep the double representation BUT it has fixed point precision now
+            net_IW_1_1 = net_IW_1_1.double;
+            % now the double vector can be used to set the new object values
+            net.IW{1,1} = net_IW_1_1;
+            % Viola!
+            net.IW{1,1}
+        end
         function gc(obj)
             obj.mem
             obj.javaruntime.gc();
