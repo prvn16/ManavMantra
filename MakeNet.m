@@ -1,4 +1,4 @@
-classdef MakeNet
+classdef MakeNet < handle
     %MAKENET このクラスの概要をここに記述
     %   詳細説明をここに記述
     
@@ -11,6 +11,8 @@ classdef MakeNet
         hiddenLayerSize = 10;
         net 
         tr
+        inputs
+        targets
     end
     
     methods
@@ -33,7 +35,7 @@ classdef MakeNet
             % M12/S Mount currently used, We prefer CS Mount are used
         end
         
-        function [net,tr] = fitNet(obj,inputs,targets)
+        function [net,tr] = fitNet(obj)
             % Solve an Input-Output Fitting problem with a Neural Network
             
             %             load bodyfat_dataset
@@ -55,7 +57,7 @@ classdef MakeNet
             [net,tr] = train(net,inputs,targets);
             
             obj.net = net;
-            obh.tr = tr;
+            obj.tr = tr;
             
             % Test the Network
             outputs = net(inputs);
