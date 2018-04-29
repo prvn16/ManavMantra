@@ -54,15 +54,15 @@ classdef MakeNet < handle
             net.divideParam.testRatio = 15/100;
             
             % Train the Network
-            [net,tr] = train(net,inputs,targets);
-            
-            obj.net = net;
-            obj.tr = tr;
+            [net,tr] = train(net);
+%             
+%             obj.net = net;
+%             obj.tr = tr;
             
             % Test the Network
-            outputs = net(inputs);
-            errors = gsubtract(outputs,targets);
-            performance = perform(net,targets,outputs)
+            outputs = net(obj.inputs);
+            errors = gsubtract(outputs,obj.targets);
+            performance = perform(net,obj.targets,outputs)
             
             % View the Network
             view(net)

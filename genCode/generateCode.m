@@ -17,3 +17,10 @@ codegen -config cfg coderand
 %%
 mp=MakePolymorphic(1,2);
 codegen callpolymorphic -args {mp} -config:lib -launchreport
+
+%%
+mn = MakeNet(1,2);
+load bodyfat_dataset
+mn.inputs=bodyfatInputs;
+mn.targets=bodyfatTargets;
+mn.fitNet

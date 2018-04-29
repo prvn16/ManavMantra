@@ -16,4 +16,7 @@ codegen -config cfg coderand
 
 %%
 mp=MakePolymorphic(1,2);
-codegen call -args {mp.u} -config:lib -launchreport
+codegen callpolymorphic -args {mp} -config:lib -launchreport
+
+%%
+mn = MakeNet
